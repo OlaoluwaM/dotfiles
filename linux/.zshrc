@@ -9,6 +9,11 @@ export ZSH="/home/olaolu/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
+SPACESHIP_TIME_SHOW="true"
+SPACESHIP_TIME_FORMAT="%T"
+SPACESHIP_TIME_COLOR="white"
+
+SPACESHIP_DIR_PREFIX=" "
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +73,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found dotenv git-escape-magic rand-quote safe-paste tmux transfer zsh_reload rsync zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste tmux transfer zsh_reload rsync zsh-autosuggestions zsh-syntax-highlighting node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,14 +106,99 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. ~/olaolu_dev/scripts/sshGithub.sh
 
+. ~/olaolu_dev/scripts/addToPath.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-    tmux attach &> /dev/null
-    tmux
+    # Check if the session exists, discarding output
+    # We can check $? for the exit status (zero for success, non-zero for failure)
+    # tmux has-session -t "backgroundDaemon" 2>/dev/null
+
+    # if [ $? != 0 ]; then
+    #     tmux new-session -d -s "backgroundDaemon"
+    # fi
+
+    tmux new-session -As "default"
 fi
 
- quote
+if [[ "$(service cron status)" == *not* ]]; then
+    sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
+fi
+
+if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
+    mkdir -pv $ZSH/completions
+    gh completion --shell zsh >$ZSH/completions/_gh
+    echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
+fi
+
+# Other things to run
+echo "Word of the day is currently under development ⚒️"
+# wordOfTheDay # Word of the day in my terminal
+
+quote # For inspirational quotes
+
+###-begin-npm-completion-###
+#
+# npm command completion script
+#
+# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
+# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
+#
+
+if type complete &>/dev/null; then
+  _npm_completion () {
+    local words cword
+    if type _get_comp_words_by_ref &>/dev/null; then
+      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
+    else
+      cword="$COMP_CWORD"
+      words=("${COMP_WORDS[@]}")
+    fi
+
+    local si="$IFS"
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           npm completion -- "${words[@]}" \
+                           2>/dev/null)) || return $?
+    IFS="$si"
+    if type __ltrim_colon_completions &>/dev/null; then
+      __ltrim_colon_completions "${words[cword]}"
+    fi
+  }
+  complete -o default -F _npm_completion npm
+elif type compdef &>/dev/null; then
+  _npm_completion() {
+    local si=$IFS
+    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+                 COMP_LINE=$BUFFER \
+                 COMP_POINT=0 \
+                 npm completion -- "${words[@]}" \
+                 2>/dev/null)
+    IFS=$si
+  }
+  compdef _npm_completion npm
+elif type compctl &>/dev/null; then
+  _npm_completion () {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       npm completion -- "${words[@]}" \
+                       2>/dev/null)) || return $?
+    IFS="$si"
+  }
+  compctl -K _npm_completion npm
+fi
+###-end-npm-completion-###
