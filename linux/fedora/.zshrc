@@ -14,6 +14,7 @@ SPACESHIP_TIME_FORMAT="%T"
 SPACESHIP_TIME_COLOR="white"
 
 SPACESHIP_DIR_PREFIX=" "
+if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -47,7 +48,7 @@ SPACESHIP_DIR_PREFIX=" "
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -73,7 +74,8 @@ SPACESHIP_DIR_PREFIX=" "
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste tmux transfer zsh_reload rsync zsh-autosuggestions zsh-syntax-highlighting node)
+
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh_reload rsync zsh-autosuggestions zsh-syntax-highlighting node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,21 +102,25 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias zshconfig="nano ~/.zshrc"
+alias ohmyzsh="nano ~/.oh-my-zsh"
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-. ~/olaolu_dev/scripts/sshGithub.sh
+source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh
 
-. ~/olaolu_dev/scripts/addToPath.sh
+source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
+
+# This was for keeping tmux from running when opening the terminal in VSCode
+# if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
     # Check if the session exists, discarding output
     # We can check $? for the exit status (zero for success, non-zero for failure)
     # tmux has-session -t "backgroundDaemon" 2>/dev/null
@@ -123,12 +129,14 @@ if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
     #     tmux new-session -d -s "backgroundDaemon"
     # fi
 
-    tmux new-session -As "default"
-fi
+  #  tmux new-session -As "default"
+# fi
 
-if [[ "$(service cron status)" == *not* ]]; then
-    sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
-fi
+# This was for starting up cron back when I was using WSL2
+# if [[ "$(service cron status)" == *not* ]]; then
+   #  sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
+# fi
+
 
 if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
     mkdir -pv $ZSH/completions
@@ -137,7 +145,10 @@ if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
 fi
 
 # Other things to run
-echo "Word of the day is currently under development ⚒️"
+if [[ $TERM_PROGRAM != 'vscode' ]]; then  neofetch && echo "\n"; fi
+
+echo "Word of the day is currently under development ⚒️ \n"
+
 # wordOfTheDay # Word of the day in my terminal
 
 quote # For inspirational quotes
@@ -202,3 +213,8 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+fpath=($fpath "/home/olaolu/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship

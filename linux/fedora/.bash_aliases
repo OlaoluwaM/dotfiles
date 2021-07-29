@@ -49,8 +49,6 @@ function setTimer() {
 # Env Variables
 export testVar='testing 123...'
 export customTemplateName="theblackuchiha"
-export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
-export LIBGL_ALWAYS_INDIRECT=1
 
 # Actual Aliases
 alias latestVersion="latest_version $@"
@@ -65,22 +63,23 @@ alias commit="git commit"
 alias reloadTmuxConfig="tmux source-file ~/.tmux.conf"
 alias newTmuxSession="tmux new -s"
 alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
-alias openChrome="~/.winApps/chrome.exe"
-alias Spotify="~/.winApps/Spotify.exe"
-alias update="sudo ~/wrapper_scripts/update.sh"
-alias upgrade="sudo ~/wrapper_scripts/upgrade.sh"
-alias checkForUpdate="update;upgrade"
+alias checkForUpdate="dnf check-update"
 alias cb=clipboard
 alias initialPush="git push -u origin"
 alias grabFromGithub="curl -LJO"
-alias papi_says="sudo"
-alias viewFile="wslview"
 alias signedCommit="git commit -s"
-alias checkInternetSpeed="openChrome fast.com"
-alias startTimer="setTimer"
 alias wordStore="cat ~/olaolu_dev/dev/word_of_the_day/src/store.json"
 alias newRemoteBranch="git push --set-upstream origin"
 alias bringOptInHere="cp -r ~/olaolu_dev/dev/optIn_scripts ."
 alias bringOptInScriptsHere="cp -r ~/olaolu_dev/dev/optIn_custom_scripts/ ."
 alias codeWorkAround="code --disable-gpu"
 alias removeDotKeepFiles="find . -name '.keep' -delete"
+alias notion="notion-snap"
+alias telegram="telegram-desktop"
+alias figma="figma-linux"
+alias reloadAliases="source ~/.bash_aliases"
+alias plingStore="~/AppImages/pling-store-5.0.2-1-x86_64.AppImage"
+alias swag="sudo" 
+alias editAliases="nano ~/.bash_aliases"
+alias tmpmail="~/.tmpmail"
+alias listVpnLocations="ls /etc/openvpn"
