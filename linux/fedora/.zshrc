@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nano ~/.zshrc"
 alias ohmyzsh="nano ~/.oh-my-zsh"
 
+export EDITOR="nano"
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
