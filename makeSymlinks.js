@@ -54,7 +54,9 @@ async function createSymlinksForDistroDotfiles() {
 async function createSymlinks() {
   await Promise.all([
     createSymlinksForCommonDotFiles(),
-    linuxDistro && createSymlinksForDistroDotfiles(),
+    linuxDistro
+      ? createSymlinksForDistroDotfiles()
+      : Promise.resolve('No distro selected'),
   ]);
 
   console.log('Done!');
