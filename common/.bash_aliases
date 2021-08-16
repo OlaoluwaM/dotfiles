@@ -43,12 +43,21 @@ function setTimer() {
   echo "Timer Complete"
 }
 
+function notify() {
+  MESSAGE="${1:="$(date);$(pwd)"}"
+  # spd-say 'Done with task!';
+  aplay $alarmSound &>/dev/null
+  notify-send -u normal -t 7000 $MESSAGE
+}
+
 # eval "$(thefuck --alias fuck)"
 # eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # Env Variables
 export testVar='testing 123...'
 export customTemplateName="theblackuchiha"
+export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
+export gdmThemeLocation=$HOME/customizations/WhiteSur-gtk-theme
 
 # Actual Aliases
 alias latestVersion="latest_version $@"
@@ -79,7 +88,7 @@ alias telegram="telegram-desktop"
 alias figma="figma-linux"
 alias reloadAliases="source ~/.bash_aliases"
 alias plingStore="~/AppImages/pling-store-5.0.2-1-x86_64.AppImage"
-alias swag="sudo" 
+alias swag="sudo"
 alias editAliases="nano ~/.bash_aliases"
 alias tmpmail="~/.tmpmail"
 alias listRawVpnLocations="ls /etc/openvpn"
@@ -87,3 +96,8 @@ alias listVpnLocations="ls /etc/openvpn | grep "tcp" | cut -d '.' -f 1 | uniq -u
 alias encpass="encpass.sh"
 alias editSudoer="sudo EDITOR=$(which nano) visudo"
 alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
+alias notifyMe="notify"
+alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic.timer"
+alias loginAsPostgresUser="sudo su - postgres"
+alias setLoginScreenWallpaper="sudo $gdmThemeLocation/tweaks.sh -g -b"
+alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden_auto_unlock/src/autoUnlockBitwardenVault.sh"

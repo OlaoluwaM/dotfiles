@@ -112,7 +112,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh
+source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh &> /dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo 
 
 source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
 
@@ -147,11 +147,12 @@ if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
 fi
 
 # Other things to run
+
+# Do not run neofetch when in vscode
 if [[ $TERM_PROGRAM != 'vscode' ]]; then  neofetch && echo "\n"; fi
 
-echo "Word of the day is currently under development ⚒️ \n"
-
-# wordOfTheDay # Word of the day in my terminal
+# echo "Word of the day is currently under development ⚒️ \n"
+wordOfTheDay --M # Word of the day in my terminal
 
 quote # For inspirational quotes
 

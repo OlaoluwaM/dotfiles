@@ -3,7 +3,7 @@
 const fsPromise = require('fs/promises');
 const path = require('path');
 
-const linuxDistro = process.argv?.[2].replace('--', '');
+const linuxDistro = process.argv?.[2]?.replace('--', '');
 const homeDir = process.env.HOME;
 
 function displayRejectedSymlinks(symlinkResultsArr) {
@@ -11,13 +11,17 @@ function displayRejectedSymlinks(symlinkResultsArr) {
     ({ status }) => status === 'rejected'
   );
 
-  rejectedSymlinks.forEach(console.log);
+  rejectedSymlinks.forEach(err => console.log(err.reason));
 }
 
 // Make symlinks for all the files in the common directory
 async function createSymlinksForCommonDotFiles() {
   const commonDotFiles = await fsPromise.readdir(
     path.resolve(__dirname, 'common')
+  );
+
+  await Promise.allSettled(
+    commonDotFiles.map(file => fsPromise.unlink(path.resolve(homeDir, file)))
   );
 
   const results = await Promise.allSettled(
@@ -39,6 +43,11 @@ async function createSymlinksForDistroDotfiles() {
     path.resolve(__dirname, 'linux', distroFolderName)
   );
 
+  if (dotfilesForDistro.length === 0) {
+    console.log(`No dotfiles for ${distroFolderName}`);
+    return Promise.resolve();
+  }
+
   const results = await Promise.allSettled(
     dotfilesForDistro.map(file =>
       fsPromise.symlink(
@@ -54,9 +63,7 @@ async function createSymlinksForDistroDotfiles() {
 async function createSymlinks() {
   await Promise.all([
     createSymlinksForCommonDotFiles(),
-    linuxDistro
-      ? createSymlinksForDistroDotfiles()
-      : Promise.resolve('No distro selected'),
+    linuxDistro ? createSymlinksForDistroDotfiles() : Promise.resolve(),
   ]);
 
   console.log('Done!');
