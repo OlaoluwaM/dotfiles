@@ -1,8 +1,8 @@
 [user]
-	email = 37044906+OlaoluwaM@users.noreply.github.com
-	name = OlaoluwaM
+  email = 37044906+OlaoluwaM@users.noreply.github.com
+  name = OlaoluwaM
 [core]
-	excludesfile = /home/olaolu/.gitignore_global
+  excludesfile = /home/olaolu/.gitignore_global
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
 [help]
@@ -10,7 +10,7 @@
 [color]
   ui = true
 [push]
-	default = simple
+  default = simple
 [alias]
   cp = cherry-pick
   d = diff
@@ -25,16 +25,18 @@
   lg = log
   c = commit
   co = checkout
-  up = branch --set-upstream-to
+  setUpstreamTo = branch --set-upstream-to
   fix = commit -a --amend
   tree = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   renameBranchFrom = branch -m
+  unsetUpstream = branch --unset-upstream
+  checkUpstream = status -sb
 [credential]
-	helper = cache
+  helper = cache
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [init]
-	defaultBranch = main
+  defaultBranch = main

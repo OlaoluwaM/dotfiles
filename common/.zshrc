@@ -75,7 +75,7 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh_reload rsync zsh-autosuggestions zsh-syntax-highlighting node)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,9 +112,18 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
+if [ -f ~/.personal_tokens ]; then
+   . ~/.personal_tokens
+fi
+
 source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh &> /dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo 
 
 source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -149,12 +158,20 @@ fi
 # Other things to run
 
 # Do not run neofetch when in vscode
-if [[ $TERM_PROGRAM != 'vscode' ]]; then  neofetch && echo "\n"; fi
+if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
 
-# echo "Word of the day is currently under development ⚒️ \n"
-wordOfTheDay --M # Word of the day in my terminal
+if [ $(command -v wordOfTheDay) ]; then 
+  [[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
+else
+ echo "Word of the day is currently not available\n" 
+fi
 
-quote # For inspirational quotes
+
+if [ $(command -v quote) ]; then 
+  quote # For inspirational quotes
+else
+ echo "Quotes are currently not available\n" 
+fi
 
 ###-begin-npm-completion-###
 #
@@ -221,3 +238,12 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
