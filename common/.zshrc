@@ -109,50 +109,51 @@ alias ohmyzsh="nano ~/.oh-my-zsh"
 export EDITOR="nano"
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
-
 
 if [ -f ~/.personal_tokens ]; then
-   . ~/.personal_tokens
+  . ~/.personal_tokens
 fi
 
-source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh &> /dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo 
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/sshGithub.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
+fi
 
-source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/addToPath.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
+fi
 
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
 fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-
 # This was for keeping tmux from running when opening the terminal in VSCode
 # if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-    # Check if the session exists, discarding output
-    # We can check $? for the exit status (zero for success, non-zero for failure)
-    # tmux has-session -t "backgroundDaemon" 2>/dev/null
+# Check if the session exists, discarding output
+# We can check $? for the exit status (zero for success, non-zero for failure)
+# tmux has-session -t "backgroundDaemon" 2>/dev/null
 
-    # if [ $? != 0 ]; then
-    #     tmux new-session -d -s "backgroundDaemon"
-    # fi
+# if [ $? != 0 ]; then
+#     tmux new-session -d -s "backgroundDaemon"
+# fi
 
-  #  tmux new-session -As "default"
+#  tmux new-session -As "default"
 # fi
 
 # This was for starting up cron back when I was using WSL2
 # if [[ "$(service cron status)" == *not* ]]; then
-   #  sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
+#  sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
 # fi
 
-
 if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
-    mkdir -pv $ZSH/completions
-    gh completion --shell zsh >$ZSH/completions/_gh
-    echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
+  mkdir -pv $ZSH/completions
+  gh completion --shell zsh >$ZSH/completions/_gh
+  echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
 fi
 
 # Other things to run
@@ -160,17 +161,16 @@ fi
 # Do not run neofetch when in vscode
 if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
 
-if [ $(command -v wordOfTheDay) ]; then 
+if [ $(command -v termOfTheDay) ]; then
   [[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
 else
- echo "Word of the day is currently not available\n" 
+  echo "Word of the day is currently not available\n"
 fi
 
-
-if [ $(command -v quote) ]; then 
+if [ $(command -v quote) ]; then
   quote # For inspirational quotes
 else
- echo "Quotes are currently not available\n" 
+  echo "Quotes are currently not available\n"
 fi
 
 ###-begin-npm-completion-###
@@ -182,7 +182,7 @@ fi
 #
 
 if type complete &>/dev/null; then
-  _npm_completion () {
+  _npm_completion() {
     local words cword
     if type _get_comp_words_by_ref &>/dev/null; then
       _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
@@ -193,10 +193,10 @@ if type complete &>/dev/null; then
 
     local si="$IFS"
     IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
+      COMP_LINE="$COMP_LINE" \
+      COMP_POINT="$COMP_POINT" \
+      npm completion -- "${words[@]}" \
+      2>/dev/null)) || return $?
     IFS="$si"
     if type __ltrim_colon_completions &>/dev/null; then
       __ltrim_colon_completions "${words[cword]}"
@@ -206,16 +206,16 @@ if type complete &>/dev/null; then
 elif type compdef &>/dev/null; then
   _npm_completion() {
     local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
+    compadd -- $(COMP_CWORD=$((CURRENT - 1)) \
+      COMP_LINE=$BUFFER \
+      COMP_POINT=0 \
+      npm completion -- "${words[@]}" \
+      2>/dev/null)
     IFS=$si
   }
   compdef _npm_completion npm
 elif type compctl &>/dev/null; then
-  _npm_completion () {
+  _npm_completion() {
     local cword line point words si
     read -Ac words
     read -cn cword
@@ -224,10 +224,10 @@ elif type compctl &>/dev/null; then
     read -ln point
     si="$IFS"
     IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
+      COMP_LINE="$line" \
+      COMP_POINT="$point" \
+      npm completion -- "${words[@]}" \
+      2>/dev/null)) || return $?
     IFS="$si"
   }
   compctl -K _npm_completion npm
@@ -236,7 +236,8 @@ fi
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 prompt spaceship
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
