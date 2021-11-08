@@ -1,10 +1,12 @@
+#!/usr/bin/env bash
+
 # To make sure aliases work
 alias testAliases='echo Aliases are working'
 
 # Functions
 function load_env() {
   RUNNER=${3:-node}
-  env $(cat $1 | grep -v "\"#\"" | xargs) $RUNNER $2
+  env "$(cat $1 | grep -v "\"#\"" | xargs) $RUNNER $2"
 }
 
 function does_entity_exist() {
@@ -22,15 +24,6 @@ function pullBranchFromRemote() {
   git checkout -t "${2:=origin}/${1}"
 }
 
-function latest_version() {
-  LATEST_LIST=""
-  for VAR in $@; do
-    LATEST_LIST+="${VAR}@latest "
-  done
-  npm un $@ && npm i $LATEST_LIST
-  echo "Updated the following packages to their latest version: ${@}"
-}
-
 function setTimer() {
   TIME="${1:-30m}"
 
@@ -40,7 +33,7 @@ function setTimer() {
     sleep 40
     echo "Detached from tmux session."
 
-    termdown $TIME
+    termdown "$TIME"
     sleep 15
     tmux new-session -A -s default
     echo "Attached to tmux session"
@@ -68,7 +61,6 @@ export gdmThemeLocation=$HOME/customizations/WhiteSur-gtk-theme
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 
 # Actual Aliases
-alias latestVersion="latest_version $@"
 alias loadEnv=load_env
 alias old="npm outdated"
 
@@ -109,16 +101,16 @@ alias editAliases="nano ~/.bash_aliases"
 alias tmpmail="~/.tmpmail"
 
 alias listRawVpnLocations="ls /etc/openvpn"
-alias listVpnLocations="ls /etc/openvpn | grep "tcp" | cut -d '.' -f 1 | uniq -u"
+alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
 alias encpass="encpass.sh"
 
 alias editSudoer="sudo EDITOR=$(which nano) visudo"
 alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
 alias notifyMe="notify"
 
-alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic.timer"
+alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias loginAsPostgresUser="sudo su - postgres"
-alias setLoginScreenWallpaper="sudo $gdmThemeLocation/tweaks.sh -g -b"
+alias setLoginScreenWallpaper="sudo \$gdmThemeLocation/tweaks.sh -g -b"
 
 alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden_auto_unlock/src/autoUnlockBitwardenVault.sh; bw sync"
 alias showRemote="git status -sb"
