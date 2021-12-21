@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+ # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,10 +15,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="spaceship"
 SPACESHIP_TIME_SHOW="true"
+SPACESHIP_EXIT_CODE_PREFIX=""
 SPACESHIP_TIME_FORMAT="%T"
-SPACESHIP_TIME_COLOR="white"
+SPACESHIP_TIME_COLOR="white dimmed"
+SPACESHIP_EXIT_CODE_SHOW="true"
 
 SPACESHIP_DIR_PREFIX=" "
 if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
@@ -75,7 +85,16 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
+if [ -f "$HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh" ]; then
+  source $HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
+fi
+
+plugins=(tmux git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
+
+if [[ $TERM_PROGRAM != 'vscode' ]]; then
+  ZSH_TMUX_AUTOSTART=true
+  ZSH_TMUX_DEFAULT_SESSION_NAME="papi"
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,11 +158,18 @@ export NVM_DIR="$HOME/.nvm"
 # tmux has-session -t "backgroundDaemon" 2>/dev/null
 
 # if [ $? != 0 ]; then
-#     tmux new-session -d -s "backgroundDaemon"
+#   tmux new-session -d -s "backgroundDaemon"
 # fi
 
-#  tmux new-session -As "default"
+# $HOME/.tmux/plugins/tpm/bin/update_plugins all &>/dev/null
+# tmux new-session -As "default"
+# echo ""
 # fi
+
+#if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
+  # Update tmux plugins
+  #$HOME/.tmux/plugins/tpm/bin/update_plugins all &>/dev/null
+#fi
 
 # This was for starting up cron back when I was using WSL2
 # if [[ "$(service cron status)" == *not* ]]; then
@@ -158,11 +184,21 @@ fi
 
 # Other things to run
 
-# Do not run neofetch when in vscode
-if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
+# For colorls (only when ruby is installed)
+if gem -v &>/dev/null; then
+  source $(dirname $(gem which colorls))/tab_complete.sh
+else
+  echo "You need to install ruby first :/"
+fi
+
+
+# Do not run neofetch or rxfetch when in vscode
+# if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
+if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v rxfetch) ]; then rxfetch && echo "\n"; fi
 
 if [ $(command -v termOfTheDay) ]; then
-  [[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
+  #[[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
+  [[ $TERM_PROGRAM != 'vscode' ]] && echo "Want to learn a new word? type 'termOfTheDay'"
 else
   echo "Word of the day is currently not available\n"
 fi
@@ -172,6 +208,31 @@ if [ $(command -v quote) ]; then
 else
   echo "Quotes are currently not available\n"
 fi
+
+# place this after nvm initialization!
+# Automatically uses node version specified in .nvmrc file
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  printf "\n"
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 ###-begin-npm-completion-###
 #
@@ -235,16 +296,14 @@ fi
 ###-end-npm-completion-###
 fpath=($fpath "/home/olaolu/.zfunctions")
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#(( ! ${+functions[p10k]} )) || p10k finalize
+
+# Setup Starship ZSH prompt
+#eval "$(starship init zsh)"
+#fpath=($fpath "/home/olaolu/.zfunctions")
+
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit
-promptinit
+autoload -U promptinit; promptinit
 prompt spaceship
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")

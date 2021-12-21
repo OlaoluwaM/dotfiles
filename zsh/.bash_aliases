@@ -24,6 +24,15 @@ function pullBranchFromRemote() {
   git checkout -t "${2:=origin}/${1}"
 }
 
+function pullBranchFromRemoteThenCheckout() {
+  git fetch "${1:=origin}" "$2";
+  git checkout "$2"
+}
+
+function showDifferentTerminalColors() {
+  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+}
+
 function setTimer() {
   TIME="${1:-30m}"
 
@@ -60,6 +69,9 @@ export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
 export gdmThemeLocation=$HOME/customizations/WhiteSur-gtk-theme
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 
+export SPICETIFY_INSTALL="/home/olaolu/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
 # Actual Aliases
 alias loadEnv=load_env
 alias old="npm outdated"
@@ -68,7 +80,7 @@ alias findRunningNodeServers="ps -aef | grep node"
 alias doesFileExist='does_entity_exist -f File'
 alias doesDirExist="does_entity_exist -d Directory"
 
-alias listGlobalPackages="npm -g ls --depth 0"
+alias listGlobalNpmPackages="npm -g ls --depth 0"
 alias matrix="matrix-rain"
 alias commit="git commit"
 
@@ -76,7 +88,7 @@ alias reloadTmuxConfig="tmux source-file ~/.tmux.conf"
 alias newTmuxSession="tmux new -s"
 alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
 
-alias checkForUpdate="dnf check-update"
+alias checkForUpdates="dnf check-update"
 alias cb=clipboard
 alias initialPush="git push -u origin"
 
@@ -86,15 +98,9 @@ alias newRemoteBranch="git push --set-upstream origin"
 
 alias bringOptInHere="cp -r ~/olaolu_dev/dev/optIn_scripts ."
 alias bringOptInScriptsHere="cp -r ~/olaolu_dev/dev/optIn_custom_scripts/ ."
-alias codeWorkAround="code --disable-gpu"
 
 alias removeDotKeepFiles="find . -name '.keep' -delete"
-alias notion="notion-snap"
-alias telegram="telegram-desktop"
-
-alias figma="figma-linux"
 alias reloadAliases="source ~/.bash_aliases"
-alias plingStore="~/AppImages/pling-store-5.0.2-1-x86_64.AppImage"
 
 alias swag="sudo"
 alias editAliases="nano ~/.bash_aliases"
@@ -102,7 +108,6 @@ alias tmpmail="~/.tmpmail"
 
 alias listRawVpnLocations="ls /etc/openvpn"
 alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
-alias encpass="encpass.sh"
 
 alias editSudoer="sudo EDITOR=$(which nano) visudo"
 alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
@@ -118,3 +123,12 @@ alias py="python"
 
 alias reloadZSH="omz reload"
 alias pvpn="protonvpn-cli"
+alias nativefy="$HOME/nativefy.sh"
+
+alias activatePyVirtEnv="source env/bin/activate"
+alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
+alias cls="colorls --dark"
+
+alias listFlatpakThemes="flatpak search gtk3theme"
+alias listUserInstalledRpms="dnf repoquery --userinstalled"
+alias lls="logo-ls"

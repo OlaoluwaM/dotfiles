@@ -1,0 +1,20 @@
+## Packages Installed for tmux (all are within fedora repo)
+
+  - fzf
+  - entr
+  - urlview
+
+## Other packages installed after setup
+
+  - (lemnos/theme.sh)[https://github.com/lemnos/theme.sh]: For easily swithcing between terminal themes
+  - spicetify: To customize spotify theme
+  - cava: for audio waves
+  
+  - colorls: To customize `ls` command output
+    - ruby: For installing `colorls`
+    - ruby-devel: For installing `colorls`
+    
+  - xdg-desktop-portal-gtk: TO hopefully get Dracula on flatpaks
+  - Google, zx for better scripts
+  - logo-ls - Better ls
+  - exa - Better ls
