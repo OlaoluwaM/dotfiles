@@ -2,6 +2,13 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
  # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
 
@@ -23,7 +30,7 @@ SPACESHIP_TIME_FORMAT="%T"
 SPACESHIP_TIME_COLOR="white dimmed"
 SPACESHIP_EXIT_CODE_SHOW="true"
 
-SPACESHIP_DIR_PREFIX=" "
+#SPACESHIP_DIR_PREFIX=" "
 if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
 
 # Set list of themes to pick from when loading at random
@@ -58,7 +65,7 @@ if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -89,12 +96,12 @@ if [ -f "$HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax
   source $HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 fi
 
-plugins=(tmux git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
 
-if [[ $TERM_PROGRAM != 'vscode' ]]; then
-  ZSH_TMUX_AUTOSTART=true
-  ZSH_TMUX_DEFAULT_SESSION_NAME="papi"
-fi
+#if [[ $TERM_PROGRAM != 'vscode' ]]; then
+#   ZSH_TMUX_AUTOSTART=true
+#   ZSH_TMUX_DEFAULT_SESSION_NAME="senpai"
+#fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,12 +142,12 @@ if [ -f ~/.personal_tokens ]; then
   . ~/.personal_tokens
 fi
 
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/sshGithub.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/sshGithub.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/ssh-github.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
 fi
 
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/addToPath.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/addToPath.sh --silent
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/add-to-path.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/add-to-path.sh --silent
 fi
 
 if [ -d "$HOME/bin" ]; then
@@ -294,7 +301,7 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-fpath=($fpath "/home/olaolu/.zfunctions")
+# fpath=($fpath "/home/olaolu/.zfunctions")
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -303,6 +310,16 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Setup Starship ZSH prompt
 #eval "$(starship init zsh)"
 #fpath=($fpath "/home/olaolu/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+#autoload -U promptinit; promptinit
+#prompt spaceship
+#fpath=($fpath "/home/olaolu/.zfunctions")
+
+# The Fuck
+eval $(thefuck --alias fuck)
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit

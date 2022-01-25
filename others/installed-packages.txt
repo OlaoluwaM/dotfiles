@@ -13,8 +13,13 @@
   - colorls: To customize `ls` command output
     - ruby: For installing `colorls`
     - ruby-devel: For installing `colorls`
-    
-  - xdg-desktop-portal-gtk: TO hopefully get Dracula on flatpaks
-  - Google, zx for better scripts
+  - zx by Google for better scripts in Nodejs
   - logo-ls - Better ls
-  - exa - Better ls
+  - exa, but prefer logo-ls
+  - httpie, for better terminal http requests
+  - htop
+  - fd-find
+  - duff, disk space checking
+  - tldr, better man pages
+  - thefuck, for funnier auto-corrections  
+  - bat, better file output

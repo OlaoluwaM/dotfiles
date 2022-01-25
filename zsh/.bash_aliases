@@ -71,6 +71,7 @@ export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-
 
 export SPICETIFY_INSTALL="/home/olaolu/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
+export TERM="xterm-256color"
 
 # Actual Aliases
 alias loadEnv=load_env
@@ -117,7 +118,7 @@ alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias loginAsPostgresUser="sudo su - postgres"
 alias setLoginScreenWallpaper="sudo \$gdmThemeLocation/tweaks.sh -g -b"
 
-alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden_auto_unlock/src/autoUnlockBitwardenVault.sh; bw sync"
+alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh; bw sync"
 alias showRemote="git status -sb"
 alias py="python"
 
@@ -132,3 +133,11 @@ alias cls="colorls --dark"
 alias listFlatpakThemes="flatpak search gtk3theme"
 alias listUserInstalledRpms="dnf repoquery --userinstalled"
 alias lls="logo-ls"
+
+alias listEnabledCoprRepo="dnf copr list --installed"
+alias updateNvmToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
+alias open="xdg-open"
+
+alias kernelVersion="uname -r"
+alias tmux="TERM=xterm-256color tmux"
+alias setSuPasswrd="sudo passwd su"
