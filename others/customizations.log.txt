@@ -25,3 +25,4 @@
   - Installed `dotLock` plymouth theme
   - Installed an partially customized rxvt-unicode terminal
   - Switched terminal to "Operator Mono" font. Did the same for the system through gnome tweaks
+  - Installed and setup Catppuccin theme for Zathura (https://github.com/catppuccin/zathura)

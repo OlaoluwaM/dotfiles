@@ -1,0 +1,8 @@
+# Enable copy on highlight
+set selection-clipboard clipboard
+
+# Expose command line
+set guioptions c
+
+# For color scheme
+include ./catppuccin

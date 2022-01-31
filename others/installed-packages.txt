@@ -23,3 +23,4 @@
   - tldr, better man pages
   - thefuck, for funnier auto-corrections  
   - bat, better file output
+  - zathura, and zathura-pdf-mupdf for pdf support
