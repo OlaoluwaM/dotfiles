@@ -201,7 +201,7 @@ fi
 
 # Do not run neofetch or rxfetch when in vscode
 # if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
-if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v rxfetch) ]; then rxfetch && echo "\n"; fi
+# if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v rxfetch) ]; then rxfetch && echo "\n"; fi
 
 if [ $(command -v termOfTheDay) ]; then
   #[[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
@@ -324,3 +324,4 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+export PATH="$PATH:$HOME/.spicetify"

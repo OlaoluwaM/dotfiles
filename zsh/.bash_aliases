@@ -59,8 +59,12 @@ function notify() {
   notify-send -u normal -t 7000 $MESSAGE
 }
 
-# eval "$(thefuck --alias fuck)"
-# eval $(thefuck --alias --enable-experimental-instant-mode)
+function newRemoteBranch() {
+  remote="${1:=origin}"
+  branchName="${2:=HEAD}"
+
+  git push -u $remote $branchName
+}
 
 # Env Variables
 export testVar='testing 123...'
@@ -95,7 +99,6 @@ alias initialPush="git push -u origin"
 
 alias grabFromGithub="curl -LJO"
 alias signedCommit="git commit -s"
-alias newRemoteBranch="git push --set-upstream origin"
 
 alias bringOptInHere="cp -r ~/olaolu_dev/dev/optIn_scripts ."
 alias bringOptInScriptsHere="cp -r ~/olaolu_dev/dev/optIn_custom_scripts/ ."
@@ -141,4 +144,6 @@ alias open="xdg-open"
 alias kernelVersion="uname -r"
 alias tmux="TERM=xterm-256color tmux"
 alias setSuPasswrd="sudo passwd su"
+
 alias spice="spicetify"
+alias sysfetch="neofetch --config $HOME/neofetchDetailed.conf"
