@@ -29,4 +29,5 @@ By default all files in each folder will be symlinked to the $HOME directory
 
 ## Todos
 
+- Ability to ignore certain files from being symlinked
 - Distro specific options
