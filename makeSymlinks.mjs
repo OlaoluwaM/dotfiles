@@ -1,6 +1,7 @@
 #!/usr/bin/env zx
 
 // Please make sure zx is installed
+
 const HOME_DIR = os.homedir();
 const HIDDEN_FOLDER_REGEX = /^\..*/;
 const HOME_DIR_REGEX = /~|\$HOME/;
@@ -85,24 +86,29 @@ function outputSymlinkOperationResults(symlinkResults, folderContents) {
     const filename = folderContents[ind];
 
     if (isRejectedPromise) {
-      console.error(error(`Symlink could not be created for file ${filename}`));
-      console.error(promiseResult.reason);
+      error(`Symlink could not be created for file ${filename}`);
+      error(promiseResult.reason);
       return;
     }
 
     promiseResult.value.forEach(output => {
       if (!output) return;
-      console.log(success(output));
+      success(output);
     });
   });
 }
 
 function success(message) {
-  return chalk.bold.green(message);
+  console.info(chalk.bold.green(message));
 }
 
 function error(message) {
-  return chalk.bold.red(message);
+  console.error(chalk.bold.red(message));
+}
+
+function parseDirectoriesFromArguments() {
+  const dirs = process.argv.slice(3);
+  return dirs;
 }
 
 async function getDirectories(path) {
@@ -115,7 +121,26 @@ async function getDirectories(path) {
     .map(dirent => dirent.name);
 }
 
-const foldersToSymlink = await getDirectories(__dirname);
+async function generateDirectoriesToWorkOn(path = __dirname) {
+  const passedDirectories = parseDirectoriesFromArguments();
+  const allDirs = await getDirectories(path);
+
+  if (passedDirectories.length === 0) return allDirs;
+
+  const directoriesToWorkOn = passedDirectories.filter(dirname =>
+    allDirs.includes(dirname)
+  );
+
+  if (directoriesToWorkOn.length === 0) {
+    error('Looks like the directories you entered do not exist :/');
+    error('You can run this with no arguments to work on all dirs');
+    process.exit(1);
+  }
+
+  return directoriesToWorkOn;
+}
+
+const foldersToSymlink = await generateDirectoriesToWorkOn();
 await Promise.allSettled(
   foldersToSymlink.map(folder => createSymlinksForFolderContents(folder))
 );
