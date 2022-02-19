@@ -60,11 +60,33 @@ function notify() {
 }
 
 function newRemoteBranch() {
-  remote="${1:=origin}"
-  branchName="${2:=HEAD}"
+  branchName="${1:=HEAD}"
+  remote="${2:=origin}"
 
+  #echo $remote $branchName
   git push -u $remote $branchName
 }
+
+function netSpeed() {
+  echo "From speedtest.net";
+  speedtest-cli;
+  echo "\n";
+  echo "From fast.com";
+  fast;
+}
+
+function reinstallAsDevDep() {
+  package"$1"
+
+  npm un $package && npm i -D $package
+}
+
+function reinstallAsDep() {
+  package"$1"
+
+  npm un $package && npm i $package
+}
+
 
 # Env Variables
 export testVar='testing 123...'
@@ -107,7 +129,7 @@ alias removeDotKeepFiles="find . -name '.keep' -delete"
 alias reloadAliases="source ~/.bash_aliases"
 
 alias swag="sudo"
-alias editAliases="nano ~/.bash_aliases"
+alias editAliases="nv ~/.bash_aliases"
 alias tmpmail="~/.tmpmail"
 
 alias listRawVpnLocations="ls /etc/openvpn"
@@ -147,3 +169,7 @@ alias setSuPasswrd="sudo passwd su"
 
 alias spice="spicetify"
 alias sysfetch="neofetch --config $HOME/neofetchDetailed.conf"
+alias getSizeOf="du -sh"
+
+alias nv="nvim"
+alias z="zoxide"

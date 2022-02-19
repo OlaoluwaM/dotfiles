@@ -3,6 +3,7 @@
   name = OlaoluwaM
 [core]
   excludesfile = /home/olaolu/.gitignore_global
+  editor = nvim
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
 [help]

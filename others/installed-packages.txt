@@ -24,3 +24,6 @@
   - thefuck, for funnier auto-corrections  
   - bat, better file output
   - zathura, and zathura-pdf-mupdf for pdf support
+  - Zoxide, smarter cd alternative
+  - ncdu, lets you check which folders are taking up the most space
+  - scrot, screenshot terminal

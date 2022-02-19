@@ -1,17 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
- # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -154,41 +140,6 @@ if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# This was for keeping tmux from running when opening the terminal in VSCode
-# if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-# Check if the session exists, discarding output
-# We can check $? for the exit status (zero for success, non-zero for failure)
-# tmux has-session -t "backgroundDaemon" 2>/dev/null
-
-# if [ $? != 0 ]; then
-#   tmux new-session -d -s "backgroundDaemon"
-# fi
-
-# $HOME/.tmux/plugins/tpm/bin/update_plugins all &>/dev/null
-# tmux new-session -As "default"
-# echo ""
-# fi
-
-#if [[ ! $TERM =~ screen ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-  # Update tmux plugins
-  #$HOME/.tmux/plugins/tpm/bin/update_plugins all &>/dev/null
-#fi
-
-# This was for starting up cron back when I was using WSL2
-# if [[ "$(service cron status)" == *not* ]]; then
-#  sudo ~/wrapper_scripts/startupCron.sh &>/dev/null
-# fi
-
-if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
-  mkdir -pv $ZSH/completions
-  gh completion --shell zsh >$ZSH/completions/_gh
-  echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
-fi
-
 # Other things to run
 
 # For colorls (only when ruby is installed)
@@ -198,22 +149,23 @@ else
   echo "You need to install ruby first :/"
 fi
 
-
-# Do not run neofetch or rxfetch when in vscode
-# if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v neofetch) ]; then neofetch --config "$HOME/neofetchConfig.conf" && echo "\n"; fi
-# if [[ $TERM_PROGRAM != 'vscode' ]] && [ $(command -v rxfetch) ]; then rxfetch && echo "\n"; fi
-
-if [ $(command -v termOfTheDay) ]; then
-  #[[ $TERM_PROGRAM != 'vscode' ]] && termOfTheDay $scrapeSite # Word of the day in my terminal
-  [[ $TERM_PROGRAM != 'vscode' ]] && echo "Want to learn a new word? type 'termOfTheDay'"
-else
-  echo "Word of the day is currently not available\n"
-fi
+echo "New Day, New Word XD!"
 
 if [ $(command -v quote) ]; then
   quote # For inspirational quotes
 else
   echo "Quotes are currently not available\n"
+fi
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
+  mkdir -pv $ZSH/completions
+  gh completion --shell zsh >$ZSH/completions/_gh
+  echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
 fi
 
 # place this after nvm initialization!
@@ -301,19 +253,9 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-# fpath=($fpath "/home/olaolu/.zfunctions")
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#(( ! ${+functions[p10k]} )) || p10k finalize
 
 # Setup Starship ZSH prompt
 #eval "$(starship init zsh)"
-#fpath=($fpath "/home/olaolu/.zfunctions")
-
-# Set Spaceship ZSH as a prompt
-#autoload -U promptinit; promptinit
-#prompt spaceship
 #fpath=($fpath "/home/olaolu/.zfunctions")
 
 # The Fuck
@@ -325,3 +267,4 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship
 export PATH="$PATH:$HOME/.spicetify"
+fpath=($fpath "/home/olaolu/.zfunctions")

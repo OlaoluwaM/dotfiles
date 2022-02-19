@@ -4,6 +4,10 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# -- Lock ----------------------------------------------------------------------
+
+set -g lock-after-time 300
+set -g lock-command "gh screensaver"
 
 # -- navigation ----------------------------------------------------------------
 
