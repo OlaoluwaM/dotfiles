@@ -89,15 +89,16 @@ function reinstallAsDep() {
 
 
 # Env Variables
-export testVar='testing 123...'
 export customTemplateName="theblackuchiha"
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
 export gdmThemeLocation=$HOME/customizations/WhiteSur-gtk-theme
-export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 
+export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 export SPICETIFY_INSTALL="/home/olaolu/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
+
 export TERM="xterm-256color"
+export EDITOR="nvim"
 
 # Actual Aliases
 alias loadEnv=load_env
@@ -168,8 +169,20 @@ alias tmux="TERM=xterm-256color tmux"
 alias setSuPasswrd="sudo passwd su"
 
 alias spice="spicetify"
-alias sysfetch="neofetch --config $HOME/neofetchDetailed.conf"
+#alias sysfetch="neofetch --config $HOME/neofetchDetailed.conf"
+alias sysfetch="fm6000"
 alias getSizeOf="du -sh"
 
 alias nv="nvim"
 alias z="zoxide"
+alias echo="echo -e"
+
+alias tmx="tmux"
+alias t5Commands="print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 5"
+alias rc="rustc"
+
+alias dconfBackup="dconf dump / > sys-backups/dconf-settings-backup.dconf"
+alias cronBackup="crontab -l > sys-backups/crontab-backup.bak"
+alias zshconfig="nvim ~/.zshrc"
+
+alias ohmyzsh="nvim ~/.oh-my-zsh"

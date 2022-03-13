@@ -27,3 +27,7 @@
   - Zoxide, smarter cd alternative
   - ncdu, lets you check which folders are taking up the most space
   - scrot, screenshot terminal
+  - wipeclean: for shits and giggles
+  - lovesay: because I think I am dead inside :P
+  - fm6000: A cooler fetch tool that supports ascii say thingy https://github.com/anhsirk0/fetch-master-6000 
+  - Rust!!! https://doc.rust-lang.org/book/ch01-01-installation.html

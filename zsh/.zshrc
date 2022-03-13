@@ -115,11 +115,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 
-alias zshconfig="nano ~/.zshrc"
-alias ohmyzsh="nano ~/.oh-my-zsh"
-
-export EDITOR="nano"
-
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
@@ -267,4 +262,7 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship
 export PATH="$PATH:$HOME/.spicetify"
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
