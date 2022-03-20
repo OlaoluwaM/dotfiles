@@ -33,6 +33,7 @@
   renameBranch = branch -m
   unsetUpstream = branch --unset-upstream
   checkUpstream = status -sb
+  p = "push"
 [credential]
   helper = cache
 [init]

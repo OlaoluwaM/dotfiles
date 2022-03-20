@@ -29,27 +29,8 @@ function pullBranchFromRemoteThenCheckout() {
   git checkout "$2"
 }
 
-function showDifferentTerminalColors() {
+function showTerminalColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
-
-function setTimer() {
-  TIME="${1:-30m}"
-
-  if [[ "$TERM" =~ "screen".* ]]; then
-    echo "Detaching from tmux session..."
-    exit
-    sleep 40
-    echo "Detached from tmux session."
-
-    termdown "$TIME"
-    sleep 15
-    tmux new-session -A -s default
-    echo "Attached to tmux session"
-  else
-    termdown $TIME
-  fi
-  echo "Timer Complete"
 }
 
 function notify() {
@@ -76,22 +57,71 @@ function netSpeed() {
 }
 
 function reinstallAsDevDep() {
-  package"$1"
+  package="$1"
 
   npm un $package && npm i -D $package
 }
 
 function reinstallAsDep() {
-  package"$1"
+  package="$1"
 
   npm un $package && npm i $package
 }
 
+function backupFonts() {
+  echo "Compressing fonts into tarball"
+  tar cvzf $SYS_BAK_DIR/fonts.tar.gz $FONT_DIR;
+}
+
+function backupWallpapers() {
+  currentDir=$(pwd)
+  ImagesDir="$HOME/Pictures/Wallpapers"
+
+  cd "$ImagesDir" || return;
+  $(which node) compressWallpapers.mjs;
+  cd "$currentDir" || return;
+}
+
+function downloadFile() {
+  URL="$1"
+  FILE_NAME="$2"
+  echo -e "\n"
+
+  if command -v http &>/dev/null; then
+    if [ -z "$FILE_NAME" ]; then
+      http -d "$URL"
+    else
+      http -d "$URL" -o "$FILE_NAME"
+    fi
+
+  elif command -v curl &>/dev/null; then
+    echo -e "Seems like httpie is not installed...Using curl instead\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      curl -LJO "$URL"
+    else
+      curl -LJo "$FILE_NAME" "$URL"
+    fi
+
+  elif command -v wget &>/dev/null; then
+    echo -e "Seems like curl is not installed. Let's try wget\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      wget "$URL"
+    else
+      wget -O "$FILE_NAME" "$URL"
+    fi
+
+  else
+    echo "Seems like neither httpie, curl, or wget are available. Please download one of them first!"
+    exit 126
+  fi
+}
 
 # Env Variables
 export customTemplateName="theblackuchiha"
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
-export gdmThemeLocation=$HOME/customizations/WhiteSur-gtk-theme
+export ALIASES="$HOME/.bash_aliases"
 
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 export SPICETIFY_INSTALL="/home/olaolu/spicetify-cli"
@@ -99,90 +129,78 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 
 export TERM="xterm-256color"
 export EDITOR="nvim"
+export DOTFILES="$HOME/Desktop/olaolu_dev/dotfiles"
+
+export FONT_DIR="$HOME/.local/share/fonts"
+export SYS_BAK_DIR="$HOME/sys-backups"
 
 # Actual Aliases
-alias loadEnv=load_env
-alias old="npm outdated"
-
 alias findRunningNodeServers="ps -aef | grep node"
-alias doesFileExist='does_entity_exist -f File'
+alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
 
 alias listGlobalNpmPackages="npm -g ls --depth 0"
-alias matrix="matrix-rain"
-alias commit="git commit"
-
-alias reloadTmuxConfig="tmux source-file ~/.tmux.conf"
+alias matrix="matrix-rain || cmatrix || echo Please install either matrix-rain from npm or cmatrix"
 alias newTmuxSession="tmux new -s"
-alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
 
+alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
 alias checkForUpdates="dnf check-update"
 alias cb=clipboard
+
 alias initialPush="git push -u origin"
-
-alias grabFromGithub="curl -LJO"
 alias signedCommit="git commit -s"
-
-alias bringOptInHere="cp -r ~/olaolu_dev/dev/optIn_scripts ."
-alias bringOptInScriptsHere="cp -r ~/olaolu_dev/dev/optIn_custom_scripts/ ."
-
 alias removeDotKeepFiles="find . -name '.keep' -delete"
-alias reloadAliases="source ~/.bash_aliases"
 
+alias reloadAliases="source ~/.bash_aliases"
 alias swag="sudo"
 alias editAliases="nv ~/.bash_aliases"
-alias tmpmail="~/.tmpmail"
 
+alias tmpmail="~/.tmpmail"
 alias listRawVpnLocations="ls /etc/openvpn"
 alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
 
-alias editSudoer="sudo EDITOR=$(which nano) visudo"
 alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
 alias notifyMe="notify"
-
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
-alias loginAsPostgresUser="sudo su - postgres"
-alias setLoginScreenWallpaper="sudo \$gdmThemeLocation/tweaks.sh -g -b"
 
+alias loginAsPostgresUser="sudo su - postgres"
 alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh; bw sync"
-alias showRemote="git status -sb"
 alias py="python"
 
-alias reloadZSH="omz reload"
 alias pvpn="protonvpn-cli"
-alias nativefy="$HOME/nativefy.sh"
-
 alias activatePyVirtEnv="source env/bin/activate"
 alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
-alias cls="colorls --dark"
 
+alias cls="colorls --dark"
 alias listFlatpakThemes="flatpak search gtk3theme"
 alias listUserInstalledRpms="dnf repoquery --userinstalled"
-alias lls="logo-ls"
 
+alias lls="logo-ls"
 alias listEnabledCoprRepo="dnf copr list --installed"
 alias updateNvmToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
-alias open="xdg-open"
 
+alias open="xdg-open"
 alias kernelVersion="uname -r"
 alias tmux="TERM=xterm-256color tmux"
+
 alias setSuPasswrd="sudo passwd su"
-
 alias spice="spicetify"
-#alias sysfetch="neofetch --config $HOME/neofetchDetailed.conf"
 alias sysfetch="fm6000"
-alias getSizeOf="du -sh"
 
+alias getDirSize="du -sh"
+alias getFileSize="du -h"
 alias nv="nvim"
+
 alias z="zoxide"
 alias echo="echo -e"
-
 alias tmx="tmux"
-alias t5Commands="print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 5"
+
 alias rc="rustc"
+alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup.dconf"
+alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
 
-alias dconfBackup="dconf dump / > sys-backups/dconf-settings-backup.dconf"
-alias cronBackup="crontab -l > sys-backups/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
-
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias refreshFonts="fc-cache -v"
+
+alias exa="exa --icons"
