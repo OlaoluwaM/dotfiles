@@ -118,6 +118,15 @@ function downloadFile() {
   fi
 }
 
+function unlockBWVault() {
+  BW_SESSION=$($HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh)
+  [ -z $BW_SESSION ] && return 1
+  export BW_SESSION
+
+  echo "Initiating Bitwarden vault sync" 
+  bw sync
+}
+
 # Env Variables
 export customTemplateName="theblackuchiha"
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
@@ -140,7 +149,7 @@ alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
 
 alias listGlobalNpmPackages="npm -g ls --depth 0"
-alias matrix="matrix-rain || cmatrix || echo Please install either matrix-rain from npm or cmatrix"
+alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null|| echo Please install either matrix-rain from npm or cmatrix"
 alias newTmuxSession="tmux new -s"
 
 alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
@@ -164,43 +173,41 @@ alias notifyMe="notify"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 
 alias loginAsPostgresUser="sudo su - postgres"
-alias unlockBitwarden="source ~/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh; bw sync"
 alias py="python"
-
 alias pvpn="protonvpn-cli"
+
 alias activatePyVirtEnv="source env/bin/activate"
 alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
-
 alias cls="colorls --dark"
+
 alias listFlatpakThemes="flatpak search gtk3theme"
 alias listUserInstalledRpms="dnf repoquery --userinstalled"
-
 alias lls="logo-ls"
+
 alias listEnabledCoprRepo="dnf copr list --installed"
 alias updateNvmToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
-
 alias open="xdg-open"
+
 alias kernelVersion="uname -r"
 alias tmux="TERM=xterm-256color tmux"
-
 alias setSuPasswrd="sudo passwd su"
+
 alias spice="spicetify"
 alias sysfetch="fm6000"
-
 alias getDirSize="du -sh"
+
 alias getFileSize="du -h"
 alias nv="nvim"
-
 alias z="zoxide"
+
 alias echo="echo -e"
 alias tmx="tmux"
-
 alias rc="rustc"
+
 alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup.dconf"
 alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
-
 alias zshconfig="nvim ~/.zshrc"
+
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias refreshFonts="fc-cache -v"
-
 alias exa="exa --icons"
