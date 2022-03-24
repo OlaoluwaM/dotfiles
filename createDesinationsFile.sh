@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 for d in */; do
-  ! [[ -f "${d}/destinations.json" ]] && echo "{}" > "${d}/destinations.json"
+  test -f "${d}/destinations.json" && continue
+  cat <<<'{ "*": "$HOME" }' >"${d}/destinations.json"
 done
 echo 'DONE!'

@@ -33,3 +33,6 @@
   - Rust!!! https://doc.rust-lang.org/book/ch01-01-installation.html
   - fdupes - For finding duplicate files in directories
   - 7z - for decompressing .dmg files
+  - bat-extras - because I wanna be mfing batman (https://github.com/eth-p/bat-extras)
+  - ripgrep - so I can truly become batman (https://github.com/burntsushi/ripgrep)
+  - Mailspinrg (with libappindicator and redhat-lsb-core as required deps)  
