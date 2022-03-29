@@ -1,10 +1,10 @@
 #!/usr/bin/env zx
 
 // Please make sure zx is installed
-
 const HOME_DIR = os.homedir();
 const HIDDEN_FOLDER_REGEX = /^\..*/;
 const HOME_DIR_REGEX = /~|\$HOME/;
+const IGNORE_KEY = '!';
 
 async function createSymlinksForFolderContents(folderName) {
   const filesWithDestinations = await getFolderContentsWithDestinations(
@@ -39,14 +39,29 @@ async function getFolderContentsWithDestinations(folderName) {
     processDestinationString
   );
 
-  return requiredFiles.map(file => [
+  const filesToIgnore = destinationsObj[IGNORE_KEY] ?? [];
+
+  const fileDestinationMap = requiredFiles.map(file => [
     file,
     generateFileDestination(file, destinationsObj, HOME_DIR),
   ]);
+
+  const fileDestinationMapWithoutIgnoredFiles = excludeIgnoredFiles(
+    fileDestinationMap,
+    filesToIgnore,
+    folderName
+  );
+
+  return fileDestinationMapWithoutIgnoredFiles;
 }
 
 function processDestinationString(key, pathString) {
   if (!key) return pathString;
+
+  if (key === IGNORE_KEY) {
+    const filenameArr = pathString;
+    return filenameArr;
+  }
 
   return HOME_DIR_REGEX.test(pathString)
     ? pathString.replace(HOME_DIR_REGEX, HOME_DIR)
@@ -54,7 +69,32 @@ function processDestinationString(key, pathString) {
 }
 
 function generateFileDestination(filename, destinationsObj, homeDir) {
-  return destinationsObj?.[filename] ?? destinationsObj?.['*'] ?? homeDir;
+  const destinationPath =
+    destinationsObj[filename] ?? destinationsObj['*'] ?? homeDir;
+
+  return destinationPath;
+}
+
+function excludeIgnoredFiles(fileDestinationArr, filesToExclude, folderName) {
+  const IGNORE_ALL_SYMBOL = '*';
+
+  if (Array.isArray(filesToExclude)) {
+    filesToExclude.forEach(file => info(`${file} is being ignored`));
+  }
+
+  const filesListWithoutIgnoredFiles = fileDestinationArr.filter(([filename]) =>
+    filesToExclude === IGNORE_ALL_SYMBOL
+      ? false
+      : !filesToExclude.includes(filename)
+  );
+
+  if (isEmpty.array(filesListWithoutIgnoredFiles)) {
+    const msg = `Seems like all the files in the ${folderName} folder are being ignored`;
+    error(msg);
+    throw new Error(msg);
+  }
+
+  return filesListWithoutIgnoredFiles;
 }
 
 async function createSymlink(folderName, file, destinationPath = HOME_DIR) {
@@ -98,6 +138,10 @@ function outputSymlinkOperationResults(symlinkResults, folderContents) {
   });
 }
 
+function info(message) {
+  console.info(chalk.bold.white(message));
+}
+
 function success(message) {
   console.info(chalk.bold.green(message));
 }
@@ -106,8 +150,23 @@ function error(message) {
   console.error(chalk.bold.red(message));
 }
 
+const isEmpty = {
+  array(possiblyEmptyArray) {
+    return possiblyEmptyArray.length === 0;
+  },
+};
+
+function excludeFromCollection(collection, subSetOExclude) {
+  const filteredCollection = collection.filter(
+    elem => !subSetOExclude.includes(elem)
+  );
+
+  return filteredCollection;
+}
+
 function parseDirectoriesFromArguments() {
-  const dirs = process.argv.slice(3);
+  const STARTING_INDEX_OF_ARGS = 3;
+  const dirs = process.argv.slice(STARTING_INDEX_OF_ARGS);
   return dirs;
 }
 
@@ -125,13 +184,13 @@ async function generateDirectoriesToWorkOn(path = __dirname) {
   const passedDirectories = parseDirectoriesFromArguments();
   const allDirs = await getDirectories(path);
 
-  if (passedDirectories.length === 0) return allDirs;
+  if (isEmpty.array(passedDirectories)) return allDirs;
 
   const directoriesToWorkOn = passedDirectories.filter(dirname =>
     allDirs.includes(dirname)
   );
 
-  if (directoriesToWorkOn.length === 0) {
+  if (isEmpty.array(directoriesToWorkOn)) {
     error('Looks like the directories you entered do not exist :/');
     error('You can run this with no arguments to work on all dirs');
     process.exit(1);
@@ -140,7 +199,19 @@ async function generateDirectoriesToWorkOn(path = __dirname) {
   return directoriesToWorkOn;
 }
 
-const foldersToSymlink = await generateDirectoriesToWorkOn();
+function excludeCertainDirs(dirs) {
+  const dirsToExclude = ['notion'];
+  const result = excludeFromCollection(dirs, dirsToExclude);
+  if (result.length > 0) return result;
+
+  error('Sorry, the dirs you provided cannot be symlinked');
+  process.exit(127);
+}
+
+const foldersToSymlink = excludeCertainDirs(
+  await generateDirectoriesToWorkOn()
+);
+
 await Promise.allSettled(
   foldersToSymlink.map(folder => createSymlinksForFolderContents(folder))
 );

@@ -144,6 +144,9 @@ export FONT_DIR="$HOME/.local/share/fonts"
 export SYS_BAK_DIR="$HOME/sys-backups"
 export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 
+export DEV="$HOME/Desktop/olaolu_dev/dev"
+export DESIGN="$HOME/Desktop/olaolu_dev/design"
+
 # Actual Aliases
 alias findRunningNodeServers="ps -aef | grep node"
 alias doesFileExist="does_entity_exist -f File"
@@ -155,60 +158,70 @@ alias newTmuxSession="tmux new -s"
 
 alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
 alias checkForUpdates="dnf check-update"
-alias cb=clipboard
-
 alias initialPush="git push -u origin"
+
 alias signedCommit="git commit -s"
 alias removeDotKeepFiles="find . -name '.keep' -delete"
-
 alias reloadAliases="source ~/.bash_aliases"
+
 alias swag="sudo"
 alias editAliases="nv ~/.bash_aliases"
-
 alias tmpmail="~/.tmpmail"
+
 alias listRawVpnLocations="ls /etc/openvpn"
 alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
-
 alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
+
 alias notifyMe="notify"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
-
 alias loginAsPostgresUser="sudo su - postgres"
+
 alias py="python"
 alias pvpn="protonvpn-cli"
-
 alias activatePyVirtEnv="source env/bin/activate"
+
 alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
 alias cls="colorls --dark"
-
 alias listFlatpakThemes="flatpak search gtk3theme"
+
 alias listUserInstalledRpms="dnf repoquery --userinstalled"
 alias lls="logo-ls"
-
 alias listEnabledCoprRepo="dnf copr list --installed"
+
 alias updateNvmToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
 alias open="xdg-open"
-
 alias kernelVersion="uname -r"
+
 alias tmux="TERM=xterm-256color tmux"
 alias setSuPasswrd="sudo passwd su"
-
 alias spice="spicetify"
+
 alias sysfetch="fm6000"
 alias getDirSize="du -sh"
-
 alias getFileSize="du -h"
+
 alias nv="nvim"
 alias z="zoxide"
-
 alias echo="echo -e"
+
 alias tmx="tmux"
 alias rc="rustc"
-
 alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup.dconf"
+
 alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
-
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
+alias backupGlobalNpmPkgs="npm -g ls --depth 0 > $SYS_BAK_DIR/global-npm-pkgs.txt"
+
+alias bgrep="batgrep"
+alias bman="batman"
+alias toDev="cd $DEV"
+
+alias toDesign="cd $DESIGN"
+alias wcb=wl-copy
+alias wp=wl-paste
+
+alias toDots="cd $DOTFILES"
