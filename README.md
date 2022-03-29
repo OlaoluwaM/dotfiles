@@ -25,9 +25,26 @@ Yes, variables like `$HOME` and `~` work! If you want to specify a different pat
 
 By default all files in each folder will be symlinked to the $HOME directory
 
+To ignore, for any reason, certain files in a directory, you can do
+
+```json
+{
+  "!": string[]
+  "!": ["someFile.txt", "someFile.md"],
+}
+```
+
+To ignore all files in a directory
+
+```json
+{
+  "!": "*"
+}
+```
+
 **The script requires `zx` to run. It must be installed globally**
 
 ## Todos
 
-- Ability to ignore certain files from being symlinked
+- ~~Ability to ignore certain files from being symlinked~~
 - Distro specific options
