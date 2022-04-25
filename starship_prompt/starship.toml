@@ -1,0 +1,41 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)"    # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[➜](bold red)"
+
+[time]
+disabled = false
+time_format = '%R'
+format = '[\[ $time ](white dimmed)'
+
+[username]
+style_user = "purple bold"
+style_root = "red bold"
+format = "[$user]($style) in "
+disabled = false
+show_always = true
+
+[shell]
+format = 'in [$indicator \]]($style) '
+disabled = false
+style = "white dimmed"
+
+[status]
+sigint_symbol = "🧱"
+format = 'with [$symbol $signal_name\($signal_number\)]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+show_notifications = true
+min_time = 1_000
+format = "took [$duration](bold yellow)"
+min_time_to_notify = 20_000
+
+[sudo]
+style = "bold red"
+symbol = "root "
+disabled = false

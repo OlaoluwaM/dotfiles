@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# To make sure aliases work
-alias testAliases='echo Aliases are working'
-
 # Functions
+
 function load_env() {
   RUNNER=${3:-node}
   env "$(cat $1 | grep -v "\"#\"" | xargs) $RUNNER $2"
@@ -70,7 +68,13 @@ function reinstallAsDep() {
 
 function backupFonts() {
   echo "Compressing fonts into tarball"
-  tar cvzf $SYS_BAK_DIR/fonts.tar.gz $FONT_DIR;
+  tar -cvzf $SYS_BAK_DIR/fonts.tar.gz $FONT_DIR;
+}
+
+function restoreFonts() {
+  echo "Restoring fonts from tarball..."
+  cd "$HOME" || exit 1
+  tar -xzvf $SYS_BAK_DIR/fonts.tar.gz
 }
 
 function backupWallpapers() {
@@ -127,7 +131,75 @@ function unlockBWVault() {
   bw sync
 }
 
+function areWallpapersBackedup() {
+  echo "Counting current wallpapers: \c"
+  wallpaperCount=$(ls $WALLPAPERS_DIR/images | wc -l);
+  echo $wallpaperCount
+
+  echo -e "Counting images present in compressed wallpapers tarball file: \c"
+  wallpaperTarBallFileCount=$(bc <<<"$(tar -tf $WALLPAPERS_DIR/tarball/wallpapers.tar.gz | wc -l) - 1");
+  echo $wallpaperTarBallFileCount
+
+  if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
+      echo "All Backed up!"
+  elif [[ $wallpaperCount -lt $wallpaperTarBallFileCount ]]; then
+      echo "You need restore your wallpapers from the tarball"
+  else
+      echo "You need to backup your wallpapers hun!"
+  fi
+}
+
+function areFontsBackedup() {
+  echo "Counting current fonts: \c"
+  fontCount=$(ls $FONT_DIR | wc -l);
+  echo $fontCount
+
+  echo -e "Counting fonts present in compressed font tarball file: \c"
+  fontTarBallCount=$(bc <<<"$(tar -tf $SYS_BAK_DIR/fonts.tar.gz | wc -l) - 1");
+  echo $fontTarBallCount
+
+  if [[ $fontCount -eq $fontTarBallCount ]]; then
+      echo "All Backed up!"
+  elif [[ $fontCount -lt $fontTarBallCount ]]; then
+      echo "You need restore your fonts from the tarball"
+  else
+      echo "You need to backup your fonts hun!"
+  fi
+}
+
+function repoInit() {
+  # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
+  git init;
+  touch .gitignore;
+  git add .;
+  git commit -m "repo init";
+  
+  git checkout -b develop;
+  git rebase main
+
+  git checkout -b feature;
+  git rebase develop
+}
+
+# Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
+function chpwd() {
+    emulate -L zsh
+    logo-ls -A || exa --icons -a || ls -A
+}
+
+function editPromptConf() {
+  SHELL_PROMPT="$PS1";
+
+  if [[ $SHELL_PROMPT == *"starship"* ]]; then
+      echo "Opening Starship config..."
+      nv $HOME/.config/starship.toml || vi $HOME/.config/starship.toml
+  elif [[ $SHELL_PROMPT == *"spaceship"* ]]; then
+      echo "Opening Spaceship config..."
+      nv $HOME/.zshrc || vi $HOME/.zshrc
+  fi
+}
 # Env Variables
+
 export customTemplateName="theblackuchiha"
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
 export ALIASES="$HOME/.bash_aliases"
@@ -146,8 +218,10 @@ export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28F
 
 export DEV="$HOME/Desktop/olaolu_dev/dev"
 export DESIGN="$HOME/Desktop/olaolu_dev/design"
+export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 
-# Actual Aliases
+# Aliases
+
 alias findRunningNodeServers="ps -aef | grep node"
 alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
@@ -225,3 +299,11 @@ alias wcb=wl-copy
 alias wp=wl-paste
 
 alias toDots="cd $DOTFILES"
+alias diffDirs="diff -qr"
+alias editInstalledPkgs="nv $SYS_BAK_DIR/installed-packages.txt"
+
+alias editCustomizations="nv $SYS_BAK_DIR/customizations.log.txt"
+alias tt="toipe"
+alias ydl="youtube-dl"
+
+alias ascma="asciinema" 

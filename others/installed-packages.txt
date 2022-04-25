@@ -8,8 +8,7 @@
 
   - (lemnos/theme.sh)[https://github.com/lemnos/theme.sh]: For easily swithcing between terminal themes
   - spicetify: To customize spotify theme
-  - cava: for audio waves
-  
+  - cava: for audio waves  
   - colorls: To customize `ls` command output
     - ruby: For installing `colorls`
     - ruby-devel: For installing `colorls`
@@ -19,20 +18,44 @@
   - httpie, for better terminal http requests
   - htop
   - fd-find
-  - duff, disk space checking
+  - duf, disk space checking
   - tldr, better man pages
   - thefuck, for funnier auto-corrections  
   - bat, better file output
   - zathura, and zathura-pdf-mupdf for pdf support
   - Zoxide, smarter cd alternative
   - ncdu, lets you check which folders are taking up the most space
-  - scrot, screenshot terminal
-  - wipeclean: for shits and giggles
   - lovesay: because I think I am dead inside :P
   - fm6000: A cooler fetch tool that supports ascii say thingy https://github.com/anhsirk0/fetch-master-6000 
   - Rust!!! https://doc.rust-lang.org/book/ch01-01-installation.html
   - fdupes - For finding duplicate files in directories
-  - 7z - for decompressing .dmg files
+  - 7z - for decompressing .dmg files (p7zip)
   - bat-extras - because I wanna be mfing batman (https://github.com/eth-p/bat-extras)
   - ripgrep - so I can truly become batman (https://github.com/burntsushi/ripgrep)
   - Mailspinrg (with libappindicator and redhat-lsb-core as required deps)  
+  - no-more-secrets
+  - Toipe (https://github.com/Samyak2/toipe) from rust cargo
+  - webp-pixbuf-loader: To add support for webp thumbnails in file explorer
+  - libwebp-tools to install CLI programs for converting from webp to png
+  - prename for more advanced renaming
+  - youtube-dl to download videos from youtube via the command-line
+  - acsciinema For terminal screen recording (https://asciinema.org/docs/installation#installing-on-linux)
+  - ffmpeg
+  - gnome-sound-recorder for recording audio notes
+  - nushell modern shell (from rust cargo)
+  - starship Another cool prompt
+  - perl-experimental (required for fm6000)
+  - ImageMagick
+  - cmake
+  - cmatrix
+  - duf
+  - gnome-tweaks
+  - google-chrome
+  - hw-probe
+  - meld
+  - gitkraken
+  - neovim
+  - speedtest-cli
+  - tldr
+  - wl-clipboard
+  - android-tools

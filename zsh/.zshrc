@@ -9,12 +9,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="spaceship"
-SPACESHIP_TIME_SHOW="true"
-SPACESHIP_EXIT_CODE_PREFIX=""
-SPACESHIP_TIME_FORMAT="%T"
-SPACESHIP_TIME_COLOR="white dimmed"
-SPACESHIP_EXIT_CODE_SHOW="true"
+# ZSH_THEME="spaceship"
+# SPACESHIP_TIME_SHOW="true"
+# SPACESHIP_EXIT_CODE_PREFIX=""
+# SPACESHIP_TIME_FORMAT="%T"
+# SPACESHIP_TIME_COLOR="white dimmed"
+# SPACESHIP_EXIT_CODE_SHOW="true"
 
 #SPACESHIP_DIR_PREFIX=" "
 if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
@@ -250,20 +250,16 @@ fi
 ###-end-npm-completion-###
 
 # Setup Starship ZSH prompt
-#eval "$(starship init zsh)"
-#fpath=($fpath "/home/olaolu/.zfunctions")
+eval "$(starship init zsh)"
+fpath=($fpath "/home/olaolu/.zfunctions")
 
 # The Fuck
 eval $(thefuck --alias fuck)
 fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
+# fpath=($fpath "/home/olaolu/.zfunctions")
+
 export PATH="$PATH:$HOME/.spicetify"
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")

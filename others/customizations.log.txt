@@ -28,3 +28,9 @@
   - Installed and setup Catppuccin theme for Zathura (https://github.com/catppuccin/zathura)
   - Installed Catppuccin theme for Mailspring
   - Installed Catppuccin theme for dark reader
+  - Catppuccin everything!
+  - La Captoine icons and cursors tho!!
+  - alias 's' for search with dnf (sudo dnf alias add s=search)
+  - alias rm for remove with dnf
+  - alias i for install with dnf
+  - Create ~/.config/nvim dir
