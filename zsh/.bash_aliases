@@ -155,7 +155,7 @@ function areFontsBackedup() {
   echo $fontCount
 
   echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$(bc <<<"$(tar -tf $SYS_BAK_DIR/fonts.tar.gz | wc -l) - 1");
+  fontTarBallCount=$(bc <<<"$(tar -tf $SYS_BAK_DIR/fonts.tar.gz | wc -l) - 2");
   echo $fontTarBallCount
 
   if [[ $fontCount -eq $fontTarBallCount ]]; then

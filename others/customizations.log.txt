@@ -34,3 +34,4 @@
   - alias rm for remove with dnf
   - alias i for install with dnf
   - Create ~/.config/nvim dir
+  - Create ~/.config/bat dir
