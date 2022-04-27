@@ -1,6 +1,15 @@
-#!/usr/bin/env zx
+#!/usr/bin/env node
 
-// Please make sure zx is installed
+import os from 'os';
+import path from 'path';
+
+import { fileURLToPath } from 'url';
+import { readFileSync } from 'fs';
+import { symlink, readdir, unlink } from 'fs/promises';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const HOME_DIR = os.homedir();
 const HIDDEN_FOLDER_REGEX = /^\..*/;
 const HOME_DIR_REGEX = /~|\$HOME/;
@@ -22,15 +31,13 @@ async function createSymlinksForFolderContents(folderName) {
 }
 
 async function getFolderContentsWithDestinations(folderName) {
-  const allFilesInFolder = await fs.readdir(
-    path.resolve(__dirname, folderName)
-  );
+  const allFilesInFolder = await readdir(path.resolve(__dirname, folderName));
 
   const requiredFiles = allFilesInFolder.filter(
     file => file !== 'destinations.json'
   );
 
-  const destinationsString = fs.readFileSync(
+  const destinationsString = readFileSync(
     path.resolve(__dirname, folderName, 'destinations.json')
   );
 
@@ -101,7 +108,7 @@ async function createSymlink(folderName, file, destinationPath = HOME_DIR) {
   await deleteSymlinkIfItExists(file, destinationPath);
 
   return Promise.all([
-    fs.symlink(
+    symlink(
       path.resolve(__dirname, `${folderName}/${file}`),
       path.resolve(destinationPath, file)
     ),
@@ -114,7 +121,7 @@ async function createSymlink(folderName, file, destinationPath = HOME_DIR) {
 
 async function deleteSymlinkIfItExists(file, destinationPath = HOME_DIR) {
   try {
-    return await fs.unlink(path.resolve(destinationPath, file));
+    return await unlink(path.resolve(destinationPath, file));
   } catch (error) {
     return Promise.resolve('No such symlink exists');
   }
@@ -170,8 +177,10 @@ function parseDirectoriesFromArguments() {
   return dirs;
 }
 
-async function getDirectories(path) {
-  const directoryContents = await fs.readdir(path, { withFileTypes: true });
+async function getDirectories(pathToDirs) {
+  const directoryContents = await readdir(pathToDirs, {
+    withFileTypes: true,
+  });
 
   return directoryContents
     .filter(
@@ -180,9 +189,9 @@ async function getDirectories(path) {
     .map(dirent => dirent.name);
 }
 
-async function generateDirectoriesToWorkOn(path = __dirname) {
+async function generateDirectoriesToWorkOn(pathToDirs = __dirname) {
   const passedDirectories = parseDirectoriesFromArguments();
-  const allDirs = await getDirectories(path);
+  const allDirs = await getDirectories(pathToDirs);
 
   if (isEmpty.array(passedDirectories)) return allDirs;
 
