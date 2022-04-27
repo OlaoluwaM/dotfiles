@@ -8,7 +8,7 @@ import { readFileSync } from 'fs';
 import { symlink, readdir, unlink } from 'fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 const HOME_DIR = os.homedir();
 const HIDDEN_FOLDER_REGEX = /^\..*/;
@@ -175,7 +175,7 @@ function excludeFromCollection(collection, subSetOExclude) {
 }
 
 function parseDirectoriesFromArguments() {
-  const STARTING_INDEX_OF_ARGS = 3;
+  const STARTING_INDEX_OF_ARGS = 2;
   const dirs = process.argv.slice(STARTING_INDEX_OF_ARGS);
   return dirs;
 }
@@ -212,7 +212,7 @@ async function generateDirectoriesToWorkOn(pathToDirs = __dirname) {
 }
 
 function excludeCertainDirs(dirs) {
-  const dirsToExclude = ['notion'];
+  const dirsToExclude = ['notion', 'dak-reader'];
   const result = excludeFromCollection(dirs, dirsToExclude);
   if (result.length > 0) return result;
 
