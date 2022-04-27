@@ -146,15 +146,18 @@ function outputSymlinkOperationResults(symlinkResults, folderContents) {
 }
 
 function info(message) {
-  console.info(chalk.bold.white(message));
+  const INFO_COLOR_CODE = '\x1b[1m\x1b[37m%s\x1b[0m';
+  console.info(INFO_COLOR_CODE, message);
 }
 
 function success(message) {
-  console.info(chalk.bold.green(message));
+  const SUCCESS_COLOR_CODE = '\x1b[1m\x1b[32m%s\x1b[0m';
+  console.info(SUCCESS_COLOR_CODE, message);
 }
 
 function error(message) {
-  console.error(chalk.bold.red(message));
+  const ERROR_COLOR_CODE = '\x1b[1m\x1b[31m%s\x1b[0m';
+  console.error(ERROR_COLOR_CODE, message);
 }
 
 const isEmpty = {
