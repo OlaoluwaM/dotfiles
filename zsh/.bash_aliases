@@ -198,15 +198,28 @@ function editPromptConf() {
       nv $HOME/.zshrc || vi $HOME/.zshrc
   fi
 }
+
+# Gotten From https://unix.stackexchange.com/a/282433
+function addToPATH() {
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$PATH:$1";; # or PATH="$PATH:$1"
+  esac
+}
+
+function fixSpicePermissionIssues() {
+  sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+  sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
+}
+
 # Env Variables
 
-export customTemplateName="theblackuchiha"
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
 export ALIASES="$HOME/.bash_aliases"
 
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
-export SPICETIFY_INSTALL="/home/olaolu/spicetify-cli"
-export PATH="$SPICETIFY_INSTALL:$PATH"
+export SPICETIFY_INSTALL="$HOME/spicetify-cli"
+export SCRIPTS="$HOME/Desktop/olaolu_dev/scripts"
 
 export TERM="xterm-256color"
 export EDITOR="nvim"
@@ -227,7 +240,7 @@ alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
 
 alias listGlobalNpmPackages="npm -g ls --depth 0"
-alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null|| echo Please install either matrix-rain from npm or cmatrix"
+alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null|| echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
 alias newTmuxSession="tmux new -s"
 
 alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
@@ -307,3 +320,7 @@ alias tt="toipe"
 alias ydl="youtube-dl"
 
 alias ascma="asciinema" 
+alias dupesInPath="echo $PATH | tr ':' '\n' | sort | uniq -d"
+alias toScripts="cd $SCRIPTS"
+
+alias growTree="cbonsai --seed 200 -l -i"

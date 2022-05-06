@@ -9,15 +9,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME="spaceship"
-# SPACESHIP_TIME_SHOW="true"
-# SPACESHIP_EXIT_CODE_PREFIX=""
-# SPACESHIP_TIME_FORMAT="%T"
-# SPACESHIP_TIME_COLOR="white dimmed"
-# SPACESHIP_EXIT_CODE_SHOW="true"
+ZSH_THEME="spaceship"
+SPACESHIP_TIME_SHOW="true"
+SPACESHIP_EXIT_CODE_PREFIX=""
+SPACESHIP_TIME_FORMAT="%T"
+SPACESHIP_TIME_COLOR="white dimmed"
+SPACESHIP_EXIT_CODE_SHOW="true"
 
-#SPACESHIP_DIR_PREFIX=" "
-if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
+# When we use certain fonts like JetBrains Mono, this becomes redundant
+# if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,9 +78,9 @@ if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-if [ -f "$HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh" ]; then
-  source $HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
-fi
+# if [ -f "$HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh" ]; then
+#  source $HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
+# fi
 
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
 
@@ -123,16 +123,12 @@ if [ -f ~/.personal_tokens ]; then
   . ~/.personal_tokens
 fi
 
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/ssh-github.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
 fi
 
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/add-to-path.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/add-to-path.sh --silent
-fi
-
-if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
+if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh" ]; then
+  source $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh
 fi
 
 # Other things to run
@@ -250,16 +246,14 @@ fi
 ###-end-npm-completion-###
 
 # Setup Starship ZSH prompt
-eval "$(starship init zsh)"
-fpath=($fpath "/home/olaolu/.zfunctions")
+# eval "$(starship init zsh)"
+# fpath=($fpath "/home/olaolu/.zfunctions")
 
 # The Fuck
 eval $(thefuck --alias fuck)
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
-# autoload -U promptinit; promptinit
-# prompt spaceship
-# fpath=($fpath "/home/olaolu/.zfunctions")
-
-export PATH="$PATH:$HOME/.spicetify"
+autoload -U promptinit; promptinit
+prompt spaceship
+fpath=($fpath "/home/olaolu/.zfunctions")
