@@ -1,1 +1,6 @@
-{}
+{
+  "git-forgit": "$HOME/.local/bin",
+  "forgit.plugin.zsh": "$HOME/.local/bin",
+  "git-fire": "$HOME/.local/bin",
+  "!": ["gh-extensions.txt"]
+}

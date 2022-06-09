@@ -46,7 +46,7 @@ async function getFolderContentsWithDestinations(folderName) {
     processDestinationString
   );
 
-  const filesToIgnore = destinationsObj[IGNORE_KEY] ?? [];
+  const filesToIgnore = determineFilesToExclude(destinationsObj, requiredFiles);
 
   const fileDestinationMap = requiredFiles.map(file => [
     file,
@@ -73,6 +73,20 @@ function processDestinationString(key, pathString) {
   return HOME_DIR_REGEX.test(pathString)
     ? pathString.replace(HOME_DIR_REGEX, HOME_DIR)
     : pathString;
+}
+
+function determineFilesToExclude(destinationsObj, allFilesInFolder) {
+  const filesToPotentiallyExclude = destinationsObj?.[IGNORE_KEY] ?? [];
+  if (Array.isArray(filesToPotentiallyExclude))
+    return filesToPotentiallyExclude;
+
+  const filesWithSetDestinations = allFilesInFolder.filter(
+    filename => !!destinationsObj?.[filename]
+  );
+  const filesToExclude = allFilesInFolder.filter(
+    filename => !filesWithSetDestinations.includes(filename)
+  );
+  return filesToExclude;
 }
 
 function generateFileDestination(filename, destinationsObj, homeDir) {

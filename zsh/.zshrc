@@ -10,6 +10,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="spaceship"
+
+# Spaceship theme config variables
+SPACESHIP_CHAR_SYMBOL_ROOT=">>"
+SPACESHIP_USER_SHOW="needed"
+SPACESHIP_VENV_SYMBOL="🐍 "
 SPACESHIP_TIME_SHOW="true"
 SPACESHIP_EXIT_CODE_PREFIX=""
 SPACESHIP_TIME_FORMAT="%T"
@@ -78,11 +83,11 @@ SPACESHIP_EXIT_CODE_SHOW="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# if [ -f "$HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh" ]; then
-#  source $HOME/customizations/dracula/dracula-zsh-syntax-highlighting/zsh-syntax-highlighting.sh
-# fi
+if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
+    source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
+fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node jsontools)
 
 #if [[ $TERM_PROGRAM != 'vscode' ]]; then
 #   ZSH_TMUX_AUTOSTART=true
@@ -147,7 +152,6 @@ if [ $(command -v quote) ]; then
 else
   echo "Quotes are currently not available\n"
 fi
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -254,6 +258,14 @@ eval $(thefuck --alias fuck)
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 prompt spaceship
 fpath=($fpath "/home/olaolu/.zfunctions")
+
+# For automatically activating and deactivating python virtual envs when changing dirs
+eval "$(direnv hook zsh)"
+fpath=($fpath "/home/olaolu/.zfunctions")
+
+# forgit https://github.com/wfxr/forgit
+# source "$FORGIT_INSTALL_DIR/forgit.plugin.zsh"

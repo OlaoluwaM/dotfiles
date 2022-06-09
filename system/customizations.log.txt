@@ -38,3 +38,5 @@
   - Create ~/.config/youtube-dl dir with `config` file
   - Edited /etc/pam.d/gdm-password and /etc/security/time.conf prevent logging in when it is time for me to head to the gym
   - Added cronjob to log me out a couple minutes before my workout time so I can prepare
+  - Ammended the permissions for the /etc/security dir. Gave myself rwx permissions with the setfacl cmd
+  - Created ~/.zsh-custom directory to house custom zsh add-ons

@@ -1,1 +1,4 @@
-{}
+{
+  "*": "~",
+  "catppuccin-zsh-syntax-highlighting.zsh": "~/.zsh-custom"
+}

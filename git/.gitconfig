@@ -36,6 +36,9 @@
   p = "push"
   listBranches = branch -l
   deleteBranch = branch -D
+  fga = forgit add
+  fgd = forgit diff
+  fgl = forgit log
 [credential]
   helper = cache
 [init]

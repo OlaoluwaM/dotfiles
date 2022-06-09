@@ -66,3 +66,16 @@
   - mypy, python static type checker, via pip
   - pylint, python linter, via pip (install compiled version https://github.com/python/mypy)
   - direnv, For automatically activating and deactivating python virtual envs when changing dirs
+  - Added some gh extensions
+    - ymmmtym/gh-gitignore, for auto-download of project gitignore files from thegithub/gitignore repo
+    - mislav/gh-branch, for interactively switching branches
+    - gennaro-tedesco/gh-f, for interactive git workflows
+    - gennaro-tedesco/gh-s, for searchin github repos interactively via the terminal
+    - chelnak/gh-changelog, for generating changelogs
+    - samcoe/gh-repo-explore, for exploring repos without installing them
+    - johnmanjiro13/gh-bump, for bumping repo tag versions
+    - mislav/gh-contrib, for rendering my contributions graph on the terminal
+    - lakuapik/gh-inspire, for some more inspiration
+    - QWYNG/gh-stashes, for interactive interface over git stashes
+    - yuler/gh-download, for downloading directory folders
+    - vilmibm/gh-oblique, for [oblique strategies](https://en.wikipedia.org/wiki/Oblique_Strategies)

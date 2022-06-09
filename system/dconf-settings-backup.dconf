@@ -1,0 +1,2248 @@
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/mutter/wayland/'
+saved-view='/org/gnome/mutter/wayland/'
+window-height=500
+window-is-maximized=true
+window-width=540
+
+[com/gexperts/Tilix]
+window-style='borderless'
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-transparency-percent=0
+dim-transparency-percent=0
+visible-name='Default'
+
+[com/github/wwmm/pulseeffects]
+blocklist-out=@as []
+last-used-input-preset='Presets'
+last-used-output-preset='Bettr'
+use-dark-theme=false
+window-height=1011
+window-width=1920
+
+[com/github/wwmm/pulseeffects/sinkinputs]
+plugins=['autogain', 'limiter', 'gate', 'multiband_gate', 'compressor', 'multiband_compressor', 'convolver', 'bass_enhancer', 'exciter', 'crystalizer', 'stereo_tools', 'reverb', 'equalizer', 'delay', 'deesser', 'crossfeed', 'loudness', 'maximizer', 'filter', 'pitch', 'rnnoise']
+
+[com/github/wwmm/pulseeffects/sinkinputs/autogain]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/bassenhancer]
+installed=true
+post-messages=true
+state=true
+
+[com/github/wwmm/pulseeffects/sinkinputs/compressor]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/convolver]
+installed=true
+post-messages=true
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/crossfeed]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/crystalizer]
+installed=true
+post-messages=true
+state=true
+
+[com/github/wwmm/pulseeffects/sinkinputs/deesser]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/delay]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/equalizer]
+installed=true
+post-messages=true
+state=true
+
+[com/github/wwmm/pulseeffects/sinkinputs/equalizer/rightchannel]
+band0-frequency=22.59
+band0-mode='RLC (BT)'
+band0-q=4.3600000000000003
+band0-slope='x1'
+band0-type='Bell'
+band1-frequency=28.440000000000001
+band1-mode='RLC (BT)'
+band1-q=4.3600000000000003
+band1-slope='x1'
+band1-type='Bell'
+band10-frequency=225.88999999999999
+band10-mode='RLC (BT)'
+band10-q=4.3600000000000003
+band10-slope='x1'
+band10-type='Bell'
+band11-frequency=284.38
+band11-mode='RLC (BT)'
+band11-q=4.3600000000000003
+band11-slope='x1'
+band11-type='Bell'
+band12-frequency=358.01999999999998
+band12-mode='RLC (BT)'
+band12-q=4.3600000000000003
+band12-slope='x1'
+band12-type='Bell'
+band13-frequency=450.72000000000003
+band13-mode='RLC (BT)'
+band13-q=4.3600000000000003
+band13-slope='x1'
+band13-type='Bell'
+band14-frequency=567.41999999999996
+band14-mode='RLC (BT)'
+band14-q=4.3600000000000003
+band14-slope='x1'
+band14-type='Bell'
+band15-frequency=714.34000000000003
+band15-mode='RLC (BT)'
+band15-q=4.3600000000000003
+band15-slope='x1'
+band15-type='Bell'
+band16-frequency=899.28999999999996
+band16-mode='RLC (BT)'
+band16-q=4.3600000000000003
+band16-slope='x1'
+band16-type='Bell'
+band17-frequency=1132.1500000000001
+band17-mode='RLC (BT)'
+band17-q=4.3600000000000003
+band17-slope='x1'
+band17-type='Bell'
+band18-frequency=1425.29
+band18-mode='RLC (BT)'
+band18-q=4.3600000000000003
+band18-slope='x1'
+band18-type='Bell'
+band19-frequency=1794.3299999999999
+band19-mode='RLC (BT)'
+band19-q=4.3600000000000003
+band19-slope='x1'
+band19-type='Bell'
+band2-frequency=35.799999999999997
+band2-mode='RLC (BT)'
+band2-q=4.3600000000000003
+band2-slope='x1'
+band2-type='Bell'
+band20-frequency=2258.9299999999998
+band20-mode='RLC (BT)'
+band20-q=4.3600000000000003
+band20-slope='x1'
+band20-type='Bell'
+band21-frequency=2843.8200000000002
+band21-mode='RLC (BT)'
+band21-q=4.3600000000000003
+band21-slope='x1'
+band21-type='Bell'
+band22-frequency=3580.1599999999999
+band22-mode='RLC (BT)'
+band22-q=4.3600000000000003
+band22-slope='x1'
+band22-type='Bell'
+band23-frequency=4507.1499999999996
+band23-mode='RLC (BT)'
+band23-q=4.3600000000000003
+band23-slope='x1'
+band23-type='Bell'
+band24-frequency=5674.1599999999999
+band24-mode='RLC (BT)'
+band24-q=4.3600000000000003
+band24-slope='x1'
+band24-type='Bell'
+band25-frequency=7143.3500000000004
+band25-mode='RLC (BT)'
+band25-q=4.3600000000000003
+band25-slope='x1'
+band25-type='Bell'
+band26-frequency=8992.9400000000005
+band26-mode='RLC (BT)'
+band26-q=4.3600000000000003
+band26-slope='x1'
+band26-type='Bell'
+band27-frequency=11321.450000000001
+band27-mode='RLC (BT)'
+band27-q=4.3600000000000003
+band27-slope='x1'
+band27-type='Bell'
+band28-frequency=14252.860000000001
+band28-mode='RLC (BT)'
+band28-q=4.3600000000000003
+band28-slope='x1'
+band28-type='Bell'
+band29-frequency=17943.279999999999
+band29-mode='RLC (BT)'
+band29-q=4.3600000000000003
+band29-slope='x1'
+band29-type='Bell'
+band3-frequency=45.07
+band3-mode='RLC (BT)'
+band3-q=4.3600000000000003
+band3-slope='x1'
+band3-type='Bell'
+band4-frequency=56.740000000000002
+band4-mode='RLC (BT)'
+band4-q=4.3600000000000003
+band4-slope='x1'
+band4-type='Bell'
+band5-frequency=71.430000000000007
+band5-mode='RLC (BT)'
+band5-q=4.3600000000000003
+band5-slope='x1'
+band5-type='Bell'
+band6-frequency=89.930000000000007
+band6-mode='RLC (BT)'
+band6-q=4.3600000000000003
+band6-slope='x1'
+band6-type='Bell'
+band7-frequency=113.20999999999999
+band7-mode='RLC (BT)'
+band7-q=4.3600000000000003
+band7-slope='x1'
+band7-type='Bell'
+band8-frequency=142.53
+band8-mode='RLC (BT)'
+band8-q=4.3600000000000003
+band8-slope='x1'
+band8-type='Bell'
+band9-frequency=179.43000000000001
+band9-mode='RLC (BT)'
+band9-q=4.3600000000000003
+band9-slope='x1'
+band9-type='Bell'
+
+[com/github/wwmm/pulseeffects/sinkinputs/exciter]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/filter]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/gate]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/limiter]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/loudness]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/maximizer]
+installed=true
+post-messages=true
+state=true
+
+[com/github/wwmm/pulseeffects/sinkinputs/multibandcompressor]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/multibandgate]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/pitch]
+installed=true
+post-messages=true
+state=true
+
+[com/github/wwmm/pulseeffects/sinkinputs/reverb]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/rnnoise]
+installed=true
+model-path='Standard RNNoise Model'
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sinkinputs/stereotools]
+installed=true
+post-messages=false
+state=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/compressor]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/deesser]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/equalizer]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/equalizer/rightchannel]
+band0-frequency=22.59
+band0-mode='RLC (BT)'
+band0-q=4.3600000000000003
+band0-slope='x1'
+band0-type='Bell'
+band1-frequency=28.440000000000001
+band1-mode='RLC (BT)'
+band1-q=4.3600000000000003
+band1-slope='x1'
+band1-type='Bell'
+band10-frequency=225.88999999999999
+band10-mode='RLC (BT)'
+band10-q=4.3600000000000003
+band10-slope='x1'
+band10-type='Bell'
+band11-frequency=284.38
+band11-mode='RLC (BT)'
+band11-q=4.3600000000000003
+band11-slope='x1'
+band11-type='Bell'
+band12-frequency=358.01999999999998
+band12-mode='RLC (BT)'
+band12-q=4.3600000000000003
+band12-slope='x1'
+band12-type='Bell'
+band13-frequency=450.72000000000003
+band13-mode='RLC (BT)'
+band13-q=4.3600000000000003
+band13-slope='x1'
+band13-type='Bell'
+band14-frequency=567.41999999999996
+band14-mode='RLC (BT)'
+band14-q=4.3600000000000003
+band14-slope='x1'
+band14-type='Bell'
+band15-frequency=714.34000000000003
+band15-mode='RLC (BT)'
+band15-q=4.3600000000000003
+band15-slope='x1'
+band15-type='Bell'
+band16-frequency=899.28999999999996
+band16-mode='RLC (BT)'
+band16-q=4.3600000000000003
+band16-slope='x1'
+band16-type='Bell'
+band17-frequency=1132.1500000000001
+band17-mode='RLC (BT)'
+band17-q=4.3600000000000003
+band17-slope='x1'
+band17-type='Bell'
+band18-frequency=1425.29
+band18-mode='RLC (BT)'
+band18-q=4.3600000000000003
+band18-slope='x1'
+band18-type='Bell'
+band19-frequency=1794.3299999999999
+band19-mode='RLC (BT)'
+band19-q=4.3600000000000003
+band19-slope='x1'
+band19-type='Bell'
+band2-frequency=35.799999999999997
+band2-mode='RLC (BT)'
+band2-q=4.3600000000000003
+band2-slope='x1'
+band2-type='Bell'
+band20-frequency=2258.9299999999998
+band20-mode='RLC (BT)'
+band20-q=4.3600000000000003
+band20-slope='x1'
+band20-type='Bell'
+band21-frequency=2843.8200000000002
+band21-mode='RLC (BT)'
+band21-q=4.3600000000000003
+band21-slope='x1'
+band21-type='Bell'
+band22-frequency=3580.1599999999999
+band22-mode='RLC (BT)'
+band22-q=4.3600000000000003
+band22-slope='x1'
+band22-type='Bell'
+band23-frequency=4507.1499999999996
+band23-mode='RLC (BT)'
+band23-q=4.3600000000000003
+band23-slope='x1'
+band23-type='Bell'
+band24-frequency=5674.1599999999999
+band24-mode='RLC (BT)'
+band24-q=4.3600000000000003
+band24-slope='x1'
+band24-type='Bell'
+band25-frequency=7143.3500000000004
+band25-mode='RLC (BT)'
+band25-q=4.3600000000000003
+band25-slope='x1'
+band25-type='Bell'
+band26-frequency=8992.9400000000005
+band26-mode='RLC (BT)'
+band26-q=4.3600000000000003
+band26-slope='x1'
+band26-type='Bell'
+band27-frequency=11321.450000000001
+band27-mode='RLC (BT)'
+band27-q=4.3600000000000003
+band27-slope='x1'
+band27-type='Bell'
+band28-frequency=14252.860000000001
+band28-mode='RLC (BT)'
+band28-q=4.3600000000000003
+band28-slope='x1'
+band28-type='Bell'
+band29-frequency=17943.279999999999
+band29-mode='RLC (BT)'
+band29-q=4.3600000000000003
+band29-slope='x1'
+band29-type='Bell'
+band3-frequency=45.07
+band3-mode='RLC (BT)'
+band3-q=4.3600000000000003
+band3-slope='x1'
+band3-type='Bell'
+band4-frequency=56.740000000000002
+band4-mode='RLC (BT)'
+band4-q=4.3600000000000003
+band4-slope='x1'
+band4-type='Bell'
+band5-frequency=71.430000000000007
+band5-mode='RLC (BT)'
+band5-q=4.3600000000000003
+band5-slope='x1'
+band5-type='Bell'
+band6-frequency=89.930000000000007
+band6-mode='RLC (BT)'
+band6-q=4.3600000000000003
+band6-slope='x1'
+band6-type='Bell'
+band7-frequency=113.20999999999999
+band7-mode='RLC (BT)'
+band7-q=4.3600000000000003
+band7-slope='x1'
+band7-type='Bell'
+band8-frequency=142.53
+band8-mode='RLC (BT)'
+band8-q=4.3600000000000003
+band8-slope='x1'
+band8-type='Bell'
+band9-frequency=179.43000000000001
+band9-mode='RLC (BT)'
+band9-q=4.3600000000000003
+band9-slope='x1'
+band9-type='Bell'
+
+[com/github/wwmm/pulseeffects/sourceoutputs/filter]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/gate]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/limiter]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/maximizer]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/multibandcompressor]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/multibandgate]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/pitch]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/reverb]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/rnnoise]
+installed=true
+model-path='Standard RNNoise Model'
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/stereotools]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/sourceoutputs/webrtc]
+installed=true
+post-messages=false
+
+[com/github/wwmm/pulseeffects/spectrum]
+color=[1.0, 1.0, 1.0, 1.0]
+color-axis-labels=[1.0, 1.0, 1.0, 1.0]
+gradient-color=[0.0, 0.0, 0.0, 1.0]
+
+[com/uploadedlobster/peek]
+interface-open-file-manager=true
+persist-window-geometry=(1007, 606, 500, 300)
+recording-capture-mouse=false
+recording-output-format='gif'
+
+[org/fedorahosted/background-logo-extension]
+logo-opacity=uint32 0
+
+[org/gnome/GPaste]
+close-on-select=false
+growing-lines=false
+history-name='history'
+images-support=true
+launch-ui='<Shift><Super>v'
+max-displayed-history-size=uint64 30
+max-history-size=uint64 115
+max-memory-usage=uint64 80
+max-text-item-size=uint64 1049438
+primary-to-history=false
+show-history='<Shift><Super>h'
+synchronize-clipboards=false
+track-changes=true
+track-extension-state=false
+trim-items=false
+
+[org/gnome/SoundRecorder]
+audio-profile='mp3'
+
+[org/gnome/Totem]
+active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'open-directory', 'media-player-keys', 'autoload-subtitles', 'apple-trailers']
+subtitle-encoding='UTF-8'
+subtitle-font='Overpass Medium 20'
+
+[org/gnome/baobab/ui]
+window-size=(960, 600)
+window-state=87168
+
+[org/gnome/boxes]
+first-run=false
+view='icon-view'
+window-maximized=true
+window-position=[45, 29]
+window-size=[768, 600]
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-position=(102, 102)
+word-size=64
+
+[org/gnome/calendar]
+active-view='week'
+window-maximized=true
+window-position=(0, 0)
+window-size=(1920, 1052)
+
+[org/gnome/cheese]
+burst-delay=1000
+camera='HP Wide Vision HD Camera: HP Wi'
+photo-x-resolution=640
+photo-y-resolution=480
+video-x-resolution=640
+video-y-resolution=480
+
+[org/gnome/clocks]
+alarms=@aa{sv} []
+timers=[{'duration': <1500>, 'name': <''>}, {'duration': <600>, 'name': <''>}, {'duration': <1020>, 'name': <''>}, {'duration': <900>, 'name': <''>}, {'duration': <3600>, 'name': <''>}, {'duration': <120>, 'name': <''>}, {'duration': <1800>, 'name': <''>}, {'duration': <180>, 'name': <''>}, {'duration': <300>, 'name': <''>}, {'duration': <1200>, 'name': <''>}]
+world-clocks=[{'location': <(uint32 2, <('Superior', 'KSUW', true, [(0.81488937574083198, -1.6073561226088571)], [(0.81543133538016122, -1.6075194505202588)])>)>}, {'location': <(uint32 2, <('Duluth', 'KDYT', true, [(0.81545175573240947, -1.6064592153595498)], [(0.81652214870936513, -1.6075630662982661)])>)>}]
+
+[org/gnome/clocks/state/window]
+panel-id='timer'
+size=(870, 690)
+state=87168
+
+[org/gnome/control-center]
+last-panel='applications'
+
+[org/gnome/deja-dup]
+backend='google'
+delete-after=90
+exclude-list=@as []
+include-list=['/home/olaolu/Downloads/isos', '/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers/tarball', '/home/olaolu/Documents/other-ebooks', '/home/olaolu/Documents/non-tech-docs', '/home/olaolu/Documents/letters-of-recommendation', '/home/olaolu/Documents/job-items', '/home/olaolu/Documents/invoices-and-statements', '/home/olaolu/Documents/dev-ebooks', '/home/olaolu/Documents/dev-documents', '/home/olaolu/Documents/certs', '/home/olaolu/AppImages', '/home/olaolu/sys-backups', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Music/audio-notes', '/home/olaolu/sticky-notes', '/home/olaolu/Desktop/olaolu_dev/design', '/home/olaolu/Documents/fitness-log', '/home/olaolu/Pictures/cute-funny-pics', '/home/olaolu/Pictures/useful-pics']
+last-backup='2022-05-19T05:59:17.008381Z'
+last-restore='2021-11-08T06:21:51.236895Z'
+last-run='2022-05-19T05:54:31.185546Z'
+nag-check='2022-04-14T04:49:51.673556Z'
+periodic=true
+periodic-period=7
+prompt-check='disabled'
+
+[org/gnome/deja-dup/google]
+folder='swag-top-backup-f35'
+
+[org/gnome/desktop/a11y/applications]
+screen-magnifier-enabled=false
+
+[org/gnome/desktop/a11y/magnifier]
+mag-factor=2.0
+mouse-tracking='proportional'
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/olaolu/Pictures/Wallpapers/images/girl-with-gas-mask.jpg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[org/gnome/desktop/calendar]
+show-weekdate=false
+
+[org/gnome/desktop/datetime]
+automatic-timezone=false
+
+[org/gnome/desktop/input-sources]
+current=uint32 0
+per-window=false
+sources=[('xkb', 'us')]
+xkb-options=['lv3:ralt_switch']
+
+[org/gnome/desktop/interface]
+clock-show-weekday=false
+cursor-size=24
+cursor-theme='capitaine-cursors'
+document-font-name='Overpass 12'
+enable-animations=true
+enable-hot-corners=false
+font-antialiasing='rgba'
+font-hinting='none'
+font-name='Overpass 12'
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Catppuccin'
+icon-theme='la-capitaine-icon-theme'
+monospace-font-name='Operator Mono 11'
+show-battery-percentage=true
+text-scaling-factor=1.0900000000000001
+toolbar-style='text'
+toolkit-accessibility=false
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-software', 'org-gnome-evolution-alarm-notify', 'gnome-power-panel', 'org-freedesktop-problems-applet', 'org-gnome-terminal', 'org-gnome-nautilus', 'spotify-spotify', 'google-chrome', 'telegram-desktop-telegram-desktop', 'bluemail-bluemail', 'org-gnome-gedit', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'gnome-network-panel', 'gnome-control-center', 'chrome-ejhkdoiecgkmdpomoahkdihbcldkgjci-default', 'notion-snap-notion-snap', 'org-gnome-shell-extensions-gsconnect-preferences', 'org-gnome-shell-extensions-gsconnect', 'figma-linux-figma-linux', 'pgadmin4', 'org-gnome-epiphany', 'org-telegram-desktop', 'bluemail', 'pomatez', 'chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-default', 'org-gnome-clocks', 'chrome-gdnbinofdfkefkedcingbhcljahpcfnn-default', 'chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-default', 'org-gnome-boxes', 'org-gnome-dejadup', 'ca-desrt-dconf-editor', 'gnome-datetime-panel', 'firefox', 'org-gnome-totem', 'io-github-seadve-kooha', 'chrome-jgeocpdicgmkeemopbanhokmhcgcflmi-default', 'chrome-cfammbeebmjdpoppachopcohfchgjapd-default', 'tabby', 'chrome-lgnggepjiihbfdbedefdhcffnmhcahbm-default', 'chrome-pjibgclleladliembfgfagdaldikeohf-default', 'com-calibre-ebook-calibre', 'mailspring', 'com-uploadedlobster-peek', 'org-fedoraproject-mediawriter']
+show-banners=true
+
+[org/gnome/desktop/notifications/application/bluemail-bluemail]
+application-id='bluemail_bluemail.desktop'
+details-in-lock-screen=false
+enable=true
+enable-sound-alerts=false
+
+[org/gnome/desktop/notifications/application/bluemail]
+application-id='bluemail.desktop'
+
+[org/gnome/desktop/notifications/application/ca-desrt-dconf-editor]
+application-id='ca.desrt.dconf-editor.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-cfammbeebmjdpoppachopcohfchgjapd-default]
+application-id='chrome-cfammbeebmjdpoppachopcohfchgjapd-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-ejhkdoiecgkmdpomoahkdihbcldkgjci-default]
+application-id='chrome-ejhkdoiecgkmdpomoahkdihbcldkgjci-Default.desktop'
+enable=true
+enable-sound-alerts=true
+force-expanded=true
+show-in-lock-screen=false
+
+[org/gnome/desktop/notifications/application/chrome-gdnbinofdfkefkedcingbhcljahpcfnn-default]
+application-id='chrome-gdnbinofdfkefkedcingbhcljahpcfnn-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-jgeocpdicgmkeemopbanhokmhcgcflmi-default]
+application-id='chrome-jgeocpdicgmkeemopbanhokmhcgcflmi-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-default]
+application-id='chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-default]
+application-id='chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-Default.desktop'
+
+[org/gnome/desktop/notifications/application/chrome-lgnggepjiihbfdbedefdhcffnmhcahbm-default]
+application-id='chrome-lgnggepjiihbfdbedefdhcffnmhcahbm-Default.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/chrome-pjibgclleladliembfgfagdaldikeohf-default]
+application-id='chrome-pjibgclleladliembfgfagdaldikeohf-Default.desktop'
+
+[org/gnome/desktop/notifications/application/com-calibre-ebook-calibre]
+application-id='com.calibre_ebook.calibre.desktop'
+
+[org/gnome/desktop/notifications/application/com-github-wwmm-pulseeffects]
+enable=false
+
+[org/gnome/desktop/notifications/application/com-uploadedlobster-peek]
+application-id='com.uploadedlobster.peek.desktop'
+
+[org/gnome/desktop/notifications/application/figma-linux-figma-linux]
+application-id='figma-linux_figma-linux.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-color-panel]
+enable=false
+enable-sound-alerts=false
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-datetime-panel]
+application-id='gnome-datetime-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+enable=true
+
+[org/gnome/desktop/notifications/application/io-github-seadve-kooha]
+application-id='io.github.seadve.Kooha.desktop'
+
+[org/gnome/desktop/notifications/application/io-snapcraft-sessionagent]
+enable=false
+
+[org/gnome/desktop/notifications/application/mailspring]
+application-id='Mailspring.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/notion-snap-notion-snap]
+application-id='notion-snap_notion-snap.desktop'
+
+[org/gnome/desktop/notifications/application/org-fedoraproject-mediawriter]
+application-id='org.fedoraproject.MediaWriter.desktop'
+
+[org/gnome/desktop/notifications/application/org-freedesktop-problems-applet]
+application-id='org.freedesktop.problems.applet.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-boxes]
+application-id='org.gnome.Boxes.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
+application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-clocks]
+application-id='org.gnome.clocks.desktop'
+enable=true
+
+[org/gnome/desktop/notifications/application/org-gnome-dejadup]
+application-id='org.gnome.DejaDup.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-epiphany]
+application-id='org.gnome.Epiphany.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify]
+application-id='org.gnome.Evolution-alarm-notify.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-extensions-desktop]
+application-id='org.gnome.Extensions.desktop.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-gedit]
+application-id='org.gnome.gedit.desktop'
+enable=true
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+enable=true
+
+[org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect-preferences]
+application-id='org.gnome.Shell.Extensions.GSConnect.Preferences.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-shell-extensions-gsconnect]
+application-id='org.gnome.Shell.Extensions.GSConnect.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-totem]
+application-id='org.gnome.Totem.desktop'
+
+[org/gnome/desktop/notifications/application/org-telegram-desktop]
+application-id='org.telegram.desktop.desktop'
+
+[org/gnome/desktop/notifications/application/pgadmin4]
+application-id='pgadmin4.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/pomatez]
+application-id='pomatez.desktop'
+
+[org/gnome/desktop/notifications/application/rhythmbox]
+enable=false
+
+[org/gnome/desktop/notifications/application/spotify-spotify]
+application-id='spotify_spotify.desktop'
+
+[org/gnome/desktop/notifications/application/tabby]
+application-id='tabby.desktop'
+
+[org/gnome/desktop/notifications/application/telegram-desktop-telegram-desktop]
+application-id='telegram-desktop_telegram-desktop.desktop'
+
+[org/gnome/desktop/peripherals/keyboard]
+numlock-state=true
+
+[org/gnome/desktop/peripherals/mouse]
+accel-profile='adaptive'
+
+[org/gnome/desktop/peripherals/touchpad]
+click-method='areas'
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/privacy]
+disable-microphone=false
+report-technical-problems=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+lock-delay=uint32 300
+lock-enabled=true
+picture-options='zoom'
+picture-uri='file:///home/olaolu/Pictures/Wallpapers/images/sexy-cyborg-samurai.png'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 720
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=true
+event-sounds=true
+theme-name='__custom'
+
+[org/gnome/desktop/wm/preferences]
+action-double-click-titlebar='lower'
+button-layout='close,maximize,minimize:icon'
+
+[org/gnome/eog/ui]
+sidebar=false
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/epiphany]
+default-search-engine='Google'
+homepage-url='app.daily.dev'
+
+[org/gnome/epiphany/reader]
+color-scheme='dark'
+
+[org/gnome/epiphany/state]
+download-dir='/home/olaolu/Documents'
+is-maximized=true
+window-position=(0, 0)
+window-size=(0, 0)
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-notion-486af5da11b1d7b984dd0eec94e15310e479449f/state]
+download-dir='/home/olaolu/Documents'
+is-maximized=true
+recent-encodings=['']
+window-position=(0, 0)
+window-size=(0, 0)
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-notion-486af5da11b1d7b984dd0eec94e15310e479449f/web]
+ask-on-download=false
+default-encoding='iso-8859-1'
+default-zoom-level=1.0
+enable-adblock=true
+enable-autosearch=true
+enable-itp=true
+enable-mouse-gestures=false
+enable-popups=false
+enable-safe-browsing=true
+enable-site-specific-quirks=true
+enable-spell-checking=true
+enable-user-css=false
+enable-user-js=false
+enable-webextensions=false
+enable-website-data-storage=true
+hardware-acceleration-policy='on-demand'
+language=['system']
+last-download-directory=''
+last-upload-directory=''
+min-font-size=0
+monospace-font='Monospace 12'
+remember-passwords=true
+sans-serif-font='Sans 12'
+serif-font='Serif 12'
+switch-to-new-tab=false
+use-gnome-fonts=true
+user-agent=''
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-notion-486af5da11b1d7b984dd0eec94e15310e479449f/webapp]
+show-navigation-buttons=true
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-ticktick-b52a902f16de160eb160597c9c3ff269051f0a3e/state]
+download-dir='/home/olaolu/Documents'
+is-maximized=true
+recent-encodings=['']
+window-position=(0, 0)
+window-size=(0, 0)
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-ticktick-b52a902f16de160eb160597c9c3ff269051f0a3e/web]
+ask-on-download=false
+default-encoding='iso-8859-1'
+default-zoom-level=1.0
+enable-adblock=true
+enable-autosearch=true
+enable-itp=true
+enable-mouse-gestures=false
+enable-popups=false
+enable-safe-browsing=true
+enable-site-specific-quirks=true
+enable-spell-checking=true
+enable-user-css=false
+enable-user-js=false
+enable-webextensions=false
+enable-website-data-storage=true
+hardware-acceleration-policy='on-demand'
+language=['system']
+last-download-directory=''
+last-upload-directory=''
+min-font-size=0
+monospace-font='Monospace 12'
+remember-passwords=true
+sans-serif-font='Sans 12'
+serif-font='Serif 12'
+switch-to-new-tab=false
+use-gnome-fonts=true
+user-agent=''
+
+[org/gnome/epiphany/web-apps/org.gnome.Epiphany.WebApp-ticktick-b52a902f16de160eb160597c9c3ff269051f0a3e/webapp]
+show-navigation-buttons=true
+
+[org/gnome/epiphany/web]
+default-zoom-level=1.0
+
+[org/gnome/evince]
+document-directory=@ms 'file:///home/olaolu/Documents/dev-ebooks'
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=true
+show-sidebar=true
+sidebar-page='links'
+sidebar-size=755
+sizing-mode='fit-page'
+window-ratio=(1.8071895424836601, 1.2398989898989898)
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/evolution-data-server/calendar]
+notify-window-height=165
+notify-window-paned-position=75
+notify-window-width=664
+notify-window-x=102
+notify-window-y=102
+reminders-past=['d99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220520T143000\n1653035400\n1653037200\n1653040800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220519T143000\n1652949000\n1652950800\n1652954400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220518T143000\n1652862600\n1652864400\n1652868000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220517T143000\n1652776200\n1652778000\n1652781600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220516T143000\n1652689800\n1652691600\n1652695200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220513T143000\n1652430600\n1652432400\n1652436000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220512T143000\n1652344200\n1652346000\n1652349600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220511T143000\n1652257800\n1652259600\n1652263200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220510T143000\n1652171400\n1652173200\n1652176800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220509T143000\n1652085000\n1652086800\n1652090400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220506T143000\n1651825800\n1651827600\n1651831200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220505T143000\n1651739400\n1651741200\n1651744800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220504T143000\n1651653000\n1651654800\n1651658400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220503T143000\n1651566600\n1651568400\n1651572000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220502T143000\n1651480200\n1651482000\n1651485600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220429T143000\n1651221000\n1651222800\n1651226400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220428T143000\n1651134600\n1651136400\n1651140000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220427T143000\n1651048200\n1651050000\n1651053600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220426T143000\n1650961800\n1650963600\n1650967200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220425T143000\n1650875400\n1650877200\n1650880800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220422T143000\n1650616200\n1650618000\n1650621600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n325f861a475c8b8a2621e2c22931b765dc3aee5c\t20220421T204500\n1650570000\n1650570300\n1650571200\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:325f861a475c8b8a2621e2c22931b765dc3aee5c\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220421T143000\n1650529800\n1650531600\n1650535200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220421T055630Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT30M\r\nACKNOWLEDGED:20220421T055630Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220420T143000\n1650443400\n1650445200\n1650448800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n23fe90a7453aa9c7527aa0678bf02512218d21f2\t20220419T204500\n1650397200\n1650397500\n1650398400\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:23fe90a7453aa9c7527aa0678bf02512218d21f2\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220419T143000\n1650357000\n1650358800\n1650362400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n23fe90a7453aa9c7527aa0678bf02512218d21f2\t20220418T204500\n1650310800\n1650311100\n1650312000\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:23fe90a7453aa9c7527aa0678bf02512218d21f2\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220418T143000\n1650270600\n1650272400\n1650276000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220416T204500\n1650138000\n1650138300\n1650139200\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220415T204500\n1650051600\n1650051900\n1650052800\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220415T143000\n1650011400\n1650013200\n1650016800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220414T204500\n1649965200\n1649965500\n1649966400\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220414T143000\n1649925000\n1649926800\n1649930400\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220413T204500\n1649878800\n1649879100\n1649880000\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220413T143000\n1649838600\n1649840400\n1649844000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220412T204500\n1649792400\n1649792700\n1649793600\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220412T143000\n1649752200\n1649754000\n1649757600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220411T204500\n1649706000\n1649706300\n1649707200\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220411T143000\n1649665800\n1649667600\n1649671200\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220410T204500\n1649619600\n1649619900\n1649620800\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220409T204500\n1649533200\n1649533500\n1649534400\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\n308497a70c376e2e117fcade4789dfa568af70f9\t20220408T204500\n1649446800\n1649447100\n1649448000\nBEGIN:VEVENT\r\nDTSTART;TZID=Africa/Lagos:20220128T204500\r\nDTEND;TZID=Africa/Lagos:20220128T210000\r\nRRULE:FREQ=DAILY\r\nDTSTAMP:20220128T095641Z\r\nUID:s583e2kbl7fsh0sn4dj9inngrv@google.com\r\nCREATED:20220110T174837Z\r\nDESCRIPTION:Take care of the kitchen\\nBrush teeth\\nPray last prayer\r\nLAST-MODIFIED:20220128T095641Z\r\nLOCATION:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bed prep\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63779047001\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT5M\r\nX-EVOLUTION-ALARM-UID:308497a70c376e2e117fcade4789dfa568af70f9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220408T143000\n1649406600\n1649408400\n1649412000\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220407T143000\n1649320200\n1649322000\n1649325600\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n', 'd99b2c86f7d5bcd5bc2da80f1660d6fe8909471a\nfa75c3e414131d71f638610333167f7ad148afc9\t20220405T143000\n1649147400\n1649149200\n1649152800\nBEGIN:VEVENT\r\nDTSTART;TZID=Asia/Kolkata:20220111T143000\r\nDTEND;TZID=Asia/Kolkata:20220111T153000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR\r\nDTSTAMP:20220316T054148Z\r\nORGANIZER;CN=supergt91@gmail.com:mailto:supergt91@gmail.com\r\nUID:5nlvsifo6g3l3kqcjsah67lub4_R20220111T090000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=bankolek1@gmail.com;X-NUM-GUESTS=0:mailto:bankolek1@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=khachatryandavit55@gmail.com;X-NUM-GUESTS=0:mailto:\r\n khachatryandavit55@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=demontagny@gmail.com;X-NUM-GUESTS=0:mailto:demontagny@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=seg.ghazarian@gmail.com;X-NUM-GUESTS=0:mailto:seg.ghazarian@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=shitikyan@gmail.com;X-NUM-GUESTS=0:mailto:shitikyan@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lotfi.zouad@gmail.com;X-NUM-GUESTS=0:mailto:lotfi.zouad@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=jomeemustapha@gmail.com;X-NUM-GUESTS=0:mailto:jomeemustapha@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alexandre.patry.etudes@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alexandre.patry.etudes@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=supergt91@gmail.com;X-NUM-GUESTS=0:mailto:supergt91@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=lindaokorie27@gmail.com;X-NUM-GUESTS=0:mailto:lindaokorie27@gmail.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/rty-uucb-tde\r\nCREATED:20220106T120938Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nDo not edit this section of the \r\n description.\\n\\nThis event has a video call.\\nJoin: https:\r\n //meet.google.com/rty-uucb-tde\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20220316T054148Z\r\nLOCATION:\r\nSEQUENCE:4\r\nSTATUS:CONFIRMED\r\nSUMMARY:YouMeme Daily Scrum\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63783092508\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:fa75c3e414131d71f638610333167f7ad148afc9\r\nEND:VALARM\r\nEND:VEVENT\r\n']
+
+[org/gnome/gedit/plugins]
+active-plugins=['spell', 'sort', 'snippets', 'quickhighlight', 'openlinks', 'modelines', 'filebrowser', 'docinfo']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/olaolu/Documents/dev-ebooks/design-patterns-en/design-patterns-book-code-examples/Ruby'
+
+[org/gnome/gedit/preferences/editor]
+editor-font='Cartograph CF Italic 12'
+highlight-current-line=true
+scheme='oblivion'
+use-default-font=true
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(960, 999)
+state=87168
+
+[org/gnome/gnome-screenshot]
+delay=0
+include-pointer=false
+last-save-directory='file:///home/olaolu/Pictures'
+
+[org/gnome/gnome-system-monitor]
+current-tab='processes'
+maximized=false
+mem-color='rgb(143,240,164)'
+net-in-color='rgb(38,162,105)'
+network-total-in-bits=false
+show-dependencies=false
+show-whose-processes='user'
+window-state=(700, 500, 102, 102)
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
+[org/gnome/gnome-system-monitor/memmapstree]
+sort-col=0
+sort-order=0
+
+[org/gnome/gnome-system-monitor/openfilestree]
+sort-col=0
+sort-order=0
+
+[org/gnome/gnome-system-monitor/proctree]
+columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+sort-col=8
+sort-order=0
+
+[org/gnome/gthumb/browser]
+browser-sidebar-width=285
+fullscreen-sidebar='hidden'
+fullscreen-thumbnails-visible=false
+maximized=false
+properties-visible=false
+sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
+sidebar-visible=true
+sort-inverse=false
+sort-type='file::mtime'
+startup-current-file='file:///home/olaolu/Pictures/dad-sig.png'
+startup-location='file:///home/olaolu/Pictures'
+statusbar-visible=true
+thumbnail-list-visible=true
+viewer-sidebar='tools'
+window-height=810
+window-width=1363
+
+[org/gnome/gthumb/crop]
+aspect-ratio='none'
+aspect-ratio-height=1
+aspect-ratio-invert=false
+aspect-ratio-width=1
+bind-dimensions=false
+bind-factor=8
+grid-type='thirds'
+
+[org/gnome/gthumb/data-migration]
+catalogs-2-10=true
+
+[org/gnome/gthumb/dialogs/save-file]
+show-options=true
+
+[org/gnome/gthumb/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'terminal', 'webalbums']
+
+[org/gnome/gthumb/pixbuf-savers/png]
+compression-level=6
+
+[org/gnome/gthumb/resize]
+aspect-ratio='image'
+aspect-ratio-height=49
+aspect-ratio-invert=true
+aspect-ratio-width=148
+height=89.795921325683594
+high-quality=true
+unit='percentage'
+width=89.730003356933594
+
+[org/gnome/login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
+[org/gnome/meld/window-state]
+height=271
+is-maximized=true
+width=1281
+
+[org/gnome/mutter]
+attach-modal-dialogs=true
+center-new-windows=true
+edge-tiling=true
+
+[org/gnome/nautilus/compression]
+default-compression-format='zip'
+
+[org/gnome/nautilus/icon-view]
+captions=['where', 'none', 'none']
+default-zoom-level='large'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+search-view='icon-view'
+show-image-thumbnails='local-only'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 508)
+maximized=true
+sidebar-width=309
+start-with-sidebar=true
+
+[org/gnome/nm-applet/eap/06fbc720-5da4-4b5c-b1c4-f81e81c5b71f]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/photos]
+window-maximized=true
+window-position=[26, 23]
+window-size=[960, 600]
+
+[org/gnome/rhythmbox]
+position=(102, 102)
+
+[org/gnome/rhythmbox/library]
+layout-filename='%tN - %tt'
+layout-path='%aa/%at'
+
+[org/gnome/rhythmbox/library/encoding]
+media-type='audio/x-vorbis'
+
+[org/gnome/rhythmbox/library/source]
+show-browser=true
+
+[org/gnome/rhythmbox/player]
+volume=1.0
+
+[org/gnome/rhythmbox/plugins]
+active-plugins=['rb', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'mmkeys', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'daap', 'cd-recorder', 'audioscrobbler', 'audiocd', 'artsearch', 'android']
+seen-plugins=['rb', 'webremote', 'soundcloud', 'replaygain', 'pythonconsole', 'notification', 'mtpdevice', 'mpris', 'magnatune', 'lyrics', 'listenbrainz', 'ipod', 'im-status', 'grilo', 'fmradio', 'dbus-media-server', 'daap', 'cd-recorder', 'audioscrobbler', 'artsearch']
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Libre.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/iradio]
+initial-stations-loaded=true
+
+[org/gnome/rhythmbox/plugins/iradio/source]
+show-browser=true
+
+[org/gnome/rhythmbox/podcast]
+download-location='file:///home/olaolu/Music'
+
+[org/gnome/rhythmbox/podcast/source]
+show-browser=true
+
+[org/gnome/rhythmbox/rhythmdb]
+locations=['file:///home/olaolu/Music']
+
+[org/gnome/rhythmbox/sources]
+visible-columns=['post-time', 'duration', 'track-number', 'album', 'genre', 'artist']
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-last-coordinates=(25.777899280057593, -80.194599999999994)
+night-light-schedule-automatic=false
+night-light-schedule-from=18.0
+night-light-schedule-to=7.0
+night-light-temperature=uint32 2401
+
+[org/gnome/settings-daemon/plugins/media-keys]
+control-center=['<Super>u']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+max-screencast-length=uint32 0
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Primary><Alt>t'
+command='gnome-terminal'
+name='Terminal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>semicolon'
+command='emoji-picker'
+name='Emoji Pickcer'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>c'
+command='code'
+name='VSCode'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Primary><Shift>g'
+command='pomatez'
+name='Pomo Timer'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
+binding=''
+command=''
+name=''
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='suspend'
+sleep-inactive-battery-timeout=1500
+
+[org/gnome/shell]
+app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'emoji-picker.desktop': <{'position': <1>}>, 'org.gnome.Software.desktop': <{'position': <2>}>, 'gnome-control-center.desktop': <{'position': <3>}>, 'org.gnome.gedit.desktop': <{'position': <4>}>, 'org.linux_hardware.hw-probe.desktop': <{'position': <5>}>, 'com.bitwarden.desktop.desktop': <{'position': <6>}>, 'polychromatic.desktop': <{'position': <7>}>, 'rest.insomnia.Insomnia.desktop': <{'position': <8>}>, 'org.gnome.Extensions.desktop': <{'position': <9>}>, 'org.gnome.Calendar.desktop': <{'position': <10>}>, 'protonvpn.desktop': <{'position': <11>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <12>}>, 'org.gnome.Calculator.desktop': <{'position': <13>}>, 'chrome-ponnimpneaklfhmikmlojhgdfaghipim-Default.desktop': <{'position': <14>}>, 'chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-Default.desktop': <{'position': <15>}>, 'gitkraken.desktop': <{'position': <16>}>, 'scrcpy_scrcpy.desktop': <{'position': <17>}>, 'virt-manager.desktop': <{'position': <18>}>, 'htop.desktop': <{'position': <19>}>, 'chrome-jgeocpdicgmkeemopbanhokmhcgcflmi-Default.desktop': <{'position': <20>}>, 'nvim.desktop': <{'position': <21>}>, 'io.github.seadve.Kooha.desktop': <{'position': <22>}>}, {'org.gnome.Maps.desktop': <{'position': <0>}>, 'libreoffice-calc.desktop': <{'position': <1>}>, 'simple-scan.desktop': <{'position': <2>}>, 'libreoffice-impress.desktop': <{'position': <3>}>, 'org.gnome.Contacts.desktop': <{'position': <4>}>, 'Utilities': <{'position': <5>}>, 'org.gnome.Connections.desktop': <{'position': <6>}>, 'yelp.desktop': <{'position': <7>}>, 'org.gnome.Chess.desktop': <{'position': <8>}>, 'chrome-niabdfecbekeoofldkgifpaeoceffabo-Default.desktop': <{'position': <9>}>, 'org.gnome.gThumb.desktop': <{'position': <10>}>, 'chrome-kjgfgldnnfoeklkmfkjfagphfepbbdan-Default.desktop': <{'position': <11>}>, 'org.gnome.Tour.desktop': <{'position': <12>}>, 'org.gnome.FontManager.desktop': <{'position': <13>}>, 'rhythmbox.desktop': <{'position': <14>}>, 'libreoffice-writer.desktop': <{'position': <15>}>, 'com.calibre_ebook.calibre.desktop': <{'position': <16>}>, 'org.gnome.Cheese.desktop': <{'position': <17>}>, 'org.gnome.Totem.desktop': <{'position': <18>}>, 'org.gnome.Boxes.desktop': <{'position': <19>}>, 'org.gnome.Weather.desktop': <{'position': <20>}>, 'org.gnome.Photos.desktop': <{'position': <21>}>, 'chrome-jfoaddeojkphohemoikaclkcaeheoogc-Default.desktop': <{'position': <22>}>, 'remote-viewer.desktop': <{'position': <23>}>}, {'org.kde.akregator.desktop': <{'position': <0>}>, 'org.kde.contactprintthemeeditor.desktop': <{'position': <1>}>, 'org.kde.contactthemeeditor.desktop': <{'position': <2>}>, 'org.kde.discover.desktop': <{'position': <3>}>, 'org.mageia.dnfdragora.desktop': <{'position': <4>}>, 'org.kde.dolphin.desktop': <{'position': <5>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <6>}>, 'firewall-config.desktop': <{'position': <7>}>, 'org.kde.gwenview.desktop': <{'position': <8>}>, 'org.kde.kaddressbook.desktop': <{'position': <9>}>, 'org.kde.kcalc.desktop': <{'position': <10>}>, 'org.kde.kcharselect.desktop': <{'position': <11>}>, 'org.kde.kcolorchooser.desktop': <{'position': <12>}>, 'org.kde.partitionmanager.desktop': <{'position': <13>}>, 'kdesystemsettings.desktop': <{'position': <14>}>, 'org.kde.kgpg.desktop': <{'position': <15>}>, 'org.kde.klipper.desktop': <{'position': <16>}>, 'org.kde.kmag.desktop': <{'position': <17>}>, 'org.kde.kmail2.desktop': <{'position': <18>}>, 'org.kde.headerthemeeditor.desktop': <{'position': <19>}>, 'org.kde.akonadiimportwizard.desktop': <{'position': <20>}>, 'org.kde.kmousetool.desktop': <{'position': <21>}>, 'org.pwmt.zathura.desktop': <{'position': <22>}>, 'org.telegram.desktop.desktop': <{'position': <23>}>}, {'org.kde.kmouth.desktop': <{'position': <0>}>, 'org.kde.konsole.desktop': <{'position': <1>}>, 'org.kde.kontact.desktop': <{'position': <2>}>, 'org.kde.korganizer.desktop': <{'position': <3>}>, 'org.kde.kruler.desktop': <{'position': <4>}>, 'org.kde.ktnef.desktop': <{'position': <5>}>, 'org.kde.kwalletmanager5.desktop': <{'position': <6>}>, 'org.kde.kwrite.desktop': <{'position': <7>}>, 'org.kde.okular.desktop': <{'position': <8>}>, 'org.kde.pimdataexporter.desktop': <{'position': <9>}>, 'qt5-qdbusviewer.desktop': <{'position': <10>}>, 'rxvt-unicode.desktop': <{'position': <11>}>, 'org.kde.sieveeditor.desktop': <{'position': <12>}>, 'org.kde.spectacle.desktop': <{'position': <13>}>, 'com.calibre_ebook.calibre.ebook-edit.desktop': <{'position': <14>}>, 'org.kde.plasma-systemmonitor.desktop': <{'position': <15>}>, 'tabby.desktop': <{'position': <16>}>, 'com.calibre_ebook.calibre.ebook-viewer.desktop': <{'position': <17>}>, 'com.calibre_ebook.calibre.lrfviewer.desktop': <{'position': <18>}>, 'org.gnome.Meld.desktop': <{'position': <19>}>, 'ch.protonmail.protonmail-bridge.desktop': <{'position': <20>}>, 'codes.merritt.FeelingFinder.desktop': <{'position': <21>}>, 'org.gnome.SoundRecorder.desktop': <{'position': <22>}>, 'ilos Screen Recorder.desktop': <{'position': <23>}>}, {'com.github.blackhole89.notekit.desktop': <{'position': <0>}>, 'org.gnome.Notes.desktop': <{'position': <1>}>, 'Uninstall ilos Screen Recorder.desktop': <{'position': <2>}>}]
+command-history=['refresh', 'r', 'gnome-session -p', 'gnome-session-p', 'restart', 'rt']
+disable-user-extensions=false
+disabled-extensions=['background-logo@fedorahosted.org', 'activities_icons@fawtytoo', 'hide-activities-button@nmingori.gnome-shell-extensions.org', 'toggle-night-light@cansozbir.github.io', 'gnometoggle@foreverxml.github.io', 'pixel-saver@deadalnix.me', 'gtktitlebar@velitasali.github.io', 'desktop-cube@schneegans.github.com', 'dock-from-dash@fthx', 'blur-me@nunchucks', 'improved-workspace-indicator@michaelaquilina.github.io', 'unite@hardpixel.eu', 'cpufreq@konkor', 'Resource_Monitor@Ory0n', 'compiz-windows-effect@hermes83.github.com']
+enabled-extensions=['clipboard-indicator@tudmotu.com', 'gnome-shell-screenshot@ttll.de', 'extension-list@tu.berry', 'simplenetspeed@biji.extension', 'netspeedsimplified@prateekmedia.extension', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'gsconnect@andyholmes.github.io', 'dim-on-battery@nailfarmer.nailfarmer.com', 'fullbattery@categulario.tk', 'bluetooth-battery@michalw.github.com', 'noannoyance@sindex.com', 'trayIconsReloaded@selfmade.pl', 'appMenuIcon@pratap.fastmail.fm', 'noannoyance@daase.net', 'unlockDialogBackground@sun.wxg@gmail.com', 'windowIsReady_Remover@nunofarruca@gmail.com', 'EasyScreenCast@iacopodeenosee.gmail.com', 'replaceActivitiesText@pratap.fastmail.fm', 'burn-my-windows@schneegans.github.com', 'dock-from-dash@fthx', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'runcat@kolesnikov.se', 'freon@UshakovVasilii_Github.yahoo.com', 'flypie@schneegans.github.com', 'just-perfection-desktop@just-perfection', 'panel-corners@aunetx', 'mediacontrols@cliffniff.github.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'code.desktop', 'org.gnome.Terminal.desktop', 'com.spotify.Client.desktop', 'firefox.desktop', 'google-chrome.desktop', 'gnome-system-monitor.desktop', 'chrome-cfammbeebmjdpoppachopcohfchgjapd-Default.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Screenshot.desktop', 'chrome-lgnggepjiihbfdbedefdhcffnmhcahbm-Default.desktop', 'chrome-ejhkdoiecgkmdpomoahkdihbcldkgjci-Default.desktop', 'com.discordapp.Discord.desktop', 'org.gnome.clocks.desktop', 'Mailspring.desktop']
+had-bluetooth-devices-setup=true
+welcome-dialog-last-shown-version='40.0'
+
+[org/gnome/shell/extensions/EasyScreenCast]
+area-screen=0
+delay-time=0
+device-webcam='/dev/video0'
+device-webcam-index=1
+file-container=2
+file-resolution-height=480
+file-resolution-width=640
+height-rec=1060
+input-audio-source=2
+pipeline='queue max-size-buffers=0 max-size-time=0 max-size-bytes=0 ! videorate ! vp8enc min_quantizer=0 max_quantizer=5 cpu-used=3 deadline=1000000 threads=%T ! queue max-size-buffers=0 max-size-time=0 max-size-bytes=0 ! mux. pulsesrc ! queue max-size-buffers=0 max-size-time=0 max-size-bytes=0 ! audioconvert ! vorbisenc ! queue max-size-buffers=0 max-size-time=0 max-size-bytes=0 ! mux. webmmux name=mux '
+quality-webcam=''
+show-area-rec=true
+width-rec=980
+x-pos=0
+y-pos=20
+
+[org/gnome/shell/extensions/bluetooth-quick-connect]
+bluetooth-auto-power-on=true
+refresh-button-on=true
+show-battery-value-on=true
+
+[org/gnome/shell/extensions/bluetooth_battery_indicator]
+devices=['{"_model":{},"name":"Galaxy Buds Pro (EF0C)","isConnected":false,"isPaired":false,"mac":"64:03:7F:EA:EF:0C","isDefault":false,"active":true}', '{"_model":{},"name":"Basilisk X HyperSpeed","isConnected":false,"isPaired":false,"mac":"CA:05:77:82:49:5C","isDefault":false}']
+
+[org/gnome/shell/extensions/blur-me]
+blur-applications=false
+blur-dash=true
+blur-overview=true
+blur-panel=true
+brightness=0.46999999999999997
+dash-opacity=0.11
+sigma=30
+
+[org/gnome/shell/extensions/blur-my-shell]
+appfolder-dialog-opacity=0.12
+brightness=0.65000000000000002
+dash-opacity=0.32000000000000001
+debug=false
+hidetopbar=false
+sigma=30
+
+[org/gnome/shell/extensions/burn-my-windows]
+close-animation='matrix'
+close-preview-effect=''
+destroy-dialogs=true
+fire-close-effect=false
+matrix-close-effect=true
+matrix-open-effect=false
+matrix-overshoot=0.19
+matrix-scale=16
+matrix-tip-color='rgb(217,224,238)'
+matrix-trail-color='rgb(171,233,179)'
+open-preview-effect=''
+
+[org/gnome/shell/extensions/clipboard-indicator]
+history-size=40
+move-item-first=true
+preview-size=45
+toggle-menu=['<Shift><Super>v']
+
+[org/gnome/shell/extensions/cpufreq]
+save-settings=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+apply-custom-theme=false
+background-color='rgb(48,45,65)'
+background-opacity=0.39000000000000001
+click-action='focus-minimize-or-previews'
+custom-background-color=true
+custom-theme-shrink=false
+customize-alphas=false
+dash-max-icon-size=40
+dock-position='BOTTOM'
+extend-height=false
+force-straight-corner=true
+height-fraction=0.80000000000000004
+icon-size-fixed=false
+intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+max-alpha=0.48999999999999999
+min-alpha=0.46999999999999997
+running-indicator-style='DEFAULT'
+scroll-action='cycle-windows'
+show-mounts=false
+show-trash=false
+transparency-mode='FIXED'
+
+[org/gnome/shell/extensions/dim-on-battery]
+ac-brightness=15.0
+battery-brightness=30.0
+legacy-mode=true
+percentage-dim=11.0
+
+[org/gnome/shell/extensions/extension-list]
+hide-disabled=false
+unpin-button=false
+url-button=false
+
+[org/gnome/shell/extensions/flypie]
+active-stack-child='menu-editor-page'
+child-color-mode-hover='auto'
+font='Operator Mono 11'
+menu-configuration='[{"name":"Example Menu","icon":"0ad","shortcut":"<Primary>space","centered":true,"id":0,"children":[{"name":"Fly-Pie Settings","icon":"⚙️","type":"Command","data":"gnome-extensions prefs flypie@schneegans.github.com","angle":-1},{"name":"Next Workspace","icon":"flypie-go-right-symbolic-#6b5","type":"Shortcut","data":{"shortcut":"<Control><Alt>Right"},"angle":-1},{"name":"Quick Apps Essentials","icon":"56B4_Battle.net_Launcher.0","type":"CustomMenu","children":[{"name":"Files","icon":"org.gnome.Nautilus","type":"Command","data":{"command":"nautilus --new-window %U"},"angle":-1},{"name":"Firefox","icon":"firefox","type":"Command","data":{"command":"firefox %u"},"angle":-1},{"name":"Terminal","icon":"org.gnome.Terminal","type":"Command","data":{"command":"gnome-terminal"},"angle":-1},{"name":"TickTick","icon":"chrome-cfammbeebmjdpoppachopcohfchgjapd-Default","type":"Command","data":{"command":"/opt/google/chrome/google-chrome --profile-directory=Default --app-id=cfammbeebmjdpoppachopcohfchgjapd"},"angle":-1},{"name":"Sound Recorder","icon":"org.gnome.SoundRecorder","type":"Command","data":{"command":"gnome-sound-recorder"},"angle":-1},{"name":"Spotify","icon":"com.spotify.Client","type":"Command","data":{"command":"/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client @@u %U @@"},"angle":-1},{"name":"System Monitor","icon":"org.gnome.SystemMonitor","type":"Command","data":{"command":"gnome-system-monitor"},"angle":-1}],"angle":-1,"data":{}},{"name":"System","icon":"flypie-menu-system-symbolic-#69b","type":"System","angle":-1},{"name":"Previous Workspace","icon":"flypie-go-left-symbolic-#6b5","type":"Shortcut","data":{"shortcut":"<Control><Alt>Left"},"angle":-1}],"type":"CustomMenu","data":{},"touchButton":false,"superRMB":true}]'
+stashed-items='[{"name":"Favorites","icon":"flypie-menu-favorites-symbolic-#da3","type":"Favorites","data":{},"angle":-1},{"name":"Maximize Window","icon":"flypie-window-maximize-symbolic-#b68","type":"Shortcut","data":"<Alt>F10","angle":-1},{"name":"Google Chrome","icon":"google-chrome","type":"Command","data":{"command":"/usr/bin/google-chrome-stable %U"},"angle":-1},{"name":"Excalidraw","icon":"chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-Default","type":"Command","data":{"command":"/opt/google/chrome/google-chrome --profile-directory=Default --app-id=kmcnjdcipmgchfndpapkoecbidofdpbc"},"angle":-1},{"name":"Bitwarden","icon":"com.bitwarden.desktop","type":"Command","data":{"command":"/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bitwarden --file-forwarding com.bitwarden.desktop @@u %U @@"},"angle":-1}]'
+stats-abortions=uint32 52
+stats-achievement-dates={'bigmenus0': int64 1641198838191, 'bigmenus1': 1641199223242, 'master0': 1641961503956, 'depth1-gesture-selector0': 1641986304159, 'journey0': 1641986305032, 'depth2-click-selector0': 1642409951475, 'cancellor0': 1642500828387, 'depth1-gesture-selector1': 1645189257027, 'master1': 1645951072151, 'depth1-selector0': 1647764523786, 'journey1': 1650115094583, 'depth1-gesture-selector2': 1650537013915}
+stats-added-items=uint32 26
+stats-best-tutorial-time=uint32 1714
+stats-click-selections-depth1=uint32 19
+stats-click-selections-depth2=uint32 41
+stats-click-selections-depth3=uint32 14
+stats-dbus-menus=uint32 20
+stats-gesture-selections-depth1=uint32 242
+stats-gesture-selections-depth2=uint32 5
+stats-gesture-selections-depth3=uint32 2
+stats-last-tutorial-time=uint32 2060
+stats-preview-menus=uint32 1
+stats-selections=uint32 323
+stats-selections-1000ms-depth1=uint32 147
+stats-selections-2000ms-depth2=uint32 9
+stats-selections-2000ms-depth3=uint32 1
+stats-selections-250ms-depth1=uint32 7
+stats-selections-3000ms-depth3=uint32 7
+stats-selections-500ms-depth1=uint32 54
+stats-selections-750ms-depth1=uint32 99
+stats-settings-opened=uint32 16
+stats-tutorial-menus=uint32 20
+stats-unread-achievements=uint32 12
+touch-button-positions=@aah []
+
+[org/gnome/shell/extensions/freon]
+group-temperature=true
+hot-sensors=['__average__', '__max__', 'HGST HTS721010A9E630']
+show-degrees-on-panel=false
+show-fan-rpm=false
+show-icon-on-panel=false
+
+[org/gnome/shell/extensions/gsconnect]
+debug=false
+devices=['5cd1a4cb072f8016']
+enabled=true
+id='b558ce28-6629-4783-aa81-ca8681a20bac'
+name='swag-top'
+
+[org/gnome/shell/extensions/gsconnect/device/229afbbe5c62ca8b]
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.battery.request', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report.request', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.photo.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+last-connection='lan://192.168.100.15:1716'
+name='SM-A205U'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.battery.request', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.photo', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
+paired=false
+supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'photo', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
+type='phone'
+
+[org/gnome/shell/extensions/gsconnect/device/229afbbe5c62ca8b/plugin/battery]
+custom-battery-notification-value=uint32 80
+
+[org/gnome/shell/extensions/gsconnect/device/229afbbe5c62ca8b/plugin/notification]
+applications='{"Printers":{"iconName":"printer","enabled":true},"Telegram Desktop":{"iconName":"org.telegram.desktop","enabled":true},"PulseEffects":{"iconName":"pulseeffects","enabled":true},"Snapd User Session Agent":{"iconName":"application-x-executable","enabled":true},"Software":{"iconName":"org.gnome.Software","enabled":true},"Date & Time":{"iconName":"preferences-system-time","enabled":true},"Disk Usage Analyzer":{"iconName":"org.gnome.baobab","enabled":true},"Power":{"iconName":"gnome-power-manager","enabled":true},"Color":{"iconName":"preferences-color","enabled":true},"Rhythmbox":{"iconName":"org.gnome.Rhythmbox","enabled":true},"Spotify":{"iconName":"com.spotify.Client","enabled":true},"Files":{"iconName":"org.gnome.Nautilus","enabled":true},"Clocks":{"iconName":"org.gnome.clocks","enabled":true},"Problem Reporting":{"iconName":"abrt","enabled":true}}'
+
+[org/gnome/shell/extensions/gsconnect/device/229afbbe5c62ca8b/plugin/share]
+receive-directory='/home/olaolu/Downloads'
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016]
+certificate-pem='-----BEGIN CERTIFICATE-----\nMIIC9zCCAd+gAwIBAgIBATANBgkqhkiG9w0BAQsFADA/MRkwFwYDVQQDDBA1Y2Qx\nYTRjYjA3MmY4MDE2MRQwEgYDVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RF\nMB4XDTIwMDgxMjIzMDAwMFoXDTMwMDgxMjIzMDAwMFowPzEZMBcGA1UEAwwQNWNk\nMWE0Y2IwNzJmODAxNjEUMBIGA1UECwwLS0RFIENvbm5lY3QxDDAKBgNVBAoMA0tE\nRTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANhy6a5VqYknwA6/h7+c\ny1dSmpTyob3DdVgi+EXCzMdUluJMLmJLDhOJszFMb2B/KbcNw5q/e3owNjSLVyCo\ngycYm1wN607FnUMnOeC7uTR8+ZSTEC/UDXkDwHMwnlmChHz5J7XPrZCJrpr+0Mou\nQqYxQR8fcyVIDmkK4rkpcewb5IQdBfda3LO9kElQpYIQLxtVQRfe+S3Rh1XJSHQn\nI8cg8YlF6m1nsuII4APqwWTosaI/ybelxVh3ef6DodC1+a/yXlei3QtQT/CwLnFn\nRUoaUgf7Qs/PvFijHrLyG4t908UiUrLYpzTbS2GR2RYbzGafM2c9SGLGH+ZUp/GD\nL8cCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAD7iI8UuaG9PS3uUxIf7XE/aR5QH1\nUo2FK+CskQ993Fi6u/bEN1aGy6kroKXF6mk1RRkQd1z+raNwFh1Zb0NkQgkT2JRX\nJPGwl5WIjo4FndGbAQ0c0ojrdWLLRAKEDcX2eAlPfw1C641xnYUx3tLxurcxfpF6\nABAF7mN+rtAq9kD79hUOnfUZI9XBvf5wbVszVKHqZj+9mv+koFryKN5vISnQsJNg\nxZhxlJy+LJ9Xs6x7OdB9MrkIDebtqRnzbH8U7W8CCywBePuNjr2WOmxZh08ZcnM+\nahW5QlbJmubQFbHjD0hE5mdMC42ONEqpydelPaDtzu0yTYDZuONxSnZ6rw==\n-----END CERTIFICATE-----\n'
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.battery.request', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report.request', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.photo.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+last-connection='lan://192.168.100.8:1716'
+name='Galaxy S8'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.battery.request', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.photo', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
+paired=true
+supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'photo', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
+type='phone'
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016/plugin/battery]
+custom-battery-notification-value=uint32 80
+full-battery-notification=true
+send-statistics=true
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016/plugin/clipboard]
+receive-content=true
+send-content=true
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016/plugin/notification]
+applications='{"Printers":{"iconName":"printer","enabled":true},"PulseEffects":{"iconName":"pulseeffects","enabled":true},"Snapd User Session Agent":{"iconName":"application-x-executable","enabled":true},"Software":{"iconName":"org.gnome.Software","enabled":true},"Date & Time":{"iconName":"preferences-system-time","enabled":true},"Disk Usage Analyzer":{"iconName":"org.gnome.baobab","enabled":true},"Power":{"iconName":"gnome-power-manager","enabled":true},"Color":{"iconName":"preferences-color","enabled":true},"Rhythmbox":{"iconName":"org.gnome.Rhythmbox","enabled":true},"Files":{"iconName":"org.gnome.Nautilus","enabled":true},"Clocks":{"iconName":"org.gnome.clocks","enabled":true},"Problem Reporting":{"iconName":"abrt","enabled":true},"BlueMail":{"iconName":"","enabled":true},"Evolution Alarm Notify":{"iconName":"system-run-symbolic","enabled":true},"Spotify":{"iconName":"","enabled":true},"notify-send":{"iconName":"","enabled":true},"pomatez":{"iconName":"","enabled":true},"GNOME Shell integration":{"iconName":"org.gnome.ChromeGnomeShell","enabled":true},"notion-snap":{"iconName":"","enabled":true},"Telegram Desktop":{"iconName":"org.telegram.desktop","enabled":true},"discord":{"iconName":"","enabled":true},"ticktick-nativefier-7be916":{"iconName":"","enabled":true},"Boxes":{"iconName":"org.gnome.Boxes","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"dconf Editor":{"iconName":"ca.desrt.dconf-editor","enabled":true},"Date & Time Settings":{"iconName":"preferences-system-time-symbolic","enabled":true},"Firefox":{"iconName":"","enabled":true},"tabby":{"iconName":"","enabled":true},"calibre":{"iconName":"system-run-symbolic","enabled":true},"Mailspring":{"iconName":"","enabled":true},"Kooha":{"iconName":"io.github.seadve.Kooha","enabled":true},"Peek":{"iconName":"com.uploadedlobster.peek","enabled":true}}'
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016/plugin/share]
+receive-directory='/home/olaolu/Downloads'
+
+[org/gnome/shell/extensions/gsconnect/device/5cd1a4cb072f8016/plugin/telephony]
+ringing-pause=true
+ringing-volume='lower'
+
+[org/gnome/shell/extensions/gsconnect/messaging]
+window-maximized=false
+window-size=(640, 480)
+
+[org/gnome/shell/extensions/gsconnect/preferences]
+window-maximized=false
+window-size=(986, 470)
+
+[org/gnome/shell/extensions/gtktitlebar]
+hide-window-titlebars='maximized'
+restrict-to-primary-screen=false
+
+[org/gnome/shell/extensions/just-perfection]
+accessibility-menu=false
+activities-button=true
+activities-button-icon-monochrome=true
+activities-button-icon-path=''
+activities-button-label=true
+aggregate-menu=true
+app-menu=true
+app-menu-icon=true
+clock-menu-position=0
+dash=true
+dash-icon-size=0
+hot-corner=false
+notification-banner-position=1
+panel=true
+panel-corner-size=0
+panel-notification-icon=true
+panel-size=0
+show-apps-button=false
+theme=false
+top-panel-position=0
+window-demands-attention-focus=false
+window-picker-icon=true
+workspace-switcher-size=0
+
+[org/gnome/shell/extensions/mediacontrols]
+colored-player-icon=true
+extension-index=3
+extension-position='left'
+hide-control-icons=true
+hide-controls=true
+hide-seperators=true
+hide-track-name=false
+max-display-length=40
+max-text-length=40
+mouse-actions=['toggle_play', 'toggle_menu', 'none', 'none', 'none', 'none', 'none', 'none']
+seperator-chars=['|', '|']
+track-label=['track', '-', 'none']
+update-delay=500
+
+[org/gnome/shell/extensions/netspeedsimplified]
+chooseiconset=0
+customfont='Overpass Medium'
+dscolor='rgb(171,233,179)'
+fontmode=3
+iconstoright=true
+isvertical=false
+limitunit=4
+lockmouseactions=false
+minwidth=3.0
+mode=3
+restartextension=false
+shortenunits=false
+systemcolr=false
+togglebool=false
+uscolor='rgb(242,143,173)'
+wpos=0
+
+[org/gnome/shell/extensions/replaceActivitiesText]
+icon-path=''
+icon-size=1.0
+right-click=true
+text='Eh, Why Not?'
+
+[org/gnome/shell/extensions/runcat]
+sleeping-threshold=10
+
+[org/gnome/shell/extensions/screenshot]
+click-action='show-menu'
+clipboard-action='none'
+copy-button-action='set-image-data'
+effect-rescale=100
+
+[org/gnome/shell/extensions/simplenetspeed]
+mode=1
+
+[org/gnome/shell/extensions/trayIconsReloaded]
+icon-margin-horizontal=3
+icon-padding-horizontal=4
+icon-saturation=0
+icon-size=16
+tray-margin-left=6
+
+[org/gnome/shell/extensions/unite]
+autofocus-windows=true
+enable-titlebar-actions=true
+extend-left-box=false
+greyscale-tray-icons=false
+hide-activities-button='never'
+hide-dropdown-arrows=true
+hide-window-titlebars='always'
+notifications-position='center'
+reduce-panel-spacing=false
+show-desktop-name=false
+show-legacy-tray=true
+show-window-buttons='maximized'
+show-window-title='never'
+window-buttons-placement='left'
+window-buttons-theme='osx-arc'
+
+[org/gnome/shell/extensions/unlock-dialog-background]
+picture-uri='/home/olaolu/Pictures/Wallpapers/images/sexy-cyborg-samurai.png'
+switch=true
+
+[org/gnome/shell/extensions/user-theme]
+name='Catppuccin'
+
+[org/gnome/shell/extensions/window-list]
+display-all-workspaces=true
+grouping-mode='never'
+show-on-all-monitors=true
+
+[org/gnome/shell/weather]
+automatic-location=true
+locations=@av []
+
+[org/gnome/shell/world-clocks]
+locations=[<(uint32 2, <('Superior', 'KSUW', true, [(0.81488937574083198, -1.6073561226088571)], [(0.81543133538016122, -1.6075194505202588)])>)>, <(uint32 2, <('Duluth', 'KDYT', true, [(0.81545175573240947, -1.6064592153595498)], [(0.81652214870936513, -1.6075630662982661)])>)>]
+
+[org/gnome/software]
+check-timestamp=int64 1653196569
+first-run=false
+install-timestamp=int64 1648734492
+online-updates-timestamp=int64 1653114182
+security-timestamp=int64 0
+show-nonfree-prompt=false
+update-notification-timestamp=int64 1653114182
+upgrade-notification-timestamp=int64 1652908680
+
+[org/gnome/system/location]
+enabled=true
+
+[org/gnome/terminal/legacy]
+menu-accelerator-enabled=true
+mnemonics-enabled=false
+new-terminal-mode='tab'
+theme-variant='dark'
+
+[org/gnome/terminal/legacy/keybindings]
+close-tab='<Primary>w'
+close-window='<Primary><Shift>w'
+new-tab='<Primary>t'
+set-terminal-title='<Primary><Alt>r'
+
+[org/gnome/terminal/legacy/profiles:]
+default='a093c1b6-32a0-491d-8908-0770447b422a'
+list=['64649cea-f15b-4571-88f9-1d455ed59ea4', 'fc454d87-8e6a-4d51-b426-dbeb7bc76022', '964ef580-763c-46e6-b395-00660055ef54', '33565d92-c435-4c32-a7de-5348c583dbc9', '8e3f8481-ce56-4984-afb5-e4a8f2d3a834', '83b0796d-946f-43f5-ad86-bb2e31376122', 'e64ae387-c09e-40c2-b309-b11b39a65e4d', '1b41f2c1-0394-4d98-9b6b-652a46d82218', '5828d4cc-b9cb-4b8f-ad42-c0628bf8e3b2', 'cb84e9ad-9d98-4f6f-b7a4-4f957f3930fe', '016a1a17-f158-408a-96ad-d28e3ffdd6c6', '1974fcd1-8dc6-40c4-8448-4b99b4f24a51', 'fe1941cb-ee8e-42eb-8d55-b2b58ae0ccd8', '4819ade8-118d-4aed-83d2-def43c51f043', 'ac927463-6bed-4cfd-91d5-26b1df980b03', 'cbba051d-7cb5-48a9-8923-26420ca2e4e7', '02603c00-9f1e-4c6c-8892-157253405cb1', '020e95f3-70fe-4f02-b9a5-c6196a95c18d', 'd25614d3-7c2a-40f6-8c7c-9ed9c01ca3b2', '17b850b0-12b3-4e67-9a8e-545e10495490', '2b415585-adae-424c-b874-c52e30966578', 'c1131ca8-823b-437e-b46d-674543a5ef99', '021802c6-ef24-4f5d-beeb-ca7a8234bac4', '80cb30f1-3e0e-4b39-8a72-bcb1d07b46b7', 'ca5244bb-a738-435d-afc9-66bf84df38b1', 'a093c1b6-32a0-491d-8908-0770447b422a']
+
+[org/gnome/terminal/legacy/profiles:/:016a1a17-f158-408a-96ad-d28e3ffdd6c6]
+allow-bold=true
+background-color='#27272a2a3434'
+bold-color='#FFFFFFFFFFFF'
+bold-color-same-as-fg=true
+cursor-background-color='#FFFFFFFFFFFF'
+cursor-colors-set=true
+cursor-foreground-color='#27272a2a3434'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#FFFFFFFFFFFF'
+palette=['#1F1F22222929', '#D4D419191919', '#5E5EBDBDABAB', '#FEFEA4A44C4C', '#36367b7bf0f0', '#BFBF2E2E5D5D', '#4949AEAEE6E6', '#E6E6E6E6E6E6', '#8C8C4242ABAB', '#ECEC01010101', '#4747D4D4B9B9', '#FFFF8A8A1818', '#27277F7FFFFF', '#D7D716165555', '#0505A1A1F7F7', '#FFFFFFFFFFFF']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Flat Remix'
+
+[org/gnome/terminal/legacy/profiles:/:020e95f3-70fe-4f02-b9a5-c6196a95c18d]
+allow-bold=true
+background-color='#2E2E34344040'
+bold-color='#D8D8DEDEE9E9'
+bold-color-same-as-fg=true
+cursor-background-color='#D8D8DEDEE9E9'
+cursor-colors-set=true
+cursor-foreground-color='#2E2E34344040'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#D8D8DEDEE9E9'
+palette=['#3B3B42425252', '#BFBF61616A6A', '#A3A3BEBE8C8C', '#EBEBCBCB8B8B', '#8181A1A1C1C1', '#B4B48E8EADAD', '#8888C0C0D0D0', '#E5E5E9E9F0F0', '#4C4C56566A6A', '#BFBF61616A6A', '#A3A3BEBE8C8C', '#EBEBCBCB8B8B', '#8181A1A1C1C1', '#B4B48E8EADAD', '#8F8FBCBCBBBB', '#ECECEFEFF4F4']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Nord'
+
+[org/gnome/terminal/legacy/profiles:/:021802c6-ef24-4f5d-beeb-ca7a8234bac4]
+allow-bold=true
+background-color='#1a1a1b1b2626'
+bold-color='#c0c0cacaf5f5'
+bold-color-same-as-fg=true
+cursor-background-color='#c0c0cacaf5f5'
+cursor-colors-set=true
+cursor-foreground-color='#1a1a1b1b2626'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#c0c0cacaf5f5'
+palette=['#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#a9a9b1b1d6d6', '#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#c0c0cacaf5f5']
+title='Swag'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Tokyo Night'
+
+[org/gnome/terminal/legacy/profiles:/:02603c00-9f1e-4c6c-8892-157253405cb1]
+allow-bold=true
+background-color='#202024242d2d'
+bold-color='#C7C7C8C8FFFF'
+bold-color-same-as-fg=true
+cursor-background-color='#C7C7C8C8FFFF'
+cursor-colors-set=true
+cursor-foreground-color='#202024242d2d'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#C7C7C8C8FFFF'
+palette=['#202024242d2d', '#FFFF8E8E8E8E', '#7E7EFDFDD0D0', '#FCFCADAD3F3F', '#6969B4B4F9F9', '#DDDD9292F6F6', '#8C8CE8E8ffff', '#C9C9CCCCCDCD', '#202024242d2d', '#FFFF8E8E8E8E', '#7E7EFDFDD0D0', '#FCFCADAD3F3F', '#6969B4B4F9F9', '#DDDD9292F6F6', '#8C8CE8E8ffff', '#C9C9CCCCCDCD']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='neon-night'
+
+[org/gnome/terminal/legacy/profiles:/:17b850b0-12b3-4e67-9a8e-545e10495490]
+allow-bold=true
+background-color='#1E1E21212727'
+bold-color='#5C5C63637070'
+bold-color-same-as-fg=true
+cursor-background-color='#5C5C63637070'
+cursor-colors-set=true
+cursor-foreground-color='#1E1E21212727'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#5C5C63637070'
+palette=['#000000000000', '#E0E06C6C7575', '#9898C3C37979', '#D1D19A9A6666', '#6161AFAFEFEF', '#C6C67878DDDD', '#5656B6B6C2C2', '#ABABB2B2BFBF', '#5C5C63637070', '#E0E06C6C7575', '#9898C3C37979', '#D1D19A9A6666', '#6161AFAFEFEF', '#C6C67878DDDD', '#5656B6B6C2C2', '#FFFFFEFEFEFE']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='One Dark'
+
+[org/gnome/terminal/legacy/profiles:/:1974fcd1-8dc6-40c4-8448-4b99b4f24a51]
+allow-bold=true
+background-color='#25252e2e3232'
+bold-color='#9494a3a3a5a5'
+bold-color-same-as-fg=true
+cursor-background-color='#838394949696'
+cursor-colors-set=true
+cursor-foreground-color='#25252e2e3232'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#9494a3a3a5a5'
+palette=['#070736364242', '#dcdc32322f2f', '#858599990000', '#b5b589890000', '#26268b8bd2d2', '#ecec00004848', '#2a2aa1a19898', '#9494a3a3a5a5', '#58586e6e7575', '#cbcb4b4b1616', '#858599990000', '#b5b589890000', '#26268b8bd2d2', '#d3d336368282', '#2a2aa1a19898', '#6c6c7171c4c4']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Freya'
+
+[org/gnome/terminal/legacy/profiles:/:1b41f2c1-0394-4d98-9b6b-652a46d82218]
+allow-bold=true
+background-color='#5A5A54547575'
+bold-color='#C2C2FFFFDFDF'
+bold-color-same-as-fg=true
+cursor-background-color='#FFFFB8B8D1D1'
+cursor-colors-set=true
+cursor-foreground-color='#5A5A54547575'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#C2C2FFFFDFDF'
+palette=['#424239395D5D', '#A8A875757B7B', '#FFFF85857F7F', '#E6E6C0C00000', '#AEAE8181FFFF', '#717167679999', '#C2C2FFFFDFDF', '#F8F8F8F8F2F2', '#757550507B7B', '#FFFFB8B8D1D1', '#F1F156568E8E', '#D5D5A4A42525', '#C5C5A3A3FFFF', '#80807777A8A8', '#C2C2FFFFFFFF', '#F8F8F8F8F0F0']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Fairy Floss'
+
+[org/gnome/terminal/legacy/profiles:/:2b415585-adae-424c-b874-c52e30966578]
+allow-bold=true
+background-color='#1D1D1E1E2020'
+bold-color='#F0F0F0F0F0F0'
+bold-color-same-as-fg=true
+cursor-background-color='#F0F0F0F0F0F0'
+cursor-colors-set=true
+cursor-foreground-color='#1D1D1E1E2020'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#F0F0F0F0F0F0'
+palette=['#1F1F1F1F2020', '#FBFB05055A5A', '#2626FFFFD4D4', '#FDFDAAAA5A5A', '#5C5C9F9FFFFF', '#FCFC5959A6A6', '#2626FFFFD4D4', '#F0F0F0F0F0F0', '#5C5C63637070', '#FBFB05055A5A', '#2626FFFFD4D4', '#FEFEBEBE7E7E', '#5555ADADFFFF', '#FDFD9595D0D0', '#2626FFFFD4D4', '#F0F0F0F0F0F0']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Panda'
+
+[org/gnome/terminal/legacy/profiles:/:33565d92-c435-4c32-a7de-5348c583dbc9]
+allow-bold=true
+background-color='#222223232424'
+bold-color='#babababababa'
+bold-color-same-as-fg=true
+cursor-background-color='#babababababa'
+cursor-colors-set=true
+cursor-foreground-color='#222223232424'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#babababababa'
+palette=['#000000000000', '#e8e834341c1c', '#6868c2c25656', '#f2f2d4d42c2c', '#1c1c9898e8e8', '#8e8e6969c9c9', '#1c1c9898e8e8', '#babababababa', '#000000000000', '#e0e05a5a4f4f', '#7777b8b86969', '#efefd6d64b4b', '#38387c7cd3d3', '#95957b7bbebe', '#3d3d9797e2e2', '#babababababa']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Darkside'
+
+[org/gnome/terminal/legacy/profiles:/:4819ade8-118d-4aed-83d2-def43c51f043]
+allow-bold=true
+background-color='#1C1C1E1E2626'
+bold-color='#FDFDF0F0EDED'
+bold-color-same-as-fg=true
+cursor-background-color='#FDFDF0F0EDED'
+cursor-colors-set=true
+cursor-foreground-color='#1C1C1E1E2626'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#FDFDF0F0EDED'
+palette=['#161616161C1C', '#E9E956567878', '#2929D3D39898', '#FAFAB7B79595', '#2626BBBBD9D9', '#EEEE6464AEAE', '#5959E3E3E3E3', '#FAFADADAD1D1', '#232325253030', '#ECEC6A6A8888', '#3F3FDADAA4A4', '#FBFBC3C3A7A7', '#3F3FC6C6DEDE', '#F0F07575B7B7', '#6B6BE6E6E6E6', '#FDFDF0F0EDED']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Horizon Dark'
+
+[org/gnome/terminal/legacy/profiles:/:5828d4cc-b9cb-4b8f-ad42-c0628bf8e3b2]
+allow-bold=true
+background-color='#424239395D5D'
+bold-color='#C2C2FFFFDFDF'
+bold-color-same-as-fg=true
+cursor-background-color='#FFFFB8B8D1D1'
+cursor-colors-set=true
+cursor-foreground-color='#424239395D5D'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#C2C2FFFFDFDF'
+palette=['#424239395D5D', '#A8A875757B7B', '#FFFF85857F7F', '#E6E6C0C00000', '#AEAE8181FFFF', '#717167679999', '#C2C2FFFFDFDF', '#F8F8F8F8F2F2', '#757550507B7B', '#FFFFB8B8D1D1', '#F1F156568E8E', '#D5D5A4A42525', '#C5C5A3A3FFFF', '#80807777A8A8', '#C2C2FFFFFFFF', '#F8F8F8F8F0F0']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Fairy Floss Dark'
+
+[org/gnome/terminal/legacy/profiles:/:64649cea-f15b-4571-88f9-1d455ed59ea4]
+allow-bold=true
+background-color='#1f1f1d1d4545'
+bold-color='#f8f8dcdcc0c0'
+bold-color-same-as-fg=true
+cursor-background-color='#f8f8dcdcc0c0'
+cursor-colors-set=true
+cursor-foreground-color='#1f1f1d1d4545'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#f8f8dcdcc0c0'
+palette=['#050504040404', '#bdbd00001313', '#4a4ab1b11818', '#e7e774741e1e', '#0f0f4a4ac6c6', '#666659599393', '#7070a5a59898', '#f8f8dcdcc0c0', '#4e4e7c7cbfbf', '#fcfc5f5f5a5a', '#9e9effff6e6e', '#efefc1c11a1a', '#19199797c6c6', '#9b9b59595353', '#c8c8fafaf4f4', '#f6f6f5f5fbfb']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Adventure Time'
+
+[org/gnome/terminal/legacy/profiles:/:80cb30f1-3e0e-4b39-8a72-bcb1d07b46b7]
+background-color='#28282a2a3636'
+bold-color='#9494A3A3A5A5'
+bold-color-same-as-fg=true
+cursor-background-color='#9494A3A3A5A5'
+cursor-colors-set=true
+cursor-foreground-color='#28282a2a3636'
+cursor-shape='block'
+custom-command='/home/olaolu/Desktop/olaolu_dev/dev/surfshark_vpn_cli/src/connectToSurfsharkVPN.sh'
+exit-action='hold'
+font='Cascadia Code 12'
+foreground-color='#9494A3A3A5A5'
+login-shell=false
+palette=['#444447475a5a', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#9494A3A3A5A5', '#000000000000', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#ffffffffffff']
+preserve-working-directory='always'
+title='Swag VPN'
+title-mode='ignore'
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+visible-name='Surfshark_Swag'
+
+[org/gnome/terminal/legacy/profiles:/:83b0796d-946f-43f5-ad86-bb2e31376122]
+allow-bold=true
+background-color='#333333333333'
+bold-color='#cccccccccccc'
+bold-color-same-as-fg=true
+cursor-background-color='#cccccccccccc'
+cursor-colors-set=true
+cursor-foreground-color='#333333333333'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#cccccccccccc'
+palette=['#333333333333', '#ffff55555555', '#5f5fd3d38d8d', '#ffff99995555', '#37377171c8c8', '#bcbc5f5fd3d3', '#5f5fd3d3bcbc', '#999999999999', '#666666666666', '#ffff80808080', '#8787dedeaaaa', '#ffffb3b38080', '#5f5f8d8dd3d3', '#cdcd8787dede', '#8787dedecdcd', '#cccccccccccc']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='DeHydration'
+
+[org/gnome/terminal/legacy/profiles:/:8e3f8481-ce56-4984-afb5-e4a8f2d3a834]
+allow-bold=true
+background-color='#28282a2a3636'
+background-transparency-percent=7
+bold-color='#9494A3A3A5A5'
+bold-color-same-as-fg=true
+cursor-background-color='#9494A3A3A5A5'
+cursor-blink-mode='on'
+cursor-colors-set=true
+cursor-foreground-color='#28282a2a3636'
+cursor-shape='block'
+default-size-rows=30
+font='Cascadia Mono PL 12'
+foreground-color='#9494A3A3A5A5'
+login-shell=false
+palette=['#444447475a5a', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#9494A3A3A5A5', '#000000000000', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#ffffffffffff']
+title='Swag Swordsman'
+title-mode='after'
+use-custom-command=false
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Dracula_Swag'
+
+[org/gnome/terminal/legacy/profiles:/:964ef580-763c-46e6-b395-00660055ef54]
+allow-bold=true
+background-color='#0d0d19192626'
+bold-color='#d9d9e6e6f2f2'
+bold-color-same-as-fg=true
+cursor-background-color='#d9d9e6e6f2f2'
+cursor-colors-set=true
+cursor-foreground-color='#0d0d19192626'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#d9d9e6e6f2f2'
+palette=['#000000000000', '#b8b87a7a7a7a', '#7a7ab8b87a7a', '#b8b8b8b87a7a', '#7a7a7a7ab8b8', '#b8b87a7ab8b8', '#7a7ab8b8b8b8', '#d9d9d9d9d9d9', '#262626262626', '#dbdbbdbdbdbd', '#bdbddbdbbdbd', '#dbdbdbdbbdbd', '#bdbdbdbddbdb', '#dbdbbdbddbdb', '#bdbddbdbdbdb', '#ffffffffffff']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Blazer'
+
+[org/gnome/terminal/legacy/profiles:/:a093c1b6-32a0-491d-8908-0770447b422a]
+audible-bell=true
+background-color='#1E1E2E'
+background-transparency-percent=52
+bold-color-same-as-fg=true
+cell-width-scale=1.0
+cursor-background-color='#F5E0DC'
+cursor-colors-set=true
+cursor-foreground-color='#1E1E2E'
+cursor-shape='underline'
+custom-command='tmux'
+font='Operator Mono 12'
+foreground-color='#D7DAE0'
+highlight-colors-set=false
+login-shell=false
+palette=['#6E6C7C', '#F28FAD', '#ABE9B3', '#FAE3B0', '#96CDFB', '#DDB6F2', '#F5C2E7', '#D9E0EE', '#988BA2', '#F28FAD', '#ABE9B3', '#FAE3B0', '#96CDFB', '#DDB6F2', '#F5C2E7', '#D9E0EE']
+title='Swag'
+title-mode='after'
+use-custom-command=false
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=false
+visible-name='Catppuccin'
+
+[org/gnome/terminal/legacy/profiles:/:ac927463-6bed-4cfd-91d5-26b1df980b03]
+allow-bold=true
+background-color='#1F1F19192626'
+bold-color='#E0E0E0E0E0E0'
+bold-color-same-as-fg=true
+cursor-background-color='#C7C7C7C7C7C7'
+cursor-colors-set=true
+cursor-foreground-color='#1F1F19192626'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#E0E0E0E0E0E0'
+palette=['#393924243A3A', '#EBEB6464B9B9', '#AFAFD6D68686', '#FEFEAEAE8787', '#4040B4B4C4C4', '#B3B38181C5C5', '#212159596969', '#919188889b9b', '#717164648585', '#FCFC23237777', '#5050FAFA7B7B', '#FFFFE2E26161', '#7474DFDFC4C4', '#6D6D7575E0E0', '#B4B4DCDCE7E7', '#FFFFFFFFFFFF']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='laserwave'
+
+[org/gnome/terminal/legacy/profiles:/:c1131ca8-823b-437e-b46d-674543a5ef99]
+allow-bold=true
+background-color='#242428283b3b'
+bold-color='#c0c0cacaf5f5'
+bold-color-same-as-fg=true
+cursor-background-color='#c0c0cacaf5f5'
+cursor-colors-set=true
+cursor-foreground-color='#242428283b3b'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#c0c0cacaf5f5'
+palette=['#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#c0c0cacaf5f5', '#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#c0c0cacaf5f5']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Tokyo Night Storm'
+
+[org/gnome/terminal/legacy/profiles:/:ca5244bb-a738-435d-afc9-66bf84df38b1]
+background-color='#28282a2a3636'
+bold-color='#9494A3A3A5A5'
+bold-color-same-as-fg=true
+cursor-background-color='#9494A3A3A5A5'
+cursor-colors-set=true
+cursor-foreground-color='#28282a2a3636'
+cursor-shape='block'
+custom-command='scrcpy'
+exit-action='hold'
+font='Cascadia Code 12'
+foreground-color='#9494A3A3A5A5'
+login-shell=true
+palette=['#444447475a5a', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#9494A3A3A5A5', '#000000000000', '#ffff55555555', '#5050fafa7b7b', '#ffffb8b86c6c', '#8b8be9e9fdfd', '#bdbd9393f9f9', '#ffff7979c6c6', '#ffffffffffff']
+title='Phone Mirroring'
+title-mode='replace'
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+visible-name='Dracula_Scrcpy'
+
+[org/gnome/terminal/legacy/profiles:/:cb84e9ad-9d98-4f6f-b7a4-4f957f3930fe]
+allow-bold=true
+background-color='#232325253737'
+bold-color='#ececf0f0fefe'
+bold-color-same-as-fg=true
+cursor-background-color='#ececf0f0fefe'
+cursor-colors-set=true
+cursor-foreground-color='#232325253737'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#ececf0f0fefe'
+palette=['#030307073c3c', '#c6c600004a4a', '#acacf1f15757', '#fefecdcd5e5e', '#52525f5fb8b8', '#98986f6f8282', '#969687876363', '#ececf0f0fcfc', '#6c6c5b5b3030', '#dada4b4b8a8a', '#dbdbffffa9a9', '#fefee6e6a9a9', '#b2b2bebefafa', '#fdfda5a5cdcd', '#a5a5bdbd8686', '#f6f6ffffecec']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Fishtank'
+
+[org/gnome/terminal/legacy/profiles:/:cbba051d-7cb5-48a9-8923-26420ca2e4e7]
+allow-bold=true
+background-color='#0d0d19192626'
+bold-color='#d9d9e6e6f2f2'
+bold-color-same-as-fg=true
+cursor-background-color='#d9d9e6e6f2f2'
+cursor-colors-set=true
+cursor-foreground-color='#0d0d19192626'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#d9d9e6e6f2f2'
+palette=['#000000000000', '#b8b87a7a7a7a', '#7a7ab8b87a7a', '#b8b8b8b87a7a', '#7a7a7a7ab8b8', '#b8b87a7ab8b8', '#7a7ab8b8b8b8', '#d9d9d9d9d9d9', '#262626262626', '#dbdbbdbdbdbd', '#bdbddbdbbdbd', '#dbdbdbdbbdbd', '#bdbdbdbddbdb', '#dbdbbdbddbdb', '#bdbddbdbdbdb', '#ffffffffffff']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Miu'
+
+[org/gnome/terminal/legacy/profiles:/:d25614d3-7c2a-40f6-8c7c-9ed9c01ca3b2]
+allow-bold=true
+background-color='#1C1C1F1F2727'
+bold-color='#97979C9CACAC'
+bold-color-same-as-fg=true
+cursor-background-color='#97979C9CACAC'
+cursor-colors-set=true
+cursor-foreground-color='#1C1C1F1F2727'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#97979C9CACAC'
+palette=['#4F4F4F4F4F4F', '#AFAF4B4B5757', '#AFAFD3D38383', '#E5E5C0C07979', '#7D7D9090A4A4', '#A4A479799D9D', '#8585A6A6A5A5', '#EEEEEDEDEEEE', '#7B7B7B7B7B7B', '#AFAF4B4B5757', '#CECEFFFFABAB', '#FFFFFEFECCCC', '#B5B5DCDCFEFE', '#FBFB9B9BFEFE', '#DFDFDFDFFDFD', '#FEFEFFFFFEFE']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Ocean Dark'
+
+[org/gnome/terminal/legacy/profiles:/:e64ae387-c09e-40c2-b309-b11b39a65e4d]
+allow-bold=true
+background-color='#04041A1A3B3B'
+bold-color='#f2f2f2f2f2f2'
+bold-color-same-as-fg=true
+cursor-background-color='#f2f2f2f2f2f2'
+cursor-colors-set=true
+cursor-foreground-color='#04041A1A3B3B'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#f2f2f2f2f2f2'
+palette=['#303030303030', '#e1e132321a1a', '#6a6ab0b01717', '#ffffc0c00505', '#72729F9FCFCF', '#ecec00004848', '#2a2aa7a7e7e7', '#f2f2f2f2f2f2', '#5d5d5d5d5d5d', '#ffff36361e1e', '#7b7bc9c91f1f', '#ffffd0d00a0a', '#00007171ffff', '#ffff1d1d6262', '#4b4bb8b8fdfd', '#a0a02020f0f0']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Elio'
+
+[org/gnome/terminal/legacy/profiles:/:fc454d87-8e6a-4d51-b426-dbeb7bc76022]
+allow-bold=true
+background-color='#090911111a1a'
+bold-color='#d9d9e6e6f2f2'
+bold-color-same-as-fg=true
+cursor-background-color='#d9d9e6e6f2f2'
+cursor-colors-set=true
+cursor-foreground-color='#090911111a1a'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#d9d9e6e6f2f2'
+palette=['#000000000000', '#acac6d6d7474', '#7474acac6d6d', '#acaca4a46d6d', '#6d6d7474acac', '#a4a46d6dacac', '#6d6dacaca4a4', '#e6e6e6e6e6e6', '#262626262626', '#d6d6b8b8bcbc', '#bcbcd6d6b8b8', '#d6d6d3d3b8b8', '#b8b8bcbcd6d6', '#d3d3b8b8d6d6', '#b8b8d6d6d3d3', '#ffffffffffff']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Azu'
+
+[org/gnome/terminal/legacy/profiles:/:fe1941cb-ee8e-42eb-8d55-b2b58ae0ccd8]
+allow-bold=true
+background-color='#1d1d28283737'
+bold-color='#ffffffffffff'
+bold-color-same-as-fg=true
+cursor-background-color='#ffffffffffff'
+cursor-colors-set=true
+cursor-foreground-color='#1d1d28283737'
+cursor-shape='underline'
+font='Cascadia Code 12'
+foreground-color='#ffffffffffff'
+palette=['#000000000000', '#f9f955555f5f', '#2121b0b08989', '#fefef0f02a2a', '#58589d9df6f6', '#94944d4d9595', '#1f1f9e9ee7e7', '#bbbbbbbbbbbb', '#555555555555', '#fafa8c8c8f8f', '#3535bbbb9a9a', '#ffffffff5555', '#58589d9df6f6', '#e7e756569999', '#39397979bcbc', '#ffffffffffff']
+title='Swag-inator'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+visible-name='Frontend Galaxy'
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/color-chooser]
+custom-colors=[(0.94901961088180542, 0.56078433990478516, 0.67843139171600342, 1.0), (0.70980393886566162, 0.90980392694473267, 0.87843137979507446, 1.0), (0.94901961088180542, 0.56078433990478516, 0.67843127250671387, 1.0), (0.96078431606292725, 0.87843137979507446, 0.86274510622024536, 1.0), (0.67058825492858887, 0.91372549533843994, 0.70196080207824707, 1.0), (0.67058825492858887, 0.91372549533843994, 0.70196074247360229, 1.0), (0.18823531270027161, 0.17647059261798859, 0.25490197539329529, 1.0), (0.098039217293262482, 1.0, 0.3490196168422699, 1.0)]
+selected-color=(true, 0.94901961088180542, 0.56078433990478516, 0.67843139171600342, 1.0)
+
+[org/gtk/gtk4/settings/emoji-chooser]
+recent-emoji=[(([uint32 9881], 'gear', ['cog', 'cogwheel', 'tool'], uint32 7), uint32 0), (([128512], 'grinning face', ['face', 'grin'], 0), 0)]
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=199
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-size=(980, 327)
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.94901960784313721, 0.5607843137254902, 0.67843137254901953, 1.0), (0.54509803921568623, 0.0, 0.0, 1.0), (0.53725490196078429, 0.86274509803921562, 0.92156862745098034, 1.0), (0.0, 0.40000000000000002, 0.40000000000000002, 1.0), (1.0, 1.0, 0.0, 1.0), (0.0, 0.0, 1.0, 1.0), (0.14117647058823529, 0.18823529411764706, 1.0, 1.0), (0.58039215686274515, 0.63921568627450975, 0.6470588235294118, 1.0)]
+selected-color=(true, 0.94901960784313721, 0.5607843137254902, 0.67843137254901953, 1.0)
+
+[org/gtk/settings/emoji-chooser]
+recent-emoji=[(([uint32 128993], 'yellow circle', ''), uint32 0), (([128513], 'beaming face with smiling eyes', ''), 0)]
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=265
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(102, 102)
+window-size=(1920, 1006)
+
+[org/virt-manager/virt-manager]
+manager-window-height=1021
+manager-window-width=960
+
+[org/virt-manager/virt-manager/confirm]
+delete-storage=true
+forcepoweroff=true
+unapplied-dev=true
+
+[org/virt-manager/virt-manager/connections]
+autoconnect=['qemu:///system']
+uris=['qemu:///system']
+
+[org/virt-manager/virt-manager/conns/qemu:system]
+window-size=(800, 600)
+
+[org/virt-manager/virt-manager/details]
+show-toolbar=true
+
+[org/virt-manager/virt-manager/paths]
+media-default='/home/olaolu/Downloads/isos'
+screenshot-default='/home/olaolu/Pictures/app-icons'
+
+[org/virt-manager/virt-manager/urls]
+isos=['/home/olaolu/Downloads/isos/Fedora-Workstation-Live-x86_64-36_Beta-1.4.iso', '/home/olaolu/Documents/classes/spring-2022/unix-system-administration/class-isos/Win10_21H2_English_x64.iso', '/home/olaolu/Documents/classes/spring-2022/unix-system-administration/class-isos/ubuntu-18.04.6-live-server-amd64.iso', '/home/olaolu/Documents/classes/spring-2022/unix-system-administration/class-isos/ubuntu-14.04.6-server-amd64.iso', '/home/olaolu/Documents/classes/spring-2022/unix-system-administration/class-isos/Fedora-Workstation-Live-x86_64-28-1.1.iso', '/home/olaolu/Downloads/isos/Fedora-Workstation-Live-x86_64-35-1.2.iso', '/home/olaolu/Downloads/Fedora-Workstation-Live-x86_64-35-1.2.iso']
+
+[org/virt-manager/virt-manager/vmlist-fields]
+disk-usage=false
+network-traffic=false
+
+[org/virt-manager/virt-manager/vms/00c0c0d6e1844b7aaedff432dd9d29fc]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1020)
+
+[org/virt-manager/virt-manager/vms/03a508c194c04eaeb14fa9d68852354d]
+autoconnect=1
+scaling=1
+vm-window-size=(1920, 1016)
+
+[org/virt-manager/virt-manager/vms/1bfc28b76d0f45fdaabab19a48650833]
+autoconnect=1
+scaling=1
+vm-window-size=(1024, 839)
+
+[org/virt-manager/virt-manager/vms/3d3641c9a79140a997dddf8a35101e73]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1021)
+
+[org/virt-manager/virt-manager/vms/55aa71e8a8644202bae00de8e9d1f44e]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1021)
+
+[org/virt-manager/virt-manager/vms/56e524022ef446a1b843872c22ac04ce]
+autoconnect=1
+scaling=1
+vm-window-size=(1024, 836)
+
+[org/virt-manager/virt-manager/vms/57b1caa2301145be8d601bcffbd6a43e]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1021)
+
+[org/virt-manager/virt-manager/vms/71ba4bd248f54b569d3714c2ec17c94e]
+autoconnect=1
+scaling=1
+vm-window-size=(1920, 1016)
+
+[org/virt-manager/virt-manager/vms/8865ad6784284ad8bd1bf4c8ed18b77f]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1021)
+
+[org/virt-manager/virt-manager/vms/bb74b3d64ac7445d936c8faa8c3af595]
+autoconnect=1
+scaling=1
+vm-window-size=(1920, 1020)
+
+[org/virt-manager/virt-manager/vms/cfbb2b7a4bb143c7afe18bf3e0cdb28a]
+autoconnect=1
+scaling=2
+vm-window-size=(1920, 1048)
+
+[org/virt-manager/virt-manager/vms/df7f6b656fba49359ba2419cbde10ef3]
+autoconnect=1
+scaling=1
+vm-window-size=(1024, 835)
+
+[org/virt-manager/virt-manager/vms/e7285b6788904a61bb50109ee4358279]
+autoconnect=1
+scaling=1
+vm-window-size=(960, 1021)
+
+[org/virt-manager/virt-manager/vms/f5c1c20236bb41d4b529be249a1171f2]
+autoconnect=1
+scaling=1
+vm-window-size=(1440, 758)
+
+[org/virt-manager/virt-manager/vms/fc3ed7832ac64c3dbf7098c161c0172c]
+autoconnect=1
+scaling=1

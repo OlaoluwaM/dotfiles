@@ -68,13 +68,13 @@ function reinstallAsDep() {
 
 function backupFonts() {
   echo "Compressing fonts into tarball"
-  tar -cvzf $SYS_BAK_DIR/fonts.tar.gz $FONT_DIR;
+  tar -cvzf $FONT_BAK_DIR/fonts.tar.gz $FONT_DIR;
 }
 
 function restoreFonts() {
   echo "Restoring fonts from tarball..."
   cd "$HOME" || exit 1
-  tar -xzvf $SYS_BAK_DIR/fonts.tar.gz
+  tar -xzvf $FONT_BAK_DIR/fonts.tar.gz
 }
 
 function backupWallpapers() {
@@ -137,7 +137,7 @@ function areWallpapersBackedup() {
   echo $wallpaperCount
 
   echo -e "Counting images present in compressed wallpapers tarball file: \c"
-  wallpaperTarBallFileCount=$(bc <<<"$(tar -tf $WALLPAPERS_DIR/tarball/wallpapers.tar.gz | wc -l) - 1");
+  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf $WALLPAPERS_DIR/tarball/wallpapers.tar.gz | wc -l) - 1"; else echo 0; fi);
   echo $wallpaperTarBallFileCount
 
   if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
@@ -155,7 +155,7 @@ function areFontsBackedup() {
   echo $fontCount
 
   echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$(bc <<<"$(tar -tf $SYS_BAK_DIR/fonts.tar.gz | wc -l) - 2");
+  fontTarBallCount=$( if [[ -f "$FONT_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $FONT_BAK_DIR/fonts.tar.gz | wc -l) - 2"; else echo 0; fi);
   echo $fontTarBallCount
 
   if [[ $fontCount -eq $fontTarBallCount ]]; then
@@ -212,6 +212,43 @@ function fixSpicePermissionIssues() {
   sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 }
 
+function runInBg() {
+  "$@" > /dev/null 2>&1 &
+}
+
+function runInBgAndDisown() {
+  "$@" > /dev/null 2>&1 & disown
+}
+
+function createPyVirtEnv() {
+  currentDir=$(pwd)
+  virtualEnvPath="${1:=$currentDir}"
+
+  [ ! -d "$virtualEnvPath" ] && mkdir "$virtualEnvPath"
+
+  echo "layout python" > "$virtualEnvPath/.envrc"
+  direnv allow "$virtualEnvPath"
+
+  # Commented out to avoid having two virtual envs in one directory
+  # python3 -m venv $virtualEnvPath/env
+
+  cd $virtualEnvPath
+
+  # Update pip version to latest since ensurepip is stuck at 21.1
+  python -m pip install --upgrade pip
+
+  # Install common depdendencies
+  # Reltive path because we have cd'ed into the target directory
+  reqFilePath="./requirements.txt"
+
+  echo "pylint" > "$reqFilePath" 
+  python3 -m pip install -r "$reqFilePath"
+
+  # Let us know what has been installed
+  echo -e "\n"
+  python3 -m pip list
+}
+
 # Env Variables
 
 export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
@@ -226,12 +263,15 @@ export EDITOR="nvim"
 export DOTFILES="$HOME/Desktop/olaolu_dev/dotfiles"
 
 export FONT_DIR="$HOME/.local/share/fonts"
-export SYS_BAK_DIR="$HOME/sys-backups"
-export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+export SYS_BAK_DIR="$DOTFILES/system"
 
 export DEV="$HOME/Desktop/olaolu_dev/dev"
 export DESIGN="$HOME/Desktop/olaolu_dev/design"
 export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
+
+export LEARNING="$HOME/Desktop/olaolu_dev/learnings"
+export FORGIT_INSTALL_DIR="$HOME/.local/bin"
+export FONT_BAK_DIR="$HOME/fonts-backup"
 
 # Aliases
 
@@ -265,7 +305,7 @@ alias loginAsPostgresUser="sudo su - postgres"
 
 alias py="python"
 alias pvpn="protonvpn-cli"
-alias activatePyVirtEnv="source env/bin/activate"
+alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
 
 alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
 alias cls="colorls --dark"
@@ -317,10 +357,22 @@ alias editInstalledPkgs="nv $SYS_BAK_DIR/installed-packages.txt"
 
 alias editCustomizations="nv $SYS_BAK_DIR/customizations.log.txt"
 alias tt="toipe"
-alias ydl="youtube-dl"
+alias ascma="asciinema"
 
-alias ascma="asciinema" 
 alias dupesInPath="echo $PATH | tr ':' '\n' | sort | uniq -d"
 alias toScripts="cd $SCRIPTS"
-
 alias growTree="cbonsai --seed 200 -l -i"
+
+alias ydl="youtube-dl"
+alias logout-gnome-force="gnome-session-quit --no-prompt --logout"
+alias logout-gnome="gnome-session-quit --logout"
+
+alias toLearning="cd $LEARNING"
+alias pyV="python -V"
+alias pipV="python -m pip -V"
+
+alias fzf="fzf --color=16"
+alias forgit-help="firefox https://github.com/wfxr/forgit"
+alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
+
+alias backupGHExtensions="gh extensions list | awk '{print $3}' > $DOTFILES/git/gh-extensions.txt"

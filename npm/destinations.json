@@ -1,4 +1,4 @@
 {
   "*": "$HOME",
-  "global-npm-pkgs.txt": "~/sys-backups/"
+  "!": ["global-npm-pkgs.txt"]
 }
