@@ -5,4 +5,4 @@ set selection-clipboard clipboard
 set guioptions c
 
 # For color scheme
-include ./catppuccin
+include ./catppuccin-mocha

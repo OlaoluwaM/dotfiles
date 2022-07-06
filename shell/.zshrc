@@ -269,3 +269,6 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 
 # forgit https://github.com/wfxr/forgit
 # source "$FORGIT_INSTALL_DIR/forgit.plugin.zsh"
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")

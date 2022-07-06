@@ -40,3 +40,5 @@
   - Added cronjob to log me out a couple minutes before my workout time so I can prepare
   - Ammended the permissions for the /etc/security dir. Gave myself rwx permissions with the setfacl cmd
   - Created ~/.zsh-custom directory to house custom zsh add-ons
+  - Created ~/.config/tilix/schemes
+  - CLoned https://github.com/catppuccin/vscode into the vscode extensions dir

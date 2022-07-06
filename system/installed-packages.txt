@@ -79,3 +79,5 @@
     - QWYNG/gh-stashes, for interactive interface over git stashes
     - yuler/gh-download, for downloading directory folders
     - vilmibm/gh-oblique, for [oblique strategies](https://en.wikipedia.org/wiki/Oblique_Strategies)
+ - Installed massCode
+ - Installed tilix, switching to it

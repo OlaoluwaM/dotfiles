@@ -34,8 +34,8 @@ function showTerminalColors() {
 function notify() {
   MESSAGE="${1:="$(date);$(pwd)"}"
   # spd-say 'Done with task!';
-  aplay $alarmSound &>/dev/null
-  notify-send -u normal -t 7000 $MESSAGE
+  aplay "$alarmSound" &>/dev/null
+  notify-send -u normal -t 7000 "$MESSAGE"
 }
 
 function newRemoteBranch() {
@@ -66,15 +66,43 @@ function reinstallAsDep() {
   npm un $package && npm i $package
 }
 
-function backupFonts() {
-  echo "Compressing fonts into tarball"
-  tar -cvzf $FONT_BAK_DIR/fonts.tar.gz $FONT_DIR;
+function backupEntity() {
+  entityToBackup="$1"
+  dirToBackup="$2"
+
+  if  [[ -z "$entityToBackup" || -z "$dirToBackup" ]]; then
+
+      [[ -z "$entityToBackup" ]] && echo "Missing required first arg. What do you want to backup?"
+      [[ -z "$dirToBackup" ]] && echo "Missing name of directory to backup"
+
+      return 1
+  fi
+
+
+  echo "Compressing $entityToBackup into tarball"
+  echo "Compressed file will be stored at $dirToBackup"
+
+  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" $dirToBackup
 }
 
-function restoreFonts() {
-  echo "Restoring fonts from tarball..."
+# function restoreFonts() {
+#   echo "Restoring fonts from tarball..."
+#   cd "$HOME" || exit 1
+#   tar -xzvf $AUX_BAK_DIR/fonts.tar.gz
+# }
+
+function restoreEntity() {
+  entityToRestore="$1"
+
+  if [[ -z $entityToRestore ]]; then
+    echo "Missing arg, what entity do you wish to restore"
+    return 1
+  fi
+
+  echo "Restoring $entityToRestore from tarball..."
   cd "$HOME" || exit 1
-  tar -xzvf $FONT_BAK_DIR/fonts.tar.gz
+
+  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz"
 }
 
 function backupWallpapers() {
@@ -127,7 +155,7 @@ function unlockBWVault() {
   [ -z $BW_SESSION ] && return 1
   export BW_SESSION
 
-  echo "Initiating Bitwarden vault sync" 
+  echo "Initiating Bitwarden vault sync"
   bw sync
 }
 
@@ -155,7 +183,7 @@ function areFontsBackedup() {
   echo $fontCount
 
   echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$( if [[ -f "$FONT_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $FONT_BAK_DIR/fonts.tar.gz | wc -l) - 2"; else echo 0; fi);
+  fontTarBallCount=$( if [[ -f "$AUX_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/fonts.tar.gz | wc -l) - 2"; else echo 0; fi);
   echo $fontTarBallCount
 
   if [[ $fontCount -eq $fontTarBallCount ]]; then
@@ -167,13 +195,42 @@ function areFontsBackedup() {
   fi
 }
 
+# function isEntityBackedup() {
+#   backedupEntity="$1"
+#   dirToBackup="$2"
+
+#   if  [[ -z "$backedupEntity" || -z "$dirToBackup" ]]; then
+
+#       [[ -z "$backedupEntity" ]] && echo "Missing required first arg. What backup do you want to check?"
+#       [[ -z "$dirToBackup" ]] && echo "Missing name of directory related to this backup"
+
+#       return 1
+#   fi
+
+#   echo "Counting current $backedupEntity: \c"
+#   entityCount=$(ls $dirToBackup | wc -l);
+#   echo $entityCount
+
+#   echo -e "Counting $backedupEntity present in compressed $backedupEntity tarball file: \c"
+#   entityTarBallCount=$( if [[ -f "$AUX_BAK_DIR/${backedupEntity}.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/${backedupEntity}.tar.gz | wc -l) - 1"; else echo 0; fi);
+#   echo $entityTarBallCount
+
+#   if [[ $entityCount -eq $entityTarBallCount ]]; then
+#       echo "$backedupEntity are all backed up!"
+#   elif [[ $entityCount -lt $entityTarBallCount ]]; then
+#       echo "You need restore your $backedupEntity from the tarball"
+#   else
+#       echo "You need to backup your $backedupEntity hun!"
+#   fi
+# }
+
 function repoInit() {
   # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
   git init;
   touch .gitignore;
   git add .;
   git commit -m "repo init";
-  
+
   git checkout -b develop;
   git rebase main
 
@@ -241,7 +298,7 @@ function createPyVirtEnv() {
   # Reltive path because we have cd'ed into the target directory
   reqFilePath="./requirements.txt"
 
-  echo "pylint" > "$reqFilePath" 
+  echo "pylint" > "$reqFilePath"
   python3 -m pip install -r "$reqFilePath"
 
   # Let us know what has been installed
@@ -271,7 +328,7 @@ export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 
 export LEARNING="$HOME/Desktop/olaolu_dev/learnings"
 export FORGIT_INSTALL_DIR="$HOME/.local/bin"
-export FONT_BAK_DIR="$HOME/fonts-backup"
+export AUX_BAK_DIR="$HOME/sys-backups"
 
 # Aliases
 
@@ -376,3 +433,9 @@ alias forgit-help="firefox https://github.com/wfxr/forgit"
 alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
 
 alias backupGHExtensions="gh extensions list | awk '{print $3}' > $DOTFILES/git/gh-extensions.txt"
+alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
+
+alias backupFonts="backupEntity 'fonts' $FONT_DIR"
+alias listFilesInTarball="tar -tf"
+
+alias searchBw="bw list items --pretty --search"

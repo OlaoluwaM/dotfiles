@@ -137,15 +137,46 @@ method = ncurses
 
 gradient = 1
 
-gradient_color_1 = '#B5E8E0'
-gradient_color_2 = '#89DCEB'
-gradient_color_3 = '#96CDFB'
-gradient_color_4 = '#DDB6F2'
-gradient_color_5 = '#F5C2E7'
-gradient_color_6 = '#E8A2AF'
-gradient_color_7 = '#F2CDCD'
-gradient_color_8 = '#F5E0DC'
+# Original Catppuccin Gradient
+# gradient_color_1 = '#B5E8E0'
+# gradient_color_2 = '#89DCEB'
+# gradient_color_3 = '#96CDFB'
+# gradient_color_4 = '#DDB6F2'
+# gradient_color_5 = '#F5C2E7'
+# gradient_color_6 = '#E8A2AF'
+# gradient_color_7 = '#F2CDCD'
+# gradient_color_8 = '#F5E0DC'
 
+
+# Frappe Gradient
+# gradient_color_1 = '#81c8be'
+# gradient_color_2 = '#99d1db'
+# gradient_color_3 = '#85c1dc'
+# gradient_color_4 = '#8caaee'
+# gradient_color_5 = '#ca9ee6'
+# gradient_color_6 = '#f4b8e4'
+# gradient_color_7 = '#ea999c'
+# gradient_color_8 = '#e78284'
+
+# Macchiato Gradient
+# gradient_color_1 = '#8bd5ca'
+# gradient_color_2 = '#91d7e3'
+# gradient_color_3 = '#7dc4e4'
+# gradient_color_4 = '#8aadf4'
+# gradient_color_5 = '#c6a0f6'
+# gradient_color_6 = '#f5bde6'
+# gradient_color_7 = '#ee99a0'
+# gradient_color_8 = '#ed8796'
+
+# Macho Gradient
+gradient_color_1 = '#94e2d5'
+gradient_color_2 = '#89dceb'
+gradient_color_3 = '#74c7ec'
+gradient_color_4 = '#89b4fa'
+gradient_color_5 = '#cba6f7'
+gradient_color_6 = '#f5c2e7'
+gradient_color_7 = '#eba0ac'
+gradient_color_8 = '#f38ba8'
 
 [smoothing]
 
