@@ -356,7 +356,6 @@ alias reloadAliases="source ~/.bash_aliases"
 
 alias swag="sudo"
 alias editAliases="nv ~/.bash_aliases"
-alias tmpmail="~/.tmpmail"
 
 alias listRawVpnLocations="ls /etc/openvpn"
 alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
@@ -396,7 +395,7 @@ alias echo="echo -e"
 
 alias tmx="tmux"
 alias rc="rustc"
-alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup.dconf"
+alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup"
 
 alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
@@ -419,7 +418,6 @@ alias diffDirs="diff -qr"
 alias editInstalledPkgs="nv $SYS_BAK_DIR/installed-packages.txt"
 
 alias editCustomizations="nv $SYS_BAK_DIR/customizations.log.txt"
-alias tt="toipe"
 alias ascma="asciinema"
 
 alias dupesInPath="echo $PATH | tr ':' '\n' | sort | uniq -d"
@@ -447,3 +445,4 @@ alias sizeOf="du -lh"
 alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTFILES/system/dnf-alias.txt"
 
 alias gtp="gotop"
+alias gnomeBackup="dconf dump /org/gnome/ > $SYS_BAK_DIR/gnome-backup"
