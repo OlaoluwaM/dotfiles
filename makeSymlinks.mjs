@@ -239,7 +239,7 @@ async function generateDirectoriesToWorkOn(pathToDirs = __dirname) {
 }
 
 function excludeCertainDirs(dirs) {
-  const dirsToExclude = ['notion', 'dak-reader', 'mailspring'];
+  const dirsToExclude = ['notion', 'dak-reader', 'mailspring', 'fly-pie'];
   const result = excludeFromCollection(dirs, dirsToExclude);
   if (result.length > 0) return result;
 
