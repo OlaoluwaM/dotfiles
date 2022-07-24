@@ -306,10 +306,14 @@ function createPyVirtEnv() {
   python3 -m pip list
 }
 
+function backupGHExtensions() {
+  gh extension list | awk '{print $3}' > "$DOTFILES/git/gh-extensions.txt"
+}
+
 # Env Variables
 
-export alarmSound=$HOME/Music/Windows\ 11\ Sounds/chimes.wav
 export ALIASES="$HOME/.bash_aliases"
+export NOTI_SOUND="$HOME/Music/Windows\ 11\ Sounds/chimes.wav"
 
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
@@ -329,6 +333,8 @@ export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 export LEARNING="$HOME/Desktop/olaolu_dev/learnings"
 export FORGIT_INSTALL_DIR="$HOME/.local/bin"
 export AUX_BAK_DIR="$HOME/sys-backups"
+
+export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 
 # Aliases
 
@@ -398,7 +404,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
-alias backupGlobalNpmPkgs="npm -g ls --depth 0 > $SYS_BAK_DIR/global-npm-pkgs.txt"
+alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 > $DOTFILES/npm/global-npm-pkgs.txt"
 
 alias bgrep="batgrep"
 alias bman="batman"
@@ -432,10 +438,12 @@ alias fzf="fzf --color=16"
 alias forgit-help="firefox https://github.com/wfxr/forgit"
 alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
 
-alias backupGHExtensions="gh extensions list | awk '{print $3}' > $DOTFILES/git/gh-extensions.txt"
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
-
 alias backupFonts="backupEntity 'fonts' $FONT_DIR"
 alias listFilesInTarball="tar -tf"
 
 alias searchBw="bw list items --pretty --search"
+alias sizeOf="du -lh"
+alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTFILES/system/dnf-alias.txt"
+
+alias gtp="gotop"

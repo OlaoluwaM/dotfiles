@@ -16,5 +16,5 @@
  00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/sys-backups/global-npm-pkgs.txt
 
  # Logout of system to prepare for workout
- 55 11 * * 1,2,4,5 /bin/notify-send -u critical "Prep for workout, You will be logged out in 20 mins!"
- 20 12 * * 1,2,4,5 /usr/bin/gnome-session-quit --no-prompt --logout
+ #00 12 * * 1,2,3,4,5 /bin/notify-send -u critical "Prep for workout, You will be logged out in 20 mins!"
+ #20 12 * * 1,2,3,4,5 /usr/bin/gnome-session-quit --no-prompt --logout

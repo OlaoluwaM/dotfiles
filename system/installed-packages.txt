@@ -81,3 +81,6 @@
     - vilmibm/gh-oblique, for [oblique strategies](https://en.wikipedia.org/wiki/Oblique_Strategies)
  - Installed massCode
  - Installed tilix, switching to it
+ - Enabled copr "observeroftime/betterdiscordctl" & Installed observeroftime/betterdiscordctl
+  - Installed BetterDiscord using the ctl
+  - Installed gotop

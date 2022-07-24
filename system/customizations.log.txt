@@ -41,4 +41,5 @@
   - Ammended the permissions for the /etc/security dir. Gave myself rwx permissions with the setfacl cmd
   - Created ~/.zsh-custom directory to house custom zsh add-ons
   - Created ~/.config/tilix/schemes
-  - CLoned https://github.com/catppuccin/vscode into the vscode extensions dir
+  - Cloned https://github.com/catppuccin/vscode into the vscode extensions dir
+  - Customized BetterDiscord with Catppuccin Colors

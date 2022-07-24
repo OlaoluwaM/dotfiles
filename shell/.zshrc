@@ -272,3 +272,13 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
+
+# bun completions
+[ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
+
+# Bun
+export BUN_INSTALL="/home/olaolu/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+export PATH=$PATH:/home/olaolu/.spicetify

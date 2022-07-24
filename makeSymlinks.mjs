@@ -4,8 +4,8 @@ import os from 'os';
 import path from 'path';
 
 import { fileURLToPath } from 'url';
-import { readFileSync } from 'fs';
-import { symlink, readdir, unlink } from 'fs/promises';
+import { readFileSync, existsSync } from 'fs';
+import { symlink, readdir, unlink, mkdir } from 'fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -120,6 +120,7 @@ function excludeIgnoredFiles(fileDestinationArr, filesToExclude, folderName) {
 
 async function createSymlink(folderName, file, destinationPath = HOME_DIR) {
   await deleteSymlinkIfItExists(file, destinationPath);
+  await createDirIfItDoesNotExists(destinationPath);
 
   return Promise.all([
     symlink(
@@ -138,6 +139,18 @@ async function deleteSymlinkIfItExists(file, destinationPath = HOME_DIR) {
     return await unlink(path.resolve(destinationPath, file));
   } catch (error) {
     return Promise.resolve('No such symlink exists');
+  }
+}
+
+async function createDirIfItDoesNotExists(dirPath) {
+  const dirExists = existsSync(dirPath);
+  if (dirExists) return;
+
+  try {
+    await mkdir(dirPath, { recursive: true });
+  } catch (error) {
+    console.error(error);
+    return;
   }
 }
 

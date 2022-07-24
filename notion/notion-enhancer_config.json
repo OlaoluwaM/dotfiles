@@ -17,17 +17,18 @@
     "tweak.snappy_transitions": true
   },
   "e0d8d148-45e7-4d79-8313-e7b2ad8abe16": {
-    "sans": "Overpass Regular",
-    "mono": "Overpass Mono",
-    "code": "Operator Mono",
-    "headings": "Overpass Bold",
-    "quotes": "",
-    "serif": ""
+    "sans": "Recursive Sans Linear Static",
+    "mono": "Recursive Mono Linear Static",
+    "code": "Recursive Mono Linear Static",
+    "headings": "Recursive Sans Linear Static Bold",
+    "quotes": "Recursive Sans Linear Static Italic",
+    "serif": "Recursive Sans Casual Static"
   },
   "36a2ffc9-27ff-480e-84a7-c7700a7d232d": {
     "panel.width": 240,
     "panel.pinned": false,
-    "panel.open": "87e077cc-5402-451c-ac70-27cc4ae65546"
+    "panel.open": "87e077cc-5402-451c-ac70-27cc4ae65546",
+    "panel.hotkey": "Control+Alt+/"
   },
   "d61dc8a7-b195-465b-935f-53eea9efe74e": {
     "style": "border"
