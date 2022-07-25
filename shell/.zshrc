@@ -251,27 +251,12 @@ fi
 
 # Setup Starship ZSH prompt
 # eval "$(starship init zsh)"
-# fpath=($fpath "/home/olaolu/.zfunctions")
 
 # The Fuck
 eval $(thefuck --alias fuck)
-fpath=($fpath "/home/olaolu/.zfunctions")
-
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit
-promptinit
-prompt spaceship
-fpath=($fpath "/home/olaolu/.zfunctions")
 
 # For automatically activating and deactivating python virtual envs when changing dirs
 eval "$(direnv hook zsh)"
-fpath=($fpath "/home/olaolu/.zfunctions")
-
-# forgit https://github.com/wfxr/forgit
-# source "$FORGIT_INSTALL_DIR/forgit.plugin.zsh"
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
 
 # bun completions
 [ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
@@ -279,6 +264,8 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Bun
 export BUN_INSTALL="/home/olaolu/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
+
+# Spicetify
 export PATH=$PATH:/home/olaolu/.spicetify
+
+fpath=($fpath "/home/olaolu/.zfunctions")

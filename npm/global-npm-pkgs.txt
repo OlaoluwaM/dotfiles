@@ -5,13 +5,10 @@
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/corepack
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/fast-cli
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/fkill-cli
-/home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/generator-code
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/nodemon
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/npm-check-updates
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/npm
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/serve
-/home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/term-of-the-day
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/ts-node
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/typescript
-/home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/yo
 /home/olaolu/.nvm/versions/node/v18.4.0/lib/node_modules/zx
