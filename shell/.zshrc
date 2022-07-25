@@ -265,7 +265,4 @@ eval "$(direnv hook zsh)"
 export BUN_INSTALL="/home/olaolu/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Spicetify
-export PATH=$PATH:/home/olaolu/.spicetify
-
 fpath=($fpath "/home/olaolu/.zfunctions")
