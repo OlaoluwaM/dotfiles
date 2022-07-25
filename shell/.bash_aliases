@@ -446,3 +446,4 @@ alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTFILES/system/dnf-alias
 
 alias gtp="gotop"
 alias gnomeBackup="dconf dump /org/gnome/ > $SYS_BAK_DIR/gnome-backup"
+alias backupShellExtensionList="ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt"
