@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 
 # Spaceship theme config variables
 SPACESHIP_CHAR_SYMBOL_ROOT=">>"
@@ -87,7 +87,7 @@ if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
     source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node jsontools)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node nvm jsontools)
 
 #if [[ $TERM_PROGRAM != 'vscode' ]]; then
 #   ZSH_TMUX_AUTOSTART=true
@@ -145,8 +145,6 @@ else
   echo "You need to install ruby first :/"
 fi
 
-echo "New Day, New Word XD!"
-
 if [ $(command -v quote) ]; then
   quote # For inspirational quotes
 else
@@ -163,33 +161,8 @@ if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
   echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
 fi
 
-# place this after nvm initialization!
-# Automatically uses node version specified in .nvmrc file
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  printf "\n"
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 ###-begin-npm-completion-###
-#
+
 # npm command completion script
 #
 # Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
@@ -266,3 +239,8 @@ export BUN_INSTALL="/home/olaolu/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 fpath=($fpath "/home/olaolu/.zfunctions")
+fpath=($fpath "/home/olaolu/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
