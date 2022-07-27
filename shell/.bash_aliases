@@ -310,6 +310,16 @@ function backupGHExtensions() {
   gh extension list | awk '{print $3}' > "$DOTFILES/git/gh-extensions.txt"
 }
 
+function dejaDupIgnore() {
+  nameOfDirToIgnore="*${1:=node_modules}*"
+  dirLocation="${2:=$LEARNING}"
+
+  for dirName in $(find $dirLocation -name $nameOfDirToIgnore -type d); do
+      touch "$dirName/.deja-dup-ignore"
+      doesFileExist "$dirName/.deja-dup-ignore"
+  done
+}
+
 # Env Variables
 
 export ALIASES="$HOME/.bash_aliases"

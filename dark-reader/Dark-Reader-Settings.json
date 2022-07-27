@@ -23,35 +23,7 @@
         "darkColorScheme": "Default",
         "immediateModify": false
     },
-    "presets": [
-        {
-            "id": "preset-87cb57e5e4514f3e923596f37e802631",
-            "name": "Theme 1",
-            "urls": [],
-            "theme": {
-                "mode": 1,
-                "brightness": 100,
-                "contrast": 100,
-                "grayscale": 0,
-                "sepia": 0,
-                "useFont": false,
-                "fontFamily": "Open Sans",
-                "textStroke": 0,
-                "engine": "dynamicTheme",
-                "stylesheet": "",
-                "darkSchemeBackgroundColor": "#161320",
-                "darkSchemeTextColor": "#D9E0EE",
-                "lightSchemeBackgroundColor": "#dcdad7",
-                "lightSchemeTextColor": "#181a1b",
-                "scrollbarColor": "auto",
-                "selectionColor": "#F2CDCD",
-                "styleSystemControls": true,
-                "lightColorScheme": "Default",
-                "darkColorScheme": "Default",
-                "immediateModify": false
-            }
-        }
-    ],
+    "presets": [],
     "customThemes": [
         {
             "url": [
@@ -322,11 +294,145 @@
                 "darkColorScheme": "Default",
                 "immediateModify": false
             }
+        },
+        {
+            "url": [
+                "obaranovskyi.medium.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 63,
+                "contrast": 128,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "dynamicTheme",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#161320",
+                "darkSchemeTextColor": "#D9E0EE",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "auto",
+                "selectionColor": "#F2CDCD",
+                "styleSystemControls": true,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            }
+        },
+        {
+            "url": [
+                "tailwindcomponents.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 100,
+                "contrast": 100,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "dynamicTheme",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#161320",
+                "darkSchemeTextColor": "#D9E0EE",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "auto",
+                "selectionColor": "#F2CDCD",
+                "styleSystemControls": true,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            }
+        },
+        {
+            "url": [
+                "www.dropbox.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 113,
+                "contrast": 141,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "dynamicTheme",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#161320",
+                "darkSchemeTextColor": "#D9E0EE",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "auto",
+                "selectionColor": "#F2CDCD",
+                "styleSystemControls": true,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            }
+        },
+        {
+            "url": [
+                "www.geeksforgeeks.org"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 117,
+                "contrast": 118,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "dynamicTheme",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#161320",
+                "darkSchemeTextColor": "#D9E0EE",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "auto",
+                "selectionColor": "#F2CDCD",
+                "styleSystemControls": true,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            }
+        },
+        {
+            "url": [
+                "remotive.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 121,
+                "contrast": 119,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "dynamicTheme",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#161320",
+                "darkSchemeTextColor": "#D9E0EE",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "auto",
+                "selectionColor": "#F2CDCD",
+                "styleSystemControls": true,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            }
         }
     ],
     "siteList": [
         "www.reddit.com",
-        "frontendmasters.com",
         "outlook.office.com",
         "web.telegram.org",
         "docs.gitlab.com",
@@ -357,12 +463,74 @@
         "lagoonhospitals.com",
         "rosepinetheme.com",
         "www.nordtheme.com",
-        "www.figma.com",
         "www.leaptools.com",
-        "developer.mozilla.org",
         "www.google.com",
         "na2.docusign.net",
-        "www.notion.so/olaolu"
+        "www.notion.so/olaolu",
+        "www.notion.",
+        "fe-legacy.wavely.com",
+        "www.wavely.com",
+        "boards.greenhouse.io",
+        "app.gitbook.com",
+        "fontjoy.com",
+        "my.supernotes.app",
+        "resumey.pro",
+        "tailwindcss.com",
+        "localhost:3000",
+        "accounts.shopify.com",
+        "www.shopify.com",
+        "omuse-2927.myshopify.com",
+        "driwwwle.com",
+        "ndjson.org",
+        "hatchful.shopify.com",
+        "www.brandcrowd.com",
+        "www.tailorbrands.com",
+        "studio.tailorbrands.com",
+        "looka.com",
+        "www.freelogodesign.org",
+        "tailwindcomponents.com",
+        "www.developereconomics.net",
+        "astro.build",
+        "tympanus.net",
+        "www.chingu.io",
+        "docs.google.com",
+        "www.figma.com",
+        "mercury.com",
+        "www.swisstypefaces.com",
+        "www.future.green",
+        "mail.google.com",
+        "shipveho.com",
+        "www.linkedin.com",
+        "germano.dev",
+        "minsw.github.io",
+        "www.tldraw.com",
+        "ncube.com",
+        "mail.proton.me",
+        "ishadeed.com",
+        "surfshark.com",
+        "www.indeed.com",
+        "www.itsoffbrand.com",
+        "www.reaktor.com",
+        "msu.studentaidcalculator.com",
+        "mypennstate.psu.edu",
+        "app.leif.org",
+        "www.typescriptlang.org",
+        "techwithtols.com",
+        "www.hackerrank.com",
+        "www.baeldung.com",
+        "spotifytalentcommunity.splashthat.com",
+        "www.geeksforgeeks.org",
+        "jrsinclair.com",
+        "onedrive.live.com",
+        "nuledge.com",
+        "www.recursive.design",
+        "calendar.proton.me",
+        "campaignmonitor.wd5.myworkdayjobs.com",
+        "my.indeed.com",
+        "jobs.smartrecruiters.com",
+        "jobs.athenago.com",
+        "clevertech.biz",
+        "www.docusign.net"
     ],
     "siteListEnabled": [],
     "applyToListedOnly": false,
@@ -384,6 +552,10 @@
     "enableForProtectedPages": false,
     "enableContextMenus": false,
     "detectDarkTheme": false,
+    "displayedNews": [
+        "detect-dark-theme",
+        "mobile"
+    ],
     "readNews": [
         "chrome-favorites-2021",
         "thanks-2021",
@@ -402,6 +574,9 @@
         "product-hunt",
         "custom-site-settings",
         "thanks-for-contribution",
-        "dynamic-theme"
+        "dynamic-theme",
+        "no-war",
+        "mobile",
+        "v5-survey"
     ]
 }
