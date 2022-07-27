@@ -314,9 +314,17 @@ function dejaDupIgnore() {
   nameOfDirToIgnore="*${1:=node_modules}*"
   dirLocation="${2:=$LEARNING}"
 
+
   for dirName in $(find $dirLocation -name $nameOfDirToIgnore -type d); do
-      touch "$dirName/.deja-dup-ignore"
-      doesFileExist "$dirName/.deja-dup-ignore"
+      targetFilePath="$dirName/.deja-dup-ignore"
+
+      if [[ ! -f "$targetFilePath" ]]; then
+          touch "$targetFilePath"
+      else
+	  rm "$targetFilePath"
+      fi
+
+      doesFileExist "$targetFilePath"
   done
 }
 
