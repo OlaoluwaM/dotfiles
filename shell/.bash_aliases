@@ -353,6 +353,7 @@ export FORGIT_INSTALL_DIR="$HOME/.local/bin"
 export AUX_BAK_DIR="$HOME/sys-backups"
 
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
+export NVM_AUTOLOAD="1"
 
 # Aliases
 
