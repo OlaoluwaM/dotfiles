@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
+# When installing spaceship with npm, this becomes unnecessary
 # ZSH_THEME="spaceship"
 
 # Spaceship theme config variables
@@ -244,3 +245,4 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+fpath=($fpath "/home/olaolu/.zfunctions")

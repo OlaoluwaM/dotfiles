@@ -1,1 +1,1 @@
-{ "config": "$HOME/.config/bat/" }
+{ "config": "$HOME/.config/bat/", "*": "$HOME/.local/bin" }
