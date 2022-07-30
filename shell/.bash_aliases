@@ -328,6 +328,17 @@ function dejaDupIgnore() {
   done
 }
 
+function updatePackageList() {
+  if [[ $# -eq 0 ]]; then
+    nv "$PACKAGE_LST_FILE"
+  else
+    # This means we have provided packages to add
+    PACKAGES_TO_ADD=$(IFS=$'\n'; echo "$*")
+    echo "$PACKAGES_TO_ADD" >> "$PACKAGE_LST_FILE"
+  fi
+}
+
+
 # Env Variables
 
 export ALIASES="$HOME/.bash_aliases"
@@ -354,6 +365,12 @@ export AUX_BAK_DIR="$HOME/sys-backups"
 
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 export NVM_AUTOLOAD="1"
+
+# distro setup
+export D_SETUP="$DEV/distro-setup"
+export ZSH_ALIAS_FINDER_AUTOMATIC=true
+export PACKAGE_LST_FILE="$D_SETUP/common/packages.txt"
+
 
 # Aliases
 
@@ -422,7 +439,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
-alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 > $DOTFILES/npm/global-npm-pkgs.txt"
+alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' > $DOTFILES/npm/global-npm-pkgs.txt"
 
 alias bgrep="batgrep"
 alias bman="batman"
@@ -434,7 +451,6 @@ alias wp=wl-paste
 
 alias toDots="cd $DOTFILES"
 alias diffDirs="diff -qr"
-alias editInstalledPkgs="nv $SYS_BAK_DIR/installed-packages.txt"
 
 alias editCustomizations="nv $SYS_BAK_DIR/customizations.log.txt"
 alias ascma="asciinema"

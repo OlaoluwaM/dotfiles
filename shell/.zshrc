@@ -88,7 +88,7 @@ if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
     source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node nvm jsontools)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder jsontools)
 
 #if [[ $TERM_PROGRAM != 'vscode' ]]; then
 #   ZSH_TMUX_AUTOSTART=true
@@ -130,13 +130,17 @@ if [ -f ~/.personal_tokens ]; then
 fi
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
+    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
 fi
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh" ]; then
-  source $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh
+    source $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh
 fi
 
+# https://gnunn1.github.io/tilix-web/manual/vteconfig/
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#    source /etc/profile.d/vte.sh
+# fi
 # Other things to run
 
 # For colorls (only when ruby is installed)
@@ -226,7 +230,7 @@ fi
 # Setup Starship ZSH prompt
 # eval "$(starship init zsh)"
 
-# The Fuck
+# The Fuck. Commented out because plugin is enabled
 eval $(thefuck --alias fuck)
 
 # For automatically activating and deactivating python virtual envs when changing dirs
