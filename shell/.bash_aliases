@@ -338,11 +338,51 @@ function updatePackageList() {
   fi
 }
 
+function updateGnomeTheme() {
+  themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
+
+  if [[ -z "$themeName" ]]; then
+    echo "Please specify the name of the theme"
+    return 1
+  fi
+
+  themeDir="$HOME/.themes/$themeName"
+
+  if [[ ! -d "$themeDir" ]]; then
+    echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the ~/.themes directory"
+    return 1
+  fi
+
+  echo -e "Setting flatpak theme..."
+  sudo flatpak override --env=GTK_THEME="$themeName"
+
+  echo -e "\nCopying gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
+  cp -rt "$HOME/.config/gtk-4.0/" "$themeDir/gtk-4.0/*"
+
+  echo -e "\nCopying gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
+  cp -rt "$HOME/.config/gtk-3.0/" "$themeDir/gtk-3.0/*"
+
+  echo -e "\nAdding terminal padding once again..."
+  cat <<END >> "$HOME/.config/gtk-3.0/gtk.css"
+
+  VteTerminal,
+  TerminalScreen,
+  vte-terminal {
+    padding: 10px 10px 10px 10px;
+    -VteTerminal-inner-border: 10px 10px 10px 10px;
+  }
+END
+}
+
+function backupInstalledCrates() {
+  cargo install --list | awk '{print $1}' | sed -n '1~2p' > $D_SETUP/common/rust-crates.txt
+}
+
 
 # Env Variables
 
 export ALIASES="$HOME/.bash_aliases"
-export NOTI_SOUND="$HOME/Music/Windows\ 11\ Sounds/chimes.wav"
+export NOTI_NSUSER_SOUNDNAME="$HOME/Music/windows-11-sounds/chimes.wav"
 
 export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
@@ -482,3 +522,5 @@ alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTFILES/system/dnf-alias
 alias gtp="gotop"
 alias gnomeBackup="dconf dump /org/gnome/ > $SYS_BAK_DIR/gnome-backup"
 alias backupShellExtensionList="ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt"
+
+alias getGnomeTheme="gsettings get org.gnome.desktop.interface gtk-theme | tr -d \"'\""

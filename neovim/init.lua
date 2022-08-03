@@ -40,6 +40,7 @@ local config = {
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
+      catppuccin_flavour = "mocha",
     },
   },
 
@@ -81,7 +82,13 @@ local config = {
   plugins = {
     -- Add plugins, the packer syntax without the "use"
     init = {
-         "catppuccin/nvim"
+      {
+        "catppuccin/nvim",
+        as = 'catppuccin',
+        config = function ()
+          require("catppuccin").setup{}
+        end
+      }
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
