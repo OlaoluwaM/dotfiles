@@ -130,7 +130,7 @@ if [ -f ~/.personal_tokens ]; then
 fi
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
-    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
+#    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
 fi
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh" ]; then

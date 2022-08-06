@@ -524,3 +524,7 @@ alias gnomeBackup="dconf dump /org/gnome/ > $SYS_BAK_DIR/gnome-backup"
 alias backupShellExtensionList="ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt"
 
 alias getGnomeTheme="gsettings get org.gnome.desktop.interface gtk-theme | tr -d \"'\""
+alias syncGnomeShellEdits="busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save"
+alias nd="node-docs"
+
+alias countAllFilesInDir="ls -Rp | grep -v / | sed -r '/^\s*$/d' | tail -n +2 | wc -l"

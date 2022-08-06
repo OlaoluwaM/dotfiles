@@ -45,3 +45,7 @@
   defaultBranch = main
 [diff]
 	external = difft
+[merge]
+  tool = code
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

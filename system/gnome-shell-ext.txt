@@ -3,6 +3,7 @@ bluetooth-quick-connect@bjarosze.gmail.com
 blur-my-shell@aunetx
 burn-my-windows@schneegans.github.com
 clipboard-indicator@tudmotu.com
+dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com
 extension-list@tu.berry
 flypie@schneegans.github.com
 gsconnect@andyholmes.github.io
