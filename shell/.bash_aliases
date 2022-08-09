@@ -66,8 +66,9 @@ function reinstallAsDep() {
   npm un $package && npm i $package
 }
 
-function backupEntity() {
+function backupEntityFromHomeDir() {
   entityToBackup="$1"
+  # The below must be a path relative to the $HOME dir
   dirToBackup="$2"
 
   if  [[ -z "$entityToBackup" || -z "$dirToBackup" ]]; then
@@ -82,16 +83,10 @@ function backupEntity() {
   echo "Compressing $entityToBackup into tarball"
   echo "Compressed file will be stored at $dirToBackup"
 
-  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" $dirToBackup
+  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" -C $HOME $dirToBackup
 }
 
-# function restoreFonts() {
-#   echo "Restoring fonts from tarball..."
-#   cd "$HOME" || exit 1
-#   tar -xzvf $AUX_BAK_DIR/fonts.tar.gz
-# }
-
-function restoreEntity() {
+function restoreEntityToHomeDir() {
   entityToRestore="$1"
 
   if [[ -z $entityToRestore ]]; then
@@ -100,18 +95,12 @@ function restoreEntity() {
   fi
 
   echo "Restoring $entityToRestore from tarball..."
-  cd "$HOME" || exit 1
 
-  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz"
+  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz" -C $HOME
 }
 
 function backupWallpapers() {
-  currentDir=$(pwd)
-  ImagesDir="$HOME/Pictures/Wallpapers"
-
-  cd "$ImagesDir" || return;
-  $(which node) compressWallpapers.mjs;
-  cd "$currentDir" || return;
+  $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs";
 }
 
 function downloadFile() {
@@ -183,7 +172,7 @@ function areFontsBackedup() {
   echo $fontCount
 
   echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$( if [[ -f "$AUX_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/fonts.tar.gz | wc -l) - 2"; else echo 0; fi);
+  fontTarBallCount=$( if [[ -f "$AUX_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/fonts.tar.gz | wc -l) - 1"; else echo 0; fi);
   echo $fontTarBallCount
 
   if [[ $fontCount -eq $fontTarBallCount ]]; then
@@ -328,7 +317,7 @@ function dejaDupIgnore() {
   done
 }
 
-function updatePackageList() {
+function addInstalledPackages() {
   if [[ $# -eq 0 ]]; then
     nv "$PACKAGE_LST_FILE"
   else
@@ -512,7 +501,7 @@ alias forgit-help="firefox https://github.com/wfxr/forgit"
 alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
 
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
-alias backupFonts="backupEntity 'fonts' $FONT_DIR"
+alias backupFonts="backupEntityFromHomeDir 'fonts' ./local/share/fonts"
 alias listFilesInTarball="tar -tf"
 
 alias searchBw="bw list items --pretty --search"
@@ -528,3 +517,4 @@ alias syncGnomeShellEdits="busctl --user call org.gnome.Shell /io/elhan/Extensio
 alias nd="node-docs"
 
 alias countAllFilesInDir="ls -Rp | grep -v / | sed -r '/^\s*$/d' | tail -n +2 | wc -l"
+alias checkGnomeKeyringProcess="ps -aux | grep 'keyring' | head -1"
