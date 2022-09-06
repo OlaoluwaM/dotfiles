@@ -1,5 +1,6 @@
 # Inserts a blank line between shell prompts
 add_newline = true
+scan_timeout = 10
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
@@ -7,7 +8,7 @@ success_symbol = "[➜](bold green)"    # The "success_symbol" segment is being 
 error_symbol = "[➜](bold red)"
 
 [time]
-disabled = false
+disabled = true
 time_format = '%R'
 format = '[\[ $time ](white dimmed)'
 
@@ -15,27 +16,32 @@ format = '[\[ $time ](white dimmed)'
 style_user = "purple bold"
 style_root = "red bold"
 format = "[$user]($style) in "
-disabled = false
+disabled = true
 show_always = true
 
 [shell]
 format = 'in [$indicator \]]($style) '
-disabled = false
+disabled = true
 style = "white dimmed"
 
 [status]
-sigint_symbol = "🧱"
-format = 'with [$symbol $signal_name\($signal_number\)]($style) '
+# format = '[$symbol $signal_name\($signal_number\)]($style) '
+format = '[$symbol]($style) '
 map_symbol = true
 disabled = false
 
 [cmd_duration]
-show_notifications = true
+show_notifications = false
 min_time = 1_000
 format = "took [$duration](bold yellow)"
-min_time_to_notify = 20_000
+min_time_to_notify = 70_000
 
 [sudo]
 style = "bold red"
 symbol = "root "
 disabled = false
+
+[memory_usage]
+disabled = true
+threshold = 50
+format = "with [${ram_pct}]($style) $symbol"
