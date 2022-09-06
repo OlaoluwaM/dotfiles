@@ -357,8 +357,8 @@ function updateGnomeTheme() {
   VteTerminal,
   TerminalScreen,
   vte-terminal {
-    padding: 10px 10px 10px 10px;
-    -VteTerminal-inner-border: 10px 10px 10px 10px;
+    padding: 16px;
+    -VteTerminal-inner-border: 16px;
   }
 END
 }
@@ -400,6 +400,12 @@ export D_SETUP="$DEV/distro-setup"
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$D_SETUP/common/packages.txt"
 
+export DOTS="$DOTFILES"
+export C_RPMS="$HOME/Downloads/rpms/"
+export NAVI_PATH="$DOTFILES/navi/cheats"
+
+export NAVI_CONFIG="$DOTFILES/navi/config.yaml"
+
 
 # Aliases
 
@@ -419,7 +425,7 @@ alias signedCommit="git commit -s"
 alias removeDotKeepFiles="find . -name '.keep' -delete"
 alias reloadAliases="source ~/.bash_aliases"
 
-alias swag="sudo"
+alias swag="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias editAliases="nv ~/.bash_aliases"
 
 alias listRawVpnLocations="ls /etc/openvpn"
@@ -430,7 +436,7 @@ alias notifyMe="notify"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias loginAsPostgresUser="sudo su - postgres"
 
-alias py="python"
+alias py="python3"
 alias pvpn="protonvpn-cli"
 alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
 
@@ -501,7 +507,7 @@ alias forgit-help="firefox https://github.com/wfxr/forgit"
 alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
 
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
-alias backupFonts="backupEntityFromHomeDir 'fonts' ./local/share/fonts"
+alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
 alias listFilesInTarball="tar -tf"
 
 alias searchBw="bw list items --pretty --search"
@@ -518,3 +524,27 @@ alias nd="node-docs"
 
 alias countAllFilesInDir="ls -Rp | grep -v / | sed -r '/^\s*$/d' | tail -n +2 | wc -l"
 alias checkGnomeKeyringProcess="ps -aux | grep 'keyring' | head -1"
+alias lg="lazygit"
+
+alias installBetterDiscord="betterdiscordctl --d-install flatpak install"
+alias fixBetterDiscord="betterdiscordctl --d-install flatpak reinstall"
+alias isPostgresRunning="service postgresql status"
+
+alias btp="btop"
+alias listAllPyVersions="ls -ls /usr/bin/python*"
+alias npo="npm outdated"
+
+alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
+alias rm="trash"
+alias cat="bat -p"
+
+alias reload="omz reload"
+alias clr="clear"
+alias q="cd ~ && clear"
+
+alias sudo="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias e="$EDITOR"
+alias x+="chmod +x"
+
+alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
+alias vsc="code"

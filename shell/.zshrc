@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -11,16 +12,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # When installing spaceship with npm, this becomes unnecessary
 # ZSH_THEME="spaceship"
-
-# Spaceship theme config variables
-SPACESHIP_CHAR_SYMBOL_ROOT=">>"
-SPACESHIP_USER_SHOW="needed"
-SPACESHIP_VENV_SYMBOL="🐍 "
-SPACESHIP_TIME_SHOW="true"
-SPACESHIP_EXIT_CODE_PREFIX=""
-SPACESHIP_TIME_FORMAT="%T"
-SPACESHIP_TIME_COLOR="white dimmed"
-SPACESHIP_EXIT_CODE_SHOW="true"
 
 # When we use certain fonts like JetBrains Mono, this becomes redundant
 # if [[ $TERM_PROGRAM = 'vscode' ]]; then SPACESHIP_CHAR_SUFFIX=" "; fi
@@ -78,6 +69,9 @@ SPACESHIP_EXIT_CODE_SHOW="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
+# OMZ Plugins
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -88,7 +82,7 @@ if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
     source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder jsontools)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder httpie npm gh extract ag)
 
 #if [[ $TERM_PROGRAM != 'vscode' ]]; then
 #   ZSH_TMUX_AUTOSTART=true
@@ -96,6 +90,7 @@ plugins=(git command-not-found git-escape-magic rand-quote safe-paste rsync zsh-
 #fi
 
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -114,20 +109,22 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
 if [ -f ~/.personal_tokens ]; then
-  . ~/.personal_tokens
+  source ~/.personal_tokens
 fi
+
+source $DOTFILES/shell/smartdots.zsh
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
 #    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
@@ -141,6 +138,8 @@ fi
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #    source /etc/profile.d/vte.sh
 # fi
+
+
 # Other things to run
 
 # For colorls (only when ruby is installed)
@@ -150,85 +149,16 @@ else
   echo "You need to install ruby first :/"
 fi
 
-if [ $(command -v quote) ]; then
-  quote # For inspirational quotes
+# For inspirational Quotes
+if command -v quote &>/dev/null; then
+  quote
 else
   echo "Quotes are currently not available\n"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-if [[ ! -d "$ZSH/completions" || ! -f "$ZSH/completions/_gh" ]]; then
-  mkdir -pv $ZSH/completions
-  gh completion --shell zsh >$ZSH/completions/_gh
-  echo "gh added completions: gh completion --shell zsh > $ZSH/completions/_gh"
-fi
-
-###-begin-npm-completion-###
-
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-if type complete &>/dev/null; then
-  _npm_completion() {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-      COMP_LINE="$COMP_LINE" \
-      COMP_POINT="$COMP_POINT" \
-      npm completion -- "${words[@]}" \
-      2>/dev/null)) || return $?
-    IFS="$si"
-    if type __ltrim_colon_completions &>/dev/null; then
-      __ltrim_colon_completions "${words[cword]}"
-    fi
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT - 1)) \
-      COMP_LINE=$BUFFER \
-      COMP_POINT=0 \
-      npm completion -- "${words[@]}" \
-      2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion() {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-      COMP_LINE="$line" \
-      COMP_POINT="$point" \
-      npm completion -- "${words[@]}" \
-      2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
 
 # Setup Starship ZSH prompt
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # The Fuck. Commented out because plugin is enabled
 eval $(thefuck --alias fuck)
@@ -246,7 +176,15 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# Mcfly
+eval "$(mcfly init zsh)"
+
+# Navi
+eval "$(navi widget zsh)"
+
+# Set Spaceship ZSH as a prompt (Is erroring out for some reason)
+# autoload -U promptinit; promptinit
+# prompt spaceship
+
+fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")

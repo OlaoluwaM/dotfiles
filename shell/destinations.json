@@ -1,4 +1,5 @@
 {
   "*": "~",
   "catppuccin-zsh-syntax-highlighting.zsh": "~/.zsh-custom"
+  "!": ["smartdots.zsh"]
 }
