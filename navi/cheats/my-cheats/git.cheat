@@ -6,5 +6,34 @@ git push <remote> --delete <old_branch_name>
 git branch --unset-upstream <old_branch_name>
 git push -u <remote> <new_remote_branch_name>
 
+# Diff two branches by name only
+git diff --name-only <branch_one> <branch_two>
+
+# Diff two branches excluding the package-lock.json file
+git diff <branch_one> <branch_two> -- . ':(exclude)package-lock.json'
+
+# Remove all local branches except specified one
+git branch | grep -v "<branch_one>" | xargs git branch -D
+
+# Unset current branch's upstream
+git branch --unset-upstream
+
+# Set current branch's upstream without pushing
+git branch --set-upstream-to <upstream_branch_name>
+
+# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commits A & B are included):
+git cherry-pick <older_commit_A_hash>^..<newer_commit_B_hash>
+
+# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commit A is not included):
+git cherry-pick <older_commit_A_hash>..<newer_commit_B_hash>
+
+# Git add, but exclude certain files
+git add --all -- ':!path/to/file1' ':!path/to/file2' ':!path/to/folder1/*'
+
+# Fetch a remote branch that does not exist locally and create it
+git switch <remote_branch_name>
+
 
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
+$ branch_one: git branch --list
+$ branch_two: git branch --list
