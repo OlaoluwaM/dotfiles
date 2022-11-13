@@ -1,0 +1,10 @@
+% git
+
+# Rename remote git branch (https://stackoverflow.com/a/30590238/17612886)
+git branch -m <old_branch_name> <new_branch_name>
+git push <remote> --delete <old_branch_name>
+git branch --unset-upstream <old_branch_name>
+git push -u <remote> <new_remote_branch_name>
+
+
+$ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'

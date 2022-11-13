@@ -82,7 +82,7 @@ if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
     source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder httpie npm gh extract ag)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder httpie npm gh extract ag zoxide)
 
 #if [[ $TERM_PROGRAM != 'vscode' ]]; then
 #   ZSH_TMUX_AUTOSTART=true
@@ -92,7 +92,7 @@ plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-a
 source $ZSH/oh-my-zsh.sh
 
 
-# User configuration
+# User Configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -124,7 +124,7 @@ if [ -f ~/.personal_tokens ]; then
   source ~/.personal_tokens
 fi
 
-source $DOTFILES/shell/smartdots.zsh
+source "$DOTS/shell/smartdots.zsh"
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
 #    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
@@ -139,6 +139,13 @@ fi
 #    source /etc/profile.d/vte.sh
 # fi
 
+source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
+
+# Do not override files using `>`, but it's still possible using `>!`
+set -o noclobber
+
+# For vscode shell integrations
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # Other things to run
 
@@ -157,34 +164,34 @@ else
 fi
 
 
-# Setup Starship ZSH prompt
+# Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
-# The Fuck. Commented out because plugin is enabled
+# The Fuck (https://github.com/nvbn/thefuck)
 eval $(thefuck --alias fuck)
 
-# For automatically activating and deactivating python virtual envs when changing dirs
+# For automatically activating and deactivating python virtual envs when changing dirs (https://github.com/direnv/direnv)
 eval "$(direnv hook zsh)"
 
 # bun completions
 [ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
 
-# Bun
+# Bun (https://github.com/oven-sh/bun)
 export BUN_INSTALL="/home/olaolu/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-# Mcfly
-eval "$(mcfly init zsh)"
+# Mcfly (switching from mcfly to atuin, https://github.com/cantino/mcfly)
+# eval "$(mcfly init zsh)"
 
-# Navi
+# Navi (https://github.com/denisidoro/navi)
 eval "$(navi widget zsh)"
 
-# Set Spaceship ZSH as a prompt (Is erroring out for some reason)
-# autoload -U promptinit; promptinit
-# prompt spaceship
+# Atuin (https://github.com/ellie/atuin)
+eval "$(atuin init zsh)"
+
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")

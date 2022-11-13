@@ -2,11 +2,6 @@
 
 # Functions
 
-function load_env() {
-  RUNNER=${3:-node}
-  env "$(cat $1 | grep -v "\"#\"" | xargs) $RUNNER $2"
-}
-
 function does_entity_exist() {
   if test $1 "$3"; then
     echo "${2} ${3} exists"
@@ -31,27 +26,12 @@ function showTerminalColors() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
-function notify() {
-  MESSAGE="${1:="$(date);$(pwd)"}"
-  # spd-say 'Done with task!';
-  aplay "$alarmSound" &>/dev/null
-  notify-send -u normal -t 7000 "$MESSAGE"
-}
-
 function newRemoteBranch() {
   branchName="${1:=HEAD}"
   remote="${2:=origin}"
 
   #echo $remote $branchName
   git push -u $remote $branchName
-}
-
-function netSpeed() {
-  echo "From speedtest.net";
-  speedtest-cli;
-  echo "\n";
-  echo "From fast.com";
-  fast;
 }
 
 function reinstallAsDevDep() {
@@ -184,35 +164,6 @@ function areFontsBackedup() {
   fi
 }
 
-# function isEntityBackedup() {
-#   backedupEntity="$1"
-#   dirToBackup="$2"
-
-#   if  [[ -z "$backedupEntity" || -z "$dirToBackup" ]]; then
-
-#       [[ -z "$backedupEntity" ]] && echo "Missing required first arg. What backup do you want to check?"
-#       [[ -z "$dirToBackup" ]] && echo "Missing name of directory related to this backup"
-
-#       return 1
-#   fi
-
-#   echo "Counting current $backedupEntity: \c"
-#   entityCount=$(ls $dirToBackup | wc -l);
-#   echo $entityCount
-
-#   echo -e "Counting $backedupEntity present in compressed $backedupEntity tarball file: \c"
-#   entityTarBallCount=$( if [[ -f "$AUX_BAK_DIR/${backedupEntity}.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/${backedupEntity}.tar.gz | wc -l) - 1"; else echo 0; fi);
-#   echo $entityTarBallCount
-
-#   if [[ $entityCount -eq $entityTarBallCount ]]; then
-#       echo "$backedupEntity are all backed up!"
-#   elif [[ $entityCount -lt $entityTarBallCount ]]; then
-#       echo "You need restore your $backedupEntity from the tarball"
-#   else
-#       echo "You need to backup your $backedupEntity hun!"
-#   fi
-# }
-
 function repoInit() {
   # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
   git init;
@@ -296,7 +247,7 @@ function createPyVirtEnv() {
 }
 
 function backupGHExtensions() {
-  gh extension list | awk '{print $3}' > "$DOTFILES/git/gh-extensions.txt"
+  gh extension list | awk '{print $3}' > "$DOTS/git/gh-extensions.txt"
 }
 
 function dejaDupIgnore() {
@@ -367,92 +318,78 @@ function backupInstalledCrates() {
   cargo install --list | awk '{print $1}' | sed -n '1~2p' > $D_SETUP/common/rust-crates.txt
 }
 
+function generatePsswd() {
+  LENGTH="${1:=16}"
+  echo "Generating new password..."
+  bw generate -ulns $LENGTH | wl-copy
+  echo "Password copied to clipboard"
+}
 
 # Env Variables
 
+export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
 export ALIASES="$HOME/.bash_aliases"
-export NOTI_NSUSER_SOUNDNAME="$HOME/Music/windows-11-sounds/chimes.wav"
-
-export wordStore="/home/olaolu/.nvm/versions/node/v16.7.0/lib/node_modules/term-of-the-day/build/src/wordStore/store.json"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
-export SCRIPTS="$HOME/Desktop/olaolu_dev/scripts"
 
 export TERM="xterm-256color"
-export EDITOR="nvim"
-export DOTFILES="$HOME/Desktop/olaolu_dev/dotfiles"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
 
 export FONT_DIR="$HOME/.local/share/fonts"
-export SYS_BAK_DIR="$DOTFILES/system"
+export SYS_BAK_DIR="$DOTS/system"
 
 export DEV="$HOME/Desktop/olaolu_dev/dev"
-export DESIGN="$HOME/Desktop/olaolu_dev/design"
 export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
-
-export LEARNING="$HOME/Desktop/olaolu_dev/learnings"
-export FORGIT_INSTALL_DIR="$HOME/.local/bin"
 export AUX_BAK_DIR="$HOME/sys-backups"
 
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 export NVM_AUTOLOAD="1"
 
-# distro setup
-export D_SETUP="$DEV/distro-setup"
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$D_SETUP/common/packages.txt"
 
-export DOTS="$DOTFILES"
-export C_RPMS="$HOME/Downloads/rpms/"
-export NAVI_PATH="$DOTFILES/navi/cheats"
+export NAVI_PATH="$DOTS/navi/cheats"
+export NAVI_CONFIG="$DOTS/navi/config.yaml"
+export ATUIN_CONFIG_DIR="$DOTS/atuin"
 
-export NAVI_CONFIG="$DOTFILES/navi/config.yaml"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+export VAULT="$HOME/Documents/Obsidian/🌲 デジタルブレインフォレスト 🌲/"
+export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
+
+export _ZO_DATA_DIR="$DOTS/zoxide"
+export TEALDEER_CONFIG_DIR="$DOTS/tldr"
+export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 
 # Aliases
 
-alias findRunningNodeServers="ps -aef | grep node"
 alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
-
 alias listGlobalNpmPackages="npm -g ls --depth 0"
+
 alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null|| echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
-alias newTmuxSession="tmux new -s"
-
-alias resetTmuxConfig="tmux show -g | sed 's/^/set -g /' > ~/.tmux.conf"
 alias checkForUpdates="dnf check-update"
-alias initialPush="git push -u origin"
-
-alias signedCommit="git commit -s"
-alias removeDotKeepFiles="find . -name '.keep' -delete"
 alias reloadAliases="source ~/.bash_aliases"
 
 alias swag="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias editAliases="nv ~/.bash_aliases"
-
-alias listRawVpnLocations="ls /etc/openvpn"
-alias listVpnLocations="ls /etc/openvpn | grep tcp | cut -d '.' -f 1 | uniq -u"
-alias connectToVPN="~/Desktop/olaolu_dev/dev/surfshark_vpn_cli/connectToSurfsharkVPN.sh"
-
-alias notifyMe="notify"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
-alias loginAsPostgresUser="sudo su - postgres"
 
+alias loginAsPostgresUser="sudo su - postgres"
 alias py="python3"
 alias pvpn="protonvpn-cli"
+
 alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
-
-alias neofetchWithConfig="neofetch --config $HOME/neofetchConfig.conf"
 alias cls="colorls --dark"
-alias listFlatpakThemes="flatpak search gtk3theme"
 
-alias listUserInstalledRpms="dnf repoquery --userinstalled"
 alias lls="logo-ls"
-alias listEnabledCoprRepo="dnf copr list --installed"
-
-alias updateNvmToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
+alias updateNodeToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
 alias open="xdg-open"
-alias kernelVersion="uname -r"
 
-alias tmux="TERM=xterm-256color tmux"
+alias tmx="TERM=xterm-256color tmux"
 alias setSuPasswrd="sudo passwd su"
 alias spice="spicetify"
 
@@ -464,74 +401,36 @@ alias nv="nvim"
 alias z="zoxide"
 alias echo="echo -e"
 
-alias tmx="tmux"
-alias rc="rustc"
-alias dconfBackup="dconf dump / > $SYS_BAK_DIR/dconf-settings-backup"
-
 alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
-alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' > $DOTFILES/npm/global-npm-pkgs.txt"
+alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' > $DOTS/npm/global-npm-pkgs.txt"
 
 alias bgrep="batgrep"
 alias bman="batman"
-alias toDev="cd $DEV"
 
-alias toDesign="cd $DESIGN"
-alias wcb=wl-copy
-alias wp=wl-paste
-
-alias toDots="cd $DOTFILES"
+alias wcb="wl-copy"
+alias wp="wl-paste"
 alias diffDirs="diff -qr"
 
-alias editCustomizations="nv $SYS_BAK_DIR/customizations.log.txt"
-alias ascma="asciinema"
-
-alias dupesInPath="echo $PATH | tr ':' '\n' | sort | uniq -d"
-alias toScripts="cd $SCRIPTS"
 alias growTree="cbonsai --seed 200 -l -i"
-
 alias ydl="youtube-dl"
-alias logout-gnome-force="gnome-session-quit --no-prompt --logout"
-alias logout-gnome="gnome-session-quit --logout"
 
-alias toLearning="cd $LEARNING"
 alias pyV="python -V"
 alias pipV="python -m pip -V"
-
-alias fzf="fzf --color=16"
-alias forgit-help="firefox https://github.com/wfxr/forgit"
-alias addOSREADME="downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md"
-
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
-alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
-alias listFilesInTarball="tar -tf"
 
-alias searchBw="bw list items --pretty --search"
 alias sizeOf="du -lh"
-alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTFILES/system/dnf-alias.txt"
+alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTS/system/dnf-alias.txt"
 
 alias gtp="gotop"
-alias gnomeBackup="dconf dump /org/gnome/ > $SYS_BAK_DIR/gnome-backup"
-alias backupShellExtensionList="ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt"
-
-alias getGnomeTheme="gsettings get org.gnome.desktop.interface gtk-theme | tr -d \"'\""
-alias syncGnomeShellEdits="busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save"
 alias nd="node-docs"
 
-alias countAllFilesInDir="ls -Rp | grep -v / | sed -r '/^\s*$/d' | tail -n +2 | wc -l"
-alias checkGnomeKeyringProcess="ps -aux | grep 'keyring' | head -1"
 alias lg="lazygit"
-
-alias installBetterDiscord="betterdiscordctl --d-install flatpak install"
-alias fixBetterDiscord="betterdiscordctl --d-install flatpak reinstall"
-alias isPostgresRunning="service postgresql status"
-
 alias btp="btop"
-alias listAllPyVersions="ls -ls /usr/bin/python*"
 alias npo="npm outdated"
 
 alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
@@ -546,5 +445,10 @@ alias sudo="sudo " # https://askubuntu.com/questions/22037/aliases-not-available
 alias e="$EDITOR"
 alias x+="chmod +x"
 
-alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
-alias vsc="code"
+alias vc="code"
+alias netSpeed="speedtest"
+alias pvpnR="pvpn d && pvpnUS"
+
+alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
+alias editSysChangelog="nv $DOTS/system/changelog.md"
+alias searchBw="bw list items --pretty --search"

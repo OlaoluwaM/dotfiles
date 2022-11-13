@@ -1,0 +1,77 @@
+% misc, shell
+
+# Mass search and replace
+grep --exclude-dir={<dirs_to_exclude>} -rl <target_dir> -e "<search_query>" | xargs -I _ sed -i 's/<search_query>/<replace_with>/g' _
+
+# Fix network problems caused by proton-vpn killswitch artifacts
+nmcli con | grep <dummy-network-interface> | awk '{print $2}' | xargs -I _ nmcli con delete uuid _
+
+# Get version of gnome shell
+gnome-shell --version
+
+# Find all running node process
+ps -aef | grep node
+
+# List user installed rpms
+dnf repoquery --userinstalled
+
+# List enabled dnf COPR repos
+dnf copr list --installed
+
+# Get kernel version
+uname -r
+
+# Logout of gnome session (forcefully)
+gnome-session-quit --no-prompt --logout
+
+# Logout of gnome session
+gnome-session-quit --logout
+
+# Add README template to open source project
+downloadFile https://gist.githubusercontent.com/OlaoluwaM/baa27f06abe2a209695e2bc3a6757c05/raw/228fc9d48ed33bc8d5eb58d265df40323f7fc61e/README-Fancy.md README.md
+
+# List the files in a tarball
+tar -tf
+
+# Backup gnome-shell extensions list
+ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt
+
+# Count all files in a directory
+ls -Rp | grep -v / | sed -r '/^\s*$/d' | tail -n +2 | wc -l
+
+# Check gnome keyring process status
+ps -aux | grep 'keyring' | head -1
+
+# Get my IP address
+ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"
+
+# List all installed Python version
+ls -ls /usr/bin/python*
+
+# Remove .keep files from directory
+find . -name '.keep' -delete
+
+# Find duplicates in PATH variable
+echo $PATH | tr ':' '\n' | sort | uniq -d
+
+# Sync gnome-shell edits to github
+busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save
+
+# Remove remaining sudo privileges from password timeout (https://askubuntu.com/a/14949)
+sudo -k
+
+# Check if sudo privileges have timed out (https://unix.stackexchange.com/questions/330690/how-do-i-find-out-if-my-sudoer-privilege-timed-out)
+sudo -nv
+
+# Uninstall node version from NVM
+nvm uninstall <node-version>
+
+# Check what will be included in published npm package
+npx npm-packlist
+
+# Checkout a git commit
+git checkout <commit>
+
+
+$ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
+$ dir-to-search: echo -e '.\n'

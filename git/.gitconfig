@@ -1,17 +1,23 @@
 [user]
   email = 37044906+OlaoluwaM@users.noreply.github.com
   name = OlaoluwaM
+
 [core]
   excludesfile = /home/olaolu/.gitignore_global
   editor = nvim
+
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
+
 [help]
   autocorrect = 50
+
 [color]
   ui = true
+
 [push]
   default = simple
+
 [alias]
   cp = cherry-pick
   d = diff
@@ -39,13 +45,18 @@
   fga = forgit add
   fgd = forgit diff
   fgl = forgit log
+
 [credential]
   helper = cache
+
 [init]
   defaultBranch = main
+
 [diff]
 	external = difft
+
 [merge]
   tool = code
+
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

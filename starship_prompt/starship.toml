@@ -8,9 +8,10 @@ success_symbol = "[➜](bold green)"    # The "success_symbol" segment is being 
 error_symbol = "[➜](bold red)"
 
 [time]
-disabled = true
+disabled = false
 time_format = '%R'
-format = '[\[ $time ](white dimmed)'
+format = '[\[ $time \]]($style) '
+style = "white dimmed"
 
 [username]
 style_user = "purple bold"
