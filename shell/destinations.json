@@ -1,7 +1,7 @@
 {
   "all": "~",
   "catppuccin-zsh-syntax-highlighting.zsh": "~/.zsh-custom",
-  "ignore": [
+  "exclude": [
     "smartdots.zsh",
     "linux-tty-catppuccin-colors.sh",
     "old.bash_aliases"

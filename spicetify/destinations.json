@@ -1,3 +1,6 @@
 {
-  "config-xpui.ini": "~/.config/spicetify"
+  "config-xpui.ini": "~/.config/spicetify",
+  "exclude": [
+    "sleek-theme-edits/*"
+  ]
 }

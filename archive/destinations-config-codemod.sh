@@ -7,7 +7,6 @@ for dir in */; do
   fi
 
   echo "Ammending the destionations file for the ${dir} config group to support the new dfs CLI..."
-  sd -s "!" "ignore" "$dir/destinations.json"
-  sd -s "*" "all" "$dir/destinations.json"
+  sd -s "ignore" "exclude" "$dir/destinations.json"
   echo -e "Done\n"
 done
