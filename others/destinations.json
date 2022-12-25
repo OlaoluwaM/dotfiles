@@ -1,5 +1,5 @@
 {
-  "*": "~/sys-backups/",
+  "all": "~/sys-backups/",
   "powerline-test.sh": "$HOME",
-  "!": ["nativefy.sh"]
+  "ignore": ["nativefy.sh"]
 }

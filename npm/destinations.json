@@ -1,4 +1,4 @@
 {
-  "*": "$HOME",
-  "!": ["global-npm-pkgs.txt"]
+  "all": "$HOME",
+  "ignore": ["global-npm-pkgs.txt"]
 }

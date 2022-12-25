@@ -1,1 +1,5 @@
-{ "config": "$HOME/.config/bat/", "Catppuccin-mocha.tmTheme": "$HOME/.config/bat/themes", "*": "$HOME/.local/bin" }
+{
+  "config": "$HOME/.config/bat/",
+  "Catppuccin-mocha.tmTheme": "$HOME/.config/bat/themes",
+  "all": "$HOME/.local/bin"
+}
