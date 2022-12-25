@@ -82,12 +82,11 @@ if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
     source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node nvm alias-finder httpie npm gh extract ag zoxide)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide nvm)
 
-#if [[ $TERM_PROGRAM != 'vscode' ]]; then
-#   ZSH_TMUX_AUTOSTART=true
-#   ZSH_TMUX_DEFAULT_SESSION_NAME="senpai"
-#fi
+# zstyle ':omz:plugins:nvm' lazy yes
+# zstyle ':omz:plugins:nvm' autoload true
+# zstyle ':omz:plugins:nvm' silent-autoload yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -195,3 +194,5 @@ eval "$(atuin init zsh)"
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
+
+[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env

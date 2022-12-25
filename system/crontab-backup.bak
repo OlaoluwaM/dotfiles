@@ -16,5 +16,7 @@
  00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/sys-backups/global-npm-pkgs.txt
 
  # Logout of system to prepare for workout
- #00 12 * * 1,2,3,4,5 /bin/notify-send -u critical "Prep for workout, You will be logged out in 20 mins!"
- #20 12 * * 1,2,3,4,5 /usr/bin/gnome-session-quit --no-prompt --logout
+ # 40 10 * * 1-5 /usr/bin/gnome-session-quit --no-prompt --logout
+
+ # Sync Gnome Shell Edits with gnome-shell-extension-sync
+ 00 9 * * 1,6 busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save

@@ -69,9 +69,18 @@ nvm uninstall <node-version>
 # Check what will be included in published npm package
 npx npm-packlist
 
-# Checkout a git commit
-git checkout <commit>
+# Update a snap package
+sudo snap refresh <package-name>
 
+# Check for snap packages to update
+snap refresh --list
+
+# Update all snap packages
+sudo snap refresh
+
+# Get password for currently connected WIFI
+nmcli device wifi show-password
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
+$ package-name: snap list

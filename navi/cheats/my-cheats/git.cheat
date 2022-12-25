@@ -33,7 +33,13 @@ git add --all -- ':!path/to/file1' ':!path/to/file2' ':!path/to/folder1/*'
 # Fetch a remote branch that does not exist locally and create it
 git switch <remote_branch_name>
 
+# Checkout a git commit
+git checkout <commit>
+
+# Create new remote git repository with Github CLI
+gh repo create <repo_name> --public --push --source <repo_source>
 
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
+$ repo_source: echo -e ".\n"

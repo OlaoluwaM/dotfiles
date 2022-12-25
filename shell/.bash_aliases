@@ -46,6 +46,11 @@ function reinstallAsDep() {
   npm un $package && npm i $package
 }
 
+
+# Example usage: 
+# `backupEntityFromHomeDir "icons" .icons` Backs up all installed icons inta a tarball called 'icons.tar.gz'
+# `backupEntityFromHomeDir "themes" .themes` Backs up all installed themes into a tarball called "themes.tar.gz"
+
 function backupEntityFromHomeDir() {
   entityToBackup="$1"
   # The below must be a path relative to the $HOME dir
@@ -171,7 +176,7 @@ function repoInit() {
   git add .;
   git commit -m "repo init";
 
-  git checkout -b develop;
+  git checkout -b dev;
   git rebase main
 
   git checkout -b feature;
@@ -209,27 +214,19 @@ function fixSpicePermissionIssues() {
   sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 }
 
-function runInBg() {
-  "$@" > /dev/null 2>&1 &
-}
-
-function runInBgAndDisown() {
-  "$@" > /dev/null 2>&1 & disown
-}
-
 function createPyVirtEnv() {
   currentDir=$(pwd)
   virtualEnvPath="${1:=$currentDir}"
 
   [ ! -d "$virtualEnvPath" ] && mkdir "$virtualEnvPath"
 
-  echo "layout python" > "$virtualEnvPath/.envrc"
+  echo "layout python" >! "$virtualEnvPath/.envrc"
   direnv allow "$virtualEnvPath"
 
   # Commented out to avoid having two virtual envs in one directory
   # python3 -m venv $virtualEnvPath/env
 
-  cd $virtualEnvPath
+  cd "$virtualEnvPath" || return
 
   # Update pip version to latest since ensurepip is stuck at 21.1
   python -m pip install --upgrade pip
@@ -238,7 +235,7 @@ function createPyVirtEnv() {
   # Reltive path because we have cd'ed into the target directory
   reqFilePath="./requirements.txt"
 
-  echo "pylint" > "$reqFilePath"
+  echo "pylint" >! "$reqFilePath"
   python3 -m pip install -r "$reqFilePath"
 
   # Let us know what has been installed
@@ -247,7 +244,7 @@ function createPyVirtEnv() {
 }
 
 function backupGHExtensions() {
-  gh extension list | awk '{print $3}' > "$DOTS/git/gh-extensions.txt"
+  gh extension list | awk '{print $3}' >! "$DOTS/git/gh-extensions.txt"
 }
 
 function dejaDupIgnore() {
@@ -315,7 +312,7 @@ END
 }
 
 function backupInstalledCrates() {
-  cargo install --list | awk '{print $1}' | sed -n '1~2p' > $D_SETUP/common/rust-crates.txt
+  cargo install --list | awk '{print $1}' | sed -n '1~2p' >! "$D_SETUP/common/rust-crates.txt"
 }
 
 function generatePsswd() {
@@ -323,6 +320,13 @@ function generatePsswd() {
   echo "Generating new password..."
   bw generate -ulns $LENGTH | wl-copy
   echo "Password copied to clipboard"
+}
+
+function backupGnomeExtensions() {
+  EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
+
+  ls "$EXTENSIONS_DIR" >! "$SYS_BAK_DIR/gnome-shell-ext-list.txt"
+  cp -r "$EXTENSIONS_DIR" "$SYS_BAK_DIR"
 }
 
 # Env Variables
@@ -335,16 +339,15 @@ export TERM="xterm-256color"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
-export FONT_DIR="$HOME/.local/share/fonts"
-export SYS_BAK_DIR="$DOTS/system"
-
 export DEV="$HOME/Desktop/olaolu_dev/dev"
+export D_SETUP="$DEV/distro-setup"
+export FONT_DIR="$HOME/.local/share/fonts"
+
+export SYS_BAK_DIR="$DOTS/system"
 export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 export AUX_BAK_DIR="$HOME/sys-backups"
 
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
-export NVM_AUTOLOAD="1"
-
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$D_SETUP/common/packages.txt"
 
@@ -359,8 +362,8 @@ export FZF_DEFAULT_OPTS=" \
 
 export VAULT="$HOME/Documents/Obsidian/🌲 デジタルブレインフォレスト 🌲/"
 export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
-
 export _ZO_DATA_DIR="$DOTS/zoxide"
+
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 
@@ -370,7 +373,7 @@ alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
 alias listGlobalNpmPackages="npm -g ls --depth 0"
 
-alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null|| echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
+alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null || echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
 alias checkForUpdates="dnf check-update"
 alias reloadAliases="source ~/.bash_aliases"
 
@@ -401,13 +404,13 @@ alias nv="nvim"
 alias z="zoxide"
 alias echo="echo -e"
 
-alias cronBackup="crontab -l > $SYS_BAK_DIR/crontab-backup.bak"
+alias cronBackup="crontab -l >! $SYS_BAK_DIR/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
-alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' > $DOTS/npm/global-npm-pkgs.txt"
+alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' >! $DOTS/npm/global-npm-pkgs.txt"
 
 alias bgrep="batgrep"
 alias bman="batman"
@@ -424,7 +427,7 @@ alias pipV="python -m pip -V"
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
 
 alias sizeOf="du -lh"
-alias backupDnfAliases="dnf alias | sed 's/Alias//' > $DOTS/system/dnf-alias.txt"
+alias backupDnfAliases="dnf alias | sed 's/Alias//' >! $DOTS/system/dnf-alias.txt"
 
 alias gtp="gotop"
 alias nd="node-docs"
@@ -434,7 +437,7 @@ alias btp="btop"
 alias npo="npm outdated"
 
 alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
-alias rm="trash"
+alias rm="rip"
 alias cat="bat -p"
 
 alias reload="omz reload"
@@ -446,9 +449,12 @@ alias e="$EDITOR"
 alias x+="chmod +x"
 
 alias vc="code"
-alias netSpeed="speedtest"
+alias ns="speedtest"
 alias pvpnR="pvpn d && pvpnUS"
 
 alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
 alias editSysChangelog="nv $DOTS/system/changelog.md"
 alias searchBw="bw list items --pretty --search"
+
+alias tmd="termdown"
+alias ct="cat"
