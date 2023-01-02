@@ -3,7 +3,7 @@
 # Functions
 
 function does_entity_exist() {
-  if test $1 "$3"; then
+  if test "$1" "$3"; then
     echo "${2} ${3} exists"
   else
     echo "${2} ${3} does not exist"
@@ -20,10 +20,6 @@ function pullBranchFromRemote() {
 function pullBranchFromRemoteThenCheckout() {
   git fetch "${1:=origin}" "$2";
   git checkout "$2"
-}
-
-function showTerminalColors() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
 function newRemoteBranch() {
@@ -68,7 +64,7 @@ function backupEntityFromHomeDir() {
   echo "Compressing $entityToBackup into tarball"
   echo "Compressed file will be stored at $dirToBackup"
 
-  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" -C $HOME $dirToBackup
+  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" -C "$HOME" "$dirToBackup"
 }
 
 function restoreEntityToHomeDir() {
@@ -81,7 +77,7 @@ function restoreEntityToHomeDir() {
 
   echo "Restoring $entityToRestore from tarball..."
 
-  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz" -C $HOME
+  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz" -C "$HOME"
 }
 
 function backupWallpapers() {
@@ -125,22 +121,24 @@ function downloadFile() {
 }
 
 function unlockBWVault() {
-  BW_SESSION=$($HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh)
-  [ -z $BW_SESSION ] && return 1
-  export BW_SESSION
+  BW_SESSION=$("$HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
+  [[ -z "$BW_SESSION" ]] && return 1
 
-  echo "Initiating Bitwarden vault sync"
+  export BW_SESSION
+  
+  echo "Initiating Bitwarden vault sync..."
   bw sync
 }
 
 function areWallpapersBackedup() {
   echo "Counting current wallpapers: \c"
-  wallpaperCount=$(ls $WALLPAPERS_DIR/images | wc -l);
-  echo $wallpaperCount
+  wallpaperCount=$(ls "$WALLPAPERS_DIR/images" | wc -l);
+  echo "$wallpaperCount"
 
   echo -e "Counting images present in compressed wallpapers tarball file: \c"
-  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf $WALLPAPERS_DIR/tarball/wallpapers.tar.gz | wc -l) - 1"; else echo 0; fi);
-  echo $wallpaperTarBallFileCount
+  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf "$WALLPAPERS_DIR/tarball/wallpapers.tar.gz" | wc -l) - 1"; else echo 0; fi);
+
+  echo "$wallpaperTarBallFileCount"
 
   if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
       echo "All Backed up!"
@@ -153,12 +151,12 @@ function areWallpapersBackedup() {
 
 function areFontsBackedup() {
   echo "Counting current fonts: \c"
-  fontCount=$(ls $FONT_DIR | wc -l);
-  echo $fontCount
+  fontCount=$(ls "$FONT_DIR" | wc -l);
+  echo "$fontCount"
 
   echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$( if [[ -f "$AUX_BAK_DIR/fonts.tar.gz" ]]; then  bc <<<"$(tar -tf $AUX_BAK_DIR/fonts.tar.gz | wc -l) - 1"; else echo 0; fi);
-  echo $fontTarBallCount
+  fontTarBallCount=$( if [[ -f $AUX_BAK_DIR/fonts.tar.gz ]]; then  bc <<<"$(tar -tf "$AUX_BAK_DIR/fonts.tar.gz" | wc -l) - 1"; else echo 0; fi);
+  echo "$fontTarBallCount"
 
   if [[ $fontCount -eq $fontTarBallCount ]]; then
       echo "All Backed up!"
@@ -173,6 +171,7 @@ function repoInit() {
   # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
   git init;
   touch .gitignore;
+
   git add .;
   git commit -m "repo init";
 
@@ -194,10 +193,10 @@ function editPromptConf() {
 
   if [[ $SHELL_PROMPT == *"starship"* ]]; then
       echo "Opening Starship config..."
-      nv $HOME/.config/starship.toml || vi $HOME/.config/starship.toml
+      nv "$HOME/.config/starship.toml" || vi "$HOME/.config/starship.toml"
   elif [[ $SHELL_PROMPT == *"spaceship"* ]]; then
       echo "Opening Spaceship config..."
-      nv $HOME/.zshrc || vi $HOME/.zshrc
+      nv "$HOME/.zshrc" || vi "$HOME/.zshrc"
   fi
 }
 
@@ -218,7 +217,7 @@ function createPyVirtEnv() {
   currentDir=$(pwd)
   virtualEnvPath="${1:=$currentDir}"
 
-  [ ! -d "$virtualEnvPath" ] && mkdir "$virtualEnvPath"
+  [[ ! -d $virtualEnvPath ]] && mkdir "$virtualEnvPath"
 
   echo "layout python" >! "$virtualEnvPath/.envrc"
   direnv allow "$virtualEnvPath"
@@ -251,18 +250,19 @@ function dejaDupIgnore() {
   nameOfDirToIgnore="*${1:=node_modules}*"
   dirLocation="${2:=$LEARNING}"
 
+  function innerFn() {
+    targetFilePath="$1/.deja-dup-ignore";
 
-  for dirName in $(find $dirLocation -name $nameOfDirToIgnore -type d); do
-      targetFilePath="$dirName/.deja-dup-ignore"
+    if [[ ! -f $targetFilePath ]]; then
+      touch "$targetFilePath";
+    else
+      rm "$targetFilePath";
+    fi
 
-      if [[ ! -f "$targetFilePath" ]]; then
-          touch "$targetFilePath"
-      else
-	  rm "$targetFilePath"
-      fi
+    doesFileExist "$targetFilePath"
+  };
 
-      doesFileExist "$targetFilePath"
-  done
+  find "$dirLocation" -name "$nameOfDirToIgnore" -type d -exec bash -c 'innerFn "$0"' {} \;
 }
 
 function addInstalledPackages() {
@@ -312,7 +312,7 @@ END
 }
 
 function backupInstalledCrates() {
-  cargo install --list | awk '{print $1}' | sed -n '1~2p' >! "$D_SETUP/common/rust-crates.txt"
+  cargo install --list | awk '{print $1}' | sed -n '1~2p' >! "$D_SETUP/src/common/assets/rust-crates.txt"
 }
 
 function generatePsswd() {
@@ -349,7 +349,7 @@ export AUX_BAK_DIR="$HOME/sys-backups"
 
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
-export PACKAGE_LST_FILE="$D_SETUP/common/packages.txt"
+export PACKAGE_LST_FILE="$D_SETUP/src/common/assets/packages.txt"
 
 export NAVI_PATH="$DOTS/navi/cheats"
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
@@ -415,8 +415,8 @@ alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceshi
 alias bgrep="batgrep"
 alias bman="batman"
 
-alias wcb="wl-copy"
-alias wp="wl-paste"
+alias copy="wl-copy"
+alias paste="wl-paste"
 alias diffDirs="diff -qr"
 
 alias growTree="cbonsai --seed 200 -l -i"
@@ -437,8 +437,6 @@ alias btp="btop"
 alias npo="npm outdated"
 
 alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
-alias rm="rip"
-alias cat="bat -p"
 
 alias reload="omz reload"
 alias clr="clear"
@@ -457,4 +455,4 @@ alias editSysChangelog="nv $DOTS/system/changelog.md"
 alias searchBw="bw list items --pretty --search"
 
 alias tmd="termdown"
-alias ct="cat"
+alias bt="bat -p"

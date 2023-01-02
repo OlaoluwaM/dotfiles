@@ -9,4 +9,5 @@
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/serve
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/ts-node
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/typescript
+/home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/underscore-cli
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/zx

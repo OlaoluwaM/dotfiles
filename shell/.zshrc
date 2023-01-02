@@ -119,10 +119,6 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
-if [ -f ~/.personal_tokens ]; then
-  source ~/.personal_tokens
-fi
-
 source "$DOTS/shell/smartdots.zsh"
 
 if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
