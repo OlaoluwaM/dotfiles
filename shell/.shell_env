@@ -464,3 +464,5 @@ alias searchBw="bw list items --pretty --search"
 alias tmd="termdown"
 alias bt="bat -p"
 alias hc="ghci"
+
+alias exitRoot="sudo -k"
