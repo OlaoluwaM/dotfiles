@@ -78,8 +78,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-if [ -f "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh" ]; then
-    source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
+if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
+    source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide nvm)
@@ -115,24 +115,19 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
+if [[ -f $HOME/.shell_env ]]; then
+  source "$HOME/.shell_env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"
 
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
+# if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
 #    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
-fi
-
-if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh" ]; then
-    source $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh
-fi
-
-# https://gnunn1.github.io/tilix-web/manual/vteconfig/
-# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#    source /etc/profile.d/vte.sh
 # fi
+
+if [[ -f $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh ]]; then
+    source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
+fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
 
@@ -178,15 +173,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-# Mcfly (switching from mcfly to atuin, https://github.com/cantino/mcfly)
-# eval "$(mcfly init zsh)"
-
 # Navi (https://github.com/denisidoro/navi)
 eval "$(navi widget zsh)"
 
 # Atuin (https://github.com/ellie/atuin)
 eval "$(atuin init zsh)"
-
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")

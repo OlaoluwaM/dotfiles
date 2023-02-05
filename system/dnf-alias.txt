@@ -1,3 +1,4 @@
  i='install'
  up='update'
  s='search'
+ in='info'

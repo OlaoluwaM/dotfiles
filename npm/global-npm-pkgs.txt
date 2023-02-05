@@ -5,8 +5,6 @@
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/diff-so-fancy
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/dotfilers
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/neovim
-/home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/nodemon
-/home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/serve
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/ts-node
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/typescript
 /home/olaolu/.nvm/versions/node/v19.1.0/lib/node_modules/underscore-cli

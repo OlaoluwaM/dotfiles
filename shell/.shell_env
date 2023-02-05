@@ -318,7 +318,7 @@ function backupInstalledCrates() {
 function generatePsswd() {
   LENGTH="${1:=16}"
   echo "Generating new password..."
-  bw generate -ulns $LENGTH | wl-copy
+  bw generate -ulns --length $LENGTH | tr -d '"' | wl-copy
   echo "Password copied to clipboard"
 }
 
@@ -329,10 +329,16 @@ function backupGnomeExtensions() {
   cp -r "$EXTENSIONS_DIR" "$SYS_BAK_DIR"
 }
 
+function removeQuotes() {
+  # Removes both single and double quotes
+  tr -d "'\""
+}
+
+
 # Env Variables
 
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
-export ALIASES="$HOME/.bash_aliases"
+export ALIASES="$HOME/.shell_env"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 
 export TERM="xterm-256color"
@@ -367,6 +373,7 @@ export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 
+
 # Aliases
 
 alias doesFileExist="does_entity_exist -f File"
@@ -375,10 +382,10 @@ alias listGlobalNpmPackages="npm -g ls --depth 0"
 
 alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null || echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
 alias checkForUpdates="dnf check-update"
-alias reloadAliases="source ~/.bash_aliases"
+alias reloadAliases="source ~/.shell_env"
 
 alias swag="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
-alias editAliases="nv ~/.bash_aliases"
+alias editAliases="nv $HOME/.shell_env"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 
 alias loginAsPostgresUser="sudo su - postgres"
@@ -448,7 +455,7 @@ alias x+="chmod +x"
 
 alias vc="code"
 alias ns="speedtest"
-alias pvpnR="pvpn d && pvpnUS"
+alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 
 alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
 alias editSysChangelog="nv $DOTS/system/changelog.md"
@@ -456,3 +463,4 @@ alias searchBw="bw list items --pretty --search"
 
 alias tmd="termdown"
 alias bt="bat -p"
+alias hc="ghci"
