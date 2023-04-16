@@ -48,10 +48,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -82,11 +82,7 @@ if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
     source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide nvm)
-
-# zstyle ':omz:plugins:nvm' lazy yes
-# zstyle ':omz:plugins:nvm' autoload true
-# zstyle ':omz:plugins:nvm' silent-autoload yes
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,10 +116,7 @@ if [[ -f $HOME/.shell_env ]]; then
 fi
 
 source "$DOTS/shell/smartdots.zsh"
-
-# if [ -f "$HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh" ]; then
-#    source $HOME/Desktop/olaolu_dev/scripts/active/ssh-github.sh &>/dev/null && [[ $TERM_PROGRAM != 'vscode' ]] && echo
-# fi
+source "$DOTS/shell/nvm-setup.zsh"
 
 if [[ -f $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh ]]; then
     source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
@@ -181,5 +174,7 @@ eval "$(atuin init zsh)"
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
+
+export PATH=$PATH:/home/olaolu/.spicetify
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env

@@ -78,6 +78,7 @@ function restoreEntityToHomeDir() {
   echo "Restoring $entityToRestore from tarball..."
 
   tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz" -C "$HOME"
+  echo "Check the home directory"
 }
 
 function backupWallpapers() {
@@ -277,13 +278,14 @@ function addInstalledPackages() {
 
 function updateGnomeTheme() {
   themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
+  echo "Theme name is $themeName"
 
   if [[ -z "$themeName" ]]; then
     echo "Please specify the name of the theme"
     return 1
   fi
 
-  themeDir="$HOME/.themes/$themeName"
+  themeDir="$THEMES_DIR/$themeName"
 
   if [[ ! -d "$themeDir" ]]; then
     echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the ~/.themes directory"
@@ -293,22 +295,22 @@ function updateGnomeTheme() {
   echo -e "Setting flatpak theme..."
   sudo flatpak override --env=GTK_THEME="$themeName"
 
-  echo -e "\nCopying gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
-  cp -rt "$HOME/.config/gtk-4.0/" "$themeDir/gtk-4.0/*"
+  echo -e "\nLinking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
+  ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
+  
+  # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
+  #ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
+  
+  # echo -e "\nAdding terminal padding once again..."
+  # cat <<END >> "$HOME/.config/gtk-3.0/gtk.css"
 
-  echo -e "\nCopying gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
-  cp -rt "$HOME/.config/gtk-3.0/" "$themeDir/gtk-3.0/*"
-
-  echo -e "\nAdding terminal padding once again..."
-  cat <<END >> "$HOME/.config/gtk-3.0/gtk.css"
-
-  VteTerminal,
-  TerminalScreen,
-  vte-terminal {
-    padding: 16px;
-    -VteTerminal-inner-border: 16px;
-  }
-END
+  # VteTerminal,
+  # TerminalScreen,
+  # vte-terminal {
+  #  padding: 16px;
+  #  -VteTerminal-inner-border: 16px;
+  # }
+# END
 }
 
 function backupInstalledCrates() {
@@ -332,6 +334,43 @@ function backupGnomeExtensions() {
 function removeQuotes() {
   # Removes both single and double quotes
   tr -d "'\""
+}
+
+function isPackageInstalled() {
+  if [[ $# -eq 0 ]]; then
+    echo "No argument was passed. Exiting..."
+    return 1
+  else
+    # This means we have provided packages to add
+    PACKAGES_TO_CHECK_FOR=$(IFS=$'\n'; echo "$*")
+    rpm -qa | grep "$PACKAGES_TO_CHECK_FOR"
+  fi
+}
+
+function timerWithNotif() {
+  timerDuration="${1:=5m}"
+
+  termdown $timerDuration; noti -t "Timer Countdown" -m "Time's Up!"
+}
+
+function updateNodeTo() {
+  nextNodeVer="$1"
+  nvm install "$nextNodeVer" --reinstall-packages-from=$(node -v) && nvm alias default "$nextNodeVer"
+  corepack enable
+}
+
+function addPaddingToGnomeTerminal() {
+  stylesPath="$HOME/.config/gtk-3.0/gtk.css"
+
+  cat << EOF >> $stylesPath
+
+  VteTerminal,
+  TerminalScreen,
+  vte-terminal {
+      padding: 4px 16px 10px 16px;
+      -VteTerminal-inner-border: 4px 16px 10px 16px;
+  }
+EOF
 }
 
 
@@ -366,12 +405,12 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-export VAULT="$HOME/Documents/Obsidian/🌲 デジタルブレインフォレスト 🌲/"
 export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
-
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
+
 export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
+export THEMES_DIR="$HOME/.themes/"
 
 
 # Aliases
@@ -396,7 +435,7 @@ alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/act
 alias cls="colorls --dark"
 
 alias lls="logo-ls"
-alias updateNodeToLatest="nvm install node --reinstall-packages-from=$(node -v) && nvm alias default node"
+alias updateNodeToLatest="updateNodeTo node"
 alias open="xdg-open"
 
 alias tmx="TERM=xterm-256color tmux"
@@ -427,7 +466,7 @@ alias paste="wl-paste"
 alias diffDirs="diff -qr"
 
 alias growTree="cbonsai --seed 200 -l -i"
-alias ydl="youtube-dl"
+alias ydl="yt-dlp"
 
 alias pyV="python -V"
 alias pipV="python -m pip -V"
@@ -466,3 +505,7 @@ alias bt="bat -p"
 alias hc="ghci"
 
 alias exitRoot="sudo -k"
+alias backupDejaDupConfig="dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >! $SYS_BAK_DIR/deja-dup-config-backup.txt"
+alias twn="timerWithNotif"
+
+alias backupGHAliases="gh alias list >! $DOTS/gh/alias-list.txt"

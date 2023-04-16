@@ -1,0 +1,13 @@
+[/]
+backend='google'
+delete-after=90
+exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Desktop/olaolu_dev/learnings/category-theory-for-programmers-exercises', '/home/olaolu/Desktop/olaolu_dev/learnings/haskell-from-first-principles-exercies', '/home/olaolu/Desktop/olaolu_dev/learnings/sicp-exercises']
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents/academic-letters-of-recommendation', '/home/olaolu/Documents/certificates', '/home/olaolu/Documents/english', '/home/olaolu/Documents/fitness', '/home/olaolu/Documents/important-docs', '/home/olaolu/Documents/invoices-and-statements', '/home/olaolu/Documents/job-items', '/home/olaolu/Documents/non-tech-docs', '/home/olaolu/Documents/non-tech-ebooks', '/home/olaolu/Documents/school', '/home/olaolu/Documents/security', '/home/olaolu/Documents/tech-files', '/home/olaolu/sys-backups', '/home/olaolu/Desktop/olaolu_dev/learnings', '/home/olaolu/AppImages']
+periodic=true
+periodic-period=7
+prompt-check='2023-02-06T09:07:27.653045Z'
+window-height=511
+window-width=700
+
+[google]
+folder='swag-top-system-backup'
