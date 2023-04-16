@@ -509,3 +509,4 @@ alias backupDejaDupConfig="dconf dump /org/gnome/deja-dup/ | sed '/^last-restore
 alias twn="timerWithNotif"
 
 alias backupGHAliases="gh alias list >! $DOTS/gh/alias-list.txt"
+alias backupTilixConfig="dconf dump /com/gexperts/Tilix/ >! $SYS_BAK_DIR/tilix-backup.txt"
