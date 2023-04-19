@@ -143,7 +143,7 @@ fi
 if command -v quote &>/dev/null; then
   quote
 else
-  echo "Quotes are currently not available\n"
+  echo -e "Quotes are currently not available\n"
 fi
 
 

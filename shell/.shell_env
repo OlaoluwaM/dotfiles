@@ -43,7 +43,7 @@ function reinstallAsDep() {
 }
 
 
-# Example usage: 
+# Example usage:
 # `backupEntityFromHomeDir "icons" .icons` Backs up all installed icons inta a tarball called 'icons.tar.gz'
 # `backupEntityFromHomeDir "themes" .themes` Backs up all installed themes into a tarball called "themes.tar.gz"
 
@@ -126,7 +126,7 @@ function unlockBWVault() {
   [[ -z "$BW_SESSION" ]] && return 1
 
   export BW_SESSION
-  
+
   echo "Initiating Bitwarden vault sync..."
   bw sync
 }
@@ -244,7 +244,7 @@ function createPyVirtEnv() {
 }
 
 function backupGHExtensions() {
-  gh extension list | awk '{print $3}' >! "$DOTS/git/gh-extensions.txt"
+  gh extension list | awk '{print $3}' >! "$DOTS/gh/gh-extensions.txt"
 }
 
 function dejaDupIgnore() {
@@ -276,6 +276,20 @@ function addInstalledPackages() {
   fi
 }
 
+function addPaddingToGnomeTerminal() {
+  stylesPath="$HOME/.config/gtk-3.0/gtk.css"
+
+  cat << EOF >> "$stylesPath"
+
+  VteTerminal,
+  TerminalScreen,
+  vte-terminal {
+      padding: 4px 16px 10px 16px;
+      -VteTerminal-inner-border: 4px 16px 10px 16px;
+  }
+EOF
+}
+
 function updateGnomeTheme() {
   themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
   echo "Theme name is $themeName"
@@ -294,27 +308,19 @@ function updateGnomeTheme() {
 
   echo -e "Setting flatpak theme..."
   sudo flatpak override --env=GTK_THEME="$themeName"
+  echo -e "\n"
 
-  echo -e "\nLinking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
+  echo "Linking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
   ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
-  
+
   # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
   #ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
-  
-  # echo -e "\nAdding terminal padding once again..."
-  # cat <<END >> "$HOME/.config/gtk-3.0/gtk.css"
 
-  # VteTerminal,
-  # TerminalScreen,
-  # vte-terminal {
-  #  padding: 16px;
-  #  -VteTerminal-inner-border: 16px;
-  # }
-# END
+  addPaddingToGnomeTerminal
 }
 
 function backupInstalledCrates() {
-  cargo install --list | awk '{print $1}' | sed -n '1~2p' >! "$D_SETUP/src/common/assets/rust-crates.txt"
+  cargo install --list | grep ':' | awk '{print $1}' >! "$D_SETUP/src/common/assets/rust-crates.txt"
 }
 
 function generatePsswd() {
@@ -357,20 +363,6 @@ function updateNodeTo() {
   nextNodeVer="$1"
   nvm install "$nextNodeVer" --reinstall-packages-from=$(node -v) && nvm alias default "$nextNodeVer"
   corepack enable
-}
-
-function addPaddingToGnomeTerminal() {
-  stylesPath="$HOME/.config/gtk-3.0/gtk.css"
-
-  cat << EOF >> $stylesPath
-
-  VteTerminal,
-  TerminalScreen,
-  vte-terminal {
-      padding: 4px 16px 10px 16px;
-      -VteTerminal-inner-border: 4px 16px 10px 16px;
-  }
-EOF
 }
 
 

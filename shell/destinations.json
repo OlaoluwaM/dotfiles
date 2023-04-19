@@ -4,6 +4,7 @@
   "exclude": [
     "smartdots.zsh",
     "linux-tty-catppuccin-colors.sh",
-    "old.bash_aliases"
+    "old.bash_aliases",
+    "nvm-setup.zsh"
   ]
 }

@@ -1,1 +1,1 @@
-{ "config.yml": "~/.config/lazygit/" }
+{ "config.yml": "~/.config/lazygit/", "exclude": ["mocha.yml"] }

@@ -79,7 +79,8 @@ snap refresh --list
 sudo snap refresh
 
 # Get password for currently connected WIFI
-nmcli device wifi show-password
+sudo nmcli d wifi show
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

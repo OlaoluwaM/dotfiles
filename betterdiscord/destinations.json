@@ -1,3 +1,4 @@
 {
-  "catppuccin.theme.css": "$BETTER_DISCORD_CONF_DIR/themes"
+  "catppuccin.theme.css": "$BETTER_DISCORD_CONF_DIR/themes",
+  "exclude": "all"
 }
