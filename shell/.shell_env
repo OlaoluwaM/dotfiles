@@ -42,45 +42,6 @@ function reinstallAsDep() {
   npm un $package && npm i $package
 }
 
-
-# Example usage:
-# `backupEntityFromHomeDir "icons" .icons` Backs up all installed icons inta a tarball called 'icons.tar.gz'
-# `backupEntityFromHomeDir "themes" .themes` Backs up all installed themes into a tarball called "themes.tar.gz"
-
-function backupEntityFromHomeDir() {
-  entityToBackup="$1"
-  # The below must be a path relative to the $HOME dir
-  dirToBackup="$2"
-
-  if  [[ -z "$entityToBackup" || -z "$dirToBackup" ]]; then
-
-      [[ -z "$entityToBackup" ]] && echo "Missing required first arg. What do you want to backup?"
-      [[ -z "$dirToBackup" ]] && echo "Missing name of directory to backup"
-
-      return 1
-  fi
-
-
-  echo "Compressing $entityToBackup into tarball"
-  echo "Compressed file will be stored at $dirToBackup"
-
-  tar -cvzf "$AUX_BAK_DIR/${entityToBackup}.tar.gz" -C "$HOME" "$dirToBackup"
-}
-
-function restoreEntityToHomeDir() {
-  entityToRestore="$1"
-
-  if [[ -z $entityToRestore ]]; then
-    echo "Missing arg, what entity do you wish to restore"
-    return 1
-  fi
-
-  echo "Restoring $entityToRestore from tarball..."
-
-  tar -xzvf "$AUX_BAK_DIR/${entityToRestore}.tar.gz" -C "$HOME"
-  echo "Check the home directory"
-}
-
 function backupWallpapers() {
   $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs";
 }
@@ -147,24 +108,6 @@ function areWallpapersBackedup() {
       echo "You need restore your wallpapers from the tarball"
   else
       echo "You need to backup your wallpapers hun!"
-  fi
-}
-
-function areFontsBackedup() {
-  echo "Counting current fonts: \c"
-  fontCount=$(ls "$FONT_DIR" | wc -l);
-  echo "$fontCount"
-
-  echo -e "Counting fonts present in compressed font tarball file: \c"
-  fontTarBallCount=$( if [[ -f $AUX_BAK_DIR/fonts.tar.gz ]]; then  bc <<<"$(tar -tf "$AUX_BAK_DIR/fonts.tar.gz" | wc -l) - 1"; else echo 0; fi);
-  echo "$fontTarBallCount"
-
-  if [[ $fontCount -eq $fontTarBallCount ]]; then
-      echo "All Backed up!"
-  elif [[ $fontCount -lt $fontTarBallCount ]]; then
-      echo "You need restore your fonts from the tarball"
-  else
-      echo "You need to backup your fonts hun!"
   fi
 }
 
@@ -334,7 +277,6 @@ function backupGnomeExtensions() {
   EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
 
   ls "$EXTENSIONS_DIR" >! "$SYS_BAK_DIR/gnome-shell-ext-list.txt"
-  cp -r "$EXTENSIONS_DIR" "$SYS_BAK_DIR"
 }
 
 function removeQuotes() {
@@ -382,13 +324,12 @@ export FONT_DIR="$HOME/.local/share/fonts"
 
 export SYS_BAK_DIR="$DOTS/system"
 export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
-export AUX_BAK_DIR="$HOME/sys-backups"
-
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
+
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$D_SETUP/src/common/assets/packages.txt"
-
 export NAVI_PATH="$DOTS/navi/cheats"
+
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
 export ATUIN_CONFIG_DIR="$DOTS/atuin"
 
@@ -488,17 +429,16 @@ alias vc="code"
 alias ns="speedtest"
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 
-alias backupFonts="backupEntityFromHomeDir 'fonts' $HOME/.local/share/fonts"
 alias editSysChangelog="nv $DOTS/system/changelog.md"
 alias searchBw="bw list items --pretty --search"
-
 alias tmd="termdown"
+
 alias bt="bat -p"
 alias hc="ghci"
-
 alias exitRoot="sudo -k"
+
 alias backupDejaDupConfig="dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >! $SYS_BAK_DIR/deja-dup-config-backup.txt"
 alias twn="timerWithNotif"
-
 alias backupGHAliases="gh alias list >! $DOTS/gh/alias-list.txt"
+
 alias backupTilixConfig="dconf dump /com/gexperts/Tilix/ >! $SYS_BAK_DIR/tilix-backup.txt"

@@ -1,5 +1,4 @@
 appMenuIcon@pratap.fastmail.fm
-babar@fthx
 bluetooth-quick-connect@bjarosze.gmail.com
 blur-my-shell@aunetx
 burn-my-windows@schneegans.github.com
@@ -15,6 +14,7 @@ rounded-window-corners@yilozt
 runcat@kolesnikov.se
 search-light@icedman.github.com
 sp-tray@sp-tray.esenliyim.github.com
+status-area-horizontal-spacing@mathematical.coffee.gmail.com
 trayIconsReloaded@selfmade.pl
 user-theme@gnome-shell-extensions.gcampax.github.com
 Vitals@CoreCoding.com
