@@ -129,7 +129,7 @@ function repoInit() {
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
 function chpwd() {
     emulate -L zsh
-    logo-ls -A || exa --icons -a || ls -A
+    logo-ls || exa --icons || ls
 }
 
 function editPromptConf() {
