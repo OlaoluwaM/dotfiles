@@ -1,4 +1,3 @@
 {
-  "init.lua": "$HOME/.config/nvim/lua/user",
-  "exclude": "all"
+  "init.lua": "$HOME/.config/nvim/lua/user"
 }
