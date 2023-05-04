@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
-# bat-extras | Copyright (C) 2020 eth-p and contributors | MIT License
+# bat-extras | Copyright (C) 2019 eth-p | MIT License
 #
 # Repository: https://github.com/eth-p/bat-extras
 # Issues:     https://github.com/eth-p/bat-extras/issues
 # -----------------------------------------------------------------------------
-if [[ -n $MANPAGER ]];then BAT_PAGER="$MANPAGER";fi
+# shellcheck disable=SC1090 disable=SC2155
+if [[ -n "${MANPAGER}" ]]; then BAT_PAGER="$MANPAGER"; fi
+# --- BEGIN LIBRARY FILE: pager.sh ---
 is_pager_less(){
 [[ "$(pager_name)" == "less" ]]
 return $?
@@ -102,6 +104,8 @@ else
 SCRIPT_PAGER_CMD=()
 SCRIPT_PAGER_ARGS=()
 fi
+# --- END LIBRARY FILE ---
+# --- BEGIN LIBRARY FILE: print.sh ---
 printc(){
 printf "$(sed "$_PRINTC_PATTERN" <<<"$1")" "${@:2}"
 }
@@ -148,6 +152,8 @@ printc_init "[DEFINE]" <<END
 	DEFAULT \x1B[39m
 	DIM		\x1B[2m
 END
+# --- END LIBRARY FILE ---
+# --- BEGIN LIBRARY FILE: opt.sh ---
 SHIFTOPT_HOOKS=()
 SHIFTOPT_SHORT_OPTIONS="VALUE"
 setargs(){
@@ -187,19 +193,16 @@ fi
 if [[ $OPT =~ ^-[^-]{2,} ]];then
 case "$SHIFTOPT_SHORT_OPTIONS" in
 PASS)_shiftopt_next;;
-\
 CONV)\
 OPT="-$OPT"
 _shiftopt_next
 ;;
-\
 VALUE){
 OPT="${_ARGV[$_ARGV_INDEX]}"
 OPT_VAL="${OPT:2}"
 OPT="${OPT:0:2}"
 _shiftopt_next
 };;
-\
 SPLIT){
 OPT="-${OPT:_ARGV_SUBINDEX:1}"
 ((_ARGV_SUBINDEX++))||true
@@ -207,7 +210,6 @@ if [[ $_ARGV_SUBINDEX -gt ${#OPT} ]];then
 _shiftopt_next
 fi
 };;
-\
 *)printf "shiftopt: unknown SHIFTOPT_SHORT_OPTIONS mode '%s'" \
 "$SHIFTOPT_SHORT_OPTIONS" \
 1>&2
@@ -242,6 +244,8 @@ fi
 }
 setargs "$@"
 _ARGV_ORIGINAL=("$@")
+# --- END LIBRARY FILE ---
+# --- BEGIN LIBRARY FILE: opt_hook_color.sh ---
 hook_color(){
 SHIFTOPT_HOOKS+=("__shiftopt_hook__color")
 __shiftopt_hook__color(){
@@ -271,13 +275,15 @@ fi
 printc_init "$OPT_COLOR"
 fi
 }
+# --- END LIBRARY FILE ---
+# --- BEGIN LIBRARY FILE: opt_hook_version.sh ---
 hook_version(){
 SHIFTOPT_HOOKS+=("__shiftopt_hook__version")
 __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "batman" \
-"2022.07.27" \
+"2023.03.21" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0
@@ -285,44 +291,58 @@ fi
 return 1
 }
 }
+# --- END LIBRARY FILE ---
+# -----------------------------------------------------------------------------
 hook_color
 hook_version
+# -----------------------------------------------------------------------------
 MAN_ARGS=()
 BAT_ARGS=()
-while shiftopt;do
-case "$OPT" in
---paging|--pager)shiftval
-BAT_ARGS+=("$OPT=$OPT_VAL")
-;;
-*)MAN_ARGS+=("$OPT")
-esac
+
+while shiftopt; do
+	case "$OPT" in
+		--paging|--pager) shiftval; BAT_ARGS+=("${OPT}=${OPT_VAL}") ;;
+		*)                          MAN_ARGS+=("$OPT") ;;
+	esac
 done
-if "$OPT_COLOR";then
-BAT_ARGS+=("--color=always" "--decorations=always")
+
+if "$OPT_COLOR"; then
+	BAT_ARGS+=("--color=always" "--decorations=always")
 else
-BAT_ARGS+=("--color=never" "--decorations=never")
+	BAT_ARGS+=("--color=never" "--decorations=never")
 fi
-if [[ -z ${BAT_STYLE+x} ]];then
-export BAT_STYLE="grid"
+
+if [[ -z "${BAT_STYLE+x}" ]]; then
+	export BAT_STYLE="grid"
 fi
-export MANPAGER='sh -c "col -bx | '"$(printf "%q" "/usr/bin/bat")"' --language=man '$(printf "%q " "${BAT_ARGS[@]}")'"'
+
+# -----------------------------------------------------------------------------
+export MANPAGER='sh -c "col -bx | '"$(printf "%q" "/home/olaolu/.cargo/bin/bat")"' --language=man '$(printf "%q " "${BAT_ARGS[@]}")'"'
 export MANROFFOPT='-c'
-if [[ ${#MAN_ARGS[@]} -eq 0 ]]&&[[ -z $BATMAN_LEVEL ]]&&command -v "fzf" &>/dev/null;then
-export BATMAN_LEVEL=1
-selected_page="$(man -k .|"fzf" --delimiter=" - " --reverse -e --preview="
+
+# If no argument is provided and fzf is installed, use fzf to search for man pages.
+if [[ "${#MAN_ARGS[@]}" -eq 0 ]] && [[ -z "$BATMAN_LEVEL" ]] && command -v "fzf" &>/dev/null; then
+	export BATMAN_LEVEL=1
+	
+	selected_page="$(man -k . | "fzf" --delimiter=" - " --reverse -e --preview="
 		echo {1} \
 		| sed 's/, /\n/g;' \
-		| sed 's/\([^(]*\)(\([0-9]\))/\2\t\1/' \
-		| BAT_STYLE=plain xargs batman --color=always --paging=never
-		"|sed 's/^\(.*\) - .*$/\1/; s/, /\n/g')"
-if [[ -z $selected_page ]];then
-exit 0
+		| sed 's/\([^(]*\)(\([0-9A-Za-z ]\))/\2\t\1/g' \
+		| BAT_STYLE=plain xargs -n2 batman --color=always --paging=never
+	")"
+	
+	if [[ -z "$selected_page" ]]; then
+		exit 0
+	fi
+	
+	# Convert the page(section) format to something that can be fed to the man command.
+	while read -r line; do
+		if [[ "$line" =~ ^(.*)\(([0-9a-zA-Z ]+)\) ]]; then
+			MAN_ARGS+=("${BASH_REMATCH[2]}" "$(echo ${BASH_REMATCH[1]} | xargs)")
+		fi
+	done <<< "$selected_page"	
 fi
-while read -r line;do
-if [[ $line =~ ^(.*)\(([0-9]+)\)$ ]];then
-MAN_ARGS+=("${BASH_REMATCH[2]}" "$(echo ${BASH_REMATCH[1]}|xargs)")
-fi
-done <<<"$selected_page"
-fi
+
+# Run man.
 command man "${MAN_ARGS[@]}"
 exit $?

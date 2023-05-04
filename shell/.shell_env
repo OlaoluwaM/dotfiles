@@ -442,3 +442,4 @@ alias twn="timerWithNotif"
 alias backupGHAliases="gh alias list >! $DOTS/gh/alias-list.txt"
 
 alias backupTilixConfig="dconf dump /com/gexperts/Tilix/ >! $SYS_BAK_DIR/tilix-backup.txt"
+alias fk="flatpak"

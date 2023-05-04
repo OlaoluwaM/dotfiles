@@ -42,6 +42,9 @@ gh repo create <repo_name> --public --push --source <repo_source>
 # Checkout file from one branch another
 git checkout <branch_one> -- <file>
 
+# Restore staged file (undo staging for file)
+git restore --staged <file>
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list

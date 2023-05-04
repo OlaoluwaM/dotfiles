@@ -11,6 +11,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # When installing spaceship with npm, this becomes unnecessary
+# Unless we are installing with oh-my-zsh, then this becomes necessary
+# If you do not want the spaceship prompt, just re-comment this line
 # ZSH_THEME="spaceship"
 
 # When we use certain fonts like JetBrains Mono, this becomes redundant
@@ -146,10 +148,6 @@ else
   echo -e "Quotes are currently not available\n"
 fi
 
-
-# Setup Starship ZSH prompt (https://github.com/starship/starship)
-eval "$(starship init zsh)"
-
 # The Fuck (https://github.com/nvbn/thefuck)
 eval $(thefuck --alias fuck)
 
@@ -176,5 +174,8 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 export PATH=$PATH:/home/olaolu/.spicetify
+
+# Setup Starship ZSH prompt (https://github.com/starship/starship)
+eval "$(starship init zsh)"
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env

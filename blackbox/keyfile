@@ -1,0 +1,13 @@
+[com/raggesilver/BlackBox]
+font='Martian Mono Bold 11'
+easy-copy-paste=true
+terminal-cell-width=1.0
+terminal-cell-height=1.1000000000000001
+terminal-padding=(18, 18, 18, 18)
+opacity=100
+theme-dark='Dracula'
+window-show-borders=false
+show-headerbar=true
+show-menu-button=true
+headerbar-drag-area=false
+floating-controls=false
