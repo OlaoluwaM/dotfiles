@@ -14,7 +14,7 @@ error_symbol = "[➜](bold red)"
 disabled = false
 time_format = '%R'
 format = '[\[ $time \]]($style) '
-style = "white dimmed"
+style = "#313244"
 
 [username]
 style_user = "purple bold"
@@ -26,7 +26,7 @@ show_always = true
 [shell]
 format = 'in [$indicator \]]($style) '
 disabled = true
-style = "white dimmed"
+style = "#313244"
 
 [status]
 # format = '[$symbol $signal_name\($signal_number\)]($style) '
@@ -49,8 +49,6 @@ disabled = false
 disabled = true
 threshold = 50
 format = "with [${ram_pct}]($style) $symbol"
-
-
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

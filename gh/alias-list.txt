@@ -1,3 +1,4 @@
-b: branch
-co: pr checkout
-view: repo view -w
+b: ' branch'
+co: ' pr checkout'
+d: download
+view: ' repo view -w'

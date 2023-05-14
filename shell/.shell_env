@@ -10,40 +10,16 @@ function does_entity_exist() {
   fi
 }
 
-function pullBranchFromRemote() {
-  # $1 is the remote branch name
-  # $2 is the remote's name
-
-  git checkout -t "${2:=origin}/${1}"
-}
-
-function pullBranchFromRemoteThenCheckout() {
-  git fetch "${1:=origin}" "$2";
-  git checkout "$2"
-}
-
 function newRemoteBranch() {
   branchName="${1:=HEAD}"
   remote="${2:=origin}"
 
   #echo $remote $branchName
-  git push -u $remote $branchName
-}
-
-function reinstallAsDevDep() {
-  package="$1"
-
-  npm un $package && npm i -D $package
-}
-
-function reinstallAsDep() {
-  package="$1"
-
-  npm un $package && npm i $package
+  git push -u "$remote" "$branchName"
 }
 
 function backupWallpapers() {
-  $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs";
+  $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs"
 }
 
 function downloadFile() {
@@ -94,61 +70,61 @@ function unlockBWVault() {
 
 function areWallpapersBackedup() {
   echo "Counting current wallpapers: \c"
-  wallpaperCount=$(ls "$WALLPAPERS_DIR/images" | wc -l);
+  wallpaperCount=$(ls "$WALLPAPERS_DIR/images" | wc -l)
   echo "$wallpaperCount"
 
   echo -e "Counting images present in compressed wallpapers tarball file: \c"
-  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf "$WALLPAPERS_DIR/tarball/wallpapers.tar.gz" | wc -l) - 1"; else echo 0; fi);
+  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf "$WALLPAPERS_DIR/tarball/wallpapers.tar.gz" | wc -l) - 1"; else echo 0; fi)
 
   echo "$wallpaperTarBallFileCount"
 
   if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
-      echo "All Backed up!"
+    echo "All Backed up!"
   elif [[ $wallpaperCount -lt $wallpaperTarBallFileCount ]]; then
-      echo "You need restore your wallpapers from the tarball"
+    echo "You need restore your wallpapers from the tarball"
   else
-      echo "You need to backup your wallpapers hun!"
+    echo "You need to backup your wallpapers hun!"
   fi
 }
 
 function repoInit() {
   # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
-  git init;
-  touch .gitignore;
+  git init
+  touch .gitignore
 
-  git add .;
-  git commit -m "repo init";
+  git add -A
+  git commit -m "repo init"
 
-  git checkout -b dev;
+  git checkout -b dev
   git rebase main
 
-  git checkout -b feature;
+  git checkout -b feature
   git rebase develop
 }
 
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
 function chpwd() {
-    emulate -L zsh
-    logo-ls || exa --icons || ls
+  emulate -L zsh
+  logo-ls || exa --icons || ls
 }
 
 function editPromptConf() {
-  SHELL_PROMPT="$PS1";
+  SHELL_PROMPT="$PS1"
 
   if [[ $SHELL_PROMPT == *"starship"* ]]; then
-      echo "Opening Starship config..."
-      nv "$HOME/.config/starship.toml" || vi "$HOME/.config/starship.toml"
+    echo "Opening Starship config..."
+    nv "$HOME/.config/starship.toml" || vi "$HOME/.config/starship.toml"
   elif [[ $SHELL_PROMPT == *"spaceship"* ]]; then
-      echo "Opening Spaceship config..."
-      nv "$HOME/.zshrc" || vi "$HOME/.zshrc"
+    echo "Opening Spaceship config..."
+    nv "$HOME/.zshrc" || vi "$HOME/.zshrc"
   fi
 }
 
 # Gotten From https://unix.stackexchange.com/a/282433
 function addToPATH() {
   case ":$PATH:" in
-    *":$1:"*) :;; # already there
-    *) PATH="$PATH:$1";; # or PATH="$PATH:$1"
+  *":$1:"*) : ;;        # already there
+  *) PATH="$PATH:$1" ;; # or PATH="$PATH:$1"
   esac
 }
 
@@ -163,7 +139,7 @@ function createPyVirtEnv() {
 
   [[ ! -d $virtualEnvPath ]] && mkdir "$virtualEnvPath"
 
-  echo "layout python" >! "$virtualEnvPath/.envrc"
+  echo "layout python" >|"$virtualEnvPath/.envrc"
   direnv allow "$virtualEnvPath"
 
   # Commented out to avoid having two virtual envs in one directory
@@ -178,7 +154,7 @@ function createPyVirtEnv() {
   # Reltive path because we have cd'ed into the target directory
   reqFilePath="./requirements.txt"
 
-  echo "pylint" >! "$reqFilePath"
+  echo "pylint" >|"$reqFilePath"
   python3 -m pip install -r "$reqFilePath"
 
   # Let us know what has been installed
@@ -187,7 +163,7 @@ function createPyVirtEnv() {
 }
 
 function backupGHExtensions() {
-  gh extension list | awk '{print $3}' >! "$DOTS/gh/gh-extensions.txt"
+  gh extension list | awk '{print $3}' >|"$DOTS/gh/gh-extensions.txt"
 }
 
 function dejaDupIgnore() {
@@ -195,16 +171,19 @@ function dejaDupIgnore() {
   dirLocation="${2:=$LEARNING}"
 
   function innerFn() {
-    targetFilePath="$1/.deja-dup-ignore";
+    # shellcheck disable=SC2317
+    targetFilePath="$1/.deja-dup-ignore"
 
+    # shellcheck disable=SC2317
     if [[ ! -f $targetFilePath ]]; then
-      touch "$targetFilePath";
+      touch "$targetFilePath"
     else
-      rm "$targetFilePath";
+      rm "$targetFilePath"
     fi
 
+    # shellcheck disable=SC2317
     doesFileExist "$targetFilePath"
-  };
+  }
 
   find "$dirLocation" -name "$nameOfDirToIgnore" -type d -exec bash -c 'innerFn "$0"' {} \;
 }
@@ -214,15 +193,18 @@ function addInstalledPackages() {
     nv "$PACKAGE_LST_FILE"
   else
     # This means we have provided packages to add
-    PACKAGES_TO_ADD=$(IFS=$'\n'; echo "$*")
-    echo "$PACKAGES_TO_ADD" >> "$PACKAGE_LST_FILE"
+    PACKAGES_TO_ADD=$(
+      IFS=$'\n'
+      echo "$*"
+    )
+    echo "$PACKAGES_TO_ADD" >>"$PACKAGE_LST_FILE"
   fi
 }
 
 function addPaddingToGnomeTerminal() {
   stylesPath="$HOME/.config/gtk-3.0/gtk.css"
 
-  cat << EOF >> "$stylesPath"
+  cat <<EOF >>"$stylesPath"
 
   VteTerminal,
   TerminalScreen,
@@ -257,13 +239,13 @@ function updateGnomeTheme() {
   ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
 
   # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
-  #ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
+  # ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
 
   addPaddingToGnomeTerminal
 }
 
 function backupInstalledCrates() {
-  cargo install --list | grep ':' | awk '{print $1}' >! "$D_SETUP/src/common/assets/rust-crates.txt"
+  cargo install --list | grep ':' | awk '{print $1}' >|"$D_SETUP/src/common/assets/rust-crates.txt"
 }
 
 function generatePsswd() {
@@ -276,7 +258,7 @@ function generatePsswd() {
 function backupGnomeExtensions() {
   EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
 
-  ls "$EXTENSIONS_DIR" >! "$SYS_BAK_DIR/gnome-shell-ext-list.txt"
+  ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR/gnome-shell-ext-list.txt"
 }
 
 function removeQuotes() {
@@ -290,7 +272,10 @@ function isPackageInstalled() {
     return 1
   else
     # This means we have provided packages to add
-    PACKAGES_TO_CHECK_FOR=$(IFS=$'\n'; echo "$*")
+    PACKAGES_TO_CHECK_FOR=$(
+      IFS=$'\n'
+      echo "$*"
+    )
     rpm -qa | grep "$PACKAGES_TO_CHECK_FOR"
   fi
 }
@@ -298,15 +283,76 @@ function isPackageInstalled() {
 function timerWithNotif() {
   timerDuration="${1:=5m}"
 
-  termdown $timerDuration; noti -t "Timer Countdown" -m "Time's Up!"
+  termdown $timerDuration
+  noti -t "Timer Countdown" -m "Time's Up!"
+}
+
+function backupGlobalNpmPkgs() {
+  pnpm ls -g | tail --lines +6 | awk -F ' ' '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function installBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    echo "Installing $line..."
+    pnpm add -g $line
+    echo -e "Done!\n"
+  done <"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function uninstallBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    echo "Removing $line..."
+    pnpm rm -g $line
+    echo -e "Done!\n"
+  done <"$DOTS/npm/global-npm-pkgs.txt"
 }
 
 function updateNodeTo() {
   nextNodeVer="$1"
-  nvm install "$nextNodeVer" --reinstall-packages-from=$(node -v) && nvm alias default "$nextNodeVer"
+  prevNodeVer="$(node -v)"
+
+  echo -e "Backing up global npm packages...\c"
+  backupGlobalNpmPkgs
+  echo "Done!"
+
+  echo "Removing global npm packages for current node version..."
+  uninstallBackedUpGlobalNpmPkgs
+  echo -e "Done!\n"
+
+  echo "Installing latest node version..."
+  nvm install "$nextNodeVer" --latest-npm
+  nvm alias default "$nextNodeVer"
+  echo -e "Installation complete\n"
+
+  echo "Reinstalling pnpm..."
   corepack enable
+  corepack prepare pnpm@latest --activate
+  echo -e "Done\n"
+
+  echo -e "Finalizing pnpm installation...\c"
+  sleep 2
+  echo "Done!"
+
+  echo "Reinstalling global packages from previous node version with pnpm..."
+  installBackedUpGlobalNpmPkgs
+  echo -e "Done!\n"
+
+  echo "Removing previous node version..."
+  nvm uninstall "$prevNodeVer"
+  echo "Done!"
 }
 
+function backupDnfAliases() {
+  dnf alias | sed 's/Alias//' >|"$DOTS/system/dnf-alias.txt"
+}
+
+function backupDejaDupConfig() {
+  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR/deja-dup-config-backup.txt"
+}
+
+function backupTilixConfig() {
+  dconf dump /com/gexperts/Tilix/ >|"$SYS_BAK_DIR/tilix-backup.txt"
+}
 
 # Env Variables
 
@@ -344,26 +390,24 @@ export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 
 export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 export THEMES_DIR="$HOME/.themes/"
-
+export CUSTOM_BIN_DIR="$HOME/.local/bin"
 
 # Aliases
 
 alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
-alias listGlobalNpmPackages="npm -g ls --depth 0"
+alias listGlobalNpmPackages="pnpm -g ls"
 
-alias matrix="matrix-rain 2>/dev/null|| cmatrix 2>/dev/null || echo Please install either matrix-rain from npm or cmatrix" # 2> to keep output clean
 alias checkForUpdates="dnf check-update"
 alias reloadAliases="source ~/.shell_env"
 
 alias swag="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+# shellcheck disable=SC2139
 alias editAliases="nv $HOME/.shell_env"
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 
-alias loginAsPostgresUser="sudo su - postgres"
 alias py="python3"
 alias pvpn="protonvpn-cli"
-
 alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
 alias cls="colorls --dark"
 
@@ -383,22 +427,20 @@ alias nv="nvim"
 alias z="zoxide"
 alias echo="echo -e"
 
-alias cronBackup="crontab -l >! $SYS_BAK_DIR/crontab-backup.bak"
+# shellcheck disable=SC2139
+alias cronBackup="crontab -l >|$SYS_BAK_DIR/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 alias exa="exa --icons"
-alias backupGlobalNpmPkgs="npm -g ls -p --depth 0 | tail -n +2 | awk '!/spaceship-prompt|corepack|npm/' >! $DOTS/npm/global-npm-pkgs.txt"
 
 alias bgrep="batgrep"
 alias bman="batman"
-
 alias copy="wl-copy"
+
 alias paste="wl-paste"
 alias diffDirs="diff -qr"
-
-alias growTree="cbonsai --seed 200 -l -i"
 alias ydl="yt-dlp"
 
 alias pyV="python -V"
@@ -406,15 +448,9 @@ alias pipV="python -m pip -V"
 alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
 
 alias sizeOf="du -lh"
-alias backupDnfAliases="dnf alias | sed 's/Alias//' >! $DOTS/system/dnf-alias.txt"
-
-alias gtp="gotop"
 alias nd="node-docs"
-
 alias lg="lazygit"
-alias btp="btop"
-alias npo="npm outdated"
-
+# shellcheck disable=SC2139
 alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
 
 alias reload="omz reload"
@@ -422,6 +458,7 @@ alias clr="clear"
 alias q="cd ~ && clear"
 
 alias sudo="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+# shellcheck disable=SC2139
 alias e="$EDITOR"
 alias x+="chmod +x"
 
@@ -429,6 +466,7 @@ alias vc="code"
 alias ns="speedtest"
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 
+# shellcheck disable=SC2139
 alias editSysChangelog="nv $DOTS/system/changelog.md"
 alias searchBw="bw list items --pretty --search"
 alias tmd="termdown"
@@ -437,9 +475,10 @@ alias bt="bat -p"
 alias hc="ghci"
 alias exitRoot="sudo -k"
 
-alias backupDejaDupConfig="dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >! $SYS_BAK_DIR/deja-dup-config-backup.txt"
 alias twn="timerWithNotif"
-alias backupGHAliases="gh alias list >! $DOTS/gh/alias-list.txt"
-
-alias backupTilixConfig="dconf dump /com/gexperts/Tilix/ >! $SYS_BAK_DIR/tilix-backup.txt"
+# shellcheck disable=SC2139
+alias backupGHAliases="gh alias list >|$DOTS/gh/alias-list.txt"
 alias fk="flatpak"
+
+alias pm="pnpm"
+alias pmA="pnpm add"

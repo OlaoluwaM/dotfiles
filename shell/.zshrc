@@ -50,10 +50,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -126,7 +126,7 @@ fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
 
-# Do not override files using `>`, but it's still possible using `>!`
+# Do not override files using `>`, but it's still possible using `>|`
 set -o noclobber
 
 # For vscode shell integrations
@@ -179,3 +179,11 @@ export PATH=$PATH:/home/olaolu/.spicetify
 eval "$(starship init zsh)"
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
+
+# pnpm
+export PNPM_HOME="/home/olaolu/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

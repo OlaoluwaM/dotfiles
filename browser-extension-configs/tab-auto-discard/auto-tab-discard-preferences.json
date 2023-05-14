@@ -34,7 +34,7 @@
     "page.context": false,
     "paused": false,
     "period": 600,
-    "pinned": true,
+    "pinned": false,
     "prepends": "💤",
     "simultaneous-jobs": 10,
     "startup-pinned": false,
@@ -44,7 +44,10 @@
     "trash.period": 24,
     "trash.unloaded": false,
     "trash.whitelist-url": [],
-    "whitelist": [],
+    "whitelist": [
+      "mail.proton.me",
+      "calendar.proton.me"
+    ],
     "whitelist-url": []
   },
   "localStorage": {
