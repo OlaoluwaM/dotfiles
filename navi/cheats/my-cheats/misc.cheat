@@ -81,6 +81,12 @@ sudo snap refresh
 # Get password for currently connected WIFI
 sudo nmcli d wifi show
 
+# Update npm to latest
+npm install -g npm@latest
+
+# Update pnpm to latest
+corepack prepare pnpm@latest --activate
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

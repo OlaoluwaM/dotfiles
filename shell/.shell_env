@@ -293,17 +293,13 @@ function backupGlobalNpmPkgs() {
 
 function installBackedUpGlobalNpmPkgs() {
   while read -r line; do
-    echo "Installing $line..."
     pnpm add -g $line
-    echo -e "Done!\n"
   done <"$DOTS/npm/global-npm-pkgs.txt"
 }
 
 function uninstallBackedUpGlobalNpmPkgs() {
   while read -r line; do
-    echo "Removing $line..."
     pnpm rm -g $line
-    echo -e "Done!\n"
   done <"$DOTS/npm/global-npm-pkgs.txt"
 }
 
@@ -317,7 +313,6 @@ function updateNodeTo() {
 
   echo "Removing global npm packages for current node version..."
   uninstallBackedUpGlobalNpmPkgs
-  echo -e "Done!\n"
 
   echo "Installing latest node version..."
   nvm install "$nextNodeVer" --latest-npm
