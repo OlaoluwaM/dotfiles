@@ -50,7 +50,7 @@
   helper = cache
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [diff]
 	external = difft

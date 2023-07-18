@@ -263,6 +263,7 @@ function backupGnomeExtensions() {
 
 function removeQuotes() {
   # Removes both single and double quotes
+  # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
   tr -d "'\""
 }
 
@@ -288,7 +289,7 @@ function timerWithNotif() {
 }
 
 function backupGlobalNpmPkgs() {
-  pnpm ls -g | tail --lines +6 | awk -F ' ' '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
+  pnpm ls -g | tail --lines +6 | awk '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
 }
 
 function installBackedUpGlobalNpmPkgs() {
@@ -349,6 +350,11 @@ function backupTilixConfig() {
   dconf dump /com/gexperts/Tilix/ >|"$SYS_BAK_DIR/tilix-backup.txt"
 }
 
+function ydlSilent() {
+  yt-dlp "$1" &>/dev/null &
+}
+
+
 # Env Variables
 
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
@@ -386,6 +392,9 @@ export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 export THEMES_DIR="$HOME/.themes/"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
+
+export NAP_CONFIG="$DOTS/nap/config.yaml"
+export KITTY_CONFIG_DIRECTORY="$DOTS/kitty/"
 
 # Aliases
 
@@ -458,7 +467,7 @@ alias e="$EDITOR"
 alias x+="chmod +x"
 
 alias vc="code"
-alias ns="speedtest"
+alias st="speedtest"
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 
 # shellcheck disable=SC2139
@@ -477,3 +486,18 @@ alias fk="flatpak"
 
 alias pm="pnpm"
 alias pmA="pnpm add"
+alias pmAD="pnpm add -D"
+
+alias updatePnpm="corepack prepare pnpm@latest --activate"
+alias updateGHC="ghcup tui" 
+alias np="nap"
+
+alias cg="chatgpt"
+alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
+alias dev="cd $DEV"
+
+alias docs="cd $HOME/Documents/"
+alias dls="cd $HOME/Downloads/"
+alias se="sudoedit"
+
+alias icat="kitty +kitten icat"

@@ -87,6 +87,12 @@ npm install -g npm@latest
 # Update pnpm to latest
 corepack prepare pnpm@latest --activate
 
+# Change the TTL of the packets sent via ping
+ping -t <ttl_val> <destination_address>
+
+# Search for RPM packages that contains the following file. Example: dnf proviides \*libtinfo.so
+dnf provides <file_name>
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

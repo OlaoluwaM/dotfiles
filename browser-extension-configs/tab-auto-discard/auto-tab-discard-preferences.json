@@ -32,7 +32,7 @@
     "number": 6,
     "online": true,
     "page.context": false,
-    "paused": false,
+    "paused": true,
     "period": 600,
     "pinned": false,
     "prepends": "💤",
@@ -46,7 +46,8 @@
     "trash.whitelist-url": [],
     "whitelist": [
       "mail.proton.me",
-      "calendar.proton.me"
+      "calendar.proton.me",
+      "calendar.google.com"
     ],
     "whitelist-url": []
   },

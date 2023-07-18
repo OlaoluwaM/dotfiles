@@ -84,7 +84,7 @@ if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
     source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,6 +115,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 if [[ -f $HOME/.shell_env ]]; then
   source "$HOME/.shell_env"
+fi
+
+if [[ -f $DOTS/shell/.private_shell_env ]]; then
+  source "$DOTS/shell/.private_shell_env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"

@@ -5,6 +5,8 @@
     "smartdots.zsh",
     "linux-tty-catppuccin-colors.sh",
     "old.bash_aliases",
-    "nvm-setup.zsh"
+    "nvm-setup.zsh",
+    ".private_shell_env",
+    ".private_shell_env_template"
   ]
 }

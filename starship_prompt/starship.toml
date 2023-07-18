@@ -14,7 +14,7 @@ error_symbol = "[➜](bold red)"
 disabled = false
 time_format = '%R'
 format = '[\[ $time \]]($style) '
-style = "#313244"
+style = "white dimmed"
 
 [username]
 style_user = "purple bold"
@@ -26,7 +26,7 @@ show_always = true
 [shell]
 format = 'in [$indicator \]]($style) '
 disabled = true
-style = "#313244"
+style = "white dimmed"
 
 [status]
 # format = '[$symbol $signal_name\($signal_number\)]($style) '

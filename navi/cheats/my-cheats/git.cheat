@@ -45,6 +45,9 @@ git checkout <branch_one> -- <file>
 # Restore staged file (undo staging for file)
 git restore --staged <file>
 
+# Check if a directory is a git repo (https://remarkablemark.org/blog/2020/06/05/check-git-repository/, https://stackoverflow.com/a/39518382/17612886)
+git -C <path-to-dir> rev-parse 2>/dev/null
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
