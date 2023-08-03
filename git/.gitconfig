@@ -1,6 +1,7 @@
 [user]
   email = 37044906+OlaoluwaM@users.noreply.github.com
-  name = OlaoluwaM
+  name = Olaoluwa Mustapha
+	signingkey = 8BEBD0AA
 
 [core]
   excludesfile = /home/olaolu/.gitignore_global
@@ -8,6 +9,7 @@
 
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
+	gpgSign = true
 
 [help]
   autocorrect = 50
@@ -60,3 +62,17 @@
 
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+[includeIf "gitdir:~/Desktop/olaolu_dev/serokell/"]
+  path = ~/.gitconfig-work
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[gpg]
+	program = /usr/bin/gpg2
+[tag]
+	gpgSign = true

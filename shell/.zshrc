@@ -84,7 +84,7 @@ if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
     source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions zsh-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -191,3 +191,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
+gpgconf --launch gpg-agent

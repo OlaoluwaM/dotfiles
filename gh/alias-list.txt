@@ -1,4 +1,0 @@
-b: ' branch'
-co: ' pr checkout'
-d: download
-view: ' repo view -w'

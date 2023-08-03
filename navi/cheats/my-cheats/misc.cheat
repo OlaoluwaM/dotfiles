@@ -93,6 +93,15 @@ ping -t <ttl_val> <destination_address>
 # Search for RPM packages that contains the following file. Example: dnf proviides \*libtinfo.so
 dnf provides <file_name>
 
+# Get RAM info
+sudo dmidecode --type 17
+
+# Get Abridgef RAM info
+sudo lshw -short -C memory
+
+# Reload gpg-agent
+gpg-connect-agent reloadagent /bye
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

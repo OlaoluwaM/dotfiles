@@ -1,9 +1,0 @@
-@bitwarden/cli
-@types/node
-dotfilers
-neovim
-npkill
-scaffy
-ts-node
-typescript
-underscore-cli

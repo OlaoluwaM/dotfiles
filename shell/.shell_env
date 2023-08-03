@@ -354,6 +354,10 @@ function ydlSilent() {
   yt-dlp "$1" &>/dev/null &
 }
 
+function queryUserInstalledPackages() {
+  dnf history userinstalled | grep -E "$1"
+}
+
 
 # Env Variables
 
@@ -366,7 +370,7 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 export DEV="$HOME/Desktop/olaolu_dev/dev"
-export D_SETUP="$DEV/distro-setup"
+export DISTRO_SETUP="$DEV/distro-setup"
 export FONT_DIR="$HOME/.local/share/fonts"
 
 export SYS_BAK_DIR="$DOTS/system"
@@ -374,7 +378,7 @@ export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
-export PACKAGE_LST_FILE="$D_SETUP/src/common/assets/packages.txt"
+export PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
 export NAVI_PATH="$DOTS/navi/cheats"
 
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
@@ -395,6 +399,7 @@ export CUSTOM_BIN_DIR="$HOME/.local/bin"
 
 export NAP_CONFIG="$DOTS/nap/config.yaml"
 export KITTY_CONFIG_DIRECTORY="$DOTS/kitty/"
+export GPG_TTY="$(tty)"
 
 # Aliases
 
@@ -492,7 +497,7 @@ alias updatePnpm="corepack prepare pnpm@latest --activate"
 alias updateGHC="ghcup tui" 
 alias np="nap"
 
-alias cg="chatgpt"
+alias gpt="chatgpt"
 alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
 alias dev="cd $DEV"
 
@@ -501,3 +506,4 @@ alias dls="cd $HOME/Downloads/"
 alias se="sudoedit"
 
 alias icat="kitty +kitten icat"
+alias gpg="gpg2"
