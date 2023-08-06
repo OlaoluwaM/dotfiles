@@ -102,9 +102,24 @@ function repoInit() {
   git rebase develop
 }
 
+# Gotten from https://github.com/o2sh/onefetch/wiki/getting-started
+last_repository=
+check_directory_for_new_repository() {
+	current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
+	
+	if [ "$current_repository" ] && \
+	   [ "$current_repository" != "$last_repository" ]; then
+	  echo -e "\n"
+		onefetch
+	  echo -e "\n"
+	fi
+	last_repository=$current_repository
+}
+
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
 function chpwd() {
   emulate -L zsh
+  check_directory_for_new_repository
   logo-ls || exa --icons || ls
 }
 
@@ -245,7 +260,7 @@ function updateGnomeTheme() {
 }
 
 function backupInstalledCrates() {
-  cargo install --list | grep ':' | awk '{print $1}' >|"$D_SETUP/src/common/assets/rust-crates.txt"
+  cargo install --list | grep ':' | awk '{print $1}' >|"$DISTRO_SETUP/src/common/assets/rust-crates.txt"
 }
 
 function generatePsswd() {
@@ -356,6 +371,80 @@ function ydlSilent() {
 
 function queryUserInstalledPackages() {
   dnf history userinstalled | grep -E "$1"
+}
+
+# Gotten from https://serverfault.com/a/1040984
+function backupGPGKey() {
+  keyID="$1"
+  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+
+  if [[ -z "$keyID" ]]; then
+    echo "Please provide the key ID of the GPG key you wish to backup"
+    return 1
+  fi
+
+  mkdir -p "$backupDir"
+
+  echo "Backing up GPG Key ${keyID}..."
+
+  echo -n "Backing up public key..."
+  gpg --export --armor "$keyID" >| "$backupDir/${keyID}.pub.asc"
+  echo "Done!"
+
+  echo -n "Backing up private key..."
+  gpg --export-secret-keys --armor "$keyID" >| "$backupDir/${keyID}.priv.asc"
+  echo "Done!"
+
+  echo -n "Backing up sub key..."
+  gpg --export-secret-subkeys --armor "$keyID" >| "$backupDir/${keyID}.sub_priv.asc"
+  echo "Done!"
+
+  echo -n "Backing up owner trust..."
+  gpg --export-ownertrust >| "$backupDir/ownertrust.txt"
+  echo "Done!"
+
+  echo "Backup complete!"
+}
+
+# Gotten from https://serverfault.com/a/1040984
+function restoreGPGKey() {
+  keyID="$1"
+  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+
+  if [[ -z "$keyID" ]]; then
+    echo "Please provide the key ID of the GPG key you wish to backup"
+    return 1
+  fi
+
+  echo "Restoring GPG key ${keyID}..."
+
+  echo -n "Restoring public key..."
+  gpg --import "$backupDir/${keyID}.pub.asc"
+  echo "Done!"
+
+  echo -n "Restoring private key..."
+  gpg --import "$backupDir/${keyID}.priv.asc"
+  echo "Done!"
+
+  echo -n "Restoring sub key..."
+  gpg --import "$backupDir/${keyID}.sub_priv.asc"
+  echo "Done!"
+
+  echo -n "Restoring owner trust"
+  gpg --import-ownertrust "$backupDir/ownertrust.txt"
+  echo "Done!"
+
+  echo -e "GPG key restoration complete, but you're not done yet!\n"
+
+  echo "You still need to ultimately trust the imported keys"
+  echo "You can do so by running the following commands"
+
+  cat<<EOL
+  gpg --edit-key your@id.here
+  gpg> trust
+  Your decision? 5
+EOL
+
 }
 
 

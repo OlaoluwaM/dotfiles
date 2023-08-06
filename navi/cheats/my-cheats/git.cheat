@@ -48,6 +48,29 @@ git restore --staged <file>
 # Check if a directory is a git repo (https://remarkablemark.org/blog/2020/06/05/check-git-repository/, https://stackoverflow.com/a/39518382/17612886)
 git -C <path-to-dir> rev-parse 2>/dev/null
 
+# Undo last commit, keeping changes
+git reset --soft HEAD~1
+
+# Undo last commit, disregarding changes
+git reset --hard HEAD~1
+
+# Undo a commit (preserving changes)
+git reset --soft <commit>
+
+# Undo a commit (discarding changes)
+git reset --hard <commit>
+
+# Identify common ancestor between two branches
+git merge-base <branch_one> <branch_two> | git show -s
+
+# Output contents of file from another branch (cat contents of file from another branch)
+git show <branch_one>:<abs_path_to_desired_file>
+
+# Cherry-pick from commit A to commit B, including commit A (note that commit A should be OLDER than commit B)
+git cherry-pick <commit_A>^..<commit_B>
+
+
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list

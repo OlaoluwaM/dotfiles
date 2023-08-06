@@ -47,6 +47,7 @@
   fga = forgit add
   fgd = forgit diff
   fgl = forgit log
+	project-summary = !which onefetch && onefetch
 
 [credential]
   helper = cache
