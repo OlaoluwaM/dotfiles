@@ -47,7 +47,7 @@
     "whitelist": [
       "mail.proton.me",
       "calendar.proton.me",
-      "calendar.google.com"
+      "track.toggl.com"
     ],
     "whitelist-url": []
   },

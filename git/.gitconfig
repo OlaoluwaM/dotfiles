@@ -48,6 +48,7 @@
   fgd = forgit diff
   fgl = forgit log
 	project-summary = !which onefetch && onefetch
+	sw = switch
 
 [credential]
   helper = cache

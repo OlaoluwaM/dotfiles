@@ -1,3 +1,4 @@
+######################################################################## OMZ Stuff Start ######################################################################################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -113,6 +114,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+######################################################################## OMZ Stuff Stop ###################################################################################
+
 if [[ -f $HOME/.shell_env ]]; then
   source "$HOME/.shell_env"
 fi
@@ -148,8 +151,10 @@ fi
 # For inspirational Quotes
 if command -v quote &>/dev/null; then
   quote
-else
-  echo -e "Quotes are currently not available\n"
+fi
+
+if command -v hacker-laws-cli &>/dev/null; then
+  hacker-laws-cli random
 fi
 
 # The Fuck (https://github.com/nvbn/thefuck)

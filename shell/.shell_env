@@ -487,7 +487,6 @@ export THEMES_DIR="$HOME/.themes/"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
 
 export NAP_CONFIG="$DOTS/nap/config.yaml"
-export KITTY_CONFIG_DIRECTORY="$DOTS/kitty/"
 export GPG_TTY="$(tty)"
 
 # Aliases
@@ -596,3 +595,7 @@ alias se="sudoedit"
 
 alias icat="kitty +kitten icat"
 alias gpg="gpg2"
+alias updateNvim="nvim +AstroUpdate"
+
+alias hlcR="hacker-laws-cli random"
+alias pmAG="pnpm add -g"

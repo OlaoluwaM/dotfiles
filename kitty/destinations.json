@@ -1,4 +1,6 @@
 { 
   "kitty.desktop": "$HOME/.local/share/applications/",
-  "exclude": ["kitty.conf", "current-theme.conf", "kitty.conf.bak", "kitty-dark.png"] 
+  "kitty.conf": "$HOME/.config/kitty/",
+  "current-theme.conf": "$HOME/.config/kitty/",
+  "exclude": ["kitty.conf.bak", "kitty-dark.png"] 
 }

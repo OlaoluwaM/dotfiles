@@ -1,0 +1,10 @@
+@bitwarden/cli
+@types/node
+dotfilers
+neovim
+npkill
+qnm
+scaffy
+ts-node
+typescript
+underscore-cli
