@@ -266,6 +266,12 @@ $env.config = {
                     }
                 }
                 {|before, after|
+                    if $before == null {
+                        sf quote;
+                        print "\n";
+                        hacker-laws-cli random
+                    }
+
                     # Run onefetch when cding into a new git repository
                     let prev_repo_root = get-repo-root $before
                     let current_repo_root = get-repo-root $after

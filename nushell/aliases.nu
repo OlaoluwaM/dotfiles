@@ -78,3 +78,4 @@ alias editNuEnvVars = nvim $nu.env-path
 alias bgrep = batgrep
 
 alias bman = batman
+alias nuDots = cd ($env.DOTS | path join "nushell")

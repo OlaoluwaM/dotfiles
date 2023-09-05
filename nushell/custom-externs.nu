@@ -19,6 +19,11 @@ def "nu-complete git local branches" [] {
 ######################################################### Externs Start ###################################################################
 
 ################################### sf Externs Start ##########################################
+export extern "sf updateNodeToLatest" []
+export extern "sf unlockBwVault" []
+export extern "sf areWallpapersBackedup" []
+export extern "sf quote" []
+
 export extern "sf newRemoteBranch" [
     branchName?: string@"nu-complete git local branches",
     remote?: string@"nu-complete git remotes"
@@ -32,11 +37,9 @@ export extern "sf updateNodeTo" [
   nodeVersion: string@"fnm-node-version"
 ]
 
-export extern "sf updateNodeToLatest" []
-
-export extern "sf unlockBwVault" []
-
-export extern "sf areWallpapersBackedup" []
+export extern "sf twn" [
+  duration: string
+]
 ################################### sf Externs Stop ##########################################
 
 ######################################################### Externs Stop ###################################################################

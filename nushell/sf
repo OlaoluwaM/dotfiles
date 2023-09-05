@@ -358,6 +358,11 @@ function restoreGPGKey() {
   Your decision? 5
 EOL
 }
+
+# From https://aaronbos.dev/posts/quote-api-terminal
+function quote {
+  curl https://api.quotable.io/random -s | jq -r '"\(.content)\n - \(.author)"'
+}
 ########################################### Functions Stop ########################################################
 
 ############################################ Script ########################################################
@@ -385,6 +390,7 @@ function display_help() {
   echo "  isPackageInstalled                 Check if a package is installed"
   echo "  newRemoteBranch                    Create a new remote branch"
   echo "  queryUserInstalledPackages         Query user-installed packages"
+  echo "  quote                              Get a random quote"
   echo "  repoInit                           Initialize a new repository"
   echo "  restoreGPGKey                      Restore GPG key"
   echo "  timerWithNotif (twn)               Timer with notification"
@@ -525,6 +531,10 @@ function display_command_help() {
     echo "Restore a GPG key."
     echo "  keyID: The ID of the GPG key to restore."
     ;;
+  "quote")
+    echo "Usage: sf quote"
+    echo "Get a random quote."
+    ;;
   *)
     echo "Unknown command: $command"
     echo "Run 'sf --help' to see a list of available commands."
@@ -622,6 +632,9 @@ case "$command" in
   ;;
 "restoreGPGKey")
   restoreGPGKey "$@"
+  ;;
+"quote")
+  quote "$@"
   ;;
 "help" | "h")
   local subcommand=$1
