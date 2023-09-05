@@ -1,6 +1,5 @@
 {
-  "env.nu": "$HOME/.config/nushell/",
-  "config.nu": "$HOME/.config/nushell/",
   "sf": "$HOME/bin",
-  "all": "$HOME/.config/nushell/"
+  "all": "$HOME/.config/nushell/",
+  "exclude": ["custom-externs/*", "custom-completions/*"]
 }

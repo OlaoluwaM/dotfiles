@@ -2,6 +2,7 @@
 #
 # version = "0.84.0"
 
+####################################################### Theming Stuff Start #################################################
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
@@ -131,11 +132,18 @@ let light_theme = {
     shape_variable: purple
     shape_vardecl: purple
 }
+####################################################### Theming Stuff Stop #################################################
+
 
 ####################################################### Custom Stuff Start #################################################
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/custom-commands.nu
+source ~/.config/nushell/custom-externs.nu
+
+$env.PROMPT_INDICATOR = ''
+$env.PROMPT_INDICATOR_VI_INSERT = ''
+$env.PROMPT_INDICATOR_VI_NORMAL = ''
 ####################################################### Custom Stuff Stop #################################################
 
 
@@ -830,11 +838,6 @@ $env.config = {
         }
     ]
 }
-
-$env.PROMPT_INDICATOR = ''
-$env.PROMPT_INDICATOR_VI_INSERT = ''
-$env.PROMPT_INDICATOR_VI_NORMAL = ''
-
 
 source ~/.zoxide.nu
 source ~/.local/share/atuin/init.nu

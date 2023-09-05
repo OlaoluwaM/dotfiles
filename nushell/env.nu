@@ -245,6 +245,10 @@ zoxide init nushell --cmd z | save -f ~/.zoxide.nu
 mkdir $env.ATUIN_NU_DIR
 atuin init nu | save -f ($env.ATUIN_NU_DIR | path join "init.nu")
 
+# Carapace Integration
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+
 # Starship prompt setup
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu

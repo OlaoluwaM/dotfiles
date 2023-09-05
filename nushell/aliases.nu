@@ -6,6 +6,7 @@ alias :e = nvim
 alias :g = git
 alias :q = clear
 alias :Q = exit
+alias :vc = code .
 
 alias py = python3
 alias pyV = python3 -V
@@ -13,7 +14,6 @@ alias pipV = python -m pip -V
 
 alias cls = colorls --dark
 alias lls = logo-ls
-# alias z = zoxide
 
 alias spice = spicetify
 alias sysfetch = fm6000
@@ -68,3 +68,13 @@ alias dev = cd $env.DEV
 alias dots = cd $env.DOTS
 alias docs = cd $env.XDG_DOCUMENTS_DIR
 alias dlds = cd $env.XDG_DOWNLOAD_DIR
+
+alias editAliases = nvim $"($env.DOTS)/nushell/aliases.nu"
+alias sysFetch = fm6000
+alias editNuConf = nvim $nu.config-path
+
+alias editCustomCommands = nvim $"($nu.default-config-dir)/custom-commands.nu"
+alias editNuEnvVars = nvim $nu.env-path
+alias bgrep = batgrep
+
+alias bman = batman
