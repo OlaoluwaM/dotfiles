@@ -199,3 +199,6 @@ esac
 
 # enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
 gpgconf --launch gpg-agent
+
+# bun completions
+[ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"

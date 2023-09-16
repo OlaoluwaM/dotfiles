@@ -140,6 +140,7 @@ source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/custom-commands.nu
 source ~/.config/nushell/custom-externs.nu
+use ~/.config/nushell/catppuccin-mocha.nu
 
 $env.PROMPT_INDICATOR = ''
 $env.PROMPT_INDICATOR_VI_INSERT = ''
@@ -268,7 +269,6 @@ $env.config = {
                 {|before, after|
                     if $before == null {
                         sf quote;
-                        print "\n";
                         hacker-laws-cli random
                     }
 
@@ -276,13 +276,17 @@ $env.config = {
                     let prev_repo_root = get-repo-root $before
                     let current_repo_root = get-repo-root $after
 
-                    if ($current_repo_root | is-empty) { return }
+                    if ($current_repo_root | is-empty) {
+                        return
+                        print "\n"
+                    }
 
                     if $current_repo_root != $prev_repo_root {
                         print "\n"
                         onefetch
-                        print "\n"
                     }
+
+                    print "\r"
                 }
                 {
                     code: ls-on-dir-change
@@ -844,6 +848,8 @@ $env.config = {
         }
     ]
 }
+
+$env.config = ($env.config | merge {color_config: (catppuccin-mocha)})
 
 source ~/.zoxide.nu
 source ~/.local/share/atuin/init.nu

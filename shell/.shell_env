@@ -111,9 +111,9 @@ check_directory_for_new_repository() {
 	   [ "$current_repository" != "$last_repository" ]; then
 	  echo -e "\n"
 		onefetch
-	  echo -e "\n"
 	fi
 	last_repository=$current_repository
+	echo -e "\r"
 }
 
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls

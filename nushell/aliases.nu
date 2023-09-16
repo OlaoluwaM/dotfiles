@@ -3,10 +3,8 @@ alias checkForUpdates = dnf check-update
 alias checkAutoUpdatesStatus = systemctl list-timers dnf-automatic-install.timer
 
 alias :e = nvim
-alias :g = git
-alias :q = clear
+alias :q = cd $env.HOME; clear
 alias :Q = exit
-alias :vc = code .
 
 alias py = python3
 alias pyV = python3 -V
@@ -79,3 +77,12 @@ alias bgrep = batgrep
 
 alias bman = batman
 alias nuDots = cd ($env.DOTS | path join "nushell")
+alias ga = git add
+
+alias gcmsg = git commit -m
+alias reload = exec nu
+alias g = git
+
+alias checkForCrateUpdates = cargo-install-update install-update --list
+alias bunR = bun repl
+alias checkRecentlyUpdatedPackages = dnf history info
