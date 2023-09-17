@@ -139,8 +139,14 @@ let light_theme = {
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/custom-commands.nu
-source ~/.config/nushell/custom-externs.nu
-use ~/.config/nushell/catppuccin-mocha.nu
+
+source ~/.config/nushell/externs/sf.nu
+source ~/.config/nushell/externs/glow.nu
+source ~/.config/nushell/externs/btm.nu
+source ~/.config/nushell/externs/tldr.nu
+source ~/.config/nushell/externs/bitwarden-cli.nu
+
+use ~/.config/nushell/themes/catppuccin-mocha.nu
 
 $env.PROMPT_INDICATOR = ''
 $env.PROMPT_INDICATOR_VI_INSERT = ''

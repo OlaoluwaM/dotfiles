@@ -1,5 +1,6 @@
 {
   "sf": "$HOME/bin",
   "all": "$HOME/.config/nushell/",
-  "exclude": ["custom-externs/*", "custom-completions/*"]
+  "externs/*": "$HOME/.config/nushell/externs/",
+  "themes/*": "$HOME/.config/nushell/themes/"
 }

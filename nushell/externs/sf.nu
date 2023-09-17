@@ -17,8 +17,6 @@ def "nu-complete git local branches" [] {
 
 
 ######################################################### Externs Start ###################################################################
-
-################################### sf Externs Start ##########################################
 export extern "sf updateNodeToLatest" []
 export extern "sf unlockBWVault" []
 export extern "sf areWallpapersBackedup" []
@@ -45,7 +43,4 @@ export extern "sf downloadFile" [
   url: string
   filename?: string              # Name to use when saving downloaded content
 ]
-
-################################### sf Externs Stop ##########################################
-
 ######################################################### Externs Stop ###################################################################
