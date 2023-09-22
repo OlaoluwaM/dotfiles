@@ -5,7 +5,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -72,7 +71,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-
 # OMZ Plugins
 
 # Which plugins would you like to load?
@@ -82,13 +80,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 
 if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
-    source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
+  source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack)
 
 source $ZSH/oh-my-zsh.sh
-
 
 # User Configuration
 
@@ -106,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -128,7 +124,7 @@ source "$DOTS/shell/smartdots.zsh"
 source "$DOTS/shell/nvm-setup.zsh"
 
 if [[ -f $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh ]]; then
-    source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
+  source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
 fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
@@ -140,14 +136,6 @@ set -o noclobber
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # Other things to run
-
-# For colorls (only when ruby is installed)
-if gem -v &>/dev/null; then
-  source $(dirname $(gem which colorls))/tab_complete.sh
-else
-  echo "You need to install ruby first :/"
-fi
-
 # For inspirational Quotes
 if command -v quote &>/dev/null; then
   quote
@@ -159,9 +147,6 @@ fi
 
 # The Fuck (https://github.com/nvbn/thefuck)
 eval $(thefuck --alias fuck)
-
-# For automatically activating and deactivating python virtual envs when changing dirs (https://github.com/direnv/direnv)
-eval "$(direnv hook zsh)"
 
 # bun completions
 [ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
@@ -192,8 +177,8 @@ eval "$(starship init zsh)"
 # pnpm
 export PNPM_HOME="/home/olaolu/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 

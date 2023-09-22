@@ -243,7 +243,7 @@ zoxide init nushell --cmd z | save -f ~/.zoxide.nu
 
 # Atuin Integration
 mkdir $env.ATUIN_NU_DIR
-atuin init nu | save -f ($env.ATUIN_NU_DIR | path join "init.nu")
+atuin init nu --disable-up-arrow | save -f ($env.ATUIN_NU_DIR | path join "init.nu")
 
 # Carapace Integration
 mkdir ~/.cache/carapace

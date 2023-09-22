@@ -140,11 +140,11 @@ source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/custom-commands.nu
 
-source ~/.config/nushell/externs/sf.nu
-source ~/.config/nushell/externs/glow.nu
-source ~/.config/nushell/externs/btm.nu
-source ~/.config/nushell/externs/tldr.nu
-source ~/.config/nushell/externs/bitwarden-cli.nu
+use ~/.config/nushell/externs/sf.nu *
+use ~/.config/nushell/externs/glow.nu *
+use ~/.config/nushell/externs/btm.nu *
+use ~/.config/nushell/externs/tldr.nu *
+use ~/.config/nushell/externs/bitwarden-cli.nu *
 
 use ~/.config/nushell/themes/catppuccin-mocha.nu
 

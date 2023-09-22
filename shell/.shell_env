@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+# shellcheck disable=SC1071
 
 # Functions
-
 function does_entity_exist() {
   if test "$1" "$3"; then
     echo "${2} ${3} exists"
@@ -14,7 +14,6 @@ function newRemoteBranch() {
   branchName="${1:=HEAD}"
   remote="${2:=origin}"
 
-  #echo $remote $branchName
   git push -u "$remote" "$branchName"
 }
 
@@ -105,22 +104,22 @@ function repoInit() {
 # Gotten from https://github.com/o2sh/onefetch/wiki/getting-started
 last_repository=
 check_directory_for_new_repository() {
-	current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
-	
-	if [ "$current_repository" ] && \
-	   [ "$current_repository" != "$last_repository" ]; then
-	  echo -e "\n"
-		onefetch
-	fi
-	last_repository=$current_repository
-	echo -e "\r"
+  current_repository=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  if [ "$current_repository" ] &&
+    [ "$current_repository" != "$last_repository" ]; then
+    echo -e "\n"
+    onefetch
+  fi
+  last_repository=$current_repository
+  echo -e "\r"
 }
 
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
 function chpwd() {
   emulate -L zsh
   check_directory_for_new_repository
-  logo-ls || exa --icons || ls
+  logo-ls || ls
 }
 
 function editPromptConf() {
@@ -361,10 +360,6 @@ function backupDejaDupConfig() {
   dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR/deja-dup-config-backup.txt"
 }
 
-function backupTilixConfig() {
-  dconf dump /com/gexperts/Tilix/ >|"$SYS_BAK_DIR/tilix-backup.txt"
-}
-
 function ydlSilent() {
   yt-dlp "$1" &>/dev/null &
 }
@@ -388,19 +383,19 @@ function backupGPGKey() {
   echo "Backing up GPG Key ${keyID}..."
 
   echo -n "Backing up public key..."
-  gpg --export --armor "$keyID" >| "$backupDir/${keyID}.pub.asc"
+  gpg --export --armor "$keyID" >|"$backupDir/${keyID}.pub.asc"
   echo "Done!"
 
   echo -n "Backing up private key..."
-  gpg --export-secret-keys --armor "$keyID" >| "$backupDir/${keyID}.priv.asc"
+  gpg --export-secret-keys --armor "$keyID" >|"$backupDir/${keyID}.priv.asc"
   echo "Done!"
 
   echo -n "Backing up sub key..."
-  gpg --export-secret-subkeys --armor "$keyID" >| "$backupDir/${keyID}.sub_priv.asc"
+  gpg --export-secret-subkeys --armor "$keyID" >|"$backupDir/${keyID}.sub_priv.asc"
   echo "Done!"
 
   echo -n "Backing up owner trust..."
-  gpg --export-ownertrust >| "$backupDir/ownertrust.txt"
+  gpg --export-ownertrust >|"$backupDir/ownertrust.txt"
   echo "Done!"
 
   echo "Backup complete!"
@@ -439,37 +434,37 @@ function restoreGPGKey() {
   echo "You still need to ultimately trust the imported keys"
   echo "You can do so by running the following commands"
 
-  cat<<EOL
+  cat <<EOL
   gpg --edit-key your@id.here
   gpg> trust
   Your decision? 5
 EOL
-
 }
 
+function vc() {
+  targetDir="${1:=.}"
+
+  code $targetDir
+}
 
 # Env Variables
-
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
 export ALIASES="$HOME/.shell_env"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 
-export TERM="xterm-256color"
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-
 export DEV="$HOME/Desktop/olaolu_dev/dev"
+
 export DISTRO_SETUP="$DEV/distro-setup"
 export FONT_DIR="$HOME/.local/share/fonts"
-
 export SYS_BAK_DIR="$DOTS/system"
-export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
-export BETTER_DISCORD_CONF_DIR="$HOME/.var/app/com.discordapp.Discord/config/BetterDiscord"
 
+export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
-export NAVI_PATH="$DOTS/navi/cheats"
 
+export NAVI_PATH="$DOTS/navi/cheats"
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
 export ATUIN_CONFIG_DIR="$DOTS/atuin"
 
@@ -482,38 +477,31 @@ export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 
-export SPACESHIP_CONFIG="$DOTS/spaceship-prompt/spaceship.zsh"
 export THEMES_DIR="$HOME/.themes/"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
-
 export NAP_CONFIG="$DOTS/nap/config.yaml"
+
 export GPG_TTY="$(tty)"
 
 # Aliases
-
 alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
 alias checkForUpdates="dnf check-update"
 alias reloadAliases="source ~/.shell_env"
-
-alias swag="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
-# shellcheck disable=SC2139
 alias editAliases="nv $HOME/.shell_env"
-alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 
+alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias py="python3"
 alias pvpn="protonvpn-cli"
+
 alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
 alias cls="colorls --dark"
-
 alias lls="logo-ls"
+
 alias updateNodeToLatest="updateNodeTo node"
 alias open="xdg-open"
-
-alias tmx="TERM=xterm-256color tmux"
-alias setSuPasswrd="sudo passwd su"
 alias spice="spicetify"
 
 alias sysfetch="fm6000"
@@ -521,7 +509,6 @@ alias getDirSize="du -sh"
 alias getFileSize="du -h"
 
 alias nv="nvim"
-alias z="zoxide"
 alias echo="echo -e"
 
 # shellcheck disable=SC2139
@@ -530,7 +517,6 @@ alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
-alias exa="exa --icons"
 
 alias bgrep="batgrep"
 alias bman="batman"
@@ -547,6 +533,7 @@ alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
 alias sizeOf="du -lh"
 alias nd="node-docs"
 alias lg="lazygit"
+
 # shellcheck disable=SC2139
 alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
 
@@ -559,7 +546,6 @@ alias sudo="sudo " # https://askubuntu.com/questions/22037/aliases-not-available
 alias e="$EDITOR"
 alias x+="chmod +x"
 
-alias vc="code"
 alias st="speedtest"
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 
@@ -582,7 +568,7 @@ alias pmA="pnpm add"
 alias pmAD="pnpm add -D"
 
 alias updatePnpm="corepack prepare pnpm@latest --activate"
-alias updateGHC="ghcup tui" 
+alias updateGHC="ghcup tui"
 alias np="nap"
 
 alias gpt="chatgpt"
@@ -590,7 +576,7 @@ alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
 alias dev="cd $DEV"
 
 alias docs="cd $HOME/Documents/"
-alias dls="cd $HOME/Downloads/"
+alias dlds="cd $HOME/Downloads/"
 alias se="sudoedit"
 
 alias icat="kitty +kitten icat"

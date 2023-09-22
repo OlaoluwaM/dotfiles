@@ -9,7 +9,7 @@ def widgetType [] {
 }
 
 # Yet another cross-platform graphical process/system monitor.
-export extern "btm" [
+export extern "main" [
   --autohide-time                           # Hide time-scale in graphs automatically
   --basic(-b)                               # Use a more basic look
   --battery                                 # Show battery widget
@@ -19,7 +19,7 @@ export extern "btm" [
   --config(-C): string                      # Sets the location of the config file
   --curent_usage(-u)                        # Set CPU% to current system CPU%
   --default_time_value(-t): int             # Time value for graphs
-  --default_widget_count: int               # Sets nth selected widget type to use default widget 
+  --default_widget_count: int               # Sets nth selected widget type to use default widget
   --default_widget_type: string@widgetType  # Set default select widget
   --disable_advanced_kill                   # Hide advanced options
   --disable_click                           # Disables mouse
@@ -29,19 +29,19 @@ export extern "btm" [
   --help(-h)                                # Prints help information
   --hide_avg_cpu(-a)                        # Hide average CPU usage
   --hide_table_gap                          # Hides spacing between table headers and entries
-  --hide_time                               # Completely hides the time scale 
+  --hide_time                               # Completely hides the time scale
   --kelvin(-k)                              # Sets temp type to kelvin
-  --left-legend(-l)                         # Puts the CPU chart to left 
+  --left-legend(-l)                         # Puts the CPU chart to left
   --men_as_value                            # Default sort by memory usage
   --network_use_binary_prefix               # Network widget with binary prefixes
-  --network_use_bytes                       # Network widget as bytes 
-  --network_use_logs                        # Network eidget with logs 
+  --network_use_bytes                       # Network widget as bytes
+  --network_use_logs                        # Network eidget with logs
   --process_command                         # Show processes as commands
   --rate(-r): int                           # Sets referesh
-  --regex(-R)                               # Enable regex by default 
-  --show_table_scroll_position              # Show scroll position 
+  --regex(-R)                               # Enable regex by default
+  --show_table_scroll_position              # Show scroll position
   --time-delta(-d): int                     # Amout changed when zooming in/out
   --tree(-T)                                # Show processes as tree
-  --version(-V)                             # Prints version information 
+  --version(-V)                             # Prints version information
   --whole-word(-w)                          # Search results match entrie query
 ]

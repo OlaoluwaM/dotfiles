@@ -5,7 +5,7 @@ def commandsGlow [] {
 }
 
 # Render markdown on the CLI, with pizzazz!
-export extern "glow" [
+export extern "main" [
   string?
   --all(-a)                 # Show system files and directories (TUI)
   --config: string          # Specify config file

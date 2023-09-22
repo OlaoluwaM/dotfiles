@@ -10,7 +10,6 @@ alias py = python3
 alias pyV = python3 -V
 alias pipV = python -m pip -V
 
-alias cls = colorls --dark
 alias lls = logo-ls
 alias :vc = code .
 
@@ -18,7 +17,6 @@ alias spice = spicetify
 alias sysfetch = fm6000
 alias refreshFonts = fc-cache -v
 
-alias exa = exa --icons
 alias bgrep = batgrep
 alias bman = batman
 
