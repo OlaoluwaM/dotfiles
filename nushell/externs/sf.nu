@@ -22,6 +22,7 @@ export extern "sf areWallpapersBackedup" []
 export extern "sf backupInstalledCrates" []
 export extern "sf backupGlobalNpmPkgs" []
 export extern "sf quote" []
+export extern "sf backupGHExtensions" []
 
 export extern "sf newRemoteBranch" [
     branchName?: string@"nu-complete git local branches",

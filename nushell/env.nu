@@ -154,6 +154,7 @@ export-env { load-env {
     MY_HOME: ($env.XDG_DESKTOP | path join "olaolu_dev")
     FONT_DIR: ($env.XDG_DATA_HOME | path join "fonts")
     CUSTOM_BIN_DIR: ($env.HOME | path join ".local" "bin")
+    PNPM_HOME: ($env.XDG_DATA_HOME | path join "pnpm")
 }}
 
 $env.BROWSER = "firefox"
@@ -172,6 +173,7 @@ $env.PATH = (
         | split row (char esep)
         | prepend $env.SPICETIFY
         | prepend $env.CUSTOM_BIN_DIR
+        | prepend $env.PNPM_HOME
         | prepend ($env.HOME | path join "bin")
         | prepend ($env.GHCUP | path join "bin")
         | prepend ($env.BUN_PATH | path join "bin")

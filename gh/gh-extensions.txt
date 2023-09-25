@@ -1,3 +1,4 @@
+nektos/gh-act
 mislav/gh-branch
 johnmanjiro13/gh-bump
 chelnak/gh-changelog
