@@ -15,6 +15,16 @@ show_help() {
     echo "Note that it would be best to run this script within the directory it's defined in"
 }
 
+function in_array() {
+    local element
+    for element in "${@:1:$(($# - 1))}"; do
+        if [[ $element == "${!#}" ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
 target_dir="$HOME/.config/ags"
 
 # Function for the link command
@@ -25,11 +35,16 @@ link() {
     fi
 
     mkdir -p "$target_dir"
-    files_to_copy=(!(./setup.sh))
+    files_to_omit=("./setup.sh" "./package.json" "./.gitignore" "./.stylelintrc.yml" "./package-lock.json")
 
-    for file in "${files_to_copy[@]}"; do
-        if [[ "$file" == "setup.sh" ]]; then
-            echo "Skipping setup script, obviously"
+    for file in ./*; do
+        if [[ "$file" =~ "node_modules" ]]; then
+            echo "Skipping files in .cosine and node_modules directories"
+            continue
+        fi
+
+        if [[ "${files_to_omit[*]}" =~ ${file} ]]; then
+            echo "Skipping $file"
             continue
         fi
 
@@ -44,10 +59,10 @@ link() {
 unlink() {
     echo "Unlinking..."
     if [[ -d "$directory" ]]; then
-      rm -rf "$target_dir"
+        rm -rf "$target_dir"
     else
-      echo "The target directory for these config files ($target_dir) does not exist."
-      echo "Doing nothing"
+        echo "The target directory for these config files ($target_dir) does not exist."
+        echo "Doing nothing"
     fi
 }
 
@@ -63,32 +78,32 @@ shift
 
 while [ $# -gt 0 ]; do
     case "$1" in
-        -h|--help)
-            show_help
-            exit 0
-            ;;
-        *)
-            echo "Error: Unknown option: $1"
-            show_help
-            exit 1
-            ;;
+    -h | --help)
+        show_help
+        exit 0
+        ;;
+    *)
+        echo "Error: Unknown option: $1"
+        show_help
+        exit 1
+        ;;
     esac
     shift
 done
 
 # Execute the appropriate command
 case "$command" in
-    link)
-        link
-        ;;
-    unlink)
-        unlink
-        ;;
-    *)
-        echo "Error: Unknown command: $command"
-        show_help
-        exit 1
-        ;;
+link)
+    link
+    ;;
+unlink)
+    unlink
+    ;;
+*)
+    echo "Error: Unknown command: $command"
+    show_help
+    exit 1
+    ;;
 esac
 
 exit 0

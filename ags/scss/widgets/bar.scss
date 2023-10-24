@@ -35,6 +35,7 @@ $float: $spacing * 0.7;
     }
   } @else {
     @include accs_button($flat, $reactive);
+
     > * {
       margin: $float;
     }
@@ -87,15 +88,16 @@ $float: $spacing * 0.7;
     @include panel_button($flat: true);
   }
 
-  .system-resources-box-ram {
+  .system-resources-box {
     & > * {
       padding: 0 $spacing * 1.5;
     }
 
-    .circular-progress-bar-ram {
+    .circular-progress-bar {
       font-size: 0.15rem;
       min-width: $spacing * 2;
       min-height: $spacing * 2;
+
       @if variable-exists($name: "lavender") {
         color: $lavender;
       } @else {
@@ -104,32 +106,32 @@ $float: $spacing * 0.7;
       background-color: lighten($bg_color, 15%);
     }
 
-    &.low .circular-progress-bar-ram {
+    &.low .circular-progress-bar {
       color: $green;
     }
 
-    &.medium .circular-progress-bar-ram {
+    &.medium .circular-progress-bar {
       color: $orange;
     }
 
-    &.high .circular-progress-bar-ram {
+    &.high .circular-progress-bar {
       color: $red;
     }
 
-    .system-resources-label-ram {
+    .system-resources-label {
       font-size: 0.95rem;
       font-weight: 400;
     }
 
-    &.low .system-resources-label-ram {
+    &.low .system-resources-label {
       color: lighten($green, 8%);
     }
 
-    &.medium .system-resources-label-ram {
+    &.medium .system-resources-label {
       color: lighten($orange, 8%);
     }
 
-    &.high .system-resources-label-ram {
+    &.high .system-resources-label {
       color: lighten($red, 8%);
     }
   }
@@ -143,9 +145,11 @@ $float: $spacing * 0.7;
 
   .quicksettings > box > * {
     margin: 0 $spacing/2;
+
     &:last-child {
       margin-right: 0;
     }
+
     &:first-child {
       margin-left: 0;
     }
@@ -156,18 +160,22 @@ $float: $spacing * 0.7;
       label {
         color: $lavender;
       }
+
       &:hover label {
         color: $lavender;
       }
+
       &:active label,
       &.active label {
         color: $accent_fg;
       }
     } @else {
       color: transparentize($accent, 0.2);
+
       &:hover label {
         color: $accent;
       }
+
       &:active label,
       &.active label {
         color: $accent;
@@ -180,9 +188,11 @@ $float: $spacing * 0.7;
     image {
       color: transparentize($red, 0.3);
     }
+
     &:hover image {
       color: transparentize($red, 0.15);
     }
+
     &:active image {
       color: $red;
     }
@@ -198,6 +208,7 @@ $float: $spacing * 0.7;
       &.low {
         color: $red;
       }
+
       &.charged,
       &.charging {
         color: $green;
@@ -209,9 +220,11 @@ $float: $spacing * 0.7;
     &.spotify image {
       color: $green;
     }
+
     &.firefox image {
       color: $orange;
     }
+
     &.mpv image {
       color: $magenta;
     }
@@ -228,6 +241,7 @@ $float: $spacing * 0.7;
     label {
       margin-right: $spacing/2;
     }
+
     .font-icon {
       font-size: 1.3em;
     }
@@ -261,12 +275,15 @@ $float: $spacing * 0.7;
     .medium {
       @include color($yellow);
     }
+
     .low {
       @include color($red);
     }
+
     .charging {
       @include color($green);
     }
+
     &:active {
       @include color($accent_fg);
     }
@@ -282,6 +299,7 @@ $float: $spacing * 0.7;
 
       @if $bar_style == "separated" {
         border-radius: max($radii - $border_width, 0);
+
         &:hover {
           background-color: $hover;
         }
@@ -307,6 +325,7 @@ $float: $spacing * 0.7;
       &:last-child .indicator {
         margin-right: $spacing;
       }
+
       &:first-child .indicator {
         margin-left: $spacing;
       }
