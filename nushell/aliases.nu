@@ -85,3 +85,5 @@ alias g = git
 alias checkForCrateUpdates = cargo-install-update install-update --list
 alias bunR = bun repl
 alias checkRecentlyUpdatedPackages = dnf history info
+
+alias cw = change-wallpaper

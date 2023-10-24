@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
-# bat-extras | Copyright (C) 2020 eth-p | MIT License
+# bat-extras | Copyright (C) 2020 eth-p and contributors | MIT License
 #
 # Repository: https://github.com/eth-p/bat-extras
 # Issues:     https://github.com/eth-p/bat-extras/issues
 # -----------------------------------------------------------------------------
-# shellcheck disable=SC1090
-# --- BEGIN LIBRARY FILE: print.sh ---
+#!/usr/bin/env bash
 printc(){
 printf "$(sed "$_PRINTC_PATTERN" <<<"$1")" "${@:2}"
 }
@@ -53,8 +52,6 @@ printc_init "[DEFINE]" <<END
 	DEFAULT \x1B[39m
 	DIM		\x1B[2m
 END
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: pager.sh ---
 is_pager_less(){
 [[ "$(pager_name)" == "less" ]]
 return $?
@@ -151,8 +148,6 @@ else
 SCRIPT_PAGER_CMD=()
 SCRIPT_PAGER_ARGS=()
 fi
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: opt.sh ---
 SHIFTOPT_HOOKS=()
 SHIFTOPT_SHORT_OPTIONS="VALUE"
 setargs(){
@@ -192,16 +187,19 @@ fi
 if [[ $OPT =~ ^-[^-]{2,} ]];then
 case "$SHIFTOPT_SHORT_OPTIONS" in
 PASS)_shiftopt_next;;
+\
 CONV)\
 OPT="-$OPT"
 _shiftopt_next
 ;;
+\
 VALUE){
 OPT="${_ARGV[$_ARGV_INDEX]}"
 OPT_VAL="${OPT:2}"
 OPT="${OPT:0:2}"
 _shiftopt_next
 };;
+\
 SPLIT){
 OPT="-${OPT:_ARGV_SUBINDEX:1}"
 ((_ARGV_SUBINDEX++))||true
@@ -209,6 +207,7 @@ if [[ $_ARGV_SUBINDEX -gt ${#OPT} ]];then
 _shiftopt_next
 fi
 };;
+\
 *)printf "shiftopt: unknown SHIFTOPT_SHORT_OPTIONS mode '%s'" \
 "$SHIFTOPT_SHORT_OPTIONS" \
 1>&2
@@ -243,8 +242,6 @@ fi
 }
 setargs "$@"
 _ARGV_ORIGINAL=("$@")
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: opt_hook_color.sh ---
 hook_color(){
 SHIFTOPT_HOOKS+=("__shiftopt_hook__color")
 __shiftopt_hook__color(){
@@ -274,12 +271,11 @@ fi
 printc_init "$OPT_COLOR"
 fi
 }
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: opt_hook_pager.sh ---
 hook_pager(){
 SHIFTOPT_HOOKS+=("__shiftopt_hook__pager")
 __shiftopt_hook__pager(){
 case "$OPT" in
+\
 --no-pager)shiftval
 SCRIPT_PAGER_CMD=''
 ;;
@@ -293,6 +289,7 @@ never)SCRIPT_PAGER_CMD='';;
 exit 1
 esac
 };;
+\
 --pager){
 shiftval
 {
@@ -304,15 +301,13 @@ PAGER_ARGS=()
 esac
 }
 }
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: opt_hook_version.sh ---
 hook_version(){
 SHIFTOPT_HOOKS+=("__shiftopt_hook__version")
 __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "batdiff" \
-"2023.03.21" \
+"2023.09.19" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0
@@ -320,8 +315,6 @@ fi
 return 1
 }
 }
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: opt_hook_width.sh ---
 term_width(){
 local width="$({ stty size 2>/dev/null||echo "22 80";}|cut -d ' ' -f2)"
 if [[ $width -ne 0 ]];then
@@ -347,11 +340,9 @@ return 0
 }
 OPT_TERMINAL_WIDTH="$(term_width)"
 }
-# --- END LIBRARY FILE ---
-# --- BEGIN LIBRARY FILE: version.sh ---
 bat_version(){
 if [[ -z $__BAT_VERSION ]];then
-__BAT_VERSION="$(command "/home/olaolu/.cargo/bin/bat" --version|cut -d ' ' -f 2)"
+__BAT_VERSION="$(command "bat" --version|cut -d ' ' -f 2)"
 fi
 echo "$__BAT_VERSION"
 }
@@ -396,164 +387,150 @@ case "$operator" in
 esac
 version_compare__recurse "$v_minor" "$operator" "$c_minor"
 }
-# --- END LIBRARY FILE ---
-# -----------------------------------------------------------------------------
-# Init:
-# -----------------------------------------------------------------------------
 hook_color
 hook_pager
 hook_version
 hook_width
-# -----------------------------------------------------------------------------
-# Options:
-# -----------------------------------------------------------------------------
 BATDIFF_USE_DELTA="${BATDIFF_USE_DELTA:-}"
-
 SUPPORTS_BAT_DIFF=false
 SUPPORTS_DELTA=false
-
 BAT_VERSION="$(bat_version)"
 BAT_ARGS=()
 DELTA_ARGS=()
-
+DELTA_VERSION='unsupported'
+GIT_ARGS=()
 FILES=()
 OPT_TABS=
 OPT_CONTEXT=2
+OPT_STAGED=false
 OPT_ALL_CHANGES=false
-
-# Set options based on bat version.
-if version_compare "$BAT_VERSION" -ge "0.15"; then
-	SUPPORTS_BAT_DIFF=true
+if version_compare "$BAT_VERSION" -ge "0.15";then
+SUPPORTS_BAT_DIFF=true
 fi
-
-# Set options based on delta availability.
-if command -v "delta" &>/dev/null; then
-	SUPPORTS_DELTA=true
+if command -v "delta" &>/dev/null;then
+SUPPORTS_DELTA=true
+DELTA_VERSION="$("delta" --version|cut -d' ' -f2)"
 fi
-
-# Parse arguments.
-while shiftopt; do
-	case "$OPT" in
-
-	# bat options
-	-C | --context | --diff-context)   shiftval; OPT_CONTEXT="$OPT_VAL" ;;
-	--terminal-width)                  shiftval; OPT_TERMINAL_WIDTH="$OPT_VAL" ;;
-	--tabs)                            shiftval; OPT_TABS="$OPT_VAL" ;;
-
-	# Script options
-	--all)                      OPT_ALL_CHANGES=true ;;
-	--delta)                    BATDIFF_USE_DELTA=true ;;
-
-	# ???
-	-*) {
-		printc "%{RED}%s: unknown option '%s'%{CLEAR}\n" "batdiff" "$OPT" 1>&2
-		exit 1
-	} ;;
-
-	# Files
-	*) FILES+=("$OPT") ;;
-
-	esac
+if version_compare "$DELTA_VERSION" -ge "0.12";then
+DELTA_ARGS+=("--hunk-header-decoration-style=plain")
+else
+DELTA_ARGS+=("--hunk-style=plain")
+fi
+while shiftopt;do
+case "$OPT" in
+\
+-C|--context|--diff-context)shiftval
+OPT_CONTEXT="$OPT_VAL"
+;;
+--terminal-width)shiftval
+OPT_TERMINAL_WIDTH="$OPT_VAL"
+;;
+--tabs)shiftval
+OPT_TABS="$OPT_VAL"
+;;
+\
+--all)OPT_ALL_CHANGES=true;;
+--staged)\
+OPT_STAGED=true
+GIT_ARGS+=("--staged")
+;;
+--delta)BATDIFF_USE_DELTA=true;;
+\
+-*){
+printc "%{RED}%s: unknown option '%s'%{CLEAR}\n" "batdiff" "$OPT" 1>&2
+exit 1
+};;
+\
+*)FILES+=("$OPT")
+esac
 done
-
-# Append arguments for delta/bat.
-BAT_ARGS+=("--terminal-width=${OPT_TERMINAL_WIDTH}" "--paging=never")
+BAT_ARGS+=("--terminal-width=$OPT_TERMINAL_WIDTH" "--paging=never")
 DELTA_ARGS+=(
-	"--width=${OPT_TERMINAL_WIDTH}" 
-	"--paging=never" 
-	"--hunk-header-decoration-style=plain"
-)
-
-if "$OPT_COLOR"; then
-	BAT_ARGS+=("--color=always")
+"--width=$OPT_TERMINAL_WIDTH"
+"--paging=never")
+if "$OPT_COLOR";then
+BAT_ARGS+=("--color=always")
 else
-	BAT_ARGS+=("--color=never")
-	DELTA_ARGS+=("--theme=none")
+BAT_ARGS+=("--color=never")
+DELTA_ARGS+=("--theme=none")
 fi
-
-if [[ -n "$OPT_TABS" ]]; then
-	BAT_ARGS+=("--tabs=${OPT_TABS}")
-	DELTA_ARGS+=("--tabs=${OPT_TABS}")
+if [[ -n $OPT_TABS ]];then
+BAT_ARGS+=("--tabs=$OPT_TABS")
+DELTA_ARGS+=("--tabs=$OPT_TABS")
 fi
-
-# -----------------------------------------------------------------------------
-# Printing:
-# -----------------------------------------------------------------------------
-print_bat_diff() {
-	local files=("$@")
-
-	# Diff two files.
-	if [[ "${#files[@]}" -eq 2 ]]; then
-		diff --unified="$OPT_CONTEXT" "${files[@]}" | "/home/olaolu/.cargo/bin/bat" --language=diff - "${BAT_ARGS[@]}"
-		return $?
-	fi
-
-	# Diff git file.
-	if "$SUPPORTS_BAT_DIFF"; then
-		"/home/olaolu/.cargo/bin/bat" --diff --diff-context="$OPT_CONTEXT" "${files[0]}" "${BAT_ARGS[@]}"
-	else
-		"git" diff -U"$OPT_CONTEXT" "${files[0]}" | "/home/olaolu/.cargo/bin/bat" --language=diff - "${BAT_ARGS[@]}"
-	fi
+GIT_ARGS+=(-U"$OPT_CONTEXT")
+ensure_git_directory(){
+if ! "git" rev-parse --show-toplevel &>/dev/null;then
+print_error "Not a git repository."
+printc "\n%s\nTo view a diff between two files, use %{CYAN}%s [file] [file]%{CLEAR}." \
+"To view a diff between staged files and the working directory, enter a git repository." \
+"batdiff"
+exit 1
+fi
 }
-
-print_delta_diff() {
-	local files=("$@")
-
-	# Diff two files.
-	if [[ "${#files[@]}" -eq 2 ]]; then
-		diff --unified="$OPT_CONTEXT" "${files[@]}"  | "delta" "${DELTA_ARGS[@]}"
-		return $?
-	fi
-
-	# Diff git file.
-	"git" diff -U"$OPT_CONTEXT" "${files[0]}" | "delta" "${DELTA_ARGS[@]}"
-}
-
-if [[ "$BATDIFF_USE_DELTA" = "true" && "$SUPPORTS_DELTA" = "true" ]]; then
-	print_diff() {
-		print_delta_diff "$@"
-		return $?
-	}
+print_bat_diff(){
+local files=("$@")
+if [[ ${#files[@]} -eq 2 ]];then
+diff --unified="$OPT_CONTEXT" "${files[@]}"|"bat" --language=diff - "${BAT_ARGS[@]}"
+return $?
+fi
+ensure_git_directory
+if "$OPT_STAGED";then
+if false&&"$SUPPORTS_DELTA";then
+print_delta_diff "$@"
 else
-	print_diff() {
-		print_bat_diff "$@"
-		return $?
-	}
+difftext="$("git" diff "${GIT_ARGS[@]}" "${files[0]}")"
+if [[ ${#difftext} -gt 0 ]];then
+"bat" --language=diff --file-name="${files[0]}" - "${BAT_ARGS[@]}" <<<"$difftext"
 fi
-
-
-# -----------------------------------------------------------------------------
-# Validation:
-# -----------------------------------------------------------------------------
-
-# Handle too many files.
-if [[ "${#FILES[@]}" -gt 2 ]]; then
-	print_error "too many files provided"
-	exit 1
 fi
-
-# Handle deprecated --all.
-if "$OPT_ALL_CHANGES"; then
-	print_warning "argument --all is deprecated. Use '%s' instead" "$0"
+return $?
 fi
-
-
-# -----------------------------------------------------------------------------
-# Main:
-# -----------------------------------------------------------------------------
-main() {
-	if [[ "${#FILES[@]}" -eq 0 ]] || "$OPT_ALL_CHANGES"; then
-		local file
-		while read -r file; do
-			if [[ -f "$file" ]]; then
-				print_diff "$file"
-			fi
-		done < <("git" diff --name-only --diff-filter=d)
-		return
-	fi
-
-	print_diff "${FILES[@]}"
+if "$SUPPORTS_BAT_DIFF";then
+"git" diff "${GIT_ARGS[@]}" --name-only "${files[0]}"|xargs "bat" --diff --diff-context="$OPT_CONTEXT" "${BAT_ARGS[@]}"
+else
+"git" diff "${GIT_ARGS[@]}" "${files[0]}"|"bat" --language=diff - "${BAT_ARGS[@]}"
+fi
 }
-
+print_delta_diff(){
+local files=("$@")
+if [[ ${#files[@]} -eq 2 ]];then
+diff --unified="$OPT_CONTEXT" "${files[@]}"|"delta" "${DELTA_ARGS[@]}"
+return $?
+fi
+ensure_git_directory
+"git" diff "${GIT_ARGS[@]}" "${files[0]}"|"delta" "${DELTA_ARGS[@]}"
+}
+if [[ $BATDIFF_USE_DELTA == "true" && $SUPPORTS_DELTA == "true" ]];then
+print_diff(){
+print_delta_diff "$@"
+return $?
+}
+else
+print_diff(){
+print_bat_diff "$@"
+return $?
+}
+fi
+if [[ ${#FILES[@]} -gt 2 ]];then
+print_error "too many files provided"
+exit 1
+fi
+if "$OPT_ALL_CHANGES";then
+print_warning "argument --all is deprecated. Use '%s' instead" "$0"
+fi
+main(){
+if [[ ${#FILES[@]} -eq 0 ]]||"$OPT_ALL_CHANGES";then
+ensure_git_directory
+local file
+while read -r file;do
+if [[ -f $file ]];then
+print_diff "$file"
+fi
+done < <("git" diff "${GIT_ARGS[@]}" --name-only --diff-filter=d)
+return
+fi
+print_diff "${FILES[@]}"
+}
 pager_exec main
 exit $?

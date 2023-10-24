@@ -45,3 +45,7 @@ export extern "sf downloadFile" [
   url: string
   filename?: string              # Name to use when saving downloaded content
 ]
+
+export extern "sf pkg" [
+  command: string
+]

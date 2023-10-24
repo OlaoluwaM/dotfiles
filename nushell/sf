@@ -75,6 +75,8 @@ function downloadFile() {
 }
 
 function unlockBWVault() {
+  # This won't work in nuShell as is because of the differences with exposing environment variables
+  # This will need to be converted into a nushell custom command
   BW_SESSION=$("$HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
   [[ -z "$BW_SESSION" ]] && return 1
 
@@ -363,6 +365,21 @@ EOL
 function quote {
   curl https://api.quotable.io/random -s | jq -r '"\(.content)\n - \(.author)"'
 }
+
+function pkg() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command pnpm "$@"
+  fi
+}
+
 ########################################### Functions Stop ########################################################
 
 ############################################ Script ########################################################
@@ -389,6 +406,7 @@ function display_help() {
   echo "  installBackedUpGlobalNpmPkgs       Install backed-up global npm packages"
   echo "  isPackageInstalled                 Check if a package is installed"
   echo "  newRemoteBranch                    Create a new remote branch"
+  echo "  pkg                                Run a package manager command using the right package manager"
   echo "  queryUserInstalledPackages         Query user-installed packages"
   echo "  quote                              Get a random quote"
   echo "  repoInit                           Initialize a new repository"
@@ -535,6 +553,11 @@ function display_command_help() {
     echo "Usage: sf quote"
     echo "Get a random quote."
     ;;
+  "pkg")
+    echo "Usage: sf pkg [command]"
+    echo "Run a package manager command using the right package manager."
+    echo "  command: The command to run."
+    ;;
   *)
     echo "Unknown command: $command"
     echo "Run 'sf --help' to see a list of available commands."
@@ -635,6 +658,9 @@ case "$command" in
   ;;
 "quote")
   quote "$@"
+  ;;
+"pkg")
+  pkg "$@"
   ;;
 "help" | "h")
   local subcommand=$1

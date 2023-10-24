@@ -174,7 +174,6 @@ $env.PATH = (
         | prepend $env.SPICETIFY
         | prepend $env.CUSTOM_BIN_DIR
         | prepend $env.PNPM_HOME
-        | prepend ($env.HOME | path join "bin")
         | prepend ($env.GHCUP | path join "bin")
         | prepend ($env.BUN_PATH | path join "bin")
         | prepend ($env.NUPM_HOME | path join "bin")

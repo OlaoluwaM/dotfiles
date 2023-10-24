@@ -204,7 +204,7 @@ function dejaDupIgnore() {
 
 function addInstalledPackages() {
   if [[ $# -eq 0 ]]; then
-    nv "$PACKAGE_LST_FILE"
+    nvim "$PACKAGE_LST_FILE"
   else
     # This means we have provided packages to add
     PACKAGES_TO_ADD=$(
@@ -446,6 +446,21 @@ function vc() {
 
   code $targetDir
 }
+
+function pkg() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command pnpm "$@"
+  fi
+}
+
 
 # Env Variables
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"

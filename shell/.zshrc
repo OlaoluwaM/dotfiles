@@ -83,7 +83,7 @@ if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -138,6 +138,7 @@ set -o noclobber
 # Other things to run
 # For inspirational Quotes
 if command -v quote &>/dev/null; then
+  echo -e "\r"
   quote
 fi
 
