@@ -461,6 +461,18 @@ function pkg() {
   fi
 }
 
+function hyprland() {
+  Hyprland
+
+  echo -e "\nCleaning up from hyprland session...\c"
+  sleep 5
+  echo -e "Done\n"
+
+  echo "Logging out.."
+  sleep 1
+  logout
+}
+
 
 # Env Variables
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"

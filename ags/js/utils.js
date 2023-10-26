@@ -1,8 +1,8 @@
-import Cairo from 'cairo';
-import options from './options.js';
-import icons from './icons.js';
-import Theme from './services/theme/theme.js';
-import { Utils, App, Battery } from './imports.js';
+import Cairo from "cairo";
+import options from "./options.js";
+import icons from "./icons.js";
+import Theme from "./services/theme/theme.js";
+import { Utils, App, Battery } from "./imports.js";
 
 export function toPercent(value) {
   return Math.floor(value * 100);
@@ -17,7 +17,7 @@ export function substitute(collection, item) {
 }
 
 export function forMonitors(widget) {
-  const ws = JSON.parse(Utils.exec('hyprctl -j monitors'));
+  const ws = JSON.parse(Utils.exec("hyprctl -j monitors"));
   return ws.map((mon) => widget(mon.id));
 }
 
@@ -38,43 +38,87 @@ export function createSurfaceFromWidget(widget) {
   return surface;
 }
 
+function mkBatterNotificationSender(batteryPercentage) {
+  return (notifTitle = "Low Battery") =>
+    Utils.execAsync([
+      "notify-send",
+      "--urgency",
+      "critical",
+      "--icon",
+      icons.battery.warning,
+      notifTitle,
+      `Battery is at ${batteryPercentage}%. You might want to start charging`,
+    ]).catch(console.error);
+}
+
 export function warnOnLowBattery() {
-  Battery.connect('changed', (battery) => {
+  const warningFired = {
+    atLow: false,
+    atHalfLow: false,
+    atCritical: false,
+  };
+
+  Battery.connect("changed", (battery) => {
     const { low, critical } = options.battaryBar;
-    const { _percent: batteryPercentage } = battery;
+    const { _percent: batteryPercentage, _charging: charging } = battery;
 
-    const shouldWarn = batteryPercentage <= low
-      || batteryPercentage <= low / 2
-      || batteryPercentage <= critical;
+    const warnAtLow =
+      !charging && batteryPercentage <= low && !warningFired.atLow;
+    const warnAtHalfLow =
+      !charging && batteryPercentage <= low / 2 && !warningFired.atHalfLow;
+    const warnAtCritical =
+      !charging && batteryPercentage <= critical && !warningFired.atCritical;
 
-    if (shouldWarn) {
-      Utils.execAsync(['notify-send', '--urgency', 'critical', '--icon', icons.battery.warning, 'Low Battery', `Battery is at ${batteryPercentage}%. Please charge`]).catch(console.error);
+    const allWarningTriggersReset = [
+      warningFired.atLow,
+      warningFired.atHalfLow,
+      warningFired.atCritical,
+    ].every((trigger) => trigger === false);
+
+    const sendBatteryNotification =
+      mkBatterNotificationSender(batteryPercentage);
+
+    if (warnAtLow) {
+      warningFired.atLow = true;
+      sendBatteryNotification();
+    }
+
+    if (warnAtHalfLow) {
+      warningFired.atHalfLow = true;
+      sendBatteryNotification();
+    }
+
+    if (warnAtCritical) {
+      warningFired.atCritical = true;
+      sendBatteryNotification("Critical Power Warning");
+    }
+
+    if (batteryPercentage > low && !allWarningTriggersReset) {
+      warningFired.atLow = false;
+      warningFired.atHalfLow = false;
+      warningFired.atCritical = false;
     }
   });
 }
 
 export function getAudioTypeIcon(icon) {
-  const substitues = [
-    ['audio-headset-bluetooth', icons.audio.type.headset],
-    ['audio-card-analog-usb', icons.audio.type.speaker],
-    ['audio-card-analog-pci', icons.audio.type.card],
-  ];
+  const substituesObj = {
+    "audio-headset-bluetooth": icons.audio.type.headset,
+    "audio-card-analog-pci": icons.audio.type.card,
+    "audio-card-analog-usb": icons.audio.type.speaker,
+  };
 
-  for (const [from, to] of substitues) {
-    if (from === icon) { return to; }
-   }
-
-  return icon;
+  return substituesObj?.[icon] ?? icon;
 }
 
 export function scssWatcher() {
   return Utils.subprocess(
     [
-      'inotifywait',
-      '--recursive',
-      '--event',
-      'create,modify',
-      '-m',
+      "inotifywait",
+      "--recursive",
+      "--event",
+      "create,modify",
+      "-m",
       `${App.configDir}/scss`,
     ],
     () => Theme.setup(),
@@ -82,18 +126,19 @@ export function scssWatcher() {
 }
 
 export async function globalServices() {
-  globalThis.ags = await import('./imports.js');
-  globalThis.recorder = (await import('./services/screenrecord.js')).default;
-  globalThis.brightness = (await import('./services/brightness.js')).default;
+  globalThis.ags = await import("./imports.js");
+  globalThis.recorder = (await import("./services/screenrecord.js")).default;
+  globalThis.brightness = (await import("./services/brightness.js")).default;
   globalThis.indicator = (
-    await import('./services/onScreenIndicator.js')
+    await import("./services/onScreenIndicator.js")
   ).default;
-  globalThis.theme = (await import('./services/theme/theme.js')).default;
+  globalThis.theme = (await import("./services/theme/theme.js")).default;
   globalThis.audio = globalThis.ags.Audio;
   globalThis.mpris = globalThis.ags.Mpris;
 }
 
-export function launchApp(app) {
+export function launchApp(appParam) {
+  const app = appParam;
   Utils.execAsync(`hyprctl dispatch exec ${app.executable}`);
   app.frequency += 1;
 }

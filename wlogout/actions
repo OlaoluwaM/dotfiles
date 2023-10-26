@@ -37,7 +37,6 @@ if [[ "$?" == 0 ]]; then
         notify "Logging out of Hyprland..."
         sleep 0.25s
         hyprctl dispatch exit none;
-        logout
     fi
 else
     exit

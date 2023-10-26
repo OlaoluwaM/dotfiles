@@ -1,4 +1,4 @@
 {
-  "change-wallpaper": "$HOME/.local/bin",
+  "change-wallpaper": "$CUSTOM_BIN_DIR",
   "use-as-wallpaper": "$HOME/.local/share/nautilus/scripts"
 }

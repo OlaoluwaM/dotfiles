@@ -4,16 +4,14 @@ module.exports = {
     es2021: true,
   },
 
-  extends: ["airbnb-base", "eslint:recommend", "plugin:prettier/recommended"],
+  extends: ["airbnb-base", "eslint:recommended", "plugin:prettier/recommended"],
 
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [
-        ".eslintrc.{js,cjs}",
-      ],
+      files: [".eslintrc.{js,cjs}"],
       parserOptions: {
         sourceType: "script",
       },
@@ -26,5 +24,12 @@ module.exports = {
   rules: {
     semi: ["error", "always"],
     quotes: ["error", "double"],
+    "import/extensions": "off",
+    "import/no-unresolved": ["error", { ignore: ["cairo"] }],
+    "import/no-cycle": [
+      "error",
+      { ignoreExternal: true, allowUnsafeDynamicCyclicDependency: true },
+    ],
+    "no-unused-vars": "warn"
   },
 };
