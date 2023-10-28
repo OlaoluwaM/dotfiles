@@ -24,11 +24,11 @@
 
         &.highlight{
             background-color: transparent;
-            color: transparentize($accent, 0.5);
+            color: transparentize($fg_color, 0.6);
         }
 
         &:indeterminate {
-            color: transparentize($fg_color, 0.9);
+            color: transparentize($fg_color, 0.8);
         }
         font-size: 1.1em;
         padding: .2em;
@@ -37,6 +37,7 @@
 
 window#dashboard .dashboard {
     @include floating_widget;
+    background-color: $accent_fg;
 
     .notifications {
         min-width: 450px;
@@ -82,7 +83,11 @@ window#dashboard .dashboard {
         .placeholder {
             color: rgba(255, 255, 255, 0.2);
             image {  font-size: 7em; }
-            label {  font-size: 1.2em; color: rgba(255, 255, 255, 0.2) }
+
+            label {
+                font-size: 1.2em;
+                color: rgba(255, 255, 255, 0.2)
+            }
 
             label, image {
                 @if $drop_shadow {
