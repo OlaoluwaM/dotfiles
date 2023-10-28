@@ -20,7 +20,7 @@ export default {
   temperature: "/sys/class/thermal/thermal_zone0/temp",
 
   // at what intervals should cpu, ram, temperature refresh
-  systemFetchInterval: 1000,
+  systemFetchInterval: 2000,
 
   // the slide down animation on quicksettings and dashboard
   windowAnimationDuration: 250,

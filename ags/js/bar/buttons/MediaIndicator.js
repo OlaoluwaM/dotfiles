@@ -22,7 +22,8 @@ const Indicator = ({ player, direction = "right" } = {}) =>
       connections: [
         [
           player,
-          (label) => {
+          (_label) => {
+            const label = _label;
             label.label = ` ${player.trackArtists.join(", ")} - ${
               player.trackTitle
             }`;
@@ -33,7 +34,8 @@ const Indicator = ({ player, direction = "right" } = {}) =>
     connections: [
       [
         player,
-        (revealer) => {
+        (_revealer) => {
+          const revealer = _revealer;
           if (revealer._current === player.trackTitle) return;
 
           revealer._current = player.trackTitle;
@@ -51,14 +53,15 @@ export default ({ direction } = {}) =>
     connections: [
       [
         Mpris,
-        (box) => {
+        (_box) => {
+          const box = _box;
           const player = getPlayer();
-          box.visible = !!player._canPlay;
-
           if (!player) {
             box._player = null;
             return;
           }
+
+          box.visible = !!player._canPlay;
 
           if (box._player === player) return;
 

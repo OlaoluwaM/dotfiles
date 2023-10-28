@@ -1,8 +1,9 @@
 import Cairo from "cairo";
+import GLib from "gi://GLib";
 import options from "./options.js";
 import icons from "./icons.js";
 import Theme from "./services/theme/theme.js";
-import { Utils, App, Battery } from "./imports.js";
+import { Utils, Battery } from "./imports.js";
 
 export function toPercent(value) {
   return Math.floor(value * 100);
@@ -119,7 +120,7 @@ export function scssWatcher() {
       "--event",
       "create,modify",
       "-m",
-      `${App.configDir}/scss`,
+      `${GLib.getenv("DOTS")}/ags/scss`,
     ],
     () => Theme.setup(),
   );
