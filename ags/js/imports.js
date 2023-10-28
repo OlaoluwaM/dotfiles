@@ -16,5 +16,5 @@ export const Bluetooth = await service("bluetooth");
 export const Hyprland = await service("hyprland");
 export const Mpris = await service("mpris");
 export const Network = await service("network");
-// export const Notifications = await service('notifications');
+// export const Notifications = await service("notifications");
 export const SystemTray = await service("systemtray");

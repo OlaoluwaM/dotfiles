@@ -161,6 +161,30 @@ const SwayncNotificationIcon = () =>
     valign: "center",
     onClicked: () => Utils.execAsync("swaync-client -t"),
     child: Widget.Icon({ icon: "notification-symbolic" }),
+    // connections: [
+    //   [
+    //     Notifications,
+    //     (_box) => {
+    //       const box = _box;
+    //       const { dnd, notifications } = Notifications;
+    //       console.log({ dnd, notifications });
+    //       const hasNotifications = notifications.length > 0;
+
+    //       if (dnd) {
+    //         box.child = Widget.Icon({
+    //           icon: "notifications-disabled-symbolic",
+    //         });
+    //         return;
+    //       }
+
+    //       box.child = Widget.Icon({
+    //         icon: hasNotifications
+    //           ? "notifications-new-symbolic"
+    //           : "notification-symbolic",
+    //       });
+    //     },
+    //   ],
+    // ],
   });
 
 const Start = () =>
