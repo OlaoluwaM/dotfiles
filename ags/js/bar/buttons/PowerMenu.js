@@ -5,6 +5,6 @@ import { Widget, Utils } from "../../imports.js";
 export default () =>
   PanelButton({
     className: "powermenu",
-    content: Widget.Icon(icons.powermenu.shutdown),
+    content: Widget.Icon({ icon: icons.powermenu.shutdown, size: 22 }),
     onClicked: () => Utils.execAsync("wlogout"),
   });

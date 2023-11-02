@@ -1,8 +1,8 @@
+import Gtk from "gi://Gtk";
 import icons from "../../icons.js";
 import FontIcon from "../../misc/FontIcon.js";
 import options from "../../options.js";
 import PanelButton from "../PanelButton.js";
-import Gtk from "gi://Gtk";
 import { Battery, Widget } from "../../imports.js";
 
 const Indicator = () =>
@@ -14,7 +14,8 @@ const Indicator = () =>
     connections: [
       [
         Battery,
-        (stack) => {
+        (_stack) => {
+          const stack = _stack;
           stack.shown = `${Battery.charging || Battery.charged}`;
         },
       ],
@@ -42,7 +43,9 @@ export default () => {
 
   return PanelButton({
     className: "battery-bar",
-    onClicked: () => (revaler.revealChild = !revaler.revealChild),
+    onClicked: () => {
+      revaler.revealChild = !revaler.revealChild;
+    },
     content: Widget.Box({
       binds: [["visible", Battery, "available"]],
       connections: [
@@ -52,7 +55,7 @@ export default () => {
             w.toggleClassName("charging", Battery.charging || Battery.charged);
             w.toggleClassName(
               "medium",
-              Battery.percent < options.battaryBar.medium
+              Battery.percent < options.battaryBar.medium,
             );
             w.toggleClassName("low", Battery.percent < options.battaryBar.low);
           },

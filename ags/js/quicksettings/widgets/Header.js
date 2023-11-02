@@ -4,7 +4,9 @@ import Theme from "../../services/theme/theme.js";
 // import Lockscreen from "../../services/lockscreen.js";
 import Avatar from "../../misc/Avatar.js";
 import { uptime } from "../../variables.js";
-import { Battery, Widget } from "../../imports.js";
+import { Battery, Widget, Utils } from "../../imports.js";
+import PanelButton from "../../bar/PanelButton.js";
+import PowerMenu from "../../bar/buttons/PowerMenu.js";
 
 export const BatteryProgress = () =>
   Widget.Box({
@@ -31,27 +33,38 @@ export const BatteryProgress = () =>
             (_progress) => {
               const progress = _progress;
               progress.fraction = Battery.percent / 100;
+              progress.tooltipText =
+                Battery.charging || Battery.charged
+                  ? icons.battery.charging
+                  : `Battery @ ${Battery.percent}%`;
             },
           ],
         ],
       }),
       overlays: [
-        Widget.Label({
-          connections: [
-            [
-              Battery,
-              (_l) => {
-                const l = _l;
-                l.label =
-                  Battery.charging || Battery.charged
-                    ? icons.battery.charging
-                    : `${Battery.percent}%`;
-              },
-            ],
-          ],
-        }),
+        // Widget.Label({
+        //   connections: [
+        //     [
+        //       Battery,
+        //       (_l) => {
+        //         const l = _l;
+        //         l.label =
+        //           Battery.charging || Battery.charged
+        //             ? icons.battery.charging
+        //             : `${Battery.percent}%`;
+        //       },
+        //     ],
+        //   ],
+        // }),
       ],
     }),
+  });
+
+const SwayncNotificationIcon = () =>
+  PanelButton({
+    valign: "center",
+    onClicked: () => Utils.execAsync("swaync-client -t"),
+    child: Widget.Icon({ icon: "notification-symbolic" }),
   });
 
 export default () =>
@@ -66,11 +79,11 @@ export default () =>
         children: [
           Widget.Box({
             children: [
-              Widget.Button({
-                valign: "center",
-                onClicked: () => Theme.openSettings(),
-                child: Widget.Icon(icons.settings),
-              }),
+              // Widget.Button({
+              //   valign: "center",
+              //   onClicked: () => Theme.openSettings(),
+              //   child: Widget.Icon(icons.settings),
+              // }),
               Widget.Label({
                 className: "uptime",
                 hexpand: true,
@@ -80,11 +93,14 @@ export default () =>
                     uptime,
                     (_label) => {
                       const label = _label;
-                      label.label = `Uptime: ${uptime.value}`;
+                      label.label = uptime.value;
                     },
                   ],
                 ],
+                tooltipText: "Uptime",
               }),
+              SwayncNotificationIcon(),
+              PowerMenu(),
             ],
           }),
           BatteryProgress(),

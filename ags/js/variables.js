@@ -2,20 +2,15 @@ import options from "./options.js";
 import { Variable, Utils } from "./imports.js";
 
 // eslint-disable-next-line consistent-return
-const prettyUptime = (str) => {
-  if (str.length >= 4) return str;
-
-  if (str.length === 1) return `0:0${str}`;
-
-  if (str.length === 2) return `0:${str}`;
+const prettyUptime = (uptimeStr) => {
+  // This regex will capture any text after "up " and include the hh:mm before the comma and "n users"
+  const regex = /up\s+(.*?)(?=\s*,\s*\d+\s+users)/;
+  const match = uptimeStr.match(regex);
+  return match ? match[1] : null;
 };
 
 export const uptime = Variable(0, {
-  poll: [
-    60_000,
-    "uptime",
-    (line) => prettyUptime(line.split(/\s+/)[2].replace(",", "")),
-  ],
+  poll: [60_000, "uptime", prettyUptime],
 });
 
 export const distro = Utils.exec("cat /etc/os-release")

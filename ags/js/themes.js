@@ -1,4 +1,5 @@
 import { Utils } from "./imports.js";
+
 const WP = `/home/${Utils.USER}/Pictures/Wallpapers/`;
 
 const editScheme = (scheme, edit) => {
@@ -85,7 +86,7 @@ const colors = {
 
 // themes
 const kitty_dark = {
-  wallpaper: WP + "kitty.jpeg",
+  wallpaper: `${WP}kitty.jpeg`,
   name: "kitty_dark",
   icon: "󰄛",
   ...dark,
@@ -94,7 +95,7 @@ const kitty_dark = {
 };
 
 const kitty_light = {
-  wallpaper: WP + "kitty.jpeg",
+  wallpaper: `${WP}kitty.jpeg`,
   name: "kitty_light",
   icon: "󰄛",
   ...light,
@@ -106,7 +107,7 @@ const kitty_light = {
 
 const leaves_dark = {
   ...kitty_dark,
-  wallpaper: WP + "leaves.jpg",
+  wallpaper: `${WP}leaves.jpg`,
   name: "leaves_dark",
   icon: "󰌪",
   accent: "$green",
@@ -135,7 +136,7 @@ const leaves_light = {
 };
 
 const ivory = {
-  wallpaper: WP + "ivory.png",
+  wallpaper: `${WP}ivory.png`,
   name: "ivory",
   icon: "󰟆",
   ...light,
@@ -161,7 +162,7 @@ const ivory = {
 
 const cutefish = {
   ...kitty_dark,
-  wallpaper: WP + "cutefish.jpeg",
+  wallpaper: `${WP}cutefish.jpeg`,
   name: "cutefish",
   icon: "󰈺",
   accent: "lighten($blue, 20%)",
@@ -176,7 +177,7 @@ const cutefish = {
 
 const cherry = {
   ...kitty_dark,
-  wallpaper: WP + "cherry.png",
+  wallpaper: `${WP}cherry.png`,
   name: "cherry",
   icon: "",
   accent: "$blue",
@@ -201,12 +202,14 @@ const mocha = {
   accent: "#45475a",
   accent_fg: "#181825",
   border_width: 0,
-  active_gradient:
-    "to right, #b4befe, lighten(mix($magenta, $blue, 70%), 18%)",
+  active_gradient: "to right, #b4befe, lighten(mix($magenta, $blue, 70%), 18%)",
   shadow: "rgba(17, 17, 27, 0.8)",
   bar_style: "separated",
+  font: "SF Pro Rounded Regular",
+  mono_font: "SF Mono SemiBold",
+  font_size: 14,
   variables: {
-      lavender: "#b4befe",
+    lavender: "#b4befe",
   },
   additional_scss: `
         .ram {
@@ -217,11 +220,11 @@ const mocha = {
 
 export default [
   mocha,
-  kitty_dark,
-  kitty_light,
-  leaves_dark,
-  leaves_light,
-  ivory,
-  cutefish,
-  cherry,
+  // kitty_dark,
+  // kitty_light,
+  // leaves_dark,
+  // leaves_light,
+  // ivory,
+  // cutefish,
+  // cherry,
 ];

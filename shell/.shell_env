@@ -215,20 +215,6 @@ function addInstalledPackages() {
   fi
 }
 
-function addPaddingToGnomeTerminal() {
-  stylesPath="$HOME/.config/gtk-3.0/gtk.css"
-
-  cat <<EOF >>"$stylesPath"
-
-  VteTerminal,
-  TerminalScreen,
-  vte-terminal {
-      padding: 4px 16px 10px 16px;
-      -VteTerminal-inner-border: 4px 16px 10px 16px;
-  }
-EOF
-}
-
 function updateGnomeTheme() {
   themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
   echo "Theme name is $themeName"
@@ -255,7 +241,6 @@ function updateGnomeTheme() {
   # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
   # ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
 
-  addPaddingToGnomeTerminal
 }
 
 function backupInstalledCrates() {
@@ -330,12 +315,11 @@ function updateNodeTo() {
   uninstallBackedUpGlobalNpmPkgs
 
   echo "Installing latest node version..."
-  nvm install "$nextNodeVer" --latest-npm
-  nvm alias default "$nextNodeVer"
+  fnm use "$nextNodeVer" --install-if-missing --corepack-enabled
+  fnm default "$nextNodeVer"
   echo -e "Installation complete\n"
 
   echo "Reinstalling pnpm..."
-  corepack enable
   corepack prepare pnpm@latest --activate
   echo -e "Done\n"
 
@@ -348,7 +332,7 @@ function updateNodeTo() {
   echo -e "Done!\n"
 
   echo "Removing previous node version..."
-  nvm uninstall "$prevNodeVer"
+  fnm uninstall "$prevNodeVer"
   echo "Done!"
 }
 
@@ -469,7 +453,6 @@ function hyprland() {
   logout
 }
 
-
 # Env Variables
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
 export ALIASES="$HOME/.shell_env"
@@ -500,11 +483,13 @@ export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 
-export THEMES_DIR="$HOME/.themes/"
+export THEMES_DIR="$HOME/.themes"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
 export NAP_CONFIG="$DOTS/nap/config.yaml"
 
 export GPG_TTY="$(tty)"
+export LIBRARY="$HOME/Documents/Library"
+export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 
 # Aliases
 alias doesFileExist="does_entity_exist -f File"
@@ -523,7 +508,7 @@ alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/act
 alias cls="colorls --dark"
 alias lls="logo-ls"
 
-alias updateNodeToLatest="updateNodeTo node"
+alias updateNodeToLatest="updateNodeTo $(fnm list-remote | tail --lines 1)"
 alias open="xdg-open"
 alias spice="spicetify"
 
@@ -608,3 +593,10 @@ alias updateNvim="nvim +AstroUpdate"
 
 alias hlcR="hacker-laws-cli random"
 alias pmAG="pnpm add -g"
+alias dots="cd $DOTS"
+
+alias checkForCrateUpdates="cargo-install-update install-update --list"
+alias bunR="bun repl"
+alias checkRecentlyUpdatedPackages="dnf history info"
+
+alias cw="change-wallpaper"

@@ -14,7 +14,7 @@ export function range(length, start = 1) {
 }
 
 export function substitute(collection, item) {
-  return collection.find(([from]) => from === item)?.[1] || item;
+  return collection?.[item] ?? item;
 }
 
 export function forMonitors(widget) {

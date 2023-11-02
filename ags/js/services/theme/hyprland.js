@@ -33,29 +33,29 @@ export default function ({
       // }
     });
 
-    JSON.parse(Utils.exec("hyprctl -j monitors")).forEach(({ name }) => {
-      if (barStyle !== "normal") {
-        switch (layout) {
-          case "topbar":
-          case "unity":
-            Utils.execAsync(
-              `hyprctl keyword monitor ${name},addreserved,-${wmGaps},0,0,0`,
-            );
-            break;
+    // JSON.parse(Utils.exec("hyprctl -j monitors")).forEach(({ name }) => {
+    //   if (barStyle !== "normal") {
+    //     switch (layout) {
+    //       case "topbar":
+    //       case "unity":
+    //         Utils.execAsync(
+    //           `hyprctl keyword monitor ${name},addreserved,-${wmGaps},0,0,0`,
+    //         );
+    //         break;
 
-          case "bottombar":
-            Utils.execAsync(
-              `hyprctl keyword monitor ${name},addreserved,0,-${wmGaps},0,0`,
-            );
-            break;
+    //       case "bottombar":
+    //         Utils.execAsync(
+    //           `hyprctl keyword monitor ${name},addreserved,0,-${wmGaps},0,0`,
+    //         );
+    //         break;
 
-          default:
-            break;
-        }
-      } else {
-        Utils.execAsync(`hyprctl keyword monitor ${name},addreserved,0,0,0,0`);
-      }
-    });
+    //       default:
+    //         break;
+    //     }
+    //   } else {
+    //     Utils.execAsync(`hyprctl keyword monitor ${name},addreserved,0,0,0,0`);
+    //   }
+    // });
 
     Utils.execAsync(`hyprctl keyword general:gaps_out ${wmGaps}`);
     Utils.execAsync(`hyprctl keyword general:gaps_in ${wmGaps / 2}`);

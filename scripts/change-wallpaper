@@ -6,7 +6,7 @@ else
   ran_from_nautilus=false
 fi
 
-if !command -v swww > /dev/null 2>&1; then
+if ! command -v swww >/dev/null 2>&1; then
   if [[ "$ran_from_nautilus" == true ]]; then
     notify-send --icon="process-error-symbolic" "Script Error" "swww needs to be installed for this script to work"
     exit 1
@@ -15,6 +15,22 @@ if !command -v swww > /dev/null 2>&1; then
   fi
 fi
 
+url_encode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for ((pos = 0; pos < strlen; pos++)); do
+    c=${string:$pos:1}
+    case "$c" in
+    [-_.~a-zA-Z0-9]) o="${c}" ;;
+    *) printf -v o '%%%02x' "'$c" ;;
+    esac
+    encoded+="${o}"
+  done
+  echo "${encoded}"
+}
 
 # Function to check if the file has a valid image extension
 is_image() {
@@ -68,5 +84,11 @@ if ! is_image "$1"; then
 fi
 
 wallpaper_file_path="$(realpath $1)"
-swww img --transition-type grow --transition-pos 0.854,0.977 --transition-step 90 $wallpaper_file_path
-ln -sf $wallpaper_file_path "$HOME/Pictures/Wallpapers/current-wallpaper.jpg"
+
+if [[ "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
+  swww img --transition-type grow --transition-pos 0.854,0.977 --transition-step 90 $wallpaper_file_path
+  ln -sf $wallpaper_file_path "$HOME/Pictures/Wallpapers/current-wallpaper.jpg"
+else
+  wallpaper_uri="file://$(url_encode "$wallpaper_file_path")"
+  gsettings set org.gnome.desktop.background picture-uri "$wallpaper_uri"
+fi

@@ -77,7 +77,8 @@ window {
       @include button_active;
 
       &:hover {
-        box-shadow: inset 0 0 0 $border_width $border_color,
+        box-shadow:
+          inset 0 0 0 $border_width $border_color,
           inset 0 0 0 99px $hover;
       }
     }
@@ -124,7 +125,8 @@ window {
       }
 
       &:hover > * {
-        box-shadow: inset 0 0 0 $border_width $border_color,
+        box-shadow:
+          inset 0 0 0 $border_width $border_color,
           inset 0 0 0 99px $hover;
       }
     }
@@ -154,6 +156,7 @@ window {
   $radii: $radii
 ) {
   @include common;
+
   * {
     all: unset;
   }
@@ -245,12 +248,14 @@ window {
 }
 
 @mixin text_border {
-  text-shadow: -1 * $border_width -1 * $border_width 0 $border_color,
+  text-shadow:
+    -1 * $border_width -1 * $border_width 0 $border_color,
     $border_width $border_width 0 $border_color,
     -1 * $border_width $border_width 0 $border_color,
     $border_width -1 * $border_width 0 $border_color;
 
-  -gtk-icon-shadow: -1 * $border_width -1 * $border_width 0 $border_color,
+  -gtk-icon-shadow:
+    -1 * $border_width -1 * $border_width 0 $border_color,
     $border_width $border_width 0 $border_color,
     -1 * $border_width $border_width 0 $border_color,
     $border_width -1 * $border_width 0 $border_color;
@@ -318,6 +323,7 @@ window {
 
 tooltip {
   @include common;
+
   * {
     all: unset;
   }
@@ -358,9 +364,11 @@ window.popup {
       background: transparent;
       padding: $spacing/2;
       margin: $spacing/1.5 0;
+
       &:first-child {
         margin-top: 4px;
       }
+
       &:last-child {
         margin-bottom: 4px;
       }

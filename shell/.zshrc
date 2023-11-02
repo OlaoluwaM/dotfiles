@@ -121,7 +121,7 @@ if [[ -f $DOTS/shell/.private_shell_env ]]; then
 fi
 
 source "$DOTS/shell/smartdots.zsh"
-source "$DOTS/shell/nvm-setup.zsh"
+# source "$DOTS/shell/nvm-setup.zsh"
 
 if [[ -f $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh ]]; then
   source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
@@ -188,3 +188,6 @@ gpgconf --launch gpg-agent
 
 # bun completions
 [ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"
+
+# FNM https://github.com/Schniz/fnm#shell-setup
+eval "$(fnm env --use-on-cd)"

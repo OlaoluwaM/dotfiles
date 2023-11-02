@@ -7,7 +7,6 @@ import DateButton from "./buttons/DateButton.js";
 import SysTray from "./buttons/SysTray.js";
 // import ColorPicker from './buttons/ColorPicker.js';
 import SystemIndicators from "./buttons/SystemIndicators.js";
-import PowerMenu from "./buttons/PowerMenu.js";
 import Separator from "../misc/Separator.js";
 import ScreenRecord from "./buttons/ScreenRecord.js";
 import BatteryBar from "./buttons/BatteryBar.js";
@@ -156,42 +155,11 @@ const SeparatorDot = (service, condition) =>
     ],
   });
 
-const SwayncNotificationIcon = () =>
-  PanelButton({
-    valign: "center",
-    onClicked: () => Utils.execAsync("swaync-client -t"),
-    child: Widget.Icon({ icon: "notification-symbolic" }),
-    // connections: [
-    //   [
-    //     Notifications,
-    //     (_box) => {
-    //       const box = _box;
-    //       const { dnd, notifications } = Notifications;
-    //       console.log({ dnd, notifications });
-    //       const hasNotifications = notifications.length > 0;
-
-    //       if (dnd) {
-    //         box.child = Widget.Icon({
-    //           icon: "notifications-disabled-symbolic",
-    //         });
-    //         return;
-    //       }
-
-    //       box.child = Widget.Icon({
-    //         icon: hasNotifications
-    //           ? "notifications-new-symbolic"
-    //           : "notification-symbolic",
-    //       });
-    //     },
-    //   ],
-    // ],
-  });
-
 const Start = () =>
   Widget.Box({
     className: "start",
     children: [
-      OverviewButton(),
+      // OverviewButton(),
       SeparatorDot(),
       Workspaces(),
       SeparatorDot(),
@@ -224,27 +192,35 @@ const End = () =>
         ],
       }),
       SeparatorDot(),
-      SysProgressClickReveal(
-        "cpu",
-        "CPU",
-        "%",
-        "kitty btm --default_widget_type cpu -e",
-      ),
-      SysProgressClickReveal(
-        "ram",
-        "RAM",
-        "%",
-        "kitty btm --default_widget_type proc -e",
-      ),
+      // PanelButton({
+      //   className: "sys-resources ",
+      // }),
+      Widget.CenterBox({
+        className: "sys-resources-container",
+        children: [
+          SysProgressClickReveal(
+            "cpu",
+            "CPU",
+            "%",
+            "kitty btm --default_widget_type cpu -e",
+          ),
+          SysProgressClickReveal(
+            "ram",
+            "RAM",
+            "%",
+            "kitty btm --default_widget_type proc -e",
+          ),
+        ],
+      }),
       SeparatorDot(),
-      SwayncNotificationIcon(),
+      // SwayncNotificationIcon(),
       ScreenRecord(),
       SeparatorDot(Recorder, (r) => r.recording),
-      SystemIndicators(),
-      SeparatorDot(Battery, (b) => b.available),
       BatteryBar(),
+      SeparatorDot(Battery, (b) => b.available),
+      SystemIndicators(),
       SeparatorDot(),
-      PowerMenu(),
+      // PowerMenu(),
     ],
   });
 

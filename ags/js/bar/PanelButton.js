@@ -1,7 +1,8 @@
-import { Widget } from '../imports.js';
+import { Widget } from "../imports.js";
 
-export default ({ className, content, ...rest }) => Widget.Button({
+export default ({ className, content, ...rest }) =>
+  Widget.Button({
     className: `panel-button ${className}`,
-    child: Widget.Box({ children: [content] }),
+    child: Widget.Box({ children: [content].flat() }),
     ...rest,
-});
+  });
