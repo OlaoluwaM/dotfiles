@@ -7,6 +7,7 @@
     "old.bash_aliases",
     "nvm-setup.zsh",
     ".private_shell_env",
-    ".private_shell_env_template"
+    ".private_shell_env_template",
+    "augment-path-var.sh"
   ]
 }

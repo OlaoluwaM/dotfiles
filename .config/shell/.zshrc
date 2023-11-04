@@ -85,7 +85,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack yarn)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User Configuration
 
@@ -112,19 +112,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 ######################################################################## OMZ Stuff Stop ###################################################################################
 
-if [[ -f $HOME/.shell_env ]]; then
+if [[ -f "$HOME/.shell_env" ]]; then
   source "$HOME/.shell_env"
 fi
 
-if [[ -f $DOTS/shell/.private_shell_env ]]; then
+if [[ -f "$DOTS/shell/.private_shell_env" ]]; then
   source "$DOTS/shell/.private_shell_env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"
 # source "$DOTS/shell/nvm-setup.zsh"
 
-if [[ -f $HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh ]]; then
-  source "$HOME/Desktop/olaolu_dev/scripts/active/augment-path-var.sh"
+if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
+  source "$DOTS/shell/augment-path-var.sh"
 fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
