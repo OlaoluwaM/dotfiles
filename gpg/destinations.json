@@ -1,4 +1,0 @@
-{ 
-  "gpg.conf": "~/.gnupg",
-  "gpg-agent.conf": "~/.gnupg"
-}

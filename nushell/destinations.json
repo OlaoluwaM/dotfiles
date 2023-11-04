@@ -1,6 +1,0 @@
-{
-  "sf": "$CUSTOM_BIN_DIR",
-  "all": "$HOME/.config/nushell/",
-  "externs/*": "$HOME/.config/nushell/externs/",
-  "themes/*": "$HOME/.config/nushell/themes/"
-}

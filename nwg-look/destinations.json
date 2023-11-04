@@ -1,4 +1,0 @@
-{ 
-  "nwg-look.desktop": "$HOME/.local/share/applications/",
-  "exclude": ["nwg-look.svg", "main.glade"]
-}

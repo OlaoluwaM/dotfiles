@@ -1,6 +1,0 @@
-{
-  "change-wallpaper": "$CUSTOM_BIN_DIR",
-  "lib-search": "$CUSTOM_BIN_DIR",
-  "use-as-wallpaper": "$HOME/.local/share/nautilus/scripts",
-  "exclude": [".cosine/*", "node-lib-search.js"]
-}

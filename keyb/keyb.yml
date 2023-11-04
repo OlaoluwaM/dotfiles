@@ -1,8 +1,0 @@
-- name: example
-  keybinds:
-  - name: add your keys in
-    key: /home/olaolu/.config/keyb/keyb.yml
-- name: hyprland keybindings
-  keybinds:
-  - name: full screen record
-    key: alt + f6
