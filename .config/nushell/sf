@@ -1,0 +1,683 @@
+#!/usr/bin/env zsh
+# shellcheck disable=SC1071
+
+# sf is short for shell-functions
+
+# These are functions that will, overtime, be ported into the nushell language. For the time being
+# We are gonna turn them into a CLI script so they can be used while the migration effort is underway.
+# Each CLI command will correspond to a shell function
+
+########################################### Variables Start ########################################################
+DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
+DEV="$HOME/Desktop/olaolu_dev/dev"
+DISTRO_SETUP="$DEV/distro-setup"
+
+SYS_BAK_DIR="$DOTS/system"
+WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
+PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
+
+THEMES_DIR="$HOME/.themes/"
+
+# FONT_DIR="$HOME/.local/share/fonts"
+# FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+########################################### Variables Stop ########################################################
+
+########################################### Functions Start ########################################################
+function newRemoteBranch() {
+  branchName="${1:=HEAD}"
+  remote="${2:=origin}"
+
+  #echo $remote $branchName
+  git push -u "$remote" "$branchName"
+}
+
+function backupWallpapers() {
+  $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs"
+}
+
+function downloadFile() {
+  URL="$1"
+  FILE_NAME="$2"
+  echo -e "\n"
+
+  if command -v http &>/dev/null; then
+    if [ -z "$FILE_NAME" ]; then
+      http -d "$URL"
+    else
+      http -d "$URL" -o "$FILE_NAME"
+    fi
+
+  elif command -v curl &>/dev/null; then
+    echo -e "Seems like httpie is not installed...Using curl instead\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      curl -LJO "$URL"
+    else
+      curl -LJo "$FILE_NAME" "$URL"
+    fi
+
+  elif command -v wget &>/dev/null; then
+    echo -e "Seems like curl is not installed. Let's try wget\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      wget "$URL"
+    else
+      wget -O "$FILE_NAME" "$URL"
+    fi
+
+  else
+    echo "Seems like neither httpie, curl, or wget are available. Please download one of them first!"
+    exit 126
+  fi
+}
+
+function unlockBWVault() {
+  # This won't work in nuShell as is because of the differences with exposing environment variables
+  # This will need to be converted into a nushell custom command
+  BW_SESSION=$("$HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
+  [[ -z "$BW_SESSION" ]] && return 1
+
+  export BW_SESSION
+
+  echo "Initiating Bitwarden vault sync..."
+  bw sync
+}
+
+function areWallpapersBackedup() {
+  echo "Counting current wallpapers: \c"
+  wallpaperCount=$(ls "$WALLPAPERS_DIR/images" | wc -l)
+  echo "$wallpaperCount"
+
+  echo -e "Counting images present in compressed wallpapers tarball file: \c"
+  wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf "$WALLPAPERS_DIR/tarball/wallpapers.tar.gz" | wc -l) - 1"; else echo 0; fi)
+
+  echo "$wallpaperTarBallFileCount"
+
+  if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
+    echo "All Backed up!"
+  elif [[ $wallpaperCount -lt $wallpaperTarBallFileCount ]]; then
+    echo "You need restore your wallpapers from the tarball"
+  else
+    echo "You need to backup your wallpapers hun!"
+  fi
+}
+
+function repoInit() {
+  # To create the `main` branch https://stackoverflow.com/questions/9162271/fatal-not-a-valid-object-name-master
+  git init
+  touch .gitignore
+
+  git add -A
+  git commit -m "repo init"
+
+  git checkout -b dev
+  git rebase main
+
+  git checkout -b feature
+  git rebase develop
+}
+
+function fixSpicePermissionIssues() {
+  sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+  sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
+}
+
+function backupGHExtensions() {
+  gh extension list | awk '{print $3}' >|"$DOTS/gh/gh-extensions.txt"
+}
+
+function addInstalledPackages() {
+  if [[ $# -eq 0 ]]; then
+    nv "$PACKAGE_LST_FILE"
+  else
+    # This means we have provided packages to add
+    PACKAGES_TO_ADD=$(
+      IFS=$'\n'
+      echo "$*"
+    )
+    echo "$PACKAGES_TO_ADD" >>"$PACKAGE_LST_FILE"
+  fi
+}
+
+function addPaddingToGnomeTerminal() {
+  stylesPath="$HOME/.config/gtk-3.0/gtk.css"
+
+  cat <<EOF >>"$stylesPath"
+
+  VteTerminal,
+  TerminalScreen,
+  vte-terminal {
+      padding: 4px 16px 10px 16px;
+      -VteTerminal-inner-border: 4px 16px 10px 16px;
+  }
+EOF
+}
+
+function updateGnomeTheme() {
+  themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
+  echo "Theme name is $themeName"
+
+  if [[ -z "$themeName" ]]; then
+    echo "Please specify the name of the theme"
+    return 1
+  fi
+
+  themeDir="$THEMES_DIR/$themeName"
+
+  if [[ ! -d "$themeDir" ]]; then
+    echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the ~/.themes directory"
+    return 1
+  fi
+
+  echo -e "Setting flatpak theme..."
+  sudo flatpak override --env=GTK_THEME="$themeName"
+  echo -e "\n"
+
+  echo "Linking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
+  ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
+
+  # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
+  # ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
+
+  addPaddingToGnomeTerminal
+}
+
+function backupInstalledCrates() {
+  cargo install --list | grep ':' | awk '{print $1}' >|"$DISTRO_SETUP/src/common/assets/rust-crates.txt"
+}
+
+function generatePsswd() {
+  LENGTH="${1:=16}"
+  echo "Generating new password..."
+  bw generate -ulns --length $LENGTH | tr -d '"' | wl-copy
+  echo "Password copied to clipboard"
+}
+
+function backupGnomeExtensions() {
+  EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
+
+  ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR/gnome-shell-ext-list.txt"
+}
+
+function isPackageInstalled() {
+  if [[ $# -eq 0 ]]; then
+    echo "No argument was passed. Exiting..."
+    return 1
+  else
+    # This means we have provided packages to add
+    PACKAGES_TO_CHECK_FOR=$(
+      IFS=$'\n'
+      echo "$*"
+    )
+    rpm -qa | grep "$PACKAGES_TO_CHECK_FOR"
+  fi
+}
+
+function timerWithNotif() {
+  timerDuration="${1:=5m}"
+
+  termdown $timerDuration
+  noti -t "Timer Countdown" -m "Time's Up!"
+}
+
+function backupGlobalNpmPkgs() {
+  pnpm ls -g | tail --lines +6 | awk '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function installBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    pnpm add -g $line
+  done <"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function uninstallBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    pnpm rm -g $line
+  done <"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function updateNodeTo() {
+  nextNodeVer="$1"
+  prevNodeVer="$(node -v)"
+
+  echo -e "Backing up global npm packages...\c"
+  backupGlobalNpmPkgs
+  echo "Done!"
+
+  echo "Removing global npm packages for current node version..."
+  uninstallBackedUpGlobalNpmPkgs
+
+  echo "Installing latest node version..."
+  fnm use "$nextNodeVer" --install-if-missing --corepack-enabled
+  fnm default "$nextNodeVer"
+  echo -e "Installation complete\n"
+
+  echo "Reinstalling pnpm..."
+  corepack prepare pnpm@latest --activate
+  echo -e "Done\n"
+
+  echo -e "Finalizing pnpm installation...\c"
+  sleep 2
+  echo "Done!"
+
+  echo "Reinstalling global packages from previous node version with pnpm..."
+  installBackedUpGlobalNpmPkgs
+  echo -e "Done!\n"
+
+  echo "Removing previous node version..."
+  fnm uninstall "$prevNodeVer"
+  echo "Done!"
+}
+
+function backupDnfAliases() {
+  dnf alias | sed 's/Alias//' >|"$DOTS/system/dnf-alias.txt"
+}
+
+function backupDejaDupConfig() {
+  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR/deja-dup-config-backup.txt"
+}
+
+function ydlSilent() {
+  yt-dlp "$1" &>/dev/null &
+}
+
+function queryUserInstalledPackages() {
+  dnf history userinstalled | grep -E "$1"
+}
+
+# Gotten from https://serverfault.com/a/1040984
+function backupGPGKey() {
+  keyID="$1"
+  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+
+  if [[ -z "$keyID" ]]; then
+    echo "Please provide the key ID of the GPG key you wish to backup"
+    return 1
+  fi
+
+  mkdir -p "$backupDir"
+
+  echo "Backing up GPG Key ${keyID}..."
+
+  echo -n "Backing up public key..."
+  gpg --export --armor "$keyID" >|"$backupDir/${keyID}.pub.asc"
+  echo "Done!"
+
+  echo -n "Backing up private key..."
+  gpg --export-secret-keys --armor "$keyID" >|"$backupDir/${keyID}.priv.asc"
+  echo "Done!"
+
+  echo -n "Backing up sub key..."
+  gpg --export-secret-subkeys --armor "$keyID" >|"$backupDir/${keyID}.sub_priv.asc"
+  echo "Done!"
+
+  echo -n "Backing up owner trust..."
+  gpg --export-ownertrust >|"$backupDir/ownertrust.txt"
+  echo "Done!"
+
+  echo "Backup complete!"
+}
+
+# Gotten from https://serverfault.com/a/1040984
+function restoreGPGKey() {
+  keyID="$1"
+  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+
+  if [[ -z "$keyID" ]]; then
+    echo "Please provide the key ID of the GPG key you wish to backup"
+    return 1
+  fi
+
+  echo "Restoring GPG key ${keyID}..."
+
+  echo -n "Restoring public key..."
+  gpg --import "$backupDir/${keyID}.pub.asc"
+  echo "Done!"
+
+  echo -n "Restoring private key..."
+  gpg --import "$backupDir/${keyID}.priv.asc"
+  echo "Done!"
+
+  echo -n "Restoring sub key..."
+  gpg --import "$backupDir/${keyID}.sub_priv.asc"
+  echo "Done!"
+
+  echo -n "Restoring owner trust"
+  gpg --import-ownertrust "$backupDir/ownertrust.txt"
+  echo "Done!"
+
+  echo -e "GPG key restoration complete, but you're not done yet!\n"
+
+  echo "You still need to ultimately trust the imported keys"
+  echo "You can do so by running the following commands"
+
+  cat <<EOL
+  gpg --edit-key your@id.here
+  gpg> trust
+  Your decision? 5
+EOL
+}
+
+# From https://aaronbos.dev/posts/quote-api-terminal
+function quote {
+  curl https://api.quotable.io/random -s | jq -r '"\(.content)\n - \(.author)"'
+}
+
+function pkg() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command pnpm "$@"
+  fi
+}
+
+########################################### Functions Stop ########################################################
+
+############################################ Script ########################################################
+
+# Display help message
+function display_help() {
+  echo "Usage: sf [COMMAND] (COMMAND Arguments)"
+  echo ""
+  echo "Commands:"
+  echo "  addInstalledPackages               Add installed packages"
+  echo "  addPaddingToGnomeTerminal          Add padding to Gnome Terminal"
+  echo "  areWallpapersBackedup              Check if wallpapers are backed up"
+  echo "  backupDejaDupConfig                Backup Deja Dup config"
+  echo "  backupDnfAliases                   Backup DNF aliases"
+  echo "  backupGHExtensions                 Backup GitHub extensions"
+  echo "  backupGlobalNpmPkgs                Backup global npm packages"
+  echo "  backupGnomeExtensions              Backup Gnome extensions"
+  echo "  backupGPGKey                       Backup GPG key"
+  echo "  backupInstalledCrates              Backup installed Rust crates"
+  echo "  backupWallpapers                   Backup wallpapers"
+  echo "  downloadFile                       Download a file"
+  echo "  fixSpicePermissionIssues           Fix Spotify permission issues"
+  echo "  generatePsswd                      Generate password"
+  echo "  installBackedUpGlobalNpmPkgs       Install backed-up global npm packages"
+  echo "  isPackageInstalled                 Check if a package is installed"
+  echo "  newRemoteBranch                    Create a new remote branch"
+  echo "  pkg                                Run a package manager command using the right package manager"
+  echo "  queryUserInstalledPackages         Query user-installed packages"
+  echo "  quote                              Get a random quote"
+  echo "  repoInit                           Initialize a new repository"
+  echo "  restoreGPGKey                      Restore GPG key"
+  echo "  timerWithNotif (twn)               Timer with notification"
+  echo "  uninstallBackedUpGlobalNpmPkgs     Uninstall backed-up global npm packages"
+  echo "  unlockBWVault                      Unlock Bitwarden vault"
+  echo "  updateGnomeTheme                   Update Gnome theme"
+  echo "  updateNodeTo                       Update Node.js version"
+  echo "  updateNodeToLatest                 Update Node.js version to latest"
+  echo "  ydlSilent                          Download YouTube videos silently"
+  echo ""
+  echo "Run 'sf --help' to see this output again."
+}
+
+function display_command_help() {
+  local command="$1"
+
+  case "$command" in
+  "newRemoteBranch")
+    echo "Usage: sf newRemoteBranch [branchName] [remote]"
+    echo "Create a new remote branch."
+    echo "  branchName: The name of the new branch (default is HEAD)."
+    echo "  remote: The remote repository (default is origin)."
+    ;;
+  "backupWallpapers")
+    echo "Usage: sf backupWallpapers"
+    echo "Backup wallpapers using a Node.js script."
+    ;;
+  "downloadFile")
+    echo "Usage: sf downloadFile [URL] [FILE_NAME]"
+    echo "Download a file from the internet."
+    echo "  URL: The URL of the file to download."
+    echo "  FILE_NAME: The name to save the file as (optional)."
+    ;;
+  "unlockBWVault")
+    echo "Usage: sf unlockBWVault"
+    echo "Unlock the Bitwarden vault using a script."
+    ;;
+  "areWallpapersBackedup")
+    echo "Usage: sf areWallpapersBackedup"
+    echo "Check if wallpapers are backed up."
+    ;;
+  "repoInit")
+    echo "Usage: sf repoInit"
+    echo "Initialize a new Git repository with branches main, dev, and feature."
+    ;;
+  "fixSpicePermissionIssues")
+    echo "Usage: sf fixSpicePermissionIssues"
+    echo "Fix Spotify permission issues on Flatpak."
+    ;;
+  "backupGHExtensions")
+    echo "Usage: sf backupGHExtensions"
+    echo "Backup GitHub CLI extensions."
+    ;;
+  "addInstalledPackages")
+    echo "Usage: sf addInstalledPackages [package1] [package2] ..."
+    echo "Add installed packages to a list."
+    echo "  package1, package2, ...: Names of the packages to add."
+    echo "  Can be called with no arguments to open up packages list file for editing"
+    ;;
+  "addPaddingToGnomeTerminal")
+    echo "Usage: sf addPaddingToGnomeTerminal"
+    echo "Add padding to the Gnome Terminal."
+    ;;
+  "updateGnomeTheme")
+    echo "Usage: sf updateGnomeTheme [themeName]"
+    echo "Update the Gnome theme."
+    echo "  themeName: The name of the theme to update to."
+    ;;
+  "backupInstalledCrates")
+    echo "Usage: sf backupInstalledCrates"
+    echo "Backup installed Rust crates."
+    ;;
+  "generatePsswd")
+    echo "Usage: sf generatePsswd [length]"
+    echo "Generate a random password."
+    echo "  length: The length of the password (default is 16)."
+    ;;
+  "backupGnomeExtensions")
+    echo "Usage: sf backupGnomeExtensions"
+    echo "Backup Gnome extensions."
+    ;;
+  "isPackageInstalled")
+    echo "Usage: sf isPackageInstalled [package1] [package2] ..."
+    echo "Check if specific packages are installed."
+    echo "  package1, package2, ...: Names of the packages to check."
+    ;;
+  "timerWithNotif")
+    echo "Usage: sf timerWithNotif [duration]"
+    echo "Start a timer with a notification at the end."
+    echo "  duration: The duration of the timer (default is 5m)."
+    ;;
+  "backupGlobalNpmPkgs")
+    echo "Usage: sf backupGlobalNpmPkgs"
+    echo "Backup globally installed npm packages."
+    ;;
+  "installBackedUpGlobalNpmPkgs")
+    echo "Usage: sf installBackedUpGlobalNpmPkgs"
+    echo "Install backed-up global npm packages."
+    ;;
+  "uninstallBackedUpGlobalNpmPkgs")
+    echo "Usage: sf uninstallBackedUpGlobalNpmPkgs"
+    echo "Uninstall backed-up global npm packages."
+    ;;
+  "updateNodeTo")
+    echo "Usage: sf updateNodeTo [version]"
+    echo "Update Node.js to a specific version."
+    echo "  version: The version to update Node.js to."
+    ;;
+  "updateNodeToLastest")
+    echo "Usage: sf updateNodeToLastest"
+    echo "Update Node.js to the latest version."
+    ;;
+  "backupDnfAliases")
+    echo "Usage: sf backupDnfAliases"
+    echo "Backup DNF aliases."
+    ;;
+  "backupDejaDupConfig")
+    echo "Usage: sf backupDejaDupConfig"
+    echo "Backup Deja Dup configuration settings."
+    ;;
+  "ydlSilent")
+    echo "Usage: sf ydlSilent [URL]"
+    echo "Download YouTube videos silently."
+    echo "  URL: The URL of the YouTube video."
+    ;;
+  "queryUserInstalledPackages")
+    echo "Usage: sf queryUserInstalledPackages [query]"
+    echo "Query user-installed packages."
+    echo "  query: The search query for installed packages."
+    ;;
+  "backupGPGKey")
+    echo "Usage: sf backupGPGKey [keyID]"
+    echo "Backup a GPG key."
+    echo "  keyID: The ID of the GPG key to backup."
+    ;;
+  "restoreGPGKey")
+    echo "Usage: sf restoreGPGKey [keyID]"
+    echo "Restore a GPG key."
+    echo "  keyID: The ID of the GPG key to restore."
+    ;;
+  "quote")
+    echo "Usage: sf quote"
+    echo "Get a random quote."
+    ;;
+  "pkg")
+    echo "Usage: sf pkg [command]"
+    echo "Run a package manager command using the right package manager."
+    echo "  command: The command to run."
+    ;;
+  *)
+    echo "Unknown command: $command"
+    echo "Run 'sf --help' to see a list of available commands."
+    ;;
+  esac
+}
+
+# Main script logic
+if [[ $# -eq 0 ]]; then
+  display_help
+  exit 1
+fi
+
+command="$1"
+shift
+
+case "$command" in
+"newRemoteBranch")
+  newRemoteBranch "$@"
+  ;;
+"backupWallpapers")
+  backupWallpapers "$@"
+  ;;
+"downloadFile")
+  downloadFile "$@"
+  ;;
+"unlockBWVault")
+  unlockBWVault "$@"
+  ;;
+"areWallpapersBackedup")
+  areWallpapersBackedup "$@"
+  ;;
+"repoInit")
+  repoInit "$@"
+  ;;
+"fixSpicePermissionIssues")
+  fixSpicePermissionIssues "$@"
+  ;;
+"backupGHExtensions")
+  backupGHExtensions "$@"
+  ;;
+"addInstalledPackages")
+  addInstalledPackages "$@"
+  ;;
+"addPaddingToGnomeTerminal")
+  addPaddingToGnomeTerminal "$@"
+  ;;
+"updateGnomeTheme")
+  updateGnomeTheme "$@"
+  ;;
+"backupInstalledCrates")
+  backupInstalledCrates "$@"
+  ;;
+"generatePsswd")
+  generatePsswd "$@"
+  ;;
+"backupGnomeExtensions")
+  backupGnomeExtensions "$@"
+  ;;
+"isPackageInstalled")
+  isPackageInstalled "$@"
+  ;;
+"timerWithNotif" | "twn")
+  timerWithNotif "$@"
+  ;;
+"backupGlobalNpmPkgs")
+  backupGlobalNpmPkgs "$@"
+  ;;
+"installBackedUpGlobalNpmPkgs")
+  installBackedUpGlobalNpmPkgs "$@"
+  ;;
+"uninstallBackedUpGlobalNpmPkgs")
+  uninstallBackedUpGlobalNpmPkgs "$@"
+  ;;
+"updateNodeTo")
+  updateNodeTo "$@"
+  ;;
+"updateNodeToLatest")
+  updateNodeTo "$(fnm list-remote | tail --lines -1)"
+  ;;
+"backupDnfAliases")
+  backupDnfAliases "$@"
+  ;;
+"backupDejaDupConfig")
+  backupDejaDupConfig "$@"
+  ;;
+"ydlSilent")
+  ydlSilent "$@"
+  ;;
+"queryUserInstalledPackages")
+  queryUserInstalledPackages "$@"
+  ;;
+"backupGPGKey")
+  backupGPGKey "$@"
+  ;;
+"restoreGPGKey")
+  restoreGPGKey "$@"
+  ;;
+"quote")
+  quote "$@"
+  ;;
+"pkg")
+  pkg "$@"
+  ;;
+"help" | "h")
+  local subcommand=$1
+  if [[ -n $subcommand ]]; then
+    display_command_help $subcommand
+  else
+    # Call the top-level help function (not shown here)
+    echo "${subcommand} is not a valid command"
+    display_help
+  fi
+  ;;
+"--help" | "-h" | "-?")
+  display_help
+  ;;
+*)
+  echo "Unknown command: $command"
+  display_help
+  exit 1
+  ;;
+esac

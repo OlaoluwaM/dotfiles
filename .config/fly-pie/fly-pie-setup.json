@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Example Menu",
+    "icon": "0ad",
+    "shortcut": "<Primary>space",
+    "centered": true,
+    "id": 0,
+    "children": [
+      {
+        "name": "Fly-Pie Settings",
+        "icon": "⚙️",
+        "type": "Command",
+        "data": "gnome-extensions prefs flypie@schneegans.github.com",
+        "angle": -1
+      },
+      {
+        "name": "Next Workspace",
+        "icon": "flypie-go-right-symbolic-#6b5",
+        "type": "Shortcut",
+        "data": {
+          "shortcut": "<Control><Alt>Right"
+        },
+        "angle": -1
+      },
+      {
+        "name": "Quick Apps Essentials",
+        "icon": "56B4_Battle.net_Launcher.0",
+        "type": "CustomMenu",
+        "children": [
+          {
+            "name": "Files",
+            "icon": "org.gnome.Nautilus",
+            "type": "Command",
+            "data": {
+              "command": "nautilus --new-window %U"
+            },
+            "angle": -1
+          },
+          {
+            "name": "Firefox",
+            "icon": "firefox",
+            "type": "Command",
+            "data": {
+              "command": "firefox %u"
+            },
+            "angle": -1
+          },
+          {
+            "name": "Terminal",
+            "icon": "org.gnome.Terminal",
+            "type": "Command",
+            "data": {
+              "command": "gnome-terminal"
+            },
+            "angle": -1
+          },
+          {
+            "name": "TickTick",
+            "icon": "chrome-cfammbeebmjdpoppachopcohfchgjapd-Default",
+            "type": "Command",
+            "data": {
+              "command": "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=cfammbeebmjdpoppachopcohfchgjapd"
+            },
+            "angle": -1
+          },
+          {
+            "name": "Sound Recorder",
+            "icon": "org.gnome.SoundRecorder",
+            "type": "Command",
+            "data": {
+              "command": "gnome-sound-recorder"
+            },
+            "angle": -1
+          },
+          {
+            "name": "Excalidraw",
+            "icon": "chrome-kmcnjdcipmgchfndpapkoecbidofdpbc-Default",
+            "type": "Command",
+            "data": {
+              "command": "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=kmcnjdcipmgchfndpapkoecbidofdpbc"
+            },
+            "angle": -1
+          },
+          {
+            "name": "Spotify",
+            "icon": "com.spotify.Client",
+            "type": "Command",
+            "data": {
+              "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client @@u %U @@"
+            },
+            "angle": -1
+          },
+          {
+            "name": "System Monitor",
+            "icon": "org.gnome.SystemMonitor",
+            "type": "Command",
+            "data": {
+              "command": "gnome-system-monitor"
+            },
+            "angle": -1
+          }
+        ],
+        "angle": -1,
+        "data": {}
+      },
+      {
+        "name": "System",
+        "icon": "flypie-menu-system-symbolic-#69b",
+        "type": "System",
+        "angle": -1,
+        "data": {}
+      },
+      {
+        "name": "Previous Workspace",
+        "icon": "flypie-go-left-symbolic-#6b5",
+        "type": "Shortcut",
+        "data": {
+          "shortcut": "<Control><Alt>Left"
+        },
+        "angle": -1
+      }
+    ],
+    "type": "CustomMenu",
+    "data": {},
+    "touchButton": false,
+    "superRMB": true
+  }
+]

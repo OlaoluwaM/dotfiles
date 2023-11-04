@@ -1,0 +1,5 @@
+ i='install'
+ up='update'
+ s='search'
+ in='info'
+ rm='remove'

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Hyprland Custom
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=/home/olaolu/.local/bin/launch-hyprland
+Type=Application
