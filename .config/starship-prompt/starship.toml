@@ -50,7 +50,7 @@ disabled = false
 [cmd_duration]
 show_notifications = false
 min_time = 1_000
-format = "took [$duration](bold yellow)"
+format = " took [$duration](bold yellow)"
 min_time_to_notify = 70_000
 
 [sudo]
