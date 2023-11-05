@@ -2,9 +2,6 @@
 @types/node
 dotfilers
 neovim
-npkill
 qnm
-scaffy
 typescript
 underscore-cli
-zx

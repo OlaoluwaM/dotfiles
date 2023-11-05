@@ -572,7 +572,7 @@ alias exitRoot="sudo -k"
 
 alias twn="timerWithNotif"
 # shellcheck disable=SC2139
-alias backupGHAliases="gh alias list >|$DOTS/gh/alias-list.txt"
+alias backupGHAliases="gh alias list >|$DOTS/gh/aliases.yml"
 alias fk="flatpak"
 
 alias pm="pnpm"
