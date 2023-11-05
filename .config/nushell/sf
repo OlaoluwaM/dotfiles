@@ -8,7 +8,7 @@
 # Each CLI command will correspond to a shell function
 
 ########################################### Variables Start ########################################################
-DOTS="$HOME/Desktop/olaolu_dev/dotfiles"
+DOTS="$HOME/Desktop/olaolu_dev/dotfiles/.config"
 DEV="$HOME/Desktop/olaolu_dev/dev"
 DISTRO_SETUP="$DEV/distro-setup"
 
