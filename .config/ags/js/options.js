@@ -6,13 +6,13 @@ export default {
   // set to 0 to make it dynamic
   workspaces: 7,
 
-  battaryBar: {
+  batteryBar: {
     // wether to show percentage by deafult
     showPercentage: false,
 
     // at what percentages should the battery-bar change color
     low: 20,
-    medium: 50,
+    medium: 40,
     critical: 5,
   },
 

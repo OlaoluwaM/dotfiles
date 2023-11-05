@@ -4,6 +4,7 @@ import FontIcon from "../../misc/FontIcon.js";
 import options from "../../options.js";
 import PanelButton from "../PanelButton.js";
 import { Battery, Widget } from "../../imports.js";
+import { toggleClassesBasedOnBatteryStatus } from "../../utils.js";
 
 const Indicator = () =>
   Widget.Stack({
@@ -25,7 +26,7 @@ const Indicator = () =>
 const PercentLabel = () =>
   Widget.Revealer({
     transition: "slide_right",
-    revealChild: options.battaryBar.showPercentage,
+    revealChild: options.batteryBar.showPercentage,
     child: Widget.Label({
       binds: [["label", Battery, "percent", (p) => `${p}%`]],
     }),
@@ -52,12 +53,7 @@ export default () => {
         [
           Battery,
           (w) => {
-            w.toggleClassName("charging", Battery.charging || Battery.charged);
-            w.toggleClassName(
-              "medium",
-              Battery.percent < options.battaryBar.medium,
-            );
-            w.toggleClassName("low", Battery.percent < options.battaryBar.low);
+            toggleClassesBasedOnBatteryStatus(w, Battery);
           },
         ],
       ],

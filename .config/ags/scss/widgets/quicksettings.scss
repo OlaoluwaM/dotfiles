@@ -40,9 +40,9 @@ window#quicksettings .quicksettings {
         font-weight: 500;
       }
 
-      &.half label {
-        color: $fg_color;
-      }
+      // &.medium label {
+      //   color: $fg_color;
+      // }
 
       progressbar {
         @include slider($width: $spacing * 3.4);
@@ -57,6 +57,21 @@ window#quicksettings .quicksettings {
         );
         margin-top: $spacing;
         min-height: 20px;
+      }
+
+      &.charging progressbar,
+      &.charged progressbar {
+        @include slider(
+          $width: $spacing * 3.4,
+          $gradient: linear-gradient(to right, $green, $green)
+        );
+      }
+
+      &.medium progressbar {
+        @include slider(
+          $width: $spacing * 3.4,
+          $gradient: linear-gradient(to right, $yellow, $yellow)
+        );
       }
     }
 

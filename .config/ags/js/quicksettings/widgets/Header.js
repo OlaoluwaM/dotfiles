@@ -7,6 +7,7 @@ import { uptime } from "../../variables.js";
 import { Battery, Widget, Utils } from "../../imports.js";
 import PanelButton from "../../bar/PanelButton.js";
 import PowerMenu from "../../bar/buttons/PowerMenu.js";
+import { toggleClassesBasedOnBatteryStatus } from "../../utils.js";
 
 export const BatteryProgress = () =>
   Widget.Box({
@@ -17,8 +18,7 @@ export const BatteryProgress = () =>
       [
         Battery,
         (w) => {
-          w.toggleClassName("half", Battery.percent < 46);
-          w.toggleClassName("low", Battery.percent < 30);
+          toggleClassesBasedOnBatteryStatus(w, Battery);
         },
       ],
     ],

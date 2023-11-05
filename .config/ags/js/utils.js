@@ -27,7 +27,7 @@ export function createSurfaceFromWidget(widget) {
   const surface = new Cairo.ImageSurface(
     Cairo.Format.ARGB32,
     alloc.width,
-    alloc.height,
+    alloc.height
   );
 
   const cr = new Cairo.Context(surface);
@@ -60,7 +60,7 @@ export function warnOnLowBattery() {
   };
 
   Battery.connect("changed", (battery) => {
-    const { low, critical } = options.battaryBar;
+    const { low, critical } = options.batteryBar;
     const { _percent: batteryPercentage, _charging: charging } = battery;
 
     const warnAtLow =
@@ -122,7 +122,7 @@ export function scssWatcher() {
       "-m",
       `${GLib.getenv("DOTS")}/ags/scss`,
     ],
-    () => Theme.setup(),
+    () => Theme.setup()
   );
 }
 
@@ -142,4 +142,17 @@ export function launchApp(appParam) {
   const app = appParam;
   Utils.execAsync(`hyprctl dispatch exec ${app.executable}`);
   app.frequency += 1;
+}
+
+export function toggleClassesBasedOnBatteryStatus(widget, Battery) {
+  const isPseudoFull = Battery._proxy.TimeToEmpty === 0;
+
+  widget.toggleClassName(
+    "charging",
+    Battery.charging || Battery.charged || isPseudoFull
+  );
+
+  widget.toggleClassName("medium", Battery.percent < options.batteryBar.medium);
+
+  widget.toggleClassName("low", Battery.percent < options.batteryBar.low);
 }
