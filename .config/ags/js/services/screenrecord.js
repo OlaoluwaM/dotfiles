@@ -75,8 +75,9 @@ class Recorder extends Service {
     try {
       const area = full ? null : await Utils.execAsync("slurp");
       const path = GLib.get_home_dir() + "/Pictures/Screenshots";
-      const file = `${path}/${now()}.png`;
       Utils.ensureDirectory(path);
+
+      const file = `${path}/${now()}.png`;
 
       area
         ? await Utils.execAsync(["wayshot", "-s", area, "-f", file])
