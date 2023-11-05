@@ -257,7 +257,7 @@ function generatePsswd() {
 function backupGnomeExtensions() {
   EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
 
-  ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR/gnome-shell-ext-list.txt"
+  ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR_UNDER_GIT/gnome-shell-ext-list.txt"
 }
 
 function removeQuotes() {
@@ -341,7 +341,7 @@ function backupDnfAliases() {
 }
 
 function backupDejaDupConfig() {
-  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR/deja-dup-config-backup.txt"
+  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
 }
 
 function ydlSilent() {
@@ -355,7 +355,7 @@ function queryUserInstalledPackages() {
 # Gotten from https://serverfault.com/a/1040984
 function backupGPGKey() {
   keyID="$1"
-  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+  backupDir="$SYS_BAK_DIR_NOT_UNDER_GIT/gpg-keys/${keyID}"
 
   if [[ -z "$keyID" ]]; then
     echo "Please provide the key ID of the GPG key you wish to backup"
@@ -388,7 +388,7 @@ function backupGPGKey() {
 # Gotten from https://serverfault.com/a/1040984
 function restoreGPGKey() {
   keyID="$1"
-  backupDir="$HOME/sys-bak/gpg-keys/${keyID}"
+  backupDir="$SYS_BAK_DIR_NOT_UNDER_GIT/gpg-keys/${keyID}"
 
   if [[ -z "$keyID" ]]; then
     echo "Please provide the key ID of the GPG key you wish to backup"
@@ -466,7 +466,7 @@ export DEV="$HOME/Desktop/olaolu_dev/dev"
 
 export DISTRO_SETUP="$DEV/distro-setup"
 export FONT_DIR="$HOME/.local/share/fonts"
-export SYS_BAK_DIR="$DOTS/system"
+export SYS_BAK_DIR_UNDER_GIT="$DOTS/system"
 
 export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
@@ -492,6 +492,8 @@ export CUSTOM_MAN_PATH="$HOME/.local/share/man"
 export GPG_TTY="$(tty)"
 export LIBRARY="$HOME/Documents/Library"
 export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+
+export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
 
 # Aliases
 alias doesFileExist="does_entity_exist -f File"
@@ -522,7 +524,7 @@ alias nv="nvim"
 alias echo="echo -e"
 
 # shellcheck disable=SC2139
-alias cronBackup="crontab -l >|$SYS_BAK_DIR/crontab-backup.bak"
+alias cronBackup="crontab -l >|$SYS_BAK_DIR_UNDER_GIT/crontab-backup.bak"
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 

@@ -10,7 +10,7 @@
  00 18 20 * * crontab -l > /home/olaolu/Desktop/olaolu_dev/dotfiles/.config/system/crontab-backup.bak
 
  # Backup fonts every two months
- 30 10 1 */2 * tar cvzf /home/olaolu/sys-backups/fonts.tar.gz /home/olaolu/.local/share/fonts
+ #30 10 1 */2 * tar cvzf /home/olaolu/sys-backups/fonts.tar.gz /home/olaolu/.local/share/fonts
 
  # Backup list of globally installed npm packages
  00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/Desktop/olaolu_dev/dotfiles/.config/npm/global-npm-pkgs.txt
