@@ -151,7 +151,7 @@ export-env { load-env {
     SPICETIFY: ($env.HOME | path join ".spicetify")
     GHCUP: ($env.HOME | path join ".ghcup")
     BUN_PATH: ($env.HOME | path join ".bun")
-    MY_HOME: ($env.XDG_DESKTOP | path join "olaolu_dev")
+    MY_HOME: $env.XDG_DESKTOP
     FONT_DIR: ($env.XDG_DATA_HOME | path join "fonts")
     CUSTOM_BIN_DIR: ($env.HOME | path join ".local" "bin")
     PNPM_HOME: ($env.XDG_DATA_HOME | path join "pnpm")

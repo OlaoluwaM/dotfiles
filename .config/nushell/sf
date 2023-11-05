@@ -8,8 +8,8 @@
 # Each CLI command will correspond to a shell function
 
 ########################################### Variables Start ########################################################
-DOTS="$HOME/Desktop/olaolu_dev/dotfiles/.config"
-DEV="$HOME/Desktop/olaolu_dev/dev"
+DOTS="$HOME/Desktop/dotfiles/.config"
+DEV="$HOME/Desktop/labs"
 DISTRO_SETUP="$DEV/distro-setup"
 
 SYS_BAK_DIR="$DOTS/system"
@@ -77,7 +77,7 @@ function downloadFile() {
 function unlockBWVault() {
   # This won't work in nuShell as is because of the differences with exposing environment variables
   # This will need to be converted into a nushell custom command
-  BW_SESSION=$("$HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
+  BW_SESSION=$("$HOME/Desktop/labs/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
   [[ -z "$BW_SESSION" ]] && return 1
 
   export BW_SESSION

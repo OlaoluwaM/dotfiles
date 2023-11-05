@@ -4,16 +4,16 @@
  00 17 * * 6 cd /home/olaolu/Pictures/Wallpapers && $(which node) compressWallpapers.mjs
 
  # Backup my dconf-settings weekly on Saturdays at 11AM
- # 00 11 * * 6 dconf dump / > /home/olaolu/Desktop/olaolu_dev/dotfiles/.config/system/dconf-settings-backup.dconf
+ # 00 11 * * 6 dconf dump / > /home/olaolu/Desktop/dotfiles/.config/system/dconf-settings-backup.dconf
 
  # Backup my cron jobs on the 20th day of each month at 6PM
- 00 18 20 * * crontab -l > /home/olaolu/Desktop/olaolu_dev/dotfiles/.config/system/crontab-backup.bak
+ 00 18 20 * * crontab -l > /home/olaolu/Desktop/dotfiles/.config/system/crontab-backup.bak
 
  # Backup fonts every two months
  #30 10 1 */2 * tar cvzf /home/olaolu/sys-backups/fonts.tar.gz /home/olaolu/.local/share/fonts
 
  # Backup list of globally installed npm packages
- 00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/Desktop/olaolu_dev/dotfiles/.config/npm/global-npm-pkgs.txt
+ 00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/Desktop/dotfiles/.config/npm/global-npm-pkgs.txt
 
  # Logout of system to prepare for workout
  # 40 10 * * 1-5 /usr/bin/gnome-session-quit --no-prompt --logout
