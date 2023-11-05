@@ -547,7 +547,7 @@ alias nd="node-docs"
 alias lg="lazygit"
 
 # shellcheck disable=SC2139
-alias starshipConf="nvim $DOTS/starship_prompt/starship.toml"
+alias starshipConf="nvim $HOME/.config/starship.toml"
 
 alias reload="omz reload"
 alias clr="clear"

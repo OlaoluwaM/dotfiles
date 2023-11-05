@@ -5,7 +5,18 @@ palette = "catppuccin_mocha"
 add_newline = true
 scan_timeout = 10
 
-right_format = """$cmd_duration $time"""
+format = """
+$all\
+$fill\
+$cmd_duration $time\
+$line_break\
+$character
+"""
+
+# right_format = """$cmd_duration $time"""
+
+[fill]
+symbol = "."
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
