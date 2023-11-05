@@ -1,1 +1,1 @@
-{ "fuzzel.ini": "$HOME/.config/fuzzel/" }
+{ "exclude": "all" }

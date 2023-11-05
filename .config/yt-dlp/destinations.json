@@ -1,1 +1,1 @@
-{ "config": "$HOME/.config/yt-dlp/" }
+{ "exclude": "all" }
