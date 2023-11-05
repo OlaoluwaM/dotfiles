@@ -190,9 +190,7 @@ gpgconf --launch gpg-agent
 [ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"
 
 # FNM https://github.com/Schniz/fnm#shell-setup
-if command -v fnm &>/dev/null; then
-  eval "$(fnm env --use-on-cd)"
-fi
+eval "$(fnm env --use-on-cd)"
 
 # Add Custom MAN path to $MANPATH
 MANPATH=$HOME/.local/share/man:$MANPATH
