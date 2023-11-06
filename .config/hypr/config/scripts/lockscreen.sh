@@ -7,13 +7,20 @@
 # |___\__,_|_|\___|\__|_|_| |_| |_|\___|
 #
 #
-# by Stephan Raabe (2023)
-# https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/scripts/lockscreentime.sh
 # -----------------------------------------------------
+
+# Swayidle will lock the screen after 300 seconds (~5 minutes) of inactivity
+# After 10 minutes (600 seconds) it will switch of the display
+# If activity resumes it will switch the display back on
+# Before the device goes to sleep it will lock the screen
 
 if [ -f "/usr/bin/swayidle" ]; then
   echo "swayidle is installed."
-  swayidle -w timeout 300 '$DOTS/hypr/config/scripts/brightness.sh off' resume '$DOTS/hypr/config/scripts/brightness.sh off' timeout 450 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' timeout 900 'systemctl suspend'
+  swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'hyprctl dispatch dpms off' \
+      resume 'hyprctl dispatch dpms on' \
+    before-sleep 'swaylock -f' 
 else
   echo "swayidle not installed."
 fi

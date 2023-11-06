@@ -6,9 +6,9 @@ add_newline = true
 scan_timeout = 10
 
 format = """
-[╭─](surface1)$all\
+[╭─ ](surface1)$all\
 $fill\
-$status$cmd_duration$time\
+$status$cmd_duration $time\
 $line_break\
 [╰─](surface1)$character
 """
@@ -26,7 +26,7 @@ error_symbol = "[➜](bold red)"
 [time]
 disabled = false
 time_format = '%a %b%e %R'
-format = '[ $time ]($style) '
+format = '[ $time ]($style)'
 style = "white dimmed"
 
 [username]
@@ -43,14 +43,14 @@ style = "white dimmed"
 
 [status]
 # format = '[$symbol $signal_name\($signal_number\)]($style) '
-format = ' [$symbol]($style) '
+format = '[$symbol]($style) '
 map_symbol = true
 disabled = false
 
 [cmd_duration]
 show_notifications = false
 min_time = 1_000
-format = " took [$duration](bold yellow)"
+format = "took [$duration](bold yellow)"
 min_time_to_notify = 70_000
 
 [sudo]

@@ -12,5 +12,19 @@
         "updated_at": "2023-11-03T09:36:18.920445",
         "last_commit": "73420cf4816f925321db15379c9c981c8f28c6fe",
         "last_commit_time": "2022-08-03T20:22:13"
+    },
+    "com.github.kbialek.ulauncher-bitwarden": {
+        "id": "com.github.kbialek.ulauncher-bitwarden",
+        "url": "https://github.com/kbialek/ulauncher-bitwarden",
+        "updated_at": "2023-11-06T05:55:56.565673",
+        "last_commit": "e5c25ebc24142f064eaebb29f6e473ded6d6b315",
+        "last_commit_time": "2022-10-19T06:09:55"
+    },
+    "com.github.hillaryychan.ulauncher-fzf": {
+        "id": "com.github.hillaryychan.ulauncher-fzf",
+        "url": "https://github.com/hillaryychan/ulauncher-fzf",
+        "updated_at": "2023-11-06T06:00:20.669985",
+        "last_commit": "e8137dae6448041fc53ae418263501b068857073",
+        "last_commit_time": "2023-05-16T12:35:35"
     }
 }
