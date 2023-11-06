@@ -6,11 +6,11 @@ add_newline = true
 scan_timeout = 10
 
 format = """
-$all\
+[╭─](surface1)$all\
 $fill\
 $cmd_duration $time\
 $line_break\
-$character
+[╰─](surface1)$character
 """
 
 # right_format = """$cmd_duration $time"""
@@ -25,7 +25,7 @@ error_symbol = "[➜](bold red)"
 
 [time]
 disabled = false
-time_format = '%a %b %e %R'
+time_format = '%a %b%e %R'
 format = '[ $time ]($style) '
 style = "white dimmed"
 
