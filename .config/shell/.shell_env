@@ -119,7 +119,14 @@ check_directory_for_new_repository() {
 function chpwd() {
   emulate -L zsh
   check_directory_for_new_repository
-  logo-ls || ls
+
+  if command -v logo-ls &>/dev/null; then
+    logo-ls
+  elif command -v eza &>/dev/null; then
+    eza --color=always --icons=always --color-scale
+  else
+    ls
+  fi
 }
 
 function editPromptConf() {
@@ -604,3 +611,5 @@ alias bunR="bun repl"
 alias checkRecentlyUpdatedPackages="dnf history info"
 
 alias cw="change-wallpaper"
+alias eza="eza --color=always --icons=always --color-scale"
+alias ezaTree="eza --color=always --icons=always --color-scale --tree -L 1"
