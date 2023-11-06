@@ -8,7 +8,7 @@ scan_timeout = 10
 format = """
 [╭─](surface1)$all\
 $fill\
-$cmd_duration $time\
+$status$cmd_duration$time\
 $line_break\
 [╰─](surface1)$character
 """
@@ -16,7 +16,7 @@ $line_break\
 # right_format = """$cmd_duration $time"""
 
 [fill]
-symbol = "."
+symbol = "·"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
@@ -43,7 +43,7 @@ style = "white dimmed"
 
 [status]
 # format = '[$symbol $signal_name\($signal_number\)]($style) '
-format = '[$symbol]($style) '
+format = ' [$symbol]($style) '
 map_symbol = true
 disabled = false
 
