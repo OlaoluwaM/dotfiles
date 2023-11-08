@@ -22,22 +22,6 @@ class Recorder extends Service {
   async start(full = false) {
     if (this.recording) return;
 
-    // Utils.execAsync("slurp")
-    //   .then((area) => {
-    //     Utils.ensureDirectory(this._path);
-    //     this._file = `${this._path}/${now()}.mp4`;
-    //     Utils.execAsync(["wf-recorder", "-g", area, "-f", this._file]);
-    //     this.recording = true;
-    //     this.changed("recording");
-
-    //     this.timer = 0;
-    //     this._interval = Utils.interval(1000, () => {
-    //       this.changed("timer");
-    //       this.timer++;
-    //     });
-    //   })
-    //   .catch((err) => console.error(err));
-
     try {
       Utils.ensureDirectory(this._path);
       this._file = `${this._path}/${now()}.webm`;
@@ -100,16 +84,17 @@ class Recorder extends Service {
         const area = await Utils.execAsync("slurp");
         // I'll keep these for debugging purposes
         console.log("Area received");
-        await Utils.execAsync(["wayshot", "-s", area, "-f", file])
-          .then(console.log)
-          .catch(console.error);
+        await Utils.execAsync(["wayshot", "-s", area, "-f", file]);
         console.log("Screenshot saved");
       }
 
-      await Utils.execAsync(["bash", "-c", `wl-copy < ${file}`]);
+      Utils.execAsync(["bash", "-c", `wl-copy -f < ${file}`]);
+
+      // Also for debugging purposes
+      console.log("Screenshot copied to clipboard");
 
       // NOTE: Execution seems to be hanging here for some reason
-      const res = await Utils.execAsync([
+      Utils.execAsync([
         "notify-send",
         `--icon=${file}`,
         "--action=files=Show in Files",
@@ -117,19 +102,19 @@ class Recorder extends Service {
         "--action=edit=Edit",
         "Screenshot",
         file,
-      ]);
+      ]).then((res) => {
+        // I think the code needs to be written this way to avoid locks of a sort with notifications
+        if (res === "files") Utils.execAsync("xdg-open " + path);
 
-      console.log({ res });
+        if (res === "view") Utils.execAsync("xdg-open " + file);
 
-      //   if (res === "files") Utils.execAsync("xdg-open " + path);
+        if (res === "edit") Utils.execAsync(["swappy", "-f", file]);
 
-      //   if (res === "view") Utils.execAsync("xdg-open " + file);
-
-      //   if (res === "edit") Utils.execAsync(["swappy", "-f", file]);
-
-      //   App.closeWindow("dashboard");
+        App.closeWindow("dashboard");
+      });
     } catch (error) {
       console.error(error);
+      // Kept for debugging purposes
       await Utils.execAsync([
         "notify-send",
         "--icon=error",
