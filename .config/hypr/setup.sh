@@ -36,7 +36,7 @@ unlink() {
 
         echo "Sending $target_dir and other files to the graveyard..."
         rip -i "$target_dir" "$CUSTOM_BIN_DIR/launch-hyprland"
-        sudo rip -i /usr/share/wayland-sessions/hyprland-custom.desktop
+        sudo rm -i /usr/share/wayland-sessions/hyprland-custom.desktop
         echo "Done"
     else
         echo "The target directory for these config files ($target_dir) does not exist."

@@ -1,6 +1,8 @@
 #!/bin/sh
 
-cd ~
+#export LIBVA_DRIVER_NAME=nvidia
+#export GBM_BACKEND=nvidia-drm
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export XCURSOR_SIZE=24
@@ -8,14 +10,13 @@ export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1
 export WLR_RENDERER_ALLOW_SOFTWARE=1
 export QT_QPA_PLATFORM=wayland
-#export LIBVA_DRIVER_NAME=nvidia
 export XDG_SESSION_TYPE=wayland
-#export GBM_BACKEND=nvidia-drm
-#export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export WLR_NO_HARDWARE_CURSORS=1
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
 
-. /etc/profile
-. ~/.zshrc
+# To allow some programs not in (/usr/bin) to be run during Hyprland initialization
+export PATH=~/.local/bin:$PATH
 
-exec dbus-launch Hyprland
+. /etc/profile
+
+Hyprland

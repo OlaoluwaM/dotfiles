@@ -1,6 +1,6 @@
 import TopBar from "./bar/TopBar.js";
 import ScreenCorners from "./screencorner/ScreenCorners.js";
-import Overview from "./overview/Overview.js";
+// import Overview from "./overview/Overview.js";
 import Dashboard from "./dashboard/Dashboard.js";
 import OSD from "./osd/OSD.js";
 import QuickSettings from "./quicksettings/QuickSettings.js";
@@ -17,7 +17,7 @@ const windows = () => [
   forMonitors(TopBar),
   forMonitors(ScreenCorners),
   forMonitors(OSD),
-  Overview(),
+  // Overview(),
   Dashboard(),
   QuickSettings(),
 ];
