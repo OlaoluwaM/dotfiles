@@ -2,13 +2,13 @@ import icons from "../../icons.js";
 import PowerMenu from "../../bar/buttons/PowerMenu.js";
 import Avatar from "../../misc/Avatar.js";
 import { uptime } from "../../variables.js";
-import { Battery, Utils, Widget } from "../../imports.js";
-import PanelButton from "../../bar/PanelButton.js";
+import { Battery, Widget } from "../../imports.js";
 import { toggleClassesBasedOnBatteryStatus } from "../../utils.js";
 
 export const BatteryProgress = () =>
   Widget.Box({
     class_name: "battery-progress",
+    css: "margin-top: 0.5rem",
     vexpand: true,
     binds: [["visible", Battery, "available"]],
     connections: [
@@ -55,13 +55,6 @@ export const BatteryProgress = () =>
     }),
   });
 
-const SwayncNotificationIcon = () =>
-  PanelButton({
-    valign: "center",
-    onClicked: () => Utils.execAsync("swaync-client -t"),
-    content: Widget.Icon({ icon: "notification-symbolic" }),
-  });
-
 export default () =>
   Widget.Box({
     class_name: "header",
@@ -93,7 +86,6 @@ export default () =>
                 ],
                 tooltipText: "Uptime",
               }),
-              SwayncNotificationIcon(),
               PowerMenu(),
             ],
           }),

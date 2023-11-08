@@ -85,8 +85,10 @@ export const Menu = ({ name, icon, title, content }) => Widget.Revealer({
 export const SimpleToggleButton = ({
     icon, label, toggle,
     connection: [service, condition],
+    class_name = "",
+    css = ""
 }) => Widget.Button({
-    class_name: 'simple-toggle',
+    class_name: `simple-toggle ${class_name}`,
     connections: [[service, box => {
         box.toggleClassName('active', condition());
     }]],
@@ -94,4 +96,5 @@ export const SimpleToggleButton = ({
         children: [icon, label],
     }),
     on_clicked: toggle,
+    css
 });
