@@ -3,6 +3,12 @@
 # Enable extended globbing
 shopt -s extglob
 
+if ! command -v rip &>/dev/null; then
+    echo "rip could not be found. Please install rip"
+    echo "You can install it from here https://github.com/nivekuil/rip"
+    exit 1
+fi
+
 # Function to display help message
 show_help() {
     echo "Usage: $0 [command]"
@@ -13,42 +19,40 @@ show_help() {
     echo "  -h, --help    Display this help message."
     echo ""
     echo "Note that it would be best to run this script within the directory it's defined in"
+    echo "Also note that you will be prompted before any deletes are performed, for safety"
+    echo "The rip (https://github.com/nivekuil/rip) utility is needed for this script to work"
 }
 
 target_dir="$HOME/.config/ulauncher"
 
-# Function for the link command
-link() {
-    echo "Linking configs..."
-    if [[ -d "$target_dir" ]]; then
-        rm -rf "$target_dir"
-    fi
-
-    mkdir -p "$target_dir"
-    files_to_copy=(!(./setup.sh))
-
-    for file in "${files_to_copy[@]}"; do
-        if [[ "$file" == "setup.sh" ]]; then
-            echo "Skipping setup script, obviously"
-            continue
-        fi
-
-        real_path=$(realpath "$file")
-        cp -sva "$real_path" "$target_dir"
-    done
-
-    echo "Done"
-}
-
 # Function for the unlink command
 unlink() {
-    echo "Unlinking..."
     if [[ -d "$target_dir" ]]; then
-        rm -rf "$target_dir"
+
+        if [[ "$target_dir" == "$HOME/.config/" ]] || [[ "$target_dir" == "$HOME/.config" ]]; then
+            echo "No!!!!!!!!! You cannot delete ~/.config"
+            echo "Bad boy"
+            exit 1
+        fi
+
+        echo "Sending $target_dir to the graveyard..."
+        rip -i "$target_dir"
+        echo "Done"
     else
         echo "The target directory for these config files ($target_dir) does not exist."
         echo "Doing nothing"
     fi
+}
+
+# Function for the link command
+link() {
+    echo "Linking dots dir to $target_dir..."
+
+    unlink
+
+    ln -svf $DOTS/ulauncher "$target_dir"
+
+    echo "Done"
 }
 
 # Check if no arguments are provided
