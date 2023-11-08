@@ -37,11 +37,11 @@ const LevelBar = () =>
   });
 
 export default () => {
-  const revaler = PercentLabel();
+  const revealer = PercentLabel();
 
   return PanelButton({
     class_name: "battery-bar",
-    onClicked: () => (revaler.reveal_child = !revaler.reveal_child),
+    onClicked: () => (revealer.reveal_child = !revealer.reveal_child),
     content: Widget.Box({
       binds: [["visible", Battery, "available"]],
       connections: [
@@ -52,7 +52,7 @@ export default () => {
           },
         ],
       ],
-      children: [Indicator(), revaler, LevelBar()],
+      children: [Indicator(), revealer, LevelBar()],
     }),
   });
 };

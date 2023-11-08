@@ -260,6 +260,10 @@ $float: $spacing * 0.7;
         border-radius: max($radii - $border_width, 0);
         background-image: $active_gradient;
       }
+
+      block.empty {
+        border-radius: max($radii - $border_width, 0);
+      }
     }
 
     @mixin color($color) {
