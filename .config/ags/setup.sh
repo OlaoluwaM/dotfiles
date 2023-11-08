@@ -35,7 +35,7 @@ link() {
     fi
 
     mkdir -p "$target_dir"
-    files_to_omit=("./setup.sh" "./package.json" "./.gitignore" "./.stylelintrc.yml" "./package-lock.json")
+    files_to_omit=("./setup.sh" "./package.json" "./.gitignore" "./.stylelintrc.yml" "./package-lock.json" "./tsconfig.json")
 
     for file in ./*; do
         if [[ "$file" =~ "node_modules" ]]; then

@@ -1,10 +1,9 @@
-import icons from "../../icons.js";
-import PanelButton from "../PanelButton.js";
-import { Widget, Utils } from "../../imports.js";
+import icons from '../../icons.js';
+import PanelButton from '../PanelButton.js';
+import { Widget, App } from '../../imports.js';
 
-export default () =>
-  PanelButton({
-    className: "powermenu",
-    content: Widget.Icon({ icon: icons.powermenu.shutdown, size: 22 }),
-    onClicked: () => Utils.execAsync("wlogout"),
-  });
+export default () => PanelButton({
+    class_name: 'powermenu',
+    content: Widget.Icon(icons.powermenu.shutdown),
+    onClicked: () => App.openWindow('powermenu'),
+});

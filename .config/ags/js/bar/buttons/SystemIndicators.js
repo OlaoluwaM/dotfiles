@@ -1,205 +1,110 @@
-// import HoverRevealer from "../../misc/HoverRevealer.js";
-import PanelButton from "../PanelButton.js";
-import Asusctl from "../../services/asusctl.js";
-import Indicator from "../../services/onScreenIndicator.js";
-import icons from "../../icons.js";
-import {
-  App,
-  Widget,
-  Bluetooth,
-  Audio,
-  /* Notifications */ Network,
-} from "../../imports.js";
+import HoverRevealer from '../../misc/HoverRevealer.js';
+import PanelButton from '../PanelButton.js';
+import Asusctl from '../../services/asusctl.js';
+import Indicator from '../../services/onScreenIndicator.js';
+import icons from '../../icons.js';
+import { App, Widget } from '../../imports.js';
+import { Bluetooth, Audio, Notifications, Network } from '../../imports.js';
 
-const ProfileIndicator = () =>
-  Widget.Icon({
-    connections: [
-      [
-        Asusctl,
-        (_icon) => {
-          const icon = _icon;
-          icon.visible = Asusctl.profile !== "Balanced";
-          icon.icon = icons.asusctl.profile[Asusctl.profile];
-        },
-      ],
-    ],
-  });
+const ProfileIndicator = () => Widget.Icon({
+    connections: [[Asusctl, icon => {
+        icon.visible = Asusctl.profile !== 'Balanced';
+        icon.icon = icons.asusctl.profile[Asusctl.profile];
+    }]],
+});
 
-const ModeIndicator = () =>
-  Widget.Icon({
-    connections: [
-      [
-        Asusctl,
-        (_icon) => {
-          const icon = _icon;
-          icon.visible = Asusctl.mode !== "Hybrid";
-          icon.icon = icons.asusctl.mode[Asusctl.mode];
-        },
-      ],
-    ],
-  });
+const ModeIndicator = () => Widget.Icon({
+    connections: [[Asusctl, icon => {
+        icon.visible = Asusctl.mode !== 'Hybrid';
+        icon.icon = icons.asusctl.mode[Asusctl.mode];
+    }]],
+});
 
-const MicrophoneIndicator = () =>
-  Widget.Icon({
-    connections: [
-      [
-        Audio,
-        (_icon) => {
-          if (!Audio.microphone) return;
-          const icon = _icon;
-
-          const { muted, low, medium, high } = icons.audio.mic;
-          if (Audio.microphone.isMuted) {
-            icon.icon = muted;
+const MicrophoneIndicator = () => Widget.Icon({
+    connections: [[Audio, icon => {
+        if (!Audio.microphone)
             return;
-          }
 
-          // eslint-disable-next-line prefer-destructuring
-          icon.icon = [
-            [67, high],
-            [34, medium],
-            [1, low],
-            [0, muted],
-          ].find(
-            ([threshold]) => threshold <= Audio.microphone.volume * 100,
-          )[1];
+        const { muted, low, medium, high } = icons.audio.mic;
+        if (Audio.microphone.isMuted)
+            return icon.icon = muted;
 
-          icon.visible =
-            (Audio?.recorders && Audio.recorders.length > 0) ||
-            Audio.microphone.isMuted;
-        },
-      ],
-    ],
-  });
+        icon.icon = [[67, high], [34, medium], [1, low], [0, muted]]
+            .find(([threshold]) => threshold <= Audio.microphone.volume * 100)[1];
 
-// const DNDIndicator = () => Widget.Icon({
-//     icon: icons.notifications.silent,
-//     binds: [['visible', Notifications, 'dnd']],
-// });
+        icon.visible = Audio.recorders.length > 0 || Audio.microphone.isMuted;
+    }]],
+});
 
-// const BluetoothDevicesIndicator = () =>
-//   Widget.Box({
-//     connections: [
-//       [
-//         Bluetooth,
-//         (_box) => {
-//           const box = _box;
-//           box.children = Bluetooth.connectedDevices.map(({ iconName, name }) =>
-//             HoverRevealer({
-//               indicator: Widget.Icon(`${iconName}-symbolic`),
-//               child: Widget.Label(name),
-//             }),
-//           );
+const DNDIndicator = () => Widget.Icon({
+    icon: icons.notifications.silent,
+    binds: [['visible', Notifications, 'dnd']],
+});
 
-//           box.visible = Bluetooth.connectedDevices.length > 0;
-//         },
-//         "notify::connected-devices",
-//       ],
-//     ],
-//   });
+const BluetoothDevicesIndicator = () => Widget.Box({
+    connections: [[Bluetooth, box => {
+        box.children = Bluetooth.connectedDevices
+            .map(({ iconName, name }) => HoverRevealer({
+                indicator: Widget.Icon(iconName + '-symbolic'),
+                child: Widget.Label(name),
+            }));
 
-const BluetoothIndicator = () =>
-  Widget.Icon({
-    className: "bluetooth",
+        box.visible = Bluetooth.connectedDevices.length > 0;
+    }, 'notify::connected-devices']],
+});
+
+const BluetoothIndicator = () => Widget.Icon({
+    class_name: 'bluetooth',
     icon: icons.bluetooth.enabled,
-    binds: [["visible", Bluetooth, "enabled"]],
-  });
+    binds: [['visible', Bluetooth, 'enabled']],
+});
 
-const NetworkIndicator = () =>
-  Widget.Stack({
-    items: [
-      [
-        "wifi",
-        Widget.Icon({
-          connections: [
-            [
-              Network,
-              (_icon) => {
-                const icon = _icon;
-                icon.icon = Network.wifi?.iconName;
-              },
-            ],
-          ],
-        }),
-      ],
-      [
-        "wired",
-        Widget.Icon({
-          connections: [
-            [
-              Network,
-              (_icon) => {
-                const icon = _icon;
-                icon.icon = Network.wired?.iconName;
-              },
-            ],
-          ],
-        }),
-      ],
-    ],
-    binds: [["shown", Network, "primary"]],
-  });
+const NetworkIndicator = () => Widget.Icon({
+    connections: [[Network, self => {
+        const icon = Network[Network.primary]?.iconName;
+        self.icon = icon || '';
+        self.visible = icon;
+    }]],
+});
 
-const AudioIndicator = () =>
-  Widget.Icon({
-    connections: [
-      [
-        Audio,
-        (_icon) => {
-          if (!Audio.speaker) return;
-          const icon = _icon;
-
-          const { muted, low, medium, high, overamplified } =
-            icons.audio.volume;
-          if (Audio.speaker.isMuted) {
-            icon.icon = muted;
+const AudioIndicator = () => Widget.Icon({
+    connections: [[Audio, icon => {
+        if (!Audio.speaker)
             return;
-          }
 
-          // eslint-disable-next-line prefer-destructuring
-          icon.icon = [
-            [101, overamplified],
-            [67, high],
-            [34, medium],
-            [1, low],
-            [0, muted],
-          ].find(([threshold]) => threshold <= Audio.speaker.volume * 100)[1];
-        },
-        "speaker-changed",
-      ],
-    ],
-  });
+        const { muted, low, medium, high, overamplified } = icons.audio.volume;
+        if (Audio.speaker.isMuted)
+            return icon.icon = muted;
 
-export default () =>
-  PanelButton({
-    className: "quicksettings panel-button",
-    onClicked: () => App.toggleWindow("quicksettings"),
+        icon.icon = [[101, overamplified], [67, high], [34, medium], [1, low], [0, muted]]
+            .find(([threshold]) => threshold <= Audio.speaker.volume * 100)[1];
+    }, 'speaker-changed']],
+});
+
+export default () => PanelButton({
+    class_name: 'quicksettings panel-button',
+    onClicked: () => App.toggleWindow('quicksettings'),
     onScrollUp: () => {
-      Audio.speaker.volume += 0.02;
-      Indicator.speaker();
+        Audio.speaker.volume += 0.02;
+        Indicator.speaker();
     },
     onScrollDown: () => {
-      Audio.speaker.volume -= 0.02;
-      Indicator.speaker();
+        Audio.speaker.volume -= 0.02;
+        Indicator.speaker();
     },
-    connections: [
-      [
-        App,
-        (btn, win, visible) => {
-          btn.toggleClassName("active", win === "quicksettings" && visible);
-        },
-      ],
-    ],
+    connections: [[App, (btn, win, visible) => {
+        btn.toggleClassName('active', win === 'quicksettings' && visible);
+    }]],
     child: Widget.Box({
-      children: [
-        // Asusctl?.available && ProfileIndicator(),
-        // Asusctl?.available && ModeIndicator(),
-        // DNDIndicator(),
-        // BluetoothDevicesIndicator(),
-        BluetoothIndicator(),
-        NetworkIndicator(),
-        AudioIndicator(),
-        MicrophoneIndicator(),
-      ],
+        children: [
+            Asusctl?.available && ProfileIndicator(),
+            Asusctl?.available && ModeIndicator(),
+            DNDIndicator(),
+            BluetoothDevicesIndicator(),
+            BluetoothIndicator(),
+            NetworkIndicator(),
+            AudioIndicator(),
+            MicrophoneIndicator(),
+        ],
     }),
-  });
+});

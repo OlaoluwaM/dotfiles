@@ -82,11 +82,7 @@ window.indicator .progress {
 
     .fill {
         border-radius: max($popover_radius - $spacing/2, 0);
-        @if variable-exists($name: "lavender") {
-            background-color: $lavender;
-        } @else {
-            background-color: $accent;
-        }
+        background-color: $accent;
         color: $accent_fg;
 
         image {
