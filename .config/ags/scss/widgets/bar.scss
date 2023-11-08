@@ -53,6 +53,8 @@ $float: $spacing * 0.7;
 
   > * {
     padding: 0.45rem 0.7rem;
+    background-color: $widget_bg;
+    // background-color: $bg_color;
   }
 }
 
