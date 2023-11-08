@@ -24,11 +24,11 @@
 
         &.highlight{
             background-color: transparent;
-            color: transparentize($fg_color, 0.6);
+            color: transparentize($accent, 0.5);
         }
 
         &:indeterminate {
-            color: transparentize($fg_color, 0.8);
+            color: transparentize($fg_color, 0.9);
         }
         font-size: 1.1em;
         padding: .2em;
@@ -37,7 +37,6 @@
 
 window#dashboard .dashboard {
     @include floating_widget;
-    background-color: $accent_fg;
 
     .notifications {
         min-width: 450px;
@@ -81,13 +80,9 @@ window#dashboard .dashboard {
         }
 
         .placeholder {
-            color: rgba(255, 255, 255, 0.2);
+            color: $wallpaper_fg;
             image {  font-size: 7em; }
-
-            label {
-                font-size: 1.2em;
-                color: rgba(255, 255, 255, 0.2)
-            }
+            label {  font-size: 1.2em; }
 
             label, image {
                 @if $drop_shadow {
@@ -120,6 +115,7 @@ window#dashboard .dashboard {
 
     .calendar {
         @include calendar;
+
         margin-top: $spacing*2;
     }
 
