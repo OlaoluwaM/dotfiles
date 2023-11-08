@@ -7,7 +7,7 @@ import { ThemeToggle, ThemeSelector } from './widgets/Theme.js';
 import { ProfileToggle, ProfileSelector } from './widgets/AsusProfile.js';
 import Media from './widgets/Media.js';
 import Brightness from './widgets/Brightness.js';
-import DND from './widgets/DND.js';
+// import DND from './widgets/DND.js';
 import MicMute from './widgets/MicMute.js';
 import { Widget } from '../imports.js';
 
@@ -55,7 +55,7 @@ export default () => PopupWindow({
                 ],
             })]),
             Row(
-                [Homogeneous([NetworkToggle(), BluetoothToggle()]), DND()],
+                [Homogeneous([NetworkToggle(), BluetoothToggle()]),],
                 [WifiSelection(), BluetoothDevices()],
             ),
             Row(

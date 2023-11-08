@@ -4,7 +4,7 @@ import Asusctl from '../../services/asusctl.js';
 import Indicator from '../../services/onScreenIndicator.js';
 import icons from '../../icons.js';
 import { App, Widget } from '../../imports.js';
-import { Bluetooth, Audio, Notifications, Network } from '../../imports.js';
+import { Bluetooth, Audio, Network } from '../../imports.js';
 
 const ProfileIndicator = () => Widget.Icon({
     connections: [[Asusctl, icon => {
@@ -36,10 +36,10 @@ const MicrophoneIndicator = () => Widget.Icon({
     }]],
 });
 
-const DNDIndicator = () => Widget.Icon({
-    icon: icons.notifications.silent,
-    binds: [['visible', Notifications, 'dnd']],
-});
+// const DNDIndicator = () => Widget.Icon({
+//     icon: icons.notifications.silent,
+//     binds: [['visible', Notifications, 'dnd']],
+// });
 
 const BluetoothDevicesIndicator = () => Widget.Box({
     connections: [[Bluetooth, box => {
@@ -99,8 +99,8 @@ export default () => PanelButton({
         children: [
             Asusctl?.available && ProfileIndicator(),
             Asusctl?.available && ModeIndicator(),
-            DNDIndicator(),
-            BluetoothDevicesIndicator(),
+            // DNDIndicator(),
+            // BluetoothDevicesIndicator(),
             BluetoothIndicator(),
             NetworkIndicator(),
             AudioIndicator(),
