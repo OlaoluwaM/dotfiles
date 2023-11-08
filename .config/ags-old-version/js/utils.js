@@ -27,7 +27,7 @@ export function createSurfaceFromWidget(widget) {
   const surface = new Cairo.ImageSurface(
     Cairo.Format.ARGB32,
     alloc.width,
-    alloc.height
+    alloc.height,
   );
 
   const cr = new Cairo.Context(surface);
@@ -122,7 +122,7 @@ export function scssWatcher() {
       "-m",
       `${GLib.getenv("DOTS")}/ags/scss`,
     ],
-    () => Theme.setup()
+    () => Theme.setup(),
   );
 }
 
@@ -149,7 +149,7 @@ export function toggleClassesBasedOnBatteryStatus(widget, Battery) {
 
   widget.toggleClassName(
     "charging",
-    Battery.charging || Battery.charged || isPseudoFull
+    Battery.charging || Battery.charged || isPseudoFull,
   );
 
   widget.toggleClassName("medium", Battery.percent < options.batteryBar.medium);
