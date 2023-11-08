@@ -1,5 +1,6 @@
-import { Service, Utils, App } from "../imports.js";
 import GLib from "gi://GLib";
+import { Service, Utils, App } from "../imports.js";
+
 const now = () => GLib.DateTime.new_now_local().format("%Y-%m-%d_%H-%M-%S");
 
 class Recorder extends Service {
@@ -10,13 +11,16 @@ class Recorder extends Service {
       {
         timer: ["int"],
         recording: ["boolean"],
-      }
+      },
     );
   }
 
-  _record_path = GLib.get_home_dir() + "/Videos/Screencasts";
+  _record_path = `${GLib.get_home_dir()}/Videos/Screencasts`;
+
   _screenshotting = false;
+
   recording = false;
+
   timer = 0;
 
   async start(full = false) {
@@ -64,9 +68,9 @@ class Recorder extends Service {
       this._file,
     ])
       .then((res) => {
-        if (res === "files") Utils.execAsync("xdg-open " + this._record_path);
+        if (res === "files") Utils.execAsync(`xdg-open ${this._record_path}`);
 
-        if (res === "view") Utils.execAsync("xdg-open " + this._file);
+        if (res === "view") Utils.execAsync(`xdg-open ${this._file}`);
       })
       .catch(print);
   }
@@ -74,7 +78,7 @@ class Recorder extends Service {
   async screenshot(full = false) {
     try {
       const area = full ? null : await Utils.execAsync("slurp");
-      const path = GLib.get_home_dir() + "/Pictures/Screenshots";
+      const path = `${GLib.get_home_dir()}/Pictures/Screenshots`;
       Utils.ensureDirectory(path);
 
       const file = `${path}/${now()}.png`;
@@ -98,9 +102,9 @@ class Recorder extends Service {
         "Screenshot",
         file,
       ]);
-      if (res === "files") Utils.execAsync("xdg-open " + path);
+      if (res === "files") Utils.execAsync(`xdg-open ${path}`);
 
-      if (res === "view") Utils.execAsync("xdg-open " + file);
+      if (res === "view") Utils.execAsync(`xdg-open ${file}`);
 
       if (res === "edit") Utils.execAsync(["swappy", "-f", file]);
 
