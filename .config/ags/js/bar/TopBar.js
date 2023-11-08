@@ -13,6 +13,7 @@ import SubMenu from "./buttons/SubMenu.js";
 import { SystemTray, Widget, Variable } from "../imports.js";
 import { Mpris, Battery } from "../imports.js";
 import Recorder from "../services/screenrecord.js";
+import SysProgressClickReveal from "./buttons/SysMonitor.js";
 
 const submenuItems = Variable(1);
 SystemTray.connect("changed", () => {
@@ -39,7 +40,7 @@ const Start = () =>
   Widget.Box({
     class_name: "start",
     children: [
-      OverviewButton(),
+      // OverviewButton(),
       SeparatorDot(),
       Workspaces(),
       SeparatorDot(),
@@ -69,14 +70,27 @@ const End = () =>
         children: [SysTray()],
       }),
 
+      SysProgressClickReveal(
+        "cpu",
+        "CPU",
+        "%",
+        "kitty btm --default_widget_type cpu -e"
+      ),
+
+      SysProgressClickReveal(
+        "ram",
+        "RAM",
+        "%",
+        "kitty btm --default_widget_type proc -e"
+      ),
+
       SeparatorDot(),
       ScreenRecord(),
       SeparatorDot(Recorder, (r) => r.recording),
-      SystemIndicators(),
-      SeparatorDot(Battery, (b) => b.available),
       BatteryBar(),
+      SeparatorDot(Battery, (b) => b.available),
+      SystemIndicators(),
       SeparatorDot(),
-      PowerMenu(),
     ],
   });
 
