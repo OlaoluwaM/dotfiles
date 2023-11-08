@@ -39,6 +39,19 @@ export function createSurfaceFromWidget(widget) {
   return surface;
 }
 
+function mkBatterNotificationSender(batteryPercentage) {
+  return (notifTitle = "Low Battery") =>
+    Utils.execAsync([
+      "notify-send",
+      "--urgency",
+      "critical",
+      "--icon",
+      icons.battery.warning,
+      notifTitle,
+      `Battery is at ${batteryPercentage}%. You might want to start charging`,
+    ]).catch(console.error);
+}
+
 export function warnOnLowBattery() {
   const warningFired = {
     atLow: false,

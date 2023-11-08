@@ -6,7 +6,7 @@ export default {
   // set to 0 to make it dynamic
   workspaces: 7,
 
-  battaryBar: {
+  batteryBar: {
     // wether to show percentage by deafult
     showPercentage: false,
 

@@ -1,7 +1,7 @@
 import { Widget, App } from '../imports.js';
 
 export default ({
-    class_name,
+    class_name = "",
     content,
     window = '',
     connections = [],
