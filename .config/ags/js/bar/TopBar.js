@@ -14,6 +14,7 @@ import { SystemTray, Widget, Variable } from "../imports.js";
 import { Mpris, Battery } from "../imports.js";
 import Recorder from "../services/screenrecord.js";
 import SysProgressClickReveal from "./buttons/SysMonitor.js";
+import ColorPicker from "./buttons/ColorPicker.js";
 
 const submenuItems = Variable(1);
 SystemTray.connect("changed", () => {
@@ -67,7 +68,7 @@ const End = () =>
 
       SubMenu({
         items: submenuItems,
-        children: [SysTray()],
+        children: [SysTray(), ColorPicker()],
       }),
 
       SysProgressClickReveal(

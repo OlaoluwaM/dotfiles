@@ -460,6 +460,12 @@ function hyprland() {
   logout
 }
 
+function deepRestartAgs() {
+  pkill ags;
+  ags -b hypr &>/dev/null &;
+  disown;
+}
+
 # Env Variables
 export DOTS="$HOME/Desktop/olaolu_dev/dotfiles/.config"
 # export DOTS="$HOME/Desktop/dotfiles/.config"
