@@ -35,7 +35,7 @@ url_encode() {
 # Function to check if the file has a valid image extension
 is_image() {
   local file="$1"
-  local valid_extensions="jpg jpeg png webm"
+  local valid_extensions="jpg jpeg png webm webp"
 
   # Extract the file extension
   local extension="${file##*.}"

@@ -5,4 +5,4 @@ export PATH=~/.local/bin:$PATH
 
 . /etc/profile
 
-exec Hyprland
+Hyprland

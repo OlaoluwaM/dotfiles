@@ -24,7 +24,7 @@ class Recorder extends Service {
 
     try {
       Utils.ensureDirectory(this._path);
-      this._file = `${this._path}/${now()}.webm`;
+      this._file = `${this._path}/screencast-from-${now()}.webm`;
 
       if (full) {
         Utils.execAsync(["wf-recorder", "-f", this._file]);
@@ -76,7 +76,7 @@ class Recorder extends Service {
       const path = GLib.get_home_dir() + "/Pictures/Screenshots";
       Utils.ensureDirectory(path);
 
-      const file = `${path}/${now()}.png`;
+      const file = `${path}/screenshot-from-${now()}.png`;
 
       if (full) {
         await Utils.execAsync(["wayshot", "-f", file]);
