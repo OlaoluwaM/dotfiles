@@ -53,7 +53,7 @@ $float: $spacing * 0.7;
 
   > * {
     padding: 0.45rem 0.7rem;
-    background-color: $widget_bg;
+    background-color: transparentize($accent, 0.6);
     // background-color: $bg_color;
   }
 }
@@ -100,7 +100,8 @@ $float: $spacing * 0.7;
       } @else {
         color: $fg_color;
       }
-      background-color: lighten($bg_color, 15%);
+      background-color: transparentize($accent, 0.3);
+      // background-color: lighten($bg_color, 15%);
     }
 
     &.low .circular-progress-bar {
