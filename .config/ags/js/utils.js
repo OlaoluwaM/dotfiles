@@ -121,7 +121,7 @@ export function scssWatcher() {
       "--event",
       "create,modify",
       "-m",
-      `/home/${Utils.USER}/Desktop/olaolu_dev/dotfiles/.config/ags/scss`,
+      `/home/${Utils.USER}/Desktop/dotfiles/.config/ags/scss`,
     ],
     () => Theme.setup(),
     () => print("missing dependancy for css hotreload: inotify-tools")
