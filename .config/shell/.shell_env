@@ -463,6 +463,10 @@ function hyprland() {
 function deepRestartAgs() {
   pkill ags;
   ags -b hypr &>/dev/null &;
+
+  # To kill any duplicate ags inotifywait background processes
+  pgrep inotifywait | awk 'NR >= 2' | xargs -I {} kill {} 
+
   disown;
 }
 
