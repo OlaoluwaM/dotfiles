@@ -100,7 +100,7 @@ $float: $spacing * 0.7;
       } @else {
         color: $fg_color;
       }
-      background-color: transparentize($accent, 0.3);
+      background-color: transparentize($fg_color, 0.7);
       // background-color: lighten($bg_color, 15%);
     }
 
