@@ -460,14 +460,31 @@ function hyprland() {
   logout
 }
 
+function removeDuplicateProcesses() {
+  procName="$1"
+
+  if [[ -z "$procName" ]]; then
+    echo "This function requires a process name to work. Please provide one"
+    return 1
+  fi
+
+  pgrep "$procName" | awk 'NR >= 2' | xargs -I {} kill {}
+
+  if [[ "$?" -ne 0 ]]; then
+    echo "Something went wrong when trying to remove duplicates of the ${procName} process. Are you sure duplicates exist?"
+    return 1
+  fi
+
+  echo "Duplicates of ${procName} removed."
+}
+
 function deepRestartAgs() {
   pkill ags;
   ags -b hypr &>/dev/null &;
+  disown;
 
   # To kill any duplicate ags inotifywait background processes
-  pgrep inotifywait | awk 'NR >= 2' | xargs -I {} kill {} 
-
-  disown;
+  pgrep inotifywait | awk 'NR >= 2' | xargs -I {} kill {}
 }
 
 # Env Variables

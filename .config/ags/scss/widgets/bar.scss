@@ -53,7 +53,7 @@ $float: $spacing * 0.7;
 
   > * {
     padding: 0.45rem 0.7rem;
-    background-color: transparentize($accent, 0.6);
+    background-color: transparentize($accent, 0.55);
     // background-color: $bg_color;
   }
 }
@@ -100,8 +100,8 @@ $float: $spacing * 0.7;
       } @else {
         color: $fg_color;
       }
-      background-color: transparentize($fg_color, 0.7);
-      // background-color: lighten($bg_color, 15%);
+      // background-color: transparentize($fg_color, 0.7);
+      background-color: transparentize($accent, 0.7);
     }
 
     &.low .circular-progress-bar {
@@ -244,6 +244,7 @@ $float: $spacing * 0.7;
 
     image {
       margin-right: $spacing/1.5;
+      font-size: 1.3rem;
     }
 
     label {
