@@ -58,7 +58,7 @@ function downloadFile() {
 }
 
 function unlockBWVault() {
-  BW_SESSION=$("$HOME/Desktop/olaolu_dev/dev/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
+  BW_SESSION=$("$HOME/Desktop/labs/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
   [[ -z "$BW_SESSION" ]] && return 1
 
   export BW_SESSION
@@ -488,15 +488,13 @@ function deepRestartAgs() {
 }
 
 # Env Variables
-export DOTS="$HOME/Desktop/olaolu_dev/dotfiles/.config"
-# export DOTS="$HOME/Desktop/dotfiles/.config"
+export DOTS="$HOME/Desktop/dotfiles/.config"
 export ALIASES="$HOME/.shell_env"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
-export DEV="$HOME/Desktop/olaolu_dev/dev"
-# export DEV="$HOME/Desktop/labs"
+export DEV="$HOME/Desktop/labs"
 
 export DISTRO_SETUP="$DEV/distro-setup"
 export FONT_DIR="$HOME/.local/share/fonts"
