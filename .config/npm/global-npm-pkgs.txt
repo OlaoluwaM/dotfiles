@@ -4,4 +4,3 @@ dotfilers
 neovim
 qnm
 typescript
-underscore-cli

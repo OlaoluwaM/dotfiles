@@ -1,9 +1,11 @@
+b: branch
 bugs: issue list --label=bug
-igrep: '!gh issue list --label="$1" | grep "$2"'
+co: pr checkout
+d: download
 features: |-
     issue list
     --label=enhancement
-b: branch
-co: pr checkout
-d: download
+fzf: f
+igrep: '!gh issue list --label="$1" | grep "$2"'
+screen: screensaver
 view: repo view -w
