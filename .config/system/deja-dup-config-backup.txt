@@ -1,8 +1,8 @@
 [/]
 backend='google'
 delete-after=90
-exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Documents/Digital Brain', '/home/olaolu/Desktop/olaolu_dev/serokell/dev']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/AppImages', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/olaolu_dev/serokell']
+exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Documents/Digital Brain', '/home/olaolu/Desktop/serokell/dev']
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/AppImages', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell']
 last-backup='2023-11-11T13:44:49.440451Z'
 last-run='2023-11-11T13:42:29.553090Z'
 nag-check='2023-11-03T22:17:24.452901Z'
