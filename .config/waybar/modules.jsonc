@@ -1,0 +1,317 @@
+{
+  // Workspaces
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{id}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+
+  // Hyprland Window
+  "hyprland/window": {
+    "format": "{class}"
+  },
+
+  "custom/arrow": {
+    "format": ""
+  },
+
+  // System tray
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 15
+  },
+
+  // Clock
+  "clock": {
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%A %B %d ~ %H:%M}",
+    "on-click": "gnome-calendar"
+  },
+
+  "memory": {
+    "on-click": "kitty btm --default_widget_type proc -e",
+    "interval": 10,
+    "format": " {percentage}%",
+    "states": {
+      "low": 1,
+      "medium": 25,
+      "high": 50
+    }
+  },
+
+  "cpu": {
+    "on-click": "kitty btm --default_widget_type cpu -e",
+    "interval": 10,
+    "format": " {usage}%",
+    "tooltip": false,
+    "states": {
+      "low": 1,
+      "medium": 25,
+      "high": 50
+    }
+  },
+
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "  {essid}  {bandwidthDownBytes}",
+    "format-ethernet": "",
+    "format-disconnected": " ", //An empty format will hide the module.
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": " ",
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
+  },
+
+  // Battery
+  "battery": {
+    "states": {
+      "medium": 45,
+      "warning": 20,
+      "critical": 5
+    },
+    "format": "{icon}",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-discharging": "{icon} {capacity}%",
+    "tooltip-format": "{capacity}%",
+    "interval": 10,
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": "",
+    "interval": 30,
+    "tooltip-format": "Bluetooth",
+    "tooltip-format-connected": "{controller_alias}\t{status}",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/screencast": {
+    "format": "{}",
+    "tooltip": true,
+    "tooltip-format": "Recording",
+    "interval": 1,
+    "exec": "echo ''",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "ags -b hypr -r 'recorder.stop()'"
+  },
+
+  "custom/vpn": {
+    "format": "",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "VPN"
+  },
+
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} <i>{player} {title}</i>",
+    "player-icons": {
+      "default": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+    // "ignored-players": ["firefox"]
+  }
+
+  // // Taskbar
+  // "wlr/taskbar": {
+  //   "format": "{icon}",
+  //   "icon-size": 18,
+  //   "tooltip-format": "{title}",
+  //   "on-click": "activate",
+  //   "on-click-middle": "close",
+  //   "ignore-list": ["Alacritty"],
+  //   "app_ids-mapping": {
+  //     "firefoxdeveloperedition": "firefox-developer-edition"
+  //   },
+  //   "rewrite": {
+  //     "Firefox Web Browser": "Firefox",
+  //     "Foot Server": "Terminal"
+  //   }
+  // },
+
+  // // Youtube Subscriber Count
+  // "custom/youtube": {
+  //   "format": " {}",
+  //   "exec": "python ~/private/youtube.py",
+  //   "restart-interval": 600,
+  //   "on-click": "brave https://studio.youtube.com",
+  //   "tooltip": false
+  // },
+
+  // // Cliphist
+  // "custom/cliphist": {
+  //   "format": "",
+  //   "on-click": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh",
+  //   "on-click-right": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh d",
+  //   "on-click-middle": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh w",
+  //   "tooltip": false
+  // },
+
+  // // Updates Count
+  // "custom/updates": {
+  //   "format": "  {}",
+  //   "tooltip-format": "{}",
+  //   "escape": true,
+  //   "return-type": "json",
+  //   "exec": "~/dotfiles/scripts/updates.sh",
+  //   "restart-interval": 60,
+  //   "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
+  //   "tooltip": false
+  // },
+
+  // // Wallpaper
+  // "custom/wallpaper": {
+  //   "format": "",
+  //   "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
+  //   "on-click-right": "~/dotfiles/hypr/scripts/wallpaper.sh",
+  //   "tooltip": false
+  // },
+
+  // // Waybar Themes
+  // "custom/waybarthemes": {
+  //   "format": "",
+  //   "on-click": "~/dotfiles/waybar/themeswitcher.sh",
+  //   "tooltip": false
+  // },
+
+  // // Keybindings
+  // "custom/keybindings": {
+  //   "format": "",
+  //   "on-click": "~/dotfiles/hypr/scripts/keybindings.sh",
+  //   "tooltip": false
+  // },
+
+  // // Filemanager Launcher
+  // "custom/filemanager": {
+  //   "format": "",
+  //   "on-click": "thunar",
+  //   "tooltip": false
+  // },
+
+  // // Outlook Launcher
+  // "custom/outlook": {
+  //   "format": "",
+  //   "on-click": "brave --app=https://outlook.office.com/mail/",
+  //   "tooltip": false
+  // },
+
+  // // Teams Launcher
+  // "custom/teams": {
+  //   "format": "",
+  //   "on-click": "chromium --app=https://teams.microsoft.com/go",
+  //   "tooltip": false
+  // },
+
+  // // Brave Launcher
+  // "custom/brave": {
+  //   "format": "",
+  //   "on-click": "brave",
+  //   "tooltip": false
+  // },
+
+  // // Browser Launcher
+  // "custom/browser": {
+  //   "format": "",
+  //   "on-click": "chromium",
+  //   "tooltip": false
+  // },
+
+  // ChatGPT Launcher
+  // "custom/chatgpt": {
+  //   "format": "",
+  //   "on-click": "brave --app=https://chat.openai.com",
+  //   "tooltip": false
+  // },
+
+  // // Calculator
+  // "custom/calculator": {
+  //   "format": "",
+  //   "on-click": "qalculate-gtk",
+  //   "tooltip": false
+  // },
+
+  // Windows VM
+  // "custom/windowsvm": {
+  //   "format": "",
+  //   "on-click": "~/dotfiles/scripts/launchvm.sh",
+  //   "tooltip": false
+  // },
+
+  // // Rofi Application Launcher
+  // "custom/appmenu": {
+  //   "format": "Apps",
+  //   "on-click": "rofi -show drun -replace",
+  //   "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+  //   "tooltip": false
+  // },
+
+  // // Power Menu
+  // "custom/exit": {
+  //   "format": "",
+  //   "on-click": "wlogout",
+  //   "tooltip": false
+  // },
+
+  // Keyboard State
+  // "keyboard-state": {
+  //   "numlock": true,
+  //   "capslock": true,
+  //   "format": "{name} {icon}",
+  //   "format-icons": {
+  //     "locked": "",
+  //     "unlocked": ""
+  //   }
+  // },
+
+  // // Harddisc space used
+  // "disk": {
+  //   "interval": 30,
+  //   "format": "   {percentage_used}% ",
+  //   "path": "/",
+  //   "on-click": "alacritty -e htop"
+  // },
+
+  // Pulseaudio
+  // "pulseaudio": {
+  //   // "scroll-step": 1, // %, can be a float
+  //   "format": "{icon} {volume}%",
+  //   "format-bluetooth": "{volume}% {icon} {format_source}",
+  //   "format-bluetooth-muted": " {icon} {format_source}",
+  //   "format-muted": " {format_source}",
+  //   "format-source": "{volume}% ",
+  //   "format-source-muted": "",
+  //   "format-icons": {
+  //     "headphone": "",
+  //     "hands-free": "",
+  //     "headset": "",
+  //     "phone": "",
+  //     "portable": "",
+  //     "car": "",
+  //     "default": ["", " ", " "]
+  //   },
+  //   "on-click": "pavucontrol"
+  // },
+
+  // Other
+  // "user": {
+  //   "format": "{user}",
+  //   "interval": 60,
+  //   "icon": false
+  // }
+}

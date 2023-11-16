@@ -1,0 +1,274 @@
+@import "mocha.css";
+
+@define-color textcolor1 #fff;
+
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
+* {
+  font-family: "SF Pro Rounded", "Font Awesome 6 Free", Roboto, sans-serif;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1rem;
+  color: alpha(@textcolor1, 0.65);
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+  background: alpha(@base, 0.6);
+  padding: 0rem 0.0625rem;
+  border-radius: 0.5rem;
+}
+
+#workspaces button {
+  padding: 0rem 0.3125rem;
+  margin: 0.25rem 0.1875rem;
+  border-radius: inherit;
+  opacity: 0.4;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  opacity: 1;
+  color: @textcolor1;
+  min-width: 1.0625rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  opacity: 0.85;
+  background-color: @workspacesbackground2;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.875rem;
+}
+
+/* -----------------------------------------------------
+ * MPRIS
+ * ----------------------------------------------------- */
+
+#mpris {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.875rem;
+  margin-left: 0.8rem;
+}
+
+/* -----------------------------------------------------
+ * Networks Group
+ * ----------------------------------------------------- */
+
+/* #networks {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  padding: 0 1.1rem;
+  margin-left: 0.8rem;
+}
+
+#networks * {
+  margin-right: 1.4rem;
+  font-size: 1rem;
+}
+
+Network
+
+#network {
+  background-color: @backgroundlight;
+  margin-right: 0;
+  opacity: 1;
+  color: alpha(@textcolor1, 0.6);
+}
+
+#network.disabled,
+#network.disconnected {
+  color: alpha(@textcolor1, 0.4);
+}
+*/
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#hardware {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  padding: 0 1.1rem;
+}
+
+#hardware * {
+  margin-right: 1.4rem;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+  opacity: 1;
+  margin-right: 0;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+
+#battery.medium:not(.charging) {
+  color: @peach;
+}
+
+#battery.critical:not(.charging) {
+  color: alpha(@red, 1);
+  animation-name: battery-critical-blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes battery-critical-blink {
+  to {
+    color: alpha(@red, 0.4);
+  }
+}
+
+/* -----------------------------------------------------
+ * CPU & Memory
+ * ----------------------------------------------------- */
+
+#cpu,
+#memory {
+  color: @textcolor2;
+  border-radius: 0.5rem;
+  color: alpha(@textcolor1, 0.6);
+}
+
+#cpu.low,
+#memory.low {
+  color: @green;
+}
+
+#cpu.medium,
+#memory.medium {
+  color: @yellow;
+}
+
+#cpu.high,
+#memory.high {
+  color: @red;
+}
+
+/* -----------------------------------------------------
+ * Screencast
+ * ----------------------------------------------------- */
+
+label#custom-screencast {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  margin-right: 0.8rem;
+  padding: 0 0.875rem;
+  color: @red;
+  animation-name: battery-critical-blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  margin-right: 0.8rem;
+  padding: 0.8rem 1rem;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @backgroundlight1;
+}
+
+#tray window decoration {
+  border: none;
+  border-image-width: 0;
+  outline-width: 0;
+  border-radius: 0.625rem;
+}
+
+#tray menu {
+  border-radius: 0.625rem;
+  background: @surface0;
+  font-family: inherit;
+}
+
+#tray menu label {
+  color: @textcolor2;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#tray menu check {
+  border-radius: 2rem;
+}
+
+/* -----------------------------------------------------
+* Window
+* ----------------------------------------------------- */
+
+#window {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  padding: 0 0.875rem;
+  margin-left: 1.1rem;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+  border-radius: 0.75rem;
+  background-color: @backgroundlight;
+  opacity: 0.8;
+  padding: 20px;
+  margin: 0px;
+  font-weight: 400;
+}
+
+tooltip label {
+  color: @textcolor2;
+}

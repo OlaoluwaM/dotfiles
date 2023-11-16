@@ -5,4 +5,8 @@ export PATH=~/.local/bin:$PATH
 
 . /etc/profile
 
+if [ -f "$HOME/.shell-env" ]; then
+  . "$HOME/.shell-env"
+fi
+
 exec Hyprland

@@ -1,0 +1,65 @@
+{
+  // General Settings
+
+  // Position
+  "layer": "top",
+  "margin-top": 30,
+  "margin-bottom": 20,
+  "margin-left": 30,
+  "margin-right": 30,
+  "spacing": 2,
+
+  // Load Modules
+  "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
+
+  // Modules Left
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+    // "custom/appmenu",
+    // "custom/wallpaper",
+    // "custom/waybarthemes",
+    // "wlr/taskbar",
+    // "group/quicklinks",
+  ],
+
+  // Modules Center
+  "modules-center": ["clock"],
+
+  // Modules Right
+  "modules-right": [
+    "custom/screencast",
+    "tray",
+    "group/hardware"
+    // "group/networks"
+    // "custom/updates",
+    // "custom/cliphist",
+    // "custom/exit",
+  ],
+
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": ["memory", "cpu", "battery"]
+  },
+
+  "group/networks": {
+    "orientation": "horizontal",
+    "modules": ["network", "custom/vpn"]
+  }
+
+  // "group/tray": {
+  //   "orientation": "inherit",
+  //   "drawer": {
+  //     "transition-duration": 500,
+  //     // "children-class": "not-tray",
+  //     "transition-left-to-right": false
+  //   },
+  //   "modules": ["custom/arrow", "tray"]
+  // }
+
+  // Group Quicklinks
+  // "group/quicklinks": {
+  //   "orientation": "horizontal",
+  //   "modules": ["custom/filemanager", "custom/browser"]
+  // },
+}

@@ -10,12 +10,13 @@ import * as Utils from "resource:///com/github/Aylur/ags/utils.js";
 import Applications from "resource:///com/github/Aylur/ags/service/applications.js";
 import Audio from "resource:///com/github/Aylur/ags/service/audio.js";
 import Battery from "resource:///com/github/Aylur/ags/service/battery.js";
-import Bluetooth from "resource:///com/github/Aylur/ags/service/bluetooth.js";
-import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
 import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
-import Network from "resource:///com/github/Aylur/ags/service/network.js";
+// import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
+// import Bluetooth from "resource:///com/github/Aylur/ags/service/bluetooth.js";
+// import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
+// import Network from "resource:///com/github/Aylur/ags/service/network.js";
 // import Notifications from 'resource:///com/github/Aylur/ags/service/notifications.js';
-import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
+
 
 export {
   App,
@@ -26,10 +27,10 @@ export {
   Applications,
   Audio,
   Battery,
-  Bluetooth,
-  Hyprland,
   Mpris,
-  Network,
-  // Notifications,
-  SystemTray,
+// Notifications,
+  // Bluetooth,
+  // Hyprland,
+  // Network,
+  // SystemTray,
 };

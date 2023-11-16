@@ -121,11 +121,11 @@ function chpwd() {
   check_directory_for_new_repository
 
   if command -v logo-ls &>/dev/null; then
-    logo-ls
+    logo-ls -a
   elif command -v eza &>/dev/null; then
-    eza --color=always --icons=always --color-scale
+    eza --color=always --icons=always -a
   else
-    ls
+    ls -a
   fi
 }
 
@@ -479,17 +479,24 @@ function removeDuplicateProcesses() {
 }
 
 function deepRestartAgs() {
-  pkill ags;
-  ags -b hypr &>/dev/null &;
-  disown;
+  pkill ags
+  ags -b hypr &>/dev/null &
+  disown
 
   # To kill any duplicate ags inotifywait background processes
   pgrep inotifywait | awk 'NR >= 2' | xargs -I {} kill {}
 }
 
+function restartWaybar() {
+  pkill waybar
+  sleep 0.5s
+  waybar &>/dev/null &
+  disown
+}
+
 # Env Variables
 export DOTS="$HOME/Desktop/dotfiles/.config"
-export ALIASES="$HOME/.shell_env"
+export SHELL_ENV="$HOME/.shell-env"
 export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 
 export VISUAL="nvim"
@@ -526,6 +533,19 @@ export LIBRARY="$HOME/Documents/Library"
 export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 
 export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export XDG_STATE_HOME="$HOME/.local/state/"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DESKTOP_DIR="$HOME/Desktop"
+
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_MUSIC_DIR="$HOME/Music"
+
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_VIDEOS_DIR="$HOME/Videos"
 
 # Aliases
 alias doesFileExist="does_entity_exist -f File"
@@ -533,8 +553,8 @@ alias doesDirExist="does_entity_exist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
 alias checkForUpdates="dnf check-update"
-alias reloadAliases="source ~/.shell_env"
-alias editAliases="nv $HOME/.shell_env"
+alias reloadEnv="source ~/.shell-env"
+alias editEnv="nv $HOME/.shell-env"
 
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias py="python3"
@@ -636,5 +656,5 @@ alias bunR="bun repl"
 alias checkRecentlyUpdatedPackages="dnf history info"
 
 alias cw="change-wallpaper"
-alias eza="eza --color=always --icons=always --color-scale"
-alias ezaTree="eza --color=always --icons=always --color-scale --tree -L 1"
+alias eza="eza --color=always --icons=always"
+alias ezaTree="eza --color=always --icons=always --tree -L 1"

@@ -112,12 +112,12 @@ source "$ZSH/oh-my-zsh.sh"
 # Example aliases
 ######################################################################## OMZ Stuff Stop ###################################################################################
 
-if [[ -f "$HOME/.shell_env" ]]; then
-  source "$HOME/.shell_env"
+if [[ -f "$HOME/.shell-env" ]]; then
+  source "$HOME/.shell-env"
 fi
 
-if [[ -f "$DOTS/shell/.private_shell_env" ]]; then
-  source "$DOTS/shell/.private_shell_env"
+if [[ -f "$DOTS/shell/.private-shell-env" ]]; then
+  source "$DOTS/shell/.private-shell-env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"
