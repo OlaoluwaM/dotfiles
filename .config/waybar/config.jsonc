@@ -13,15 +13,7 @@
   "include": ["$XDG_CONFIG_HOME/waybar/modules.jsonc"],
 
   // Modules Left
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/window"
-    // "custom/appmenu",
-    // "custom/wallpaper",
-    // "custom/waybarthemes",
-    // "wlr/taskbar",
-    // "group/quicklinks",
-  ],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
 
   // Modules Center
   "modules-center": ["clock"],
@@ -30,11 +22,8 @@
   "modules-right": [
     "custom/screencast",
     "tray",
+    "idle_inhibitor",
     "group/hardware"
-    // "group/networks"
-    // "custom/updates",
-    // "custom/cliphist",
-    // "custom/exit",
   ],
 
   "group/hardware": {

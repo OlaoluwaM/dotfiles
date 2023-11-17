@@ -1,7 +1,7 @@
 [user]
   email = 37044906+OlaoluwaM@users.noreply.github.com
   name = Olaoluwa Mustapha
-	signingkey = 8BEBD0AA
+  signingkey = 8BEBD0AA
 
 [core]
   excludesfile = /home/olaolu/.gitignore_global
@@ -9,7 +9,7 @@
 
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
-	gpgSign = true
+  gpgSign = true
 
 [help]
   autocorrect = 50
@@ -44,20 +44,17 @@
   p = "push"
   listBranches = branch -l
   deleteBranch = branch -D
-  fga = forgit add
-  fgd = forgit diff
-  fgl = forgit log
-	project-summary = !which onefetch && onefetch
-	sw = switch
+  project-summary = !which onefetch && onefetch
+  sw = switch
 
 [credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
+  helper = /usr/lib/git-core/git-credential-libsecret
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [diff]
-	external = difft
+  external = difft
 
 [merge]
   tool = code
@@ -69,12 +66,13 @@
   path = ~/.gitconfig-work
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [gpg]
-	program = /usr/bin/gpg2
+  program = /usr/bin/gpg2
+
 [tag]
-	gpgSign = true
+  gpgSign = true

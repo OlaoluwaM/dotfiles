@@ -27,7 +27,7 @@ window#waybar {
 
 #workspaces {
   background: alpha(@base, 0.6);
-  padding: 0rem 0.0625rem;
+  padding: 0rem 0.4rem;
   border-radius: 0.5rem;
 }
 
@@ -71,37 +71,6 @@ window#waybar {
   padding: 0.25rem 0.875rem;
   margin-left: 0.8rem;
 }
-
-/* -----------------------------------------------------
- * Networks Group
- * ----------------------------------------------------- */
-
-/* #networks {
-  background: alpha(@base, 0.6);
-  border-radius: 0.5rem;
-  padding: 0 1.1rem;
-  margin-left: 0.8rem;
-}
-
-#networks * {
-  margin-right: 1.4rem;
-  font-size: 1rem;
-}
-
-Network
-
-#network {
-  background-color: @backgroundlight;
-  margin-right: 0;
-  opacity: 1;
-  color: alpha(@textcolor1, 0.6);
-}
-
-#network.disabled,
-#network.disconnected {
-  color: alpha(@textcolor1, 0.4);
-}
-*/
 
 /* -----------------------------------------------------
  * Hardware Group
@@ -196,6 +165,25 @@ label#custom-screencast {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  background: alpha(@base, 0.6);
+  border-radius: 0.5rem;
+  margin-right: 0.8rem;
+  padding: 0.8rem 1rem;
+}
+
+#idle_inhibitor.activated {
+  color: alpha(@lavender, 1);
+}
+
+#idle_inhibitor.deactivated {
+  color: alpha(@textcolor1, 0.4);
 }
 
 /* -----------------------------------------------------
