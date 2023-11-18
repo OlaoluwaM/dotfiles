@@ -657,3 +657,5 @@ alias checkRecentlyUpdatedPackages="dnf history info"
 alias cw="change-wallpaper"
 alias eza="eza --color=always --icons=always"
 alias ezaTree="eza --color=always --icons=always --tree -L 1"
+
+alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"

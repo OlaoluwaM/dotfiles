@@ -1,0 +1,312 @@
+@use "sass:color";
+
+/* -----------------------------------------------------
+ * Variables
+ * ----------------------------------------------------- */
+
+/**
+ * Catppuccin Mocha palette
+ */
+$base: #1e1e2e;
+$mantle: #181825;
+$crust: #11111b;
+
+$text: #cdd6f4;
+$subtext0: #a6adc8;
+$subtext1: #bac2de;
+
+$surface0: #313244;
+$surface1: #45475a;
+$surface2: #585b70;
+
+$overlay0: #6c7086;
+$overlay1: #7f849c;
+$overlay2: #9399b2;
+
+$blue: #89b4fa;
+$lavender: #b4befe;
+$sapphire: #74c7ec;
+$sky: #89dceb;
+$teal: #94e2d5;
+$green: #a6e3a1;
+$yellow: #f9e2af;
+$peach: #fab387;
+$maroon: #eba0ac;
+$red: #f38ba8;
+$mauve: #cba6f7;
+$pink: #f5c2e7;
+$flamingo: #f2cdcd;
+$rosewater: #f5e0dc;
+
+/**
+ * Defaults
+ */
+$default-radius: 0.5rem;
+$default-spacing: 0.8rem;
+
+/* -----------------------------------------------------
+ * Mixins
+ * ----------------------------------------------------- */
+
+@mixin topbar-group {
+  background: $base;
+  border-radius: $default-radius;
+  padding: 0.8rem 1rem;
+}
+
+@mixin win-decoration($radius: 1rem) {
+  border: none;
+  border-image-width: 0;
+  outline-width: 0;
+  border-radius: $radius;
+}
+
+/* ----------------------------------------------------- * Styles * ----------------------------------------------------- */
+
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
+* {
+  font-family: "SF Pro Rounded", "Font Awesome 6 Free", Roboto, sans-serif;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1rem;
+  color: color.adjust($color: white, $alpha: -0.2);
+}
+
+window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+  @include topbar-group;
+  padding: 0rem 0.4rem;
+}
+
+#workspaces button {
+  padding: 0rem 0.3125rem;
+  margin: 0.45rem 0.1875rem;
+  border-radius: inherit;
+  opacity: 0.4;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  opacity: 1;
+  color: white;
+  min-width: 1.0625rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  opacity: 0.8;
+  background-color: color.adjust($color: $overlay0, $alpha: -0.6);
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+  @include topbar-group;
+  padding: 0.25rem 0.875rem;
+}
+
+/* -----------------------------------------------------
+ * MPRIS
+ * ----------------------------------------------------- */
+
+#mpris {
+  @include topbar-group;
+  padding: 0.25rem 0.875rem;
+  margin-left: $default-spacing;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#hardware {
+  @include topbar-group;
+  padding: 0 1.1rem;
+}
+
+#hardware * {
+  margin-right: 1.4rem;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+  opacity: 1;
+  margin-right: 0;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: $green;
+}
+
+#battery.warning:not(.charging) {
+  color: $yellow;
+}
+
+#battery.medium:not(.charging) {
+  color: $blue;
+}
+
+#battery.critical:not(.charging) {
+  color: $red;
+  animation-name: battery-critical-blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes battery-critical-blink {
+  to {
+    color: color.adjust($color: $red, $alpha: 0.4);
+  }
+}
+
+/* -----------------------------------------------------
+ * CPU & Memory
+ * ----------------------------------------------------- */
+
+#cpu,
+#memory {
+  border-radius: $default-radius;
+}
+
+#cpu.low,
+#memory.low {
+  color: $green;
+}
+
+#cpu.medium,
+#memory.medium {
+  color: $yellow;
+}
+
+#cpu.high,
+#memory.high {
+  color: $red;
+}
+
+/* -----------------------------------------------------
+ * Screencast
+ * ----------------------------------------------------- */
+
+label#custom-screencast {
+  @include topbar-group;
+  margin-right: $default-spacing;
+  padding: 0 0.875rem;
+  color: $red;
+  animation-name: battery-critical-blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  @include topbar-group;
+  margin-right: $default-spacing;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: color.adjust($color: white, $alpha: -0.2);
+}
+
+#idle_inhibitor.deactivated {
+  color: color.adjust($color: white, $alpha: -0.7);
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+$tray-radius: 0.625rem;
+
+#tray {
+  @include topbar-group;
+  margin-right: $default-spacing;
+  padding: 0.8rem 1rem;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  opacity: 0.85;
+  background-color: $overlay1;
+}
+
+#tray window decoration {
+  @include win-decoration($tray-radius);
+}
+
+#tray menu {
+  border-radius: $tray-radius;
+  background: $surface0;
+  font-family: inherit;
+}
+
+#tray menu label {
+  color: $text;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#tray menu check {
+  border-radius: 2rem;
+}
+
+/* -----------------------------------------------------
+* Window
+* ----------------------------------------------------- */
+
+#window {
+  @include topbar-group;
+  padding: 0 0.875rem;
+  margin-left: $default-spacing + 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+tooltip {
+  border-radius: $default-radius;
+  background-color: $surface0;
+  padding: 1.25rem;
+}
+
+tooltip decoration {
+  @include win-decoration($default-radius);
+}
+
+tooltip label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: $text;
+}

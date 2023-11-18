@@ -1,1 +1,4 @@
-{ "all": "$HOME/.config/waybar", "exclude": ["old.css"] }
+{
+  "all": "$HOME/.config/waybar",
+  "exclude": ["./archive/*", "*.scss", "*.sh", "*.map"]
+}

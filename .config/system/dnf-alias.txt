@@ -3,3 +3,4 @@
  s='search'
  in='info'
  rm='remove'
+ ri='reinstall'

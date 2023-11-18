@@ -3,4 +3,5 @@
 dotfilers
 neovim
 qnm
+sass
 typescript

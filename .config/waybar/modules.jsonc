@@ -16,7 +16,10 @@
   // Hyprland Window
   // https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#window
   "hyprland/window": {
-    "format": "{class}"
+    "format": "{class}",
+    "rewrite": {
+      "": " Desktop"
+    }
   },
 
   // Custom Arrow intended for collapse-able system tray group
