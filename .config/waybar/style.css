@@ -70,10 +70,12 @@ window#waybar {
 #battery {
   opacity: 1;
   margin-right: 0;
+  color: #cdd6f4;
 }
 
 #battery.charging,
-#battery.plugged {
+#battery.plugged,
+#battery.full {
   color: #a6e3a1;
 }
 
@@ -102,6 +104,7 @@ window#waybar {
 #cpu,
 #memory {
   border-radius: 0.5rem;
+  color: #cdd6f4;
 }
 
 #cpu.low,
@@ -214,8 +217,7 @@ tooltip decoration {
 }
 
 tooltip label {
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
   color: #cdd6f4;
 }
-

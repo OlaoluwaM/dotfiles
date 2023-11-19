@@ -1,5 +1,5 @@
-{ 
+{
   "nwg-look.desktop": "$HOME/.local/share/applications/",
   "nwg-look": "$CUSTOM_BIN_DIR",
-  "exclude": ["nwg-look.svg", "main.glade"]
+  "exclude": ["nwg-look.svg", "main.glade", "en_US.json", "*.sh"]
 }

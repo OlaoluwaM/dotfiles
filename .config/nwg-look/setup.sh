@@ -23,7 +23,7 @@ show_help() {
     echo "The rip (https://github.com/nivekuil/rip) utility is needed for this script to work"
 }
 
-target_dir="$HOME/.config/ulauncher"
+target_dir="/usr/share/nwg-look"
 
 # Function for the unlink command
 unlink() {
@@ -35,8 +35,12 @@ unlink() {
             exit 1
         fi
 
-        echo "Sending $target_dir to the graveyard..."
-        rip -i "$target_dir"
+        echo "Sending $target_dir/langs/en_US.json to the graveyard..."
+        sudo rm -i "$target_dir/langs/en_US.json"
+        echo "Done"
+
+        echo "Sending $target_dir/main.glade to the graveyard..."
+        sudo rm -i "$target_dir/main.glade"
         echo "Done"
     else
         echo "The target directory for these config files ($target_dir) does not exist."
@@ -46,11 +50,13 @@ unlink() {
 
 # Function for the link command
 link() {
-    echo "Linking dots dir to $target_dir..."
+    echo "Linking dotfiles to $target_dir..."
 
     unlink
 
-    ln -svf $DOTS/ulauncher "$target_dir"
+    sudo mkdir -p "$target_dir/langs"
+    sudo ln -svf $DOTS/nwg-look/en_US.json "$target_dir/langs/"
+    sudo ln -svf $DOTS/nwg-look/main.glade "$target_dir"
 
     echo "Done"
 }

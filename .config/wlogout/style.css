@@ -14,9 +14,8 @@ window {
 
 /** ********** Buttons ********** **/
 button {
-  background-color: alpha(@base, 0.5);
+  background-color: alpha(@base, 0.8);
   color: @text;
-  border: 10px solid @base;
   border-radius: 20px;
   background-repeat: no-repeat;
   background-position: center;
