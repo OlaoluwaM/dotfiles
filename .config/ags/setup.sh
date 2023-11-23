@@ -53,8 +53,8 @@ link() {
     files_to_omit=("./setup.sh" "./package.json" "./.gitignore" "./.stylelintrc.yml" "./package-lock.json" "./tsconfig.json")
 
     for file in ./*; do
-        if [[ "$file" =~ "node_modules" ]]; then
-            echo "Skipping files in .cosine and node_modules directories"
+        if [[ "$file" =~ "node_modules" ]] || [[ "$file" =~ "old-js" ]]; then
+            echo "Skipping files in old-js and node_modules directories"
             continue
         fi
 

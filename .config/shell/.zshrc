@@ -83,7 +83,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 # fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting node alias-finder httpie npm gh extract ag zoxide stack yarn)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide)
 
 source "$ZSH/oh-my-zsh.sh"
 

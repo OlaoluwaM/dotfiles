@@ -1,4 +1,4 @@
-import { Service, Utils, App } from '../imports.js';
+import { Service, Utils , App} from "../imports"
 const authpy = App.configDir + '/js/lockscreen/auth.py';
 
 class Lockscreen extends Service {
@@ -11,6 +11,7 @@ class Lockscreen extends Service {
 
     lockscreen() { this.emit('lock', true); }
 
+    /** @param {string} password */
     auth(password) {
         this.emit('authenticating', true);
         Utils.execAsync([authpy, password])

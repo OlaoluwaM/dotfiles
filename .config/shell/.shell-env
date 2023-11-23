@@ -637,6 +637,7 @@ alias np="nap"
 alias gpt="chatgpt"
 alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
 alias dev="cd $DEV"
+alias labs="cd $DEV"
 
 alias docs="cd $HOME/Documents/"
 alias dlds="cd $HOME/Downloads/"

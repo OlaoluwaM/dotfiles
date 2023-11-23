@@ -1,1 +1,1 @@
-{ "exclude": "all" }
+{ "exclude": ["./Catppuccin-Mocha/*"], "Mailspring.desktop": "~/.local/share/applications" }

@@ -1,5 +1,6 @@
 import { Service, Utils, App } from "../imports.js";
 import GLib from "gi://GLib";
+
 const now = () => GLib.DateTime.new_now_local().format("%Y-%m-%d_%H-%M-%S");
 
 class Recorder extends Service {
@@ -14,8 +15,10 @@ class Recorder extends Service {
     );
   }
 
-  _path = GLib.get_home_dir() + "/Videos/Screencasts";
-  _screenshotting = false;
+  #path = `${GLib.get_home_dir()}/Videos/Screencasts`;
+  #file = "";
+  #interval = 0;
+
   recording = false;
   timer = 0;
 
@@ -23,20 +26,21 @@ class Recorder extends Service {
     if (this.recording) return;
 
     try {
-      Utils.ensureDirectory(this._path);
-      this._file = `${this._path}/screencast-from-${now()}.webm`;
+      Utils.ensureDirectory(this.#path);
+      this.#file = `${this.#path}/screencast-from-${now()}.webm`;
 
       if (full) {
-        Utils.execAsync(["wf-recorder", "-f", this._file]);
+        Utils.execAsync(["wf-recorder", "-f", this.#file]);
       } else {
         const area = await Utils.execAsync("slurp");
-        Utils.execAsync(["wf-recorder", "-g", area, "-f", this._file]);
+        Utils.execAsync(["wf-recorder", "-g", area, "-f", this.#file]);
       }
 
       this.recording = true;
       this.changed("recording");
       this.timer = 0;
-      this._interval = Utils.interval(1000, () => {
+
+      this.#interval = Utils.interval(1000, () => {
         this.changed("timer");
         this.timer++;
       });
@@ -50,8 +54,10 @@ class Recorder extends Service {
 
     Utils.execAsync("killall -INT wf-recorder");
     this.recording = false;
+
     this.changed("recording");
-    GLib.source_remove(this._interval);
+    GLib.source_remove(this.#interval);
+
     Utils.execAsync([
       "notify-send",
       "-A",
@@ -61,19 +67,19 @@ class Recorder extends Service {
       "-i",
       "video-x-generic-symbolic",
       "Screenrecord",
-      this._file,
+      this.#file,
     ])
       .then((res) => {
-        if (res === "files") Utils.execAsync("xdg-open " + this._path);
+        if (res === "files") Utils.execAsync("xdg-open " + this.#path);
 
-        if (res === "view") Utils.execAsync("xdg-open " + this._file);
+        if (res === "view") Utils.execAsync("xdg-open " + this.#file);
       })
       .catch(console.error);
   }
 
   async screenshot(full = false) {
     try {
-      const path = GLib.get_home_dir() + "/Pictures/Screenshots";
+      const path = `${GLib.get_home_dir()}/Pictures/Screenshots`;
       Utils.ensureDirectory(path);
 
       const file = `${path}/screenshot-from-${now()}.png`;
@@ -115,7 +121,7 @@ class Recorder extends Service {
     } catch (error) {
       console.error(error);
       // Kept for debugging purposes
-      await Utils.execAsync([
+      Utils.execAsync([
         "notify-send",
         "--icon=error",
         "Screenshot Error",

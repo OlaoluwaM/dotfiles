@@ -1,3 +1,4 @@
+import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import Header from "./widgets/Header.js";
 import PopupWindow from "../misc/PopupWindow.js";
 import { Volume, Microhone, SinkSelector, AppMixer } from "./widgets/Volume.js";
@@ -7,17 +8,16 @@ import { ThemeToggle, ThemeSelector } from "./widgets/Theme.js";
 import { ProfileToggle, ProfileSelector } from "./widgets/AsusProfile.js";
 import Media from "./widgets/Media.js";
 import Brightness from "./widgets/Brightness.js";
-// import DND from './widgets/DND.js';
+import DND from "./widgets/DND.js";
 import MicMute from "./widgets/MicMute.js";
-import { Utils, Widget } from "../imports.js";
-import PanelButton from "../bar/PanelButton.js";
+import options from "../options.js";
 
 const Row = (toggles = [], menus = []) =>
   Widget.Box({
-    class_name: "row",
     vertical: true,
     children: [
       Widget.Box({
+        class_name: "row horizontal",
         children: toggles,
       }),
       ...menus,
@@ -30,39 +30,37 @@ const Homogeneous = (toggles) =>
     children: toggles,
   });
 
-const SwayncNotificationIcon = () =>
-  PanelButton({
-    valign: "center",
-    on_clicked: () => Utils.execAsync("swaync-client -t"),
-    content: Widget.Icon({ icon: "notification-symbolic", size: 22 }),
-  });
-
 export default () =>
   PopupWindow({
     name: "quicksettings",
-    anchor: ["top", "right"],
-    layout: "top right",
-    content: Widget.Box({
-      class_name: "quicksettings",
+    connections: [
+      [
+        options.bar.position,
+        (self) => {
+          self.anchor = ["right", options.bar.position.value];
+          if (options.bar.position.value === "top")
+            self.transition = "slide_down";
+
+          if (options.bar.position.value === "bottom")
+            self.transition = "slide_up";
+        },
+      ],
+    ],
+    child: Widget.Box({
       vertical: true,
       children: [
-        Row([Header()]),
-        Row([
-          Widget.Box({
-            class_name: "slider-box",
-            vertical: true,
-            children: [
-              Row([Volume()], [SinkSelector(), AppMixer()]),
-              Row([Microhone()]),
-              Row([Brightness()]),
-            ],
-          }),
-        ]),
-        Row(
-          [
-            Homogeneous([NetworkToggle(), BluetoothToggle()]),
-            SwayncNotificationIcon(),
+        Header(),
+        Widget.Box({
+          class_name: "sliders-box vertical",
+          vertical: true,
+          children: [
+            Row([Volume()], [SinkSelector(), AppMixer()]),
+            Microhone(),
+            Brightness(),
           ],
+        }),
+        Row(
+          [Homogeneous([NetworkToggle(), BluetoothToggle()]), DND()],
           [WifiSelection(), BluetoothDevices()]
         ),
         Row(
