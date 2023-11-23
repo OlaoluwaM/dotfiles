@@ -14,14 +14,14 @@ window {
 
 /** ********** Buttons ********** **/
 button {
-  background-color: alpha(@base, 0.8);
+  background-color: alpha(@base, 0.6);
   color: @text;
   border-radius: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 35%;
   transition: all 0.2s ease-in-out;
-  margin: 15px;
+  margin: 10px;
 }
 
 button:focus,
