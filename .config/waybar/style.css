@@ -30,7 +30,7 @@ window#waybar {
 }
 
 .modules-right {
-  padding-right: 0.8rem;
+  padding-right: 0.3rem;
   padding-left: 1.4rem;
 }
 
@@ -179,4 +179,3 @@ tooltip label {
   font-size: 1rem;
   color: #cdd6f4;
 }
-
