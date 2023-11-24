@@ -1,5 +1,6 @@
 import { toPercent } from "../../utils.js";
-import { Widget, Utils } from "../../imports.js";
+import * as Utils from "resource:///com/github/Aylur/ags/utils.js";
+import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import * as vars from "../../variables.js";
 import PanelButton from "../PanelButton.js";
 

@@ -41,17 +41,17 @@ $rosewater: #f5e0dc;
 /**
  * Defaults
  */
-$default-radius: 0.5rem;
-$default-spacing: 0.8rem;
+$default-radius: 0.65rem;
+$default-spacing: 3rem;
 
 /* -----------------------------------------------------
  * Mixins
  * ----------------------------------------------------- */
 
 @mixin topbar-group {
-  background: $base;
+  background: color.adjust($color: $base, $alpha: -0.25);
   border-radius: $default-radius;
-  padding: 0.8rem 1rem;
+  padding: 0.25rem 1rem;
 }
 
 @mixin win-decoration($radius: 1rem) {
@@ -59,6 +59,16 @@ $default-spacing: 0.8rem;
   border-image-width: 0;
   outline-width: 0;
   border-radius: $radius;
+}
+
+/* -----------------------------------------------------
+ * Animations
+ * ----------------------------------------------------- */
+
+@keyframes blink-red {
+  to {
+    color: color.adjust($color: $red, $alpha: -0.6);
+  }
 }
 
 /* ----------------------------------------------------- * Styles * ----------------------------------------------------- */
@@ -83,12 +93,34 @@ window#waybar {
 }
 
 /* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left,
+.modules-right {
+  @include topbar-group;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.modules-right {
+  padding-right: 0.8rem;
+  padding-left: 1.4rem;
+}
+
+.modules-left {
+  padding-left: 0.5rem;
+}
+
+/* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
-  @include topbar-group;
-  padding: 0rem 0.4rem;
+  // @include topbar-group;
+  // padding: 0rem 0.4rem;
+  margin-right: calc($default-spacing / 3.2);
 }
 
 #workspaces button {
@@ -112,134 +144,24 @@ window#waybar {
 }
 
 /* -----------------------------------------------------
+* Window
+* ----------------------------------------------------- */
+
+#window {
+  // @include topbar-group;
+  // padding: 0 0.875rem;
+  margin-left: calc($default-spacing / 2.5);
+  transition: all 0.5s ease-in-out;
+}
+
+/* -----------------------------------------------------
  * Clock
  * ----------------------------------------------------- */
 
 #clock {
   @include topbar-group;
-  padding: 0.25rem 0.875rem;
-}
-
-/* -----------------------------------------------------
- * MPRIS
- * ----------------------------------------------------- */
-
-#mpris {
-  @include topbar-group;
-  padding: 0.25rem 0.875rem;
-  margin-left: $default-spacing;
-}
-
-/* -----------------------------------------------------
- * Hardware Group
- * ----------------------------------------------------- */
-
-#hardware {
-  @include topbar-group;
-  padding: 0 1.1rem;
-}
-
-#hardware * {
-  margin-right: 1.4rem;
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#battery {
-  opacity: 1;
-  margin-right: 0;
-  color: $text;
-}
-
-#battery.charging,
-#battery.plugged,
-#battery.full {
-  color: $green;
-}
-
-#battery.warning:not(.charging) {
-  color: $yellow;
-}
-
-#battery.medium:not(.charging) {
-  color: $blue;
-}
-
-#battery.critical:not(.charging) {
-  color: $red;
-  animation-name: battery-critical-blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes battery-critical-blink {
-  to {
-    color: color.adjust($color: $red, $alpha: 0.4);
-  }
-}
-
-/* -----------------------------------------------------
- * CPU & Memory
- * ----------------------------------------------------- */
-
-#cpu,
-#memory {
-  border-radius: $default-radius;
-  color: $text;
-}
-
-#cpu.low,
-#memory.low {
-  color: $green;
-}
-
-#cpu.medium,
-#memory.medium {
-  color: $yellow;
-}
-
-#cpu.high,
-#memory.high {
-  color: $red;
-}
-
-/* -----------------------------------------------------
- * Screencast
- * ----------------------------------------------------- */
-
-label#custom-screencast {
-  @include topbar-group;
-  margin-right: $default-spacing;
-  padding: 0 0.875rem;
-  color: $red;
-  animation-name: battery-critical-blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-
-#idle_inhibitor {
-  @include topbar-group;
-  margin-right: $default-spacing;
-  padding: 0.8rem 1rem;
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: color.adjust($color: white, $alpha: -0.2);
-}
-
-#idle_inhibitor.deactivated {
-  color: color.adjust($color: white, $alpha: -0.7);
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
 }
 
 /* -----------------------------------------------------
@@ -249,9 +171,9 @@ label#custom-screencast {
 $tray-radius: 0.625rem;
 
 #tray {
-  @include topbar-group;
-  margin-right: $default-spacing;
-  padding: 0.8rem 1rem;
+  // @include topbar-group;
+  // padding: 0rem 1rem;
+  margin-right: calc($default-spacing / 1.1);
 }
 
 #tray > .passive {
@@ -285,14 +207,104 @@ $tray-radius: 0.625rem;
 }
 
 /* -----------------------------------------------------
-* Window
-* ----------------------------------------------------- */
+ * Screencast
+ * ----------------------------------------------------- */
 
-#window {
-  @include topbar-group;
+label#custom-screencast {
+  // @include topbar-group;
+  margin-right: calc($default-spacing / 1.1);
   padding: 0 0.875rem;
-  margin-left: $default-spacing + 0.5rem;
-  transition: all 0.5s ease-in-out;
+  color: $red;
+  animation-name: blink-red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  // @include topbar-group;
+  // padding: 0.8rem 1rem;
+  margin-right: calc($default-spacing / 1.1);
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: color.adjust($color: white, $alpha: -0.2);
+}
+
+#idle_inhibitor.deactivated {
+  color: color.adjust($color: white, $alpha: -0.7);
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#hardware {
+  // @include topbar-group;
+  // padding: 0 1.1rem;
+}
+
+#hardware * {
+  margin-right: calc($default-spacing / 2.95);
+}
+
+/* Battery */
+
+#battery {
+  opacity: 1;
+  margin-right: 0;
+  color: $text;
+}
+
+#battery.charging,
+#battery.plugged,
+#battery.full {
+  color: $green;
+}
+
+#battery.warning:not(.charging) {
+  color: $yellow;
+}
+
+#battery.medium:not(.charging) {
+  color: $blue;
+}
+
+#battery.critical:not(.charging) {
+  color: $red;
+  animation-name: blink-red;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* CPU & RAM */
+#cpu,
+#memory {
+  border-radius: $default-radius;
+  color: $text;
+}
+
+#cpu.low,
+#memory.low {
+  color: $green;
+}
+
+#cpu.medium,
+#memory.medium {
+  color: $yellow;
+}
+
+#cpu.high,
+#memory.high {
+  color: $red;
 }
 
 /* -----------------------------------------------------

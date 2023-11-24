@@ -1,3 +1,5 @@
+// import DND from "./widgets/DND.js";
+
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import Header from "./widgets/Header.js";
 import PopupWindow from "../misc/PopupWindow.js";
@@ -8,7 +10,6 @@ import { ThemeToggle, ThemeSelector } from "./widgets/Theme.js";
 import { ProfileToggle, ProfileSelector } from "./widgets/AsusProfile.js";
 import Media from "./widgets/Media.js";
 import Brightness from "./widgets/Brightness.js";
-import DND from "./widgets/DND.js";
 import MicMute from "./widgets/MicMute.js";
 import options from "../options.js";
 
@@ -60,7 +61,7 @@ export default () =>
           ],
         }),
         Row(
-          [Homogeneous([NetworkToggle(), BluetoothToggle()]), DND()],
+          [Homogeneous([NetworkToggle(), BluetoothToggle()]) /*DND()*/],
           [WifiSelection(), BluetoothDevices()]
         ),
         Row(

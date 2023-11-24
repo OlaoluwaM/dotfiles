@@ -1,4 +1,6 @@
-import { Service, Utils, App } from "../imports.js";
+import App from "resource:///com/github/Aylur/ags/app.js";
+import Service from "resource:///com/github/Aylur/ags/service.js";
+import * as Utils from "resource:///com/github/Aylur/ags/utils.js";
 import GLib from "gi://GLib";
 
 const now = () => GLib.DateTime.new_now_local().format("%Y-%m-%d_%H-%M-%S");

@@ -2,7 +2,7 @@
  * A Theme is a set of options that will be applied
  * ontop of the default values. see options.js for possible options
  */
-import { Theme, WP, lightColors } from './settings/theme.js';
+import { Theme, WP, lightColors } from "./settings/theme.js";
 
 export default [
   Theme({
@@ -19,20 +19,18 @@ export default [
     "desktop.screen_corners": false,
     "bar.separators": false,
     "bar.style": "separated",
-    "accent.accent": "#45475a",
-    "accent.fg": "#181825",
+    "theme.accent.accent": "#45475a",
+    "theme.accent.fg": "#181825",
     "border.width": 0,
     "desktop.shadow": "rgba(17, 17, 27, 0.8)",
-    "accent.gradient":
+    "theme.accent.gradient":
       "to right, #b4befe, lighten(mix($magenta, $blue, 70%), 18%)",
     "font.font": "SF Pro Rounded Regular",
     "font.mono": "SF Mono SemiBold",
     "font.size": 14,
-    "hypr.inactive_border": "#6C7086",
-    "hypr.active_border": "#b4befe",
     "desktop.drop_shadow": false,
-    "widget.bg": "$accent",
-    "widget.opacity": 64,
+    "theme.widget.bg": "$accent",
+    "theme.widget.opacity": 64,
   }),
   Theme({
     name: "Kitty Dark",

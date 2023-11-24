@@ -1,3 +1,8 @@
+@keyframes blink-red {
+  to {
+    color: rgba(243, 139, 168, 0.4);
+  }
+}
 * {
   font-family: "SF Pro Rounded", "Font Awesome 6 Free", Roboto, sans-serif;
   border: none;
@@ -14,11 +19,27 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+.modules-left,
+.modules-right {
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.modules-right {
+  padding-right: 0.8rem;
+  padding-left: 1.4rem;
+}
+
+.modules-left {
+  padding-left: 0.5rem;
+}
+
 #workspaces {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  padding: 0rem 0.4rem;
+  margin-right: 0.9375rem;
 }
 
 #workspaces button {
@@ -41,124 +62,21 @@ window#waybar {
   background-color: rgba(108, 112, 134, 0.4);
 }
 
+#window {
+  margin-left: 1.2rem;
+  transition: all 0.5s ease-in-out;
+}
+
 #clock {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  padding: 0.25rem 0.875rem;
-}
-
-#mpris {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  padding: 0.25rem 0.875rem;
-  margin-left: 0.8rem;
-}
-
-#hardware {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  padding: 0 1.1rem;
-}
-
-#hardware * {
-  margin-right: 1.4rem;
-}
-
-#battery {
-  opacity: 1;
-  margin-right: 0;
-  color: #cdd6f4;
-}
-
-#battery.charging,
-#battery.plugged,
-#battery.full {
-  color: #a6e3a1;
-}
-
-#battery.warning:not(.charging) {
-  color: #f9e2af;
-}
-
-#battery.medium:not(.charging) {
-  color: #89b4fa;
-}
-
-#battery.critical:not(.charging) {
-  color: #f38ba8;
-  animation-name: battery-critical-blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes battery-critical-blink {
-  to {
-    color: #f38ba8;
-  }
-}
-#cpu,
-#memory {
-  border-radius: 0.5rem;
-  color: #cdd6f4;
-}
-
-#cpu.low,
-#memory.low {
-  color: #a6e3a1;
-}
-
-#cpu.medium,
-#memory.medium {
-  color: #f9e2af;
-}
-
-#cpu.high,
-#memory.high {
-  color: #f38ba8;
-}
-
-label#custom-screencast {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  margin-right: 0.8rem;
-  padding: 0 0.875rem;
-  color: #f38ba8;
-  animation-name: battery-critical-blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#idle_inhibitor {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  margin-right: 0.8rem;
-  padding: 0.8rem 1rem;
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#idle_inhibitor.deactivated {
-  color: rgba(255, 255, 255, 0.3);
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1rem;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
 }
 
 #tray {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  margin-right: 0.8rem;
-  padding: 0.8rem 1rem;
+  margin-right: 2.7272727273rem;
 }
 
 #tray > .passive {
@@ -194,17 +112,57 @@ label#custom-screencast {
   border-radius: 2rem;
 }
 
-#window {
-  background: #1e1e2e;
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
+label#custom-screencast {
+  margin-right: 2.7272727273rem;
   padding: 0 0.875rem;
-  margin-left: 1.3rem;
-  transition: all 0.5s ease-in-out;
+  color: #f38ba8;
+  animation-name: blink-red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#idle_inhibitor {
+  margin-right: 2.7272727273rem;
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#idle_inhibitor.deactivated {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#hardware * {
+  margin-right: 1.0169491525rem;
+}
+
+#cpu,
+#memory {
+  border-radius: 0.65rem;
+  color: #cdd6f4;
+}
+
+#cpu.low,
+#memory.low {
+  color: #a6e3a1;
+}
+
+#cpu.medium,
+#memory.medium {
+  color: #f9e2af;
+}
+
+#cpu.high,
+#memory.high {
+  color: #f38ba8;
 }
 
 tooltip {
-  border-radius: 0.5rem;
+  border-radius: 0.65rem;
   background-color: #313244;
   padding: 1.25rem;
 }
@@ -213,7 +171,7 @@ tooltip decoration {
   border: none;
   border-image-width: 0;
   outline-width: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.65rem;
 }
 
 tooltip label {
@@ -221,3 +179,4 @@ tooltip label {
   font-size: 1rem;
   color: #cdd6f4;
 }
+

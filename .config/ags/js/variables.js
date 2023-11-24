@@ -1,7 +1,7 @@
 // @ts-expect-error
 import GLib from "gi://GLib";
 import options from "./options.js";
-import { Variable } from "./imports.js";
+import Variable from "resource:///com/github/Aylur/ags/variable.js";
 
 const intval = options.systemFetchInterval;
 

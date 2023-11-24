@@ -1,0 +1,25 @@
+window.indicator .progress {
+  @include floating-widget;
+  padding: $padding / 2;
+  border-radius: if($radii == 0, 0, $radii + $padding / 2);
+  border: none;
+
+  .fill {
+    border-radius: $radii;
+
+    @if (variable-exists($name: "lavender")) {
+      background-color: $lavender;
+    } @else {
+      background-color: $accent;
+    }
+    color: $accent-fg;
+
+    image {
+      -gtk-icon-transform: scale(0.7);
+    }
+
+    .font-icon {
+      font-size: 34px;
+    }
+  }
+}
