@@ -105,7 +105,7 @@ window#waybar {
 }
 
 .modules-right {
-  padding-right: 0.3rem;
+  // padding-right: 0.3rem;
   padding-left: 1.4rem;
 }
 
@@ -173,7 +173,7 @@ $tray-radius: 0.625rem;
 #tray {
   // @include topbar-group;
   // padding: 0rem 1rem;
-  margin-right: calc($default-spacing / 1.1);
+  margin-right: calc($default-spacing / 1.2);
 }
 
 #tray > .passive {
@@ -212,7 +212,7 @@ $tray-radius: 0.625rem;
 
 label#custom-screencast {
   // @include topbar-group;
-  margin-right: calc($default-spacing / 1.1);
+  margin-right: calc($default-spacing / 1.7);
   padding: 0 0.875rem;
   color: $red;
   animation-name: blink-red;
@@ -220,25 +220,6 @@ label#custom-screencast {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-
-#idle_inhibitor {
-  // @include topbar-group;
-  // padding: 0.8rem 1rem;
-  margin-right: calc($default-spacing / 1.1);
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: color.adjust($color: white, $alpha: -0.2);
-}
-
-#idle_inhibitor.deactivated {
-  color: color.adjust($color: white, $alpha: -0.7);
 }
 
 /* -----------------------------------------------------
@@ -252,6 +233,10 @@ label#custom-screencast {
 
 #hardware * {
   margin-right: calc($default-spacing / 2.95);
+}
+
+#hardware:last-child {
+  margin-right: 0;
 }
 
 /* Battery */
@@ -305,6 +290,25 @@ label#custom-screencast {
 #cpu.high,
 #memory.high {
   color: $red;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  // @include topbar-group;
+  // padding: 0.8rem 1rem;
+  margin-left: calc($default-spacing / 1.2);
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: color.adjust($color: white, $alpha: -0.2);
+}
+
+#idle_inhibitor.deactivated {
+  color: color.adjust($color: white, $alpha: -0.7);
 }
 
 /* -----------------------------------------------------

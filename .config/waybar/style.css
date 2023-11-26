@@ -30,7 +30,6 @@ window#waybar {
 }
 
 .modules-right {
-  padding-right: 0.3rem;
   padding-left: 1.4rem;
 }
 
@@ -76,7 +75,7 @@ window#waybar {
 }
 
 #tray {
-  margin-right: 2.7272727273rem;
+  margin-right: 2.5rem;
 }
 
 #tray > .passive {
@@ -113,7 +112,7 @@ window#waybar {
 }
 
 label#custom-screencast {
-  margin-right: 2.7272727273rem;
+  margin-right: 1.7647058824rem;
   padding: 0 0.875rem;
   color: #f38ba8;
   animation-name: blink-red;
@@ -123,21 +122,12 @@ label#custom-screencast {
   animation-direction: alternate;
 }
 
-#idle_inhibitor {
-  margin-right: 2.7272727273rem;
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#idle_inhibitor.deactivated {
-  color: rgba(255, 255, 255, 0.3);
-}
-
 #hardware * {
   margin-right: 1.0169491525rem;
+}
+
+#hardware:last-child {
+  margin-right: 0;
 }
 
 #cpu,
@@ -161,6 +151,19 @@ label#custom-screencast {
   color: #f38ba8;
 }
 
+#idle_inhibitor {
+  margin-left: 2.5rem;
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#idle_inhibitor.deactivated {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 tooltip {
   border-radius: 0.65rem;
   background-color: #313244;
@@ -179,3 +182,4 @@ tooltip label {
   font-size: 1rem;
   color: #cdd6f4;
 }
+

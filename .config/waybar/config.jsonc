@@ -22,8 +22,8 @@
   "modules-right": [
     "custom/screencast",
     "tray",
-    "idle_inhibitor",
-    "group/hardware"
+    "group/hardware",
+    "idle_inhibitor"
   ],
 
   "group/hardware": {
