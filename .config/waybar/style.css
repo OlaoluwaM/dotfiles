@@ -21,8 +21,8 @@ window#waybar {
 
 #workspaces {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
-  padding: 0.25rem 1.2rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.65rem;
   margin-right: 0.8571428571rem;
 }
 
@@ -48,7 +48,7 @@ window#waybar {
 
 #window {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   padding: 0.25rem 1.2rem;
   margin-left: 0;
   transition: all 0.5s ease-in-out;
@@ -56,19 +56,15 @@ window#waybar {
 
 #clock {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
-  padding: 0.25rem 1.2rem;
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.875rem;
 }
 
 label#custom-screencast {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
-  padding: 0.25rem 1.2rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.875rem;
   margin-right: 1.3636363636rem;
-  padding-right: 0.875rem;
-  padding-left: 0.875rem;
   color: #f38ba8;
   animation-name: blink-red;
   animation-duration: 1s;
@@ -79,9 +75,8 @@ label#custom-screencast {
 
 #idle_inhibitor {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
-  padding: 0.25rem 1.2rem;
-  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 1rem;
   margin-right: 1.3636363636rem;
   font-size: 0.9rem;
 }
@@ -96,7 +91,7 @@ label#custom-screencast {
 
 #tray {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   padding: 0.25rem 1.2rem;
   margin-right: 1.3636363636rem;
 }
@@ -136,12 +131,12 @@ label#custom-screencast {
 
 #hardware {
   background: rgba(30, 30, 46, 0.75);
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   padding: 0.25rem 1.2rem;
 }
 
 #hardware * {
-  margin-right: 1.0169491525rem;
+  margin-right: 1.0909090909rem;
 }
 
 #hardware:last-child {
@@ -150,7 +145,7 @@ label#custom-screencast {
 
 #cpu,
 #memory {
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   color: #cdd6f4;
 }
 
@@ -170,7 +165,7 @@ label#custom-screencast {
 }
 
 tooltip {
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
   background-color: #313244;
   padding: 1.25rem;
 }
@@ -179,7 +174,7 @@ tooltip decoration {
   border: none;
   border-image-width: 0;
   outline-width: 0;
-  border-radius: 0.65rem;
+  border-radius: 0.75rem;
 }
 
 tooltip label {

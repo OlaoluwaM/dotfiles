@@ -41,17 +41,17 @@ $rosewater: #f5e0dc;
 /**
  * Defaults
  */
-$default-radius: 0.65rem;
+$default-radius: 0.75rem;
 $default-spacing: 3rem;
 
 /* -----------------------------------------------------
  * Mixins
  * ----------------------------------------------------- */
 
-@mixin topbar-group {
+@mixin topbar-group($top-btm-padding: 0.25rem, $left-right-padding: 1.2rem) {
   background: color.adjust($color: $base, $alpha: -0.25);
   border-radius: $default-radius;
-  padding: 0.25rem 1.2rem;
+  padding: $top-btm-padding $left-right-padding;
 }
 
 @mixin win-decoration($radius: 1rem) {
@@ -118,7 +118,7 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-  @include topbar-group;
+  @include topbar-group($left-right-padding: 0.65rem);
   margin-right: calc($default-spacing / 3.5);
 }
 
@@ -148,7 +148,6 @@ window#waybar {
 
 #window {
   @include topbar-group;
-  // padding: 0 0.875rem;
   margin-left: 0;
   transition: all 0.5s ease-in-out;
 }
@@ -158,9 +157,7 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #clock {
-  @include topbar-group;
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
+  @include topbar-group($left-right-padding: 0.875rem);
 }
 
 /* -----------------------------------------------------
@@ -168,10 +165,8 @@ window#waybar {
  * ----------------------------------------------------- */
 
 label#custom-screencast {
-  @include topbar-group;
+  @include topbar-group($left-right-padding: 0.875rem);
   margin-right: calc($default-spacing / 2.2);
-  padding-right: 0.875rem;
-  padding-left: 0.875rem;
   color: $red;
   animation-name: blink-red;
   animation-duration: 1s;
@@ -185,8 +180,7 @@ label#custom-screencast {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-  @include topbar-group;
-  padding: 0.8rem 1rem;
+  @include topbar-group($left-right-padding: 1rem);
   margin-right: calc($default-spacing / 2.2);
   font-size: 0.9rem;
 }
@@ -249,7 +243,7 @@ $tray-radius: 0.625rem;
 }
 
 #hardware * {
-  margin-right: calc($default-spacing / 2.95);
+  margin-right: calc($default-spacing / 2.75);
 }
 
 #hardware:last-child {
