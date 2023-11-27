@@ -74,6 +74,30 @@ window#waybar {
   padding-right: 0.875rem;
 }
 
+label#custom-screencast {
+  margin-right: 1.875rem;
+  padding: 0 0.875rem;
+  color: #f38ba8;
+  animation-name: blink-red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#idle_inhibitor {
+  margin-right: 2.5rem;
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#idle_inhibitor.deactivated {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 #tray {
   margin-right: 2.5rem;
 }
@@ -111,17 +135,6 @@ window#waybar {
   border-radius: 2rem;
 }
 
-label#custom-screencast {
-  margin-right: 1.7647058824rem;
-  padding: 0 0.875rem;
-  color: #f38ba8;
-  animation-name: blink-red;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
 #hardware * {
   margin-right: 1.0169491525rem;
 }
@@ -149,19 +162,6 @@ label#custom-screencast {
 #cpu.high,
 #memory.high {
   color: #f38ba8;
-}
-
-#idle_inhibitor {
-  margin-left: 2.5rem;
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#idle_inhibitor.deactivated {
-  color: rgba(255, 255, 255, 0.3);
 }
 
 tooltip {

@@ -165,6 +165,41 @@ window#waybar {
 }
 
 /* -----------------------------------------------------
+ * Screencast
+ * ----------------------------------------------------- */
+
+label#custom-screencast {
+  // @include topbar-group;
+  margin-right: calc($default-spacing / 1.6);
+  padding: 0 0.875rem;
+  color: $red;
+  animation-name: blink-red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  // @include topbar-group;
+  // padding: 0.8rem 1rem;
+  margin-right: calc($default-spacing / 1.2);
+  font-size: 0.9rem;
+}
+
+#idle_inhibitor.activated {
+  color: color.adjust($color: white, $alpha: -0.2);
+}
+
+#idle_inhibitor.deactivated {
+  color: color.adjust($color: white, $alpha: -0.7);
+}
+
+/* -----------------------------------------------------
  * Tray
  * ----------------------------------------------------- */
 
@@ -204,22 +239,6 @@ $tray-radius: 0.625rem;
 
 #tray menu check {
   border-radius: 2rem;
-}
-
-/* -----------------------------------------------------
- * Screencast
- * ----------------------------------------------------- */
-
-label#custom-screencast {
-  // @include topbar-group;
-  margin-right: calc($default-spacing / 1.7);
-  padding: 0 0.875rem;
-  color: $red;
-  animation-name: blink-red;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 /* -----------------------------------------------------
@@ -290,25 +309,6 @@ label#custom-screencast {
 #cpu.high,
 #memory.high {
   color: $red;
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-
-#idle_inhibitor {
-  // @include topbar-group;
-  // padding: 0.8rem 1rem;
-  margin-left: calc($default-spacing / 1.2);
-  font-size: 0.9rem;
-}
-
-#idle_inhibitor.activated {
-  color: color.adjust($color: white, $alpha: -0.2);
-}
-
-#idle_inhibitor.deactivated {
-  color: color.adjust($color: white, $alpha: -0.7);
 }
 
 /* -----------------------------------------------------
