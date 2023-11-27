@@ -51,7 +51,7 @@ $default-spacing: 3rem;
 @mixin topbar-group {
   background: color.adjust($color: $base, $alpha: -0.25);
   border-radius: $default-radius;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.2rem;
 }
 
 @mixin win-decoration($radius: 1rem) {
@@ -96,31 +96,30 @@ window#waybar {
  * Modules
  * ----------------------------------------------------- */
 
-.modules-left,
-.modules-right {
-  @include topbar-group;
-  padding-right: 1.2rem;
-  padding-left: 1.2rem;
-  transition: all 0.5s ease-in-out;
-}
+// .modules-left,
+// .modules-right {
+//   @include topbar-group;
+//   padding-right: 1.2rem;
+//   padding-left: 1.2rem;
+//   transition: all 0.5s ease-in-out;
+// }
 
-.modules-right {
-  // padding-right: 0.3rem;
-  padding-left: 1.4rem;
-}
+// .modules-right {
+//   padding-right: 0.3rem;
+//   padding-left: 1.4rem;
+// }
 
-.modules-left {
-  padding-left: 0.5rem;
-}
+// .modules-left {
+//   padding-left: 0.5rem;
+// }
 
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
-  // @include topbar-group;
-  // padding: 0rem 0.4rem;
-  margin-right: calc($default-spacing / 3.2);
+  @include topbar-group;
+  margin-right: calc($default-spacing / 3.5);
 }
 
 #workspaces button {
@@ -148,9 +147,9 @@ window#waybar {
 * ----------------------------------------------------- */
 
 #window {
-  // @include topbar-group;
+  @include topbar-group;
   // padding: 0 0.875rem;
-  margin-left: calc($default-spacing / 2.5);
+  margin-left: 0;
   transition: all 0.5s ease-in-out;
 }
 
@@ -169,9 +168,10 @@ window#waybar {
  * ----------------------------------------------------- */
 
 label#custom-screencast {
-  // @include topbar-group;
-  margin-right: calc($default-spacing / 1.6);
-  padding: 0 0.875rem;
+  @include topbar-group;
+  margin-right: calc($default-spacing / 2.2);
+  padding-right: 0.875rem;
+  padding-left: 0.875rem;
   color: $red;
   animation-name: blink-red;
   animation-duration: 1s;
@@ -185,9 +185,9 @@ label#custom-screencast {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-  // @include topbar-group;
-  // padding: 0.8rem 1rem;
-  margin-right: calc($default-spacing / 1.2);
+  @include topbar-group;
+  padding: 0.8rem 1rem;
+  margin-right: calc($default-spacing / 2.2);
   font-size: 0.9rem;
 }
 
@@ -206,9 +206,8 @@ label#custom-screencast {
 $tray-radius: 0.625rem;
 
 #tray {
-  // @include topbar-group;
-  // padding: 0rem 1rem;
-  margin-right: calc($default-spacing / 1.2);
+  @include topbar-group;
+  margin-right: calc($default-spacing / 2.2);
 }
 
 #tray > .passive {
@@ -246,8 +245,7 @@ $tray-radius: 0.625rem;
  * ----------------------------------------------------- */
 
 #hardware {
-  // @include topbar-group;
-  // padding: 0 1.1rem;
+  @include topbar-group;
 }
 
 #hardware * {
@@ -264,6 +262,7 @@ $tray-radius: 0.625rem;
   opacity: 1;
   margin-right: 0;
   color: $text;
+  padding-right: 0;
 }
 
 #battery.charging,

@@ -19,26 +19,11 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
-.modules-left,
-.modules-right {
+#workspaces {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.65rem;
-  padding: 0.25rem 1rem;
-  padding-right: 1.2rem;
-  padding-left: 1.2rem;
-  transition: all 0.5s ease-in-out;
-}
-
-.modules-right {
-  padding-left: 1.4rem;
-}
-
-.modules-left {
-  padding-left: 0.5rem;
-}
-
-#workspaces {
-  margin-right: 0.9375rem;
+  padding: 0.25rem 1.2rem;
+  margin-right: 0.8571428571rem;
 }
 
 #workspaces button {
@@ -62,21 +47,28 @@ window#waybar {
 }
 
 #window {
-  margin-left: 1.2rem;
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1.2rem;
+  margin-left: 0;
   transition: all 0.5s ease-in-out;
 }
 
 #clock {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.65rem;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.2rem;
   padding-left: 0.875rem;
   padding-right: 0.875rem;
 }
 
 label#custom-screencast {
-  margin-right: 1.875rem;
-  padding: 0 0.875rem;
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1.2rem;
+  margin-right: 1.3636363636rem;
+  padding-right: 0.875rem;
+  padding-left: 0.875rem;
   color: #f38ba8;
   animation-name: blink-red;
   animation-duration: 1s;
@@ -86,7 +78,11 @@ label#custom-screencast {
 }
 
 #idle_inhibitor {
-  margin-right: 2.5rem;
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1.2rem;
+  padding: 0.8rem 1rem;
+  margin-right: 1.3636363636rem;
   font-size: 0.9rem;
 }
 
@@ -99,7 +95,10 @@ label#custom-screencast {
 }
 
 #tray {
-  margin-right: 2.5rem;
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1.2rem;
+  margin-right: 1.3636363636rem;
 }
 
 #tray > .passive {
@@ -133,6 +132,12 @@ label#custom-screencast {
 
 #tray menu check {
   border-radius: 2rem;
+}
+
+#hardware {
+  background: rgba(30, 30, 46, 0.75);
+  border-radius: 0.65rem;
+  padding: 0.25rem 1.2rem;
 }
 
 #hardware * {
