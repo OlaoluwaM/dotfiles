@@ -10,7 +10,7 @@ cdialog() {
 notify() {
     local message=$1
     local delay=${2:-2} # Default to 2 seconds if not provided
-    notify-send --expire-time=1200 --icon="system-shutdown-symbolic" "System Info" "$message"
+    notify-send --expire-time=4000 --icon="system-shutdown-symbolic" "System Info" "$message"
     sleep $delay # Using the provided sleep time or default
 }
 

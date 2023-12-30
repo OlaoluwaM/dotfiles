@@ -2,17 +2,18 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Desktop/serokell/dev']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell', '/home/olaolu/Downloads/flatpaks', '/home/olaolu/AppImages']
-last-backup='2023-11-18T11:02:08.875576Z'
-last-run='2023-11-18T11:01:48.366882Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell', '/home/olaolu/Downloads/flatpaks', '/home/olaolu/AppImages', '/home/olaolu/.config/Mailspring']
+last-backup='2023-12-29T17:04:36.382776Z'
+last-run='2023-12-29T17:03:30.951317Z'
 nag-check='2023-11-03T22:17:24.452901Z'
 periodic=true
 periodic-period=7
 prompt-check='2023-02-06T09:07:27.653045Z'
 tool='duplicity'
-window-height=511
-window-maximized=true
-window-width=700
+window-fullscreened=false
+window-height=496
+window-maximized=false
+window-width=703
 
 [google]
 folder='mimir.home'

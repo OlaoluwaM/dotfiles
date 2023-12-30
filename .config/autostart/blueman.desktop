@@ -66,4 +66,4 @@ Terminal=false
 Type=Application
 NotShowIn=KDE;GNOME;
 Hidden=true
-Categories=
+X-GNOME-Autostart-enabled=false

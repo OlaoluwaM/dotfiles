@@ -1,1 +1,3 @@
-{ "config.ini": "$HOME/.config/gammastep" }
+{
+  "exclude": "all"
+}

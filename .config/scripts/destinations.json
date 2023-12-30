@@ -1,12 +1,3 @@
 {
-  "change-wallpaper": "$CUSTOM_BIN_DIR",
-  "lib-search": "$CUSTOM_BIN_DIR",
-  "use-as-wallpaper": "$HOME/.local/share/nautilus/scripts",
-  "screenshot": "$CUSTOM_BIN_DIR",
-  "exclude": [
-    ".cosine/*",
-    "node-lib-search.js",
-    "preprend-css.sh",
-    "lib-search"
-  ]
+  "exclude": "all"
 }

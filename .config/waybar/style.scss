@@ -246,16 +246,12 @@ $tray-radius: 0.625rem;
   margin-right: calc($default-spacing / 2.75);
 }
 
-#hardware:last-child {
-  margin-right: 0;
-}
-
 /* Battery */
 
 #battery {
   opacity: 1;
-  margin-right: 0;
   color: $text;
+  margin-right: 0;
   padding-right: 0;
 }
 

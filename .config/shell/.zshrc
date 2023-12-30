@@ -194,3 +194,5 @@ eval "$(fnm env --use-on-cd)"
 MANPATH=$HOME/.local/share/man:$MANPATH
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
+
+source /home/olaolu/.config/broot/launcher/bash/br

@@ -1,3 +1,3 @@
 {
-  "config-xpui.ini": "~/.config/spicetify"
+  "exclude": "all"
 }

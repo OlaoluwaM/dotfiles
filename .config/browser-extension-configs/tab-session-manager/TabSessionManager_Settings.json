@@ -27,7 +27,7 @@
   "includesAutoSaveToSync": true,
   "openButtonBehavior": "openInNewWindow",
   "saveButtonBehavior": "saveAllWindows",
-  "isSessionListOpenInTab": true,
+  "isSessionListOpenInTab": false,
   "theme": "dark",
   "popupWidthV2": 700,
   "popupHeight": 500,

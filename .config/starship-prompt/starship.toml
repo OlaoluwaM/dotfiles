@@ -7,7 +7,7 @@ scan_timeout = 10
 
 format = """
 [╭─ ](surface1)$all\
-$fill\
+$fill \
 $status$cmd_duration $time\
 $line_break\
 [╰─](surface1)$character
@@ -25,7 +25,7 @@ error_symbol = "[➜](bold red)"
 
 [time]
 disabled = false
-time_format = '%a %b%e %R'
+time_format = '%a %b %e %R'
 format = '[ $time ]($style)'
 style = "white dimmed"
 
@@ -43,7 +43,7 @@ style = "white dimmed"
 
 [status]
 # format = '[$symbol $signal_name\($signal_number\)]($style) '
-format = '[$symbol]($style) '
+format = '[$symbol]($style)'
 map_symbol = true
 disabled = false
 

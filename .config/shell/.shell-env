@@ -451,6 +451,21 @@ function pkg() {
   fi
 }
 
+function backupGnomeKeybindings() {
+  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >| "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
+  dconf dump /org/gnome/desktop/wm/keybindings/ >| "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
+}
+
+function restoreGnomeKeybindings() {
+  if [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf" ]] || [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf" ]]; then
+    echo "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf not found"
+    return 1
+  fi
+
+  dconf load '/org/gnome/desktop/wm/keybindings/' < "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
+  dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
+}
+
 function hyprland() {
   Hyprland
 
@@ -660,3 +675,4 @@ alias eza="eza --color=always --icons=always"
 alias ezaTree="eza --color=always --icons=always --tree -L 1"
 
 alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
+alias updateInstalledCrates="cargo-install-update install-update -a"

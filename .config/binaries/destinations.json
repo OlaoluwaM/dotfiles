@@ -1,4 +1,4 @@
 {
   "all": "$CUSTOM_BIN_DIR",
-  "exclude": ["sway-audio-idle-inhibit"]
+  "exclude": ["sway-audio-idle-inhibit", "hyprkeys", "swww", "swww-daemon"]
 }

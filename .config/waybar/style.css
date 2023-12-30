@@ -1,8 +1,27 @@
+/* -----------------------------------------------------
+ * Variables
+ * ----------------------------------------------------- */
+/**
+ * Catppuccin Mocha palette
+ */
+/**
+ * Defaults
+ */
+/* -----------------------------------------------------
+ * Mixins
+ * ----------------------------------------------------- */
+/* -----------------------------------------------------
+ * Animations
+ * ----------------------------------------------------- */
 @keyframes blink-red {
   to {
     color: rgba(243, 139, 168, 0.4);
   }
 }
+/* ----------------------------------------------------- * Styles * ----------------------------------------------------- */
+/* -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
 * {
   font-family: "SF Pro Rounded", "Font Awesome 6 Free", Roboto, sans-serif;
   border: none;
@@ -19,6 +38,12 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
 #workspaces {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -46,6 +71,9 @@ window#waybar {
   background-color: rgba(108, 112, 134, 0.4);
 }
 
+/* -----------------------------------------------------
+* Window
+* ----------------------------------------------------- */
 #window {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -54,12 +82,18 @@ window#waybar {
   transition: all 0.5s ease-in-out;
 }
 
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
 #clock {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
   padding: 0.25rem 0.875rem;
 }
 
+/* -----------------------------------------------------
+ * Screencast
+ * ----------------------------------------------------- */
 label#custom-screencast {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -73,6 +107,9 @@ label#custom-screencast {
   animation-direction: alternate;
 }
 
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
 #idle_inhibitor {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -89,6 +126,9 @@ label#custom-screencast {
   color: rgba(255, 255, 255, 0.3);
 }
 
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
 #tray {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -129,6 +169,9 @@ label#custom-screencast {
   border-radius: 2rem;
 }
 
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
 #hardware {
   background: rgba(30, 30, 46, 0.75);
   border-radius: 0.75rem;
@@ -139,10 +182,38 @@ label#custom-screencast {
   margin-right: 1.0909090909rem;
 }
 
-#hardware:last-child {
+/* Battery */
+#battery {
+  opacity: 1;
+  color: #cdd6f4;
   margin-right: 0;
+  padding-right: 0;
 }
 
+#battery.charging,
+#battery.plugged,
+#battery.full {
+  color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  color: #f9e2af;
+}
+
+#battery.medium:not(.charging) {
+  color: #89b4fa;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation-name: blink-red;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* CPU & RAM */
 #cpu,
 #memory {
   border-radius: 0.75rem;
@@ -164,6 +235,9 @@ label#custom-screencast {
   color: #f38ba8;
 }
 
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
 tooltip {
   border-radius: 0.75rem;
   background-color: #313244;
@@ -183,3 +257,4 @@ tooltip label {
   color: #cdd6f4;
 }
 
+/*# sourceMappingURL=style.css.map */
