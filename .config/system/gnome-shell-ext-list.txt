@@ -4,6 +4,7 @@ burn-my-windows@schneegans.github.com
 caffeine@patapon.info
 gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com
 gnome-ui-tune@itstime.tech
+gsconnect@andyholmes.github.io
 just-perfection-desktop@just-perfection
 pano@elhan.io
 sp-tray@sp-tray.esenliyim.github.com
