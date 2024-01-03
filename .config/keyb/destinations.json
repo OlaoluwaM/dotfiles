@@ -1,1 +1,3 @@
-{ "keyb.yml": "$HOME/.config/keyb/" }
+{
+  "exclude": "all"
+}

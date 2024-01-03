@@ -148,11 +148,6 @@ function addToPATH() {
   esac
 }
 
-function fixSpicePermissionIssues() {
-  sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
-  sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
-}
-
 function createPyVirtEnv() {
   currentDir=$(pwd)
   virtualEnvPath="${1:=$currentDir}"
@@ -511,7 +506,6 @@ function restartWaybar() {
 # Env Variables
 export DOTS="$HOME/Desktop/dotfiles/.config"
 export SHELL_ENV="$HOME/.shell-env"
-export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
@@ -580,12 +574,9 @@ alias lls="logo-ls"
 
 alias updateNodeToLatest="updateNodeTo $(fnm list-remote | tail --lines 1)"
 alias open="xdg-open"
-alias spice="spicetify"
-
-alias sysfetch="fm6000"
 alias getDirSize="du -sh"
-alias getFileSize="du -h"
 
+alias getFileSize="du -h"
 alias nv="nvim"
 alias echo="echo -e"
 

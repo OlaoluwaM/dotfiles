@@ -146,9 +146,6 @@ if command -v hacker-laws-cli &>/dev/null; then
   hacker-laws-cli random
 fi
 
-# The Fuck (https://github.com/nvbn/thefuck)
-eval $(thefuck --alias fuck)
-
 # bun completions
 [ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
 
