@@ -1,1 +1,1 @@
-{ "catppuccin-mocha.ini": "~/.config/fsh" }
+{ "catppuccin-mocha.ini": "$XDG_CONFIG_HOME/fsh" }

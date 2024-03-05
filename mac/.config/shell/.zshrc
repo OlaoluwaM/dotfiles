@@ -117,11 +117,10 @@ if [[ -f "$HOME/.shell-env" ]]; then
 fi
 
 source "$DOTS/shell/smartdots.zsh"
-# source "$DOTS/shell/nvm-setup.zsh"
 
-# if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
-#   source "$DOTS/shell/augment-path-var.sh"
-# fi
+if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
+  source "$DOTS/shell/augment-path-var.sh"
+fi
 
 # Do not override files using `>`, but it's still possible using `>|`
 set -o noclobber
@@ -136,10 +135,11 @@ if command -v quote &>/dev/null; then
   quote
 fi
 
-export PATH="/usr/local/bin:$PATH"
+if command -v hacker-laws-cli &>/dev/null; then
+  hacker-laws-cli random
+fi
 
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
+export PATH="/usr/local/bin:$PATH"
 
 # Navi (https://github.com/denisidoro/navi)
 eval "$(navi widget zsh)"
@@ -147,26 +147,22 @@ eval "$(navi widget zsh)"
 # Atuin (https://github.com/ellie/atuin)
 eval "$(atuin init zsh)"
 
-fpath=($fpath "/home/olaolu/.zfunctions")
-fpath=($fpath "/home/olaolu/.zfunctions")
-
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
+# FNM https://github.com/Schniz/fnm#shell-setup
+eval "$(fnm env --use-on-cd)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # pnpm
-export PNPM_HOME="/home/olaolu/.local/share/pnpm"
+export PNPM_HOME="/Users/ola.mustapha/Library/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-# FNM https://github.com/Schniz/fnm#shell-setup
-eval "$(fnm env --use-on-cd)"
+source /Users/ola.mustapha/.config/broot/launcher/bash/br
 
-# Add Custom MAN path to $MANPATH
-MANPATH=$HOME/.local/share/man:$MANPATH
-
-source /home/olaolu/.config/broot/launcher/bash/br
-
-[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
+[ -f "/Users/ola.mustapha/.ghcup/env" ] && source "/Users/ola.mustapha/.ghcup/env" # ghcup-env

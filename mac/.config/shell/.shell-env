@@ -148,7 +148,6 @@ function updateNodeTo() {
   echo "Done!"
 }
 
-
 function vc() {
   targetDir="${1:=.}"
 
@@ -163,13 +162,12 @@ function listInstalledCrates() {
   cargo install --list | grep ':' | awk '{print $1}'
 }
 
-
 function backupGHExtensions() {
   gh extension list | awk '{print $3}' >|"$DOTS/gh/gh-extensions.txt"
 }
 
 # Env Variables
-export DOTS="$HOME/Desktop/dotfiles/mac/.config"
+export DOTS="$HOME/Desktop/dev/dotfiles/mac/.config"
 export SHELL_ENV="$HOME/.shell-env"
 
 export VISUAL="nvim"
@@ -190,6 +188,9 @@ export FZF_DEFAULT_OPTS=" \
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
+
+export CUSTOM_BIN_DIR="$HOME/.bin"
+export XDG_CONFIG_HOME="$HOME/Library/Application Support"
 
 # Aliases
 alias doesFileExist="does_entity_exist -f File"

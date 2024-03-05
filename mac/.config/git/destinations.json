@@ -1,5 +1,5 @@
 {
-  "git-forgit": "$HOME/.local/bin",
-  "forgit.plugin.zsh": "$HOME/.local/bin",
-  "git-fire": "$HOME/.local/bin"
+  "git-forgit": "$CUSTOM_BIN_DIR",
+  "forgit.plugin.zsh": "$CUSTOM_BIN_DIR",
+  "git-fire": "$CUSTOM_BIN_DIR"
 }
