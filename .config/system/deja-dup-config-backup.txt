@@ -2,10 +2,10 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Desktop/serokell/dev']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell', '/home/olaolu/Downloads/flatpaks', '/home/olaolu/AppImages', '/home/olaolu/.config/Mailspring']
-last-backup='2023-12-29T17:04:36.382776Z'
-last-run='2023-12-29T17:03:30.951317Z'
-nag-check='2023-11-03T22:17:24.452901Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell', '/home/olaolu/Downloads/flatpaks', '/home/olaolu/AppImages', '/home/olaolu/.config/Mailspring', '/home/olaolu/appimage-downloads', '/home/olaolu/Downloads/SaveDesktop']
+last-backup='2024-03-03T14:51:54.175562Z'
+last-run='2024-03-03T14:50:01.836404Z'
+nag-check='2024-01-08T14:47:02.502354Z'
 periodic=true
 periodic-period=7
 prompt-check='2023-02-06T09:07:27.653045Z'
@@ -16,4 +16,4 @@ window-maximized=false
 window-width=703
 
 [google]
-folder='mimir.home'
+folder='laptop-backups'

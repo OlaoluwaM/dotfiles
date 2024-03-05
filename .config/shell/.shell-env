@@ -119,8 +119,8 @@ function chpwd() {
   emulate -L zsh
   check_directory_for_new_repository
 
-  if command -v logo-ls &>/dev/null; then
-    logo-ls -a
+  if command -v lsd &>/dev/null; then
+    lsd
   elif command -v eza &>/dev/null; then
     eza --color=always --icons=always -a
   else
@@ -245,7 +245,11 @@ function updateGnomeTheme() {
 }
 
 function backupInstalledCrates() {
-  cargo install --list | grep ':' | awk '{print $1}' >|"$DISTRO_SETUP/src/common/assets/rust-crates.txt"
+  listInstalledCrates >|"$DISTRO_SETUP/src/common/assets/rust-crates.txt"
+}
+
+function listInstalledCrates() {
+  cargo install --list | grep ':' | awk '{print $1}'
 }
 
 function generatePsswd() {
@@ -555,6 +559,9 @@ export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
+export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
+export WARP_ENABLE_WAYLAND=1
+
 # Aliases
 alias doesFileExist="does_entity_exist -f File"
 alias doesDirExist="does_entity_exist -d Directory"
@@ -661,9 +668,10 @@ alias checkForCrateUpdates="cargo-install-update install-update --list"
 alias bunR="bun repl"
 alias checkRecentlyUpdatedPackages="dnf history info"
 
-alias cw="change-wallpaper"
-alias eza="eza --color=always --icons=always"
-alias ezaTree="eza --color=always --icons=always --tree -L 1"
+#alias cw="change-wallpaper"
+#alias lls="eza --color=always --icons=always"
+#alias lst="eza --color=always --icons=always --tree -L 1"
 
 alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
 alias updateInstalledCrates="cargo-install-update install-update -a"
+alias ipy="ipython"

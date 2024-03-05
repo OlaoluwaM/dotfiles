@@ -190,6 +190,8 @@ eval "$(fnm env --use-on-cd)"
 # Add Custom MAN path to $MANPATH
 MANPATH=$HOME/.local/share/man:$MANPATH
 
-[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
+#[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
 
 source /home/olaolu/.config/broot/launcher/bash/br
+
+[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env

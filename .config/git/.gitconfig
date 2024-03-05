@@ -48,7 +48,7 @@
   sw = switch
 
 [credential]
-  helper = /usr/lib/git-core/git-credential-libsecret
+  helper = libsecret
 
 [init]
   defaultBranch = main
@@ -72,7 +72,7 @@
   required = true
 
 [gpg]
-  program = /usr/bin/gpg2
+	program = gpg2
 
 [tag]
   gpgSign = true

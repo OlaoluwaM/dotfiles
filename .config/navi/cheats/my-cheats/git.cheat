@@ -75,7 +75,14 @@ git diff <branch_one> <branch_two> --name-only
 # Undo git rebase if it has not been followed by a reset, merge, or another rebase (https://stackoverflow.com/questions/134882/undoing-a-git-rebase)
 git reset --hard ORIG_HEAD
 
+# Replace local branch with remote (https://stackoverflow.com/questions/9210446/how-to-replace-local-branch-with-remote-branch-entirely-in-git)
+git reset --hard @{u}
 
+# Undo all local uncommitted changes (https://stackoverflow.com/questions/14075581/git-undo-all-uncommitted-or-unsaved-changes)
+ git checkout .
+
+ # Remove all local untracked files
+ git clean -n
 
 
 
