@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pathsToAdd=(".local/bin" "go/bin" ".spicetify")
+pathsToAdd=(".local/bin" "go/bin")
 
 for pathToDir in "${pathsToAdd[@]}"; do
    if ! echo $PATH | grep -q "$HOME/$pathToDir"; then

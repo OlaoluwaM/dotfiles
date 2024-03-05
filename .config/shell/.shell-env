@@ -483,13 +483,6 @@ function removeDuplicateProcesses() {
   echo "Duplicates of ${procName} removed."
 }
 
-function restartWaybar() {
-  pkill waybar
-  sleep 0.5s
-  waybar &>/dev/null &
-  disown
-}
-
 # Env Variables
 export DOTS="$HOME/Desktop/dotfiles/.config"
 export SHELL_ENV="$HOME/.shell-env"
