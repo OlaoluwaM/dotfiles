@@ -1,0 +1,92 @@
+% git
+
+# Rename remote git branch (https://stackoverflow.com/a/30590238/17612886)
+git branch -m <old_branch_name> <new_branch_name>
+git push <remote> --delete <old_branch_name>
+git branch --unset-upstream <old_branch_name>
+git push -u <remote> <new_remote_branch_name>
+
+# Diff two branches by name only
+git diff --name-only <branch_one> <branch_two>
+
+# Diff two branches excluding the package-lock.json file
+git diff <branch_one> <branch_two> -- . ':(exclude)package-lock.json'
+
+# Remove all local branches except specified one
+git branch | grep -v "<branch_one>" | xargs git branch -D
+
+# Unset current branch's upstream
+git branch --unset-upstream
+
+# Set current branch's upstream without pushing
+git branch --set-upstream-to <upstream_branch_name>
+
+# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commits A & B are included):
+git cherry-pick <older_commit_A_hash>^..<newer_commit_B_hash>
+
+# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commit A is not included):
+git cherry-pick <older_commit_A_hash>..<newer_commit_B_hash>
+
+# Git add, but exclude certain files
+git add --all -- ':!path/to/file1' ':!path/to/file2' ':!path/to/folder1/*'
+
+# Fetch a remote branch that does not exist locally and create it
+git switch <remote_branch_name>
+
+# Checkout a git commit
+git checkout <commit>
+
+# Create new remote git repository with Github CLI
+gh repo create <repo_name> --public --push --source <repo_source>
+
+# Checkout file from one branch another
+git checkout <branch_one> -- <file>
+
+# Restore staged file (undo staging for file)
+git restore --staged <file>
+
+# Check if a directory is a git repo (https://remarkablemark.org/blog/2020/06/05/check-git-repository/, https://stackoverflow.com/a/39518382/17612886)
+git -C <path-to-dir> rev-parse 2>/dev/null
+
+# Undo last commit, keeping changes
+git reset --soft HEAD~1
+
+# Undo last commit, disregarding changes
+git reset --hard HEAD~1
+
+# Undo a commit (preserving changes)
+git reset --soft <commit>
+
+# Undo a commit (discarding changes)
+git reset --hard <commit>
+
+# Identify common ancestor between two branches
+git merge-base <branch_one> <branch_two> | git show -s
+
+# Output contents of file from another branch (cat contents of file from another branch)
+git show <branch_one>:<abs_path_to_desired_file>
+
+# Cherry-pick from commit A to commit B, including commit A (note that commit A should be OLDER than commit B)
+git cherry-pick <commit_A>^..<commit_B>
+
+# Git diff but with file names only
+git diff <branch_one> <branch_two> --name-only
+
+# Undo git rebase if it has not been followed by a reset, merge, or another rebase (https://stackoverflow.com/questions/134882/undoing-a-git-rebase)
+git reset --hard ORIG_HEAD
+
+# Replace local branch with remote (https://stackoverflow.com/questions/9210446/how-to-replace-local-branch-with-remote-branch-entirely-in-git)
+git reset --hard @{u}
+
+# Undo all local uncommitted changes (https://stackoverflow.com/questions/14075581/git-undo-all-uncommitted-or-unsaved-changes)
+ git checkout .
+
+ # Remove all local untracked files
+ git clean -n
+
+
+
+$ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
+$ branch_one: git branch --list
+$ branch_two: git branch --list
+$ repo_source: echo -e ".\n"

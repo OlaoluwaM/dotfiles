@@ -1,0 +1,242 @@
+#!/usr/bin/env zsh
+# shellcheck disable=SC1071
+
+function does_entity_exist() {
+  if test "$1" "$3"; then
+    echo "${2} ${3} exists"
+  else
+    echo "${2} ${3} does not exist"
+  fi
+}
+
+function newRemoteBranch() {
+  branchName="${1:=HEAD}"
+  remote="${2:=origin}"
+
+  git push -u "$remote" "$branchName"
+}
+
+function downloadFile() {
+  URL="$1"
+  FILE_NAME="$2"
+  echo -e "\n"
+
+  if command -v http &>/dev/null; then
+    if [ -z "$FILE_NAME" ]; then
+      http -d "$URL"
+    else
+      http -d "$URL" -o "$FILE_NAME"
+    fi
+
+  elif command -v curl &>/dev/null; then
+    echo -e "Seems like httpie is not installed...Using curl instead\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      curl -LJO "$URL"
+    else
+      curl -LJo "$FILE_NAME" "$URL"
+    fi
+
+  elif command -v wget &>/dev/null; then
+    echo -e "Seems like curl is not installed. Let's try wget\n"
+
+    if [ -z "$FILE_NAME" ]; then
+      wget "$URL"
+    else
+      wget -O "$FILE_NAME" "$URL"
+    fi
+
+  else
+    echo "Seems like neither httpie, curl, or wget are available. Please download one of them first!"
+    exit 126
+  fi
+}
+
+# Gotten from https://github.com/o2sh/onefetch/wiki/getting-started
+last_repository=
+check_directory_for_new_repository() {
+  current_repository=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  if [[ "$current_repository" ]] && [[ "$current_repository" != "$last_repository" ]]; then
+    echo -e "\r"
+    onefetch 2>/dev/null
+  fi
+  last_repository=$current_repository
+  echo -e "\r"
+}
+
+# Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
+function chpwd() {
+  emulate -L zsh
+  check_directory_for_new_repository
+
+  if command -v lsd &>/dev/null; then
+    lsd
+  elif command -v eza &>/dev/null; then
+    eza --color=always --icons=always -a
+  else
+    ls -a
+  fi
+}
+
+function generatePsswd() {
+  LENGTH="${1:=16}"
+  echo "Generating new password..."
+  bw generate -ulns --length $LENGTH | tr -d '"' | pbcopy
+  echo "Password copied to clipboard"
+}
+
+function removeQuotes() {
+  # Removes both single and double quotes
+  # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
+  tr -d "'\""
+}
+
+function timerWithNotif() {
+  timerDuration="${1:=5m}"
+
+  termdown $timerDuration
+  noti -t "Timer Countdown" -m "Time's Up!"
+}
+
+function backupGlobalNpmPkgs() {
+  pnpm ls -g | tail --lines +6 | awk '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function installBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    pnpm add -g $line
+  done <"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function uninstallBackedUpGlobalNpmPkgs() {
+  while read -r line; do
+    pnpm rm -g $line
+  done <"$DOTS/npm/global-npm-pkgs.txt"
+}
+
+function updateNodeTo() {
+  nextNodeVer="$1"
+  prevNodeVer="$(node -v)"
+
+  echo -e "Backing up global npm packages...\c"
+  backupGlobalNpmPkgs
+  echo "Done!"
+
+  echo "Removing global npm packages for current node version..."
+  uninstallBackedUpGlobalNpmPkgs
+
+  echo "Installing latest node version..."
+  fnm use "$nextNodeVer" --install-if-missing --corepack-enabled
+  fnm default "$nextNodeVer"
+  echo -e "Installation complete\n"
+
+  echo "Reinstalling pnpm..."
+  corepack prepare pnpm@latest --activate
+  echo -e "Done\n"
+
+  echo -e "Finalizing pnpm installation...\c"
+  sleep 2
+  echo "Done!"
+
+  echo "Reinstalling global packages from previous node version with pnpm..."
+  installBackedUpGlobalNpmPkgs
+  echo -e "Done!\n"
+
+  echo "Removing previous node version..."
+  fnm uninstall "$prevNodeVer"
+  echo "Done!"
+}
+
+
+function vc() {
+  targetDir="${1:=.}"
+
+  code $targetDir
+}
+
+function backupInstalledCrates() {
+  listInstalledCrates >|"$DOTS/rust/rust-crates.txt"
+}
+
+function listInstalledCrates() {
+  cargo install --list | grep ':' | awk '{print $1}'
+}
+
+
+function backupGHExtensions() {
+  gh extension list | awk '{print $3}' >|"$DOTS/gh/gh-extensions.txt"
+}
+
+# Env Variables
+export DOTS="$HOME/Desktop/dotfiles/mac/.config"
+export SHELL_ENV="$HOME/.shell-env"
+
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+export DEV="$HOME/Desktop/dev"
+
+export ZSH_ALIAS_FINDER_AUTOMATIC=true
+export NAVI_PATH="$DOTS/navi/cheats"
+export NAVI_CONFIG="$DOTS/navi/config.yaml"
+export ATUIN_CONFIG_DIR="$DOTS/atuin"
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
+export _ZO_DATA_DIR="$DOTS/zoxide"
+export TEALDEER_CONFIG_DIR="$DOTS/tldr"
+export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
+
+# Aliases
+alias doesFileExist="does_entity_exist -f File"
+alias doesDirExist="does_entity_exist -d Directory"
+alias listGlobalNpmPackages="pnpm -g ls"
+
+alias reloadEnv="source ~/.shell-env"
+alias editEnv="nv $HOME/.shell-env"
+alias updateNodeToLatest="updateNodeTo $(fnm list-remote | tail --lines 1)"
+
+alias nv="nvim"
+alias echo="echo -e"
+alias zshconfig="nvim ~/.zshrc"
+
+alias bgrep="batgrep"
+alias bman="batman"
+alias copy="pbcopy"
+
+alias paste="pbpaste"
+alias diffDirs="diff -qr"
+alias lg="lazygit"
+
+alias reload="omz reload"
+alias clr="clear"
+alias q="cd ~ && clear"
+
+alias e="$EDITOR"
+alias x+="chmod +x"
+alias bt="bat -p"
+
+alias hc="ghci"
+alias backupGHAliases="gh alias list >|$DOTS/gh/aliases.yml"
+
+alias pm="pnpm"
+alias pmA="pnpm add"
+alias pmAD="pnpm add -D"
+
+alias updatePnpm="corepack prepare pnpm@latest --activate"
+alias updateGHC="ghcup tui"
+alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
+
+alias dev="cd $DEV"
+alias se="sudoedit"
+alias updateNvim="nvim +AstroUpdate"
+
+alias pmAG="pnpm add -g"
+alias dots="cd $DOTS"
+alias checkForCrateUpdates="cargo-install-update install-update --list"
+
+alias updateInstalledCrates="cargo-install-update install-update -a"
