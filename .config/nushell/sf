@@ -176,10 +176,10 @@ function updateGnomeTheme() {
   sudo flatpak override --env=GTK_THEME="$themeName"
   echo -e "\n"
 
-  echo "Linking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
+  echo "Linking gtk-4.0 contents to $XDG_CONFIG_HOME/gtk-4.0/ dir to theme other more stubborn applications..."
   ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
 
-  # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
+  # echo -e "\nLinking gtk-3.0 contents to $XDG_CONFIG_HOME/gtk-3.0/ dir, just in case..."
   # ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
 
   addPaddingToGnomeTerminal

@@ -62,8 +62,8 @@
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-[includeIf "gitdir:~/Desktop/serokell/"]
-  path = ~/.gitconfig-work
+[includeIf "gitdir:$HOME/Desktop/serokell/"]
+  path = $HOME/.gitconfig-work
 
 [filter "lfs"]
   clean = git-lfs clean -- %f

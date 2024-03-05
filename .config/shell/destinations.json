@@ -1,6 +1,6 @@
 {
   "all": "~",
-  "catppuccin-zsh-syntax-highlighting.zsh": "~/.zsh-custom",
+  "catppuccin-zsh-syntax-highlighting.zsh": "$HOME/.zsh-custom",
   "exclude": [
     "smartdots.zsh",
     "linux-tty-catppuccin-colors.sh",

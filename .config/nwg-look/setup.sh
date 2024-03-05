@@ -29,8 +29,8 @@ target_dir="/usr/share/nwg-look"
 unlink() {
     if [[ -d "$target_dir" ]]; then
 
-        if [[ "$target_dir" == "$HOME/.config/" ]] || [[ "$target_dir" == "$HOME/.config" ]]; then
-            echo "No!!!!!!!!! You cannot delete ~/.config"
+        if [[ "$target_dir" == "$XDG_CONFIG_HOME/" ]] || [[ "$target_dir" == "$XDG_CONFIG_HOME" ]]; then
+            echo "No!!!!!!!!! You cannot delete $XDG_CONFIG_HOME"
             echo "Bad boy"
             exit 1
         fi

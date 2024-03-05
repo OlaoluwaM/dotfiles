@@ -1,1 +1,1 @@
-{ "exclude": ["./Catppuccin-Mocha/*"], "Mailspring.desktop": "~/.local/share/applications" }
+{ "exclude": ["./Catppuccin-Mocha/*"], "Mailspring.desktop": "$XDG_DATA_HOME/applications" }

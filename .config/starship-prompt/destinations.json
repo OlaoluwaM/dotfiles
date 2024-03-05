@@ -1,1 +1,1 @@
-{ "starship.toml": "$HOME/.config" }
+{ "starship.toml": "$XDG_CONFIG_HOME" }

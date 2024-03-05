@@ -1,4 +1,4 @@
-{ 
-  "theme.toml": "$HOME/.config/yazi",
-  "Catppuccin-mocha.tmTheme": "$HOME/.config/yazi"
+{
+  "theme.toml": "$XDG_CONFIG_HOME/yazi",
+  "Catppuccin-mocha.tmTheme": "$XDG_CONFIG_HOME/yazi"
 }

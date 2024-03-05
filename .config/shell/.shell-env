@@ -133,7 +133,7 @@ function editPromptConf() {
 
   if [[ $SHELL_PROMPT == *"starship"* ]]; then
     echo "Opening Starship config..."
-    nv "$HOME/.config/starship.toml" || vi "$HOME/.config/starship.toml"
+    nv "$XDG_CONFIG_HOME/starship.toml" || vi "$XDG_CONFIG_HOME/starship.toml"
   elif [[ $SHELL_PROMPT == *"spaceship"* ]]; then
     echo "Opening Spaceship config..."
     nv "$HOME/.zshrc" || vi "$HOME/.zshrc"
@@ -228,7 +228,7 @@ function updateGnomeTheme() {
   themeDir="$THEMES_DIR/$themeName"
 
   if [[ ! -d "$themeDir" ]]; then
-    echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the ~/.themes directory"
+    echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the $HOME/.themes directory"
     return 1
   fi
 
@@ -236,11 +236,11 @@ function updateGnomeTheme() {
   sudo flatpak override --env=GTK_THEME="$themeName"
   echo -e "\n"
 
-  echo "Linking gtk-4.0 contents to ~/.config/gtk-4.0/ dir to theme other more stubborn applications..."
-  ln -svf $themeDir/gtk-4.0/* "$HOME/.config/gtk-4.0/"
+  echo "Linking gtk-4.0 contents to $XDG_CONFIG_HOME/gtk-4.0/ dir to theme other more stubborn applications..."
+  ln -svf $themeDir/gtk-4.0/* "$XDG_CONFIG_HOME/gtk-4.0/"
 
-  # echo -e "\nLinking gtk-3.0 contents to ~/.config/gtk-3.0/ dir, just in case..."
-  # ln -svf $themeDir/gtk-3.0/* "$HOME/.config/gtk-3.0/"
+  # echo -e "\nLinking gtk-3.0 contents to $XDG_CONFIG_HOME/gtk-3.0/ dir, just in case..."
+  # ln -svf $themeDir/gtk-3.0/* "$XDG_CONFIG_HOME/gtk-3.0/"
 
 }
 
@@ -508,7 +508,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
+export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 
@@ -544,7 +544,7 @@ alias doesDirExist="does_entity_exist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
 alias checkForUpdates="dnf check-update"
-alias reloadEnv="source ~/.shell-env"
+alias reloadEnv="source $HOME/.shell-env"
 alias editEnv="nv $HOME/.shell-env"
 
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
@@ -565,8 +565,8 @@ alias echo="echo -e"
 
 # shellcheck disable=SC2139
 alias cronBackup="crontab -l >|$SYS_BAK_DIR_UNDER_GIT/crontab-backup.bak"
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="nvim $HOME/.zshrc"
+alias ohmyzsh="nvim $HOME/.oh-my-zsh"
 
 alias refreshFonts="fc-cache -v"
 
@@ -587,7 +587,7 @@ alias nd="node-docs"
 alias lg="lazygit"
 
 # shellcheck disable=SC2139
-alias starshipConf="nvim $HOME/.config/starship.toml"
+alias starshipConf="nvim $XDG_CONFIG_HOME/starship.toml"
 
 alias reload="omz reload"
 alias clr="clear"

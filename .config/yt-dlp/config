@@ -1,2 +1,2 @@
 # Save all videos under Videos/useful-stuff directory in your home directory
--o ~/Videos/useful-stuff/%(title)s.%(ext)s
+-o $HOME/Videos/useful-stuff/%(title)s.%(ext)s

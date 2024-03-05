@@ -23,13 +23,13 @@ show_help() {
     echo "The rip (https://github.com/nivekuil/rip) utility is needed for this script to work"
 }
 
-target_dir="$HOME/.config/ags"
+target_dir="$XDG_CONFIG_HOME/ags"
 
 # Function for the unlink command
 unlink() {
     if [[ -d "$target_dir" ]]; then
-        if [[ "$target_dir" == "$HOME/.config/" ]] || [[ "$target_dir" == "$HOME/.config" ]]; then
-            echo "No!!!!!!!!! You cannot delete ~/.config"
+        if [[ "$target_dir" == "$XDG_CONFIG_HOME/" ]] || [[ "$target_dir" == "$XDG_CONFIG_HOME" ]]; then
+            echo "No!!!!!!!!! You cannot delete $XDG_CONFIG_HOME"
             echo "Bad boy"
             exit 1
         fi
