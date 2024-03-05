@@ -1,2 +1,2 @@
 .config/shell/.private-shell-env
-zoxide/
+**/*/zoxide/
