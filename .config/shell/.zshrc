@@ -165,8 +165,6 @@ eval "$(atuin init zsh)"
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-export PATH=$PATH:/home/olaolu/.spicetify
-
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
@@ -189,8 +187,6 @@ eval "$(fnm env --use-on-cd)"
 
 # Add Custom MAN path to $MANPATH
 MANPATH=$HOME/.local/share/man:$MANPATH
-
-#[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
 
 source /home/olaolu/.config/broot/launcher/bash/br
 

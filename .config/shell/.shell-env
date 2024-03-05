@@ -451,8 +451,8 @@ function pkg() {
 }
 
 function backupGnomeKeybindings() {
-  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >| "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
-  dconf dump /org/gnome/desktop/wm/keybindings/ >| "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
+  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
+  dconf dump /org/gnome/desktop/wm/keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
 }
 
 function restoreGnomeKeybindings() {
@@ -461,16 +461,8 @@ function restoreGnomeKeybindings() {
     return 1
   fi
 
-  dconf load '/org/gnome/desktop/wm/keybindings/' < "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
-  dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
-}
-
-function hyprland() {
-  Hyprland
-
-  echo "Logging out.."
-  sleep 1
-  logout
+  dconf load '/org/gnome/desktop/wm/keybindings/' <"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
+  dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' <"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
 }
 
 function removeDuplicateProcesses() {
@@ -489,15 +481,6 @@ function removeDuplicateProcesses() {
   fi
 
   echo "Duplicates of ${procName} removed."
-}
-
-function deepRestartAgs() {
-  pkill ags
-  ags -b hypr &>/dev/null &
-  disown
-
-  # To kill any duplicate ags inotifywait background processes
-  pgrep inotifywait | awk 'NR >= 2' | xargs -I {} kill {}
 }
 
 function restartWaybar() {
