@@ -1,8 +1,0 @@
-#!/bin/sh
-Selection=true
-LoginShell=/bin/bash --login
-
-# /etc/profile is sourced by using non-interactive shell
-
-exec dbus-launch $@
-
