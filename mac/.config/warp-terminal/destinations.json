@@ -1,1 +1,1 @@
-{ "themes/*": "$XDG_DATA_HOME/warp-terminal/themes" }
+{ "themes/*": "$HOME/.warp/themes" }

@@ -191,6 +191,7 @@ export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
 
 export CUSTOM_BIN_DIR="$HOME/.bin"
 export XDG_CONFIG_HOME="$HOME/Library/Application Support"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Aliases
 alias doesFileExist="does_entity_exist -f File"
