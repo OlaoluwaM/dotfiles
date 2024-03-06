@@ -166,3 +166,5 @@ esac
 source /Users/ola.mustapha/.config/broot/launcher/bash/br
 
 [ -f "/Users/ola.mustapha/.ghcup/env" ] && source "/Users/ola.mustapha/.ghcup/env" # ghcup-env
+# Created by `pipx` on 2024-03-06 00:33:47
+export PATH="$PATH:/Users/ola.mustapha/.local/bin"
