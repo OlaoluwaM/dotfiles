@@ -1,0 +1,10 @@
+{
+  "all": "$HOME",
+  "catppuccin-zsh-syntax-highlighting.zsh": "$HOME/.zsh-custom",
+  "exclude": [
+    "smartdots.zsh",
+    "powerline-test.sh",
+    ".private-shell-env-template",
+    "augment-path-var.sh"
+  ]
+}

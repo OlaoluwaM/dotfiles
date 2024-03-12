@@ -242,3 +242,4 @@ alias dots="cd $DOTS"
 alias checkForCrateUpdates="cargo-install-update install-update --list"
 
 alias updateInstalledCrates="cargo-install-update install-update -a"
+alias checkForUpdates="brew outdated"

@@ -116,6 +116,10 @@ if [[ -f "$HOME/.shell-env" ]]; then
   source "$HOME/.shell-env"
 fi
 
+if [[ -f "$HOME/.private-shell-env" ]]; then
+  source "$HOME/.private-shell-env"
+fi
+
 source "$DOTS/shell/smartdots.zsh"
 
 if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
