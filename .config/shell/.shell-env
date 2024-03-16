@@ -1,8 +1,70 @@
 #!/usr/bin/env zsh
 # shellcheck disable=SC1071
 
+# Env Variables
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state/"
+
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DESKTOP_DIR="$HOME/Desktop"
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_MUSIC_DIR="$HOME/Music"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+
+export XDG_VIDEOS_DIR="$HOME/Videos"
+
+export DOTS="$HOME/Desktop/dotfiles/.config"
+export SHELL_ENV="$HOME/.shell-env"
+
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+export DEV="$HOME/Desktop/labs"
+
+export DISTRO_SETUP="$DEV/distro-setup"
+export SYS_BAK_DIR_UNDER_GIT="$DOTS/system"
+export WALLPAPERS_DIR="$XDG_PICTURES_DIR/Wallpapers"
+
+export ZSH_ALIAS_FINDER_AUTOMATIC=true
+export PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
+export NAVI_PATH="$DOTS/navi/cheats"
+
+export NAVI_CONFIG="$DOTS/navi/config.yaml"
+export ATUIN_CONFIG_DIR="$DOTS/atuin"
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
+export _ZO_DATA_DIR="$DOTS/zoxide"
+export TEALDEER_CONFIG_DIR="$DOTS/tldr"
+
+export THEMES_DIR="$HOME/.themes"
+export CUSTOM_BIN_DIR="$HOME/.local/bin"
+export GPG_TTY="$(tty)"
+
+export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
+export CUSTOM_MAN_PATH="$XDG_DATA_HOME/man"
+
+export FONT_DIR="$XDG_DATA_HOME/fonts"
+export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
+export WARP_ENABLE_WAYLAND=1
+
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  export STARSHIP_CONFIG=$DOTS/starship/starship.toml
+else
+  export STARSHIP_CONFIG=$DOTS/starship/starship-warp.toml
+fi
+
+export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
+
 # Functions
-function does_entity_exist() {
+function doesThisExist() {
   if test "$1" "$3"; then
     echo "${2} ${3} exists"
   else
@@ -133,10 +195,10 @@ function editPromptConf() {
 
   if [[ $SHELL_PROMPT == *"starship"* ]]; then
     echo "Opening Starship config..."
-    nv "$XDG_CONFIG_HOME/starship.toml" || vi "$XDG_CONFIG_HOME/starship.toml"
-  elif [[ $SHELL_PROMPT == *"spaceship"* ]]; then
-    echo "Opening Spaceship config..."
-    nv "$HOME/.zshrc" || vi "$HOME/.zshrc"
+    nvim $STARSHIP_CONFIG || vi "$STARSHIP_CONFIG"
+  else
+    echo "Opening ZSH config..."
+    nvim "$HOME/.zshrc" || vi "$HOME/.zshrc"
   fi
 }
 
@@ -146,35 +208,6 @@ function addToPATH() {
   *":$1:"*) : ;;        # already there
   *) PATH="$PATH:$1" ;; # or PATH="$PATH:$1"
   esac
-}
-
-function createPyVirtEnv() {
-  currentDir=$(pwd)
-  virtualEnvPath="${1:=$currentDir}"
-
-  [[ ! -d $virtualEnvPath ]] && mkdir "$virtualEnvPath"
-
-  echo "layout python" >|"$virtualEnvPath/.envrc"
-  direnv allow "$virtualEnvPath"
-
-  # Commented out to avoid having two virtual envs in one directory
-  # python3 -m venv $virtualEnvPath/env
-
-  cd "$virtualEnvPath" || return
-
-  # Update pip version to latest since ensurepip is stuck at 21.1
-  python -m pip install --upgrade pip
-
-  # Install common depdendencies
-  # Reltive path because we have cd'ed into the target directory
-  reqFilePath="./requirements.txt"
-
-  echo "pylint" >|"$reqFilePath"
-  python3 -m pip install -r "$reqFilePath"
-
-  # Let us know what has been installed
-  echo -e "\n"
-  python3 -m pip list
 }
 
 function backupGHExtensions() {
@@ -260,7 +293,7 @@ function generatePsswd() {
 }
 
 function backupGnomeExtensions() {
-  EXTENSIONS_DIR="$HOME/.local/share/gnome-shell/extensions/"
+  EXTENSIONS_DIR="$XDG_DATA_HOME/gnome-shell/extensions/"
 
   ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR_UNDER_GIT/gnome-shell-ext-list.txt"
 }
@@ -268,6 +301,7 @@ function backupGnomeExtensions() {
 function removeQuotes() {
   # Removes both single and double quotes
   # https://stackoverflow.com/questions/9733338/shell-script-remove-first-and-last-quote-from-a-variable
+
   tr -d "'\""
 }
 
@@ -347,10 +381,6 @@ function backupDnfAliases() {
 
 function backupDejaDupConfig() {
   dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
-}
-
-function ydlSilent() {
-  yt-dlp "$1" &>/dev/null &
 }
 
 function queryUserInstalledPackages() {
@@ -436,19 +466,19 @@ function vc() {
   code $targetDir
 }
 
-function pkg() {
-  if [[ -f bun.lockb ]]; then
-    command bun "$@"
-  elif [[ -f pnpm-lock.yaml ]]; then
-    command pnpm "$@"
-  elif [[ -f yarn.lock ]]; then
-    command yarn "$@"
-  elif [[ -f package-lock.json ]]; then
-    command npm "$@"
-  else
-    command pnpm "$@"
-  fi
-}
+# function pkg() {
+#   if [[ -f bun.lockb ]]; then
+#     command bun "$@"
+#   elif [[ -f pnpm-lock.yaml ]]; then
+#     command pnpm "$@"
+#   elif [[ -f yarn.lock ]]; then
+#     command yarn "$@"
+#   elif [[ -f package-lock.json ]]; then
+#     command npm "$@"
+#   else
+#     command pnpm "$@"
+#   fi
+# }
 
 function backupGnomeKeybindings() {
   dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
@@ -467,7 +497,6 @@ function restoreGnomeKeybindings() {
 
 function removeDuplicateProcesses() {
   procName="$1"
-
   if [[ -z "$procName" ]]; then
     echo "This function requires a process name to work. Please provide one"
     return 1
@@ -483,64 +512,23 @@ function removeDuplicateProcesses() {
   echo "Duplicates of ${procName} removed."
 }
 
-# Env Variables
-export DOTS="$HOME/Desktop/dotfiles/.config"
-export SHELL_ENV="$HOME/.shell-env"
+# https://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
+function expandAlias() {
+  # if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
+  #   echo "$LBUFFER"
+  # fi
+  zle _expand_alias
+  # zle expand-word
+  # zle self-insert
+}
 
-export VISUAL="nvim"
-export EDITOR="$VISUAL"
-export DEV="$HOME/Desktop/labs"
+zle -N expandAlias
 
-export DISTRO_SETUP="$DEV/distro-setup"
-export FONT_DIR="$HOME/.local/share/fonts"
-export SYS_BAK_DIR_UNDER_GIT="$DOTS/system"
-
-export WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
-export ZSH_ALIAS_FINDER_AUTOMATIC=true
-export PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
-
-export NAVI_PATH="$DOTS/navi/cheats"
-export NAVI_CONFIG="$DOTS/navi/config.yaml"
-export ATUIN_CONFIG_DIR="$DOTS/atuin"
-
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
-export _ZO_DATA_DIR="$DOTS/zoxide"
-export TEALDEER_CONFIG_DIR="$DOTS/tldr"
-
-export THEMES_DIR="$HOME/.themes"
-export CUSTOM_BIN_DIR="$HOME/.local/bin"
-export CUSTOM_MAN_PATH="$HOME/.local/share/man"
-
-export GPG_TTY="$(tty)"
-export LIBRARY="$HOME/Documents/Library"
-export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
-
-export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-
-export XDG_STATE_HOME="$HOME/.local/state/"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DESKTOP_DIR="$HOME/Desktop"
-
-export XDG_DOCUMENTS_DIR="$HOME/Documents"
-export XDG_DOWNLOAD_DIR="$HOME/Downloads"
-export XDG_MUSIC_DIR="$HOME/Music"
-
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_VIDEOS_DIR="$HOME/Videos"
-
-export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
-export WARP_ENABLE_WAYLAND=1
+bindkey "^ " expandAlias
 
 # Aliases
-alias doesFileExist="does_entity_exist -f File"
-alias doesDirExist="does_entity_exist -d Directory"
+alias doesFileExist="doesThisExist -f File"
+alias doesDirExist="doesThisExist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
 alias checkForUpdates="dnf check-update"
@@ -549,25 +537,19 @@ alias editEnv="nv $HOME/.shell-env"
 
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias py="python3"
-alias pvpn="protonvpn-cli"
-
-alias activatePyVirtEnv="source ./bin/activate 2>/dev/null || source env/bin/activate"
-alias cls="colorls --dark"
-alias lls="logo-ls"
-
 alias updateNodeToLatest="updateNodeTo $(fnm list-remote | tail --lines 1)"
+
 alias open="xdg-open"
 alias getDirSize="du -sh"
-
 alias getFileSize="du -h"
+
 alias nv="nvim"
 alias echo="echo -e"
+alias zshconfig="nvim $HOME/.zshrc"
 
 # shellcheck disable=SC2139
 alias cronBackup="crontab -l >|$SYS_BAK_DIR_UNDER_GIT/crontab-backup.bak"
-alias zshconfig="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim $HOME/.oh-my-zsh"
-
 alias refreshFonts="fc-cache -v"
 
 alias bgrep="batgrep"
@@ -575,79 +557,62 @@ alias bman="batman"
 alias copy="wl-copy"
 
 alias paste="wl-paste"
-alias diffDirs="diff -qr"
-alias ydl="yt-dlp"
-
-alias pyV="python -V"
-alias pipV="python -m pip -V"
-alias pvpnUS="pvpn c -p udp --cc US && pvpn s"
-
 alias sizeOf="du -lh"
-alias nd="node-docs"
 alias lg="lazygit"
 
-# shellcheck disable=SC2139
-alias starshipConf="nvim $XDG_CONFIG_HOME/starship.toml"
-
-alias reload="omz reload"
+alias reloadOmz="omz reload"
 alias clr="clear"
 alias q="cd ~ && clear"
 
-alias sudo="sudo " # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+# https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias sudo="sudo "
 # shellcheck disable=SC2139
 alias e="$EDITOR"
 alias x+="chmod +x"
 
 alias st="speedtest"
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
+alias searchBw="bw list items --pretty --search"
 
 # shellcheck disable=SC2139
 alias editSysChangelog="nv $DOTS/system/changelog.md"
-alias searchBw="bw list items --pretty --search"
 alias tmd="termdown"
-
 alias bt="bat -p"
+
 alias hc="ghci"
 alias exitRoot="sudo -k"
-
 alias twn="timerWithNotif"
+
 # shellcheck disable=SC2139
 alias backupGHAliases="gh alias list >|$DOTS/gh/aliases.yml"
 alias fk="flatpak"
+alias updateGHC="ghcup tui"
 
 alias pm="pnpm"
 alias pmA="pnpm add"
 alias pmAD="pnpm add -D"
 
 alias updatePnpm="corepack prepare pnpm@latest --activate"
-alias updateGHC="ghcup tui"
-alias np="nap"
-
-alias gpt="chatgpt"
 alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
 alias dev="cd $DEV"
-alias labs="cd $DEV"
 
+alias labs="cd $DEV"
 alias docs="cd $HOME/Documents/"
+
 alias dlds="cd $HOME/Downloads/"
 alias se="sudoedit"
-
 alias icat="kitty +kitten icat"
+
 alias gpg="gpg2"
 alias updateNvim="nvim +AstroUpdate"
-
 alias hlcR="hacker-laws-cli random"
+
 alias pmAG="pnpm add -g"
 alias dots="cd $DOTS"
-
 alias checkForCrateUpdates="cargo-install-update install-update --list"
-alias bunR="bun repl"
+
 alias checkRecentlyUpdatedPackages="dnf history info"
-
-#alias cw="change-wallpaper"
-#alias lls="eza --color=always --icons=always"
-#alias lst="eza --color=always --icons=always --tree -L 1"
-
 alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
 alias updateInstalledCrates="cargo-install-update install-update -a"
+
 alias ipy="ipython"

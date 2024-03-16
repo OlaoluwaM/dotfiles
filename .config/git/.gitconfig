@@ -46,6 +46,7 @@
   deleteBranch = branch -D
   project-summary = !which onefetch && onefetch
   sw = switch
+  rmr = rm -r
 
 [credential]
   helper = libsecret

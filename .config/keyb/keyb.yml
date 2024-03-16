@@ -1,4 +1,6 @@
-- name: hyprland keybindings
+# https://github.com/kencx/keyb?tab=readme-ov-file#keyb-file
+
+- name: Gnome keybindings
   keybinds:
     - name: full screen record
       key: alt + f6

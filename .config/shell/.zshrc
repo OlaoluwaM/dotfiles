@@ -121,7 +121,6 @@ if [[ -f "$DOTS/shell/.private-shell-env" ]]; then
 fi
 
 source "$DOTS/shell/smartdots.zsh"
-# source "$DOTS/shell/nvm-setup.zsh"
 
 if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
   source "$DOTS/shell/augment-path-var.sh"
@@ -169,7 +168,7 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 eval "$(starship init zsh)"
 
 # pnpm
-export PNPM_HOME="/home/olaolu/.local/share/pnpm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -184,9 +183,6 @@ gpgconf --launch gpg-agent
 
 # FNM https://github.com/Schniz/fnm#shell-setup
 eval "$(fnm env --use-on-cd)"
-
-# Add Custom MAN path to $MANPATH
-MANPATH=$HOME/.local/share/man:$MANPATH
 
 source /home/olaolu/.config/broot/launcher/bash/br
 
