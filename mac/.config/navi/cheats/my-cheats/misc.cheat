@@ -48,8 +48,8 @@ ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"
 # List all installed Python version
 ls -ls /usr/bin/python*
 
-# Remove .keep files from directory
-find . -name '.keep' -delete
+# Remove .gitkeep files from directory
+find . -name '.gitkeep' -delete
 
 # Find duplicates in PATH variable
 echo $PATH | tr ':' '\n' | sort | uniq -d
@@ -69,23 +69,11 @@ nvm uninstall <node-version>
 # Check what will be included in published npm package
 npx npm-packlist
 
-# Update a snap package
-sudo snap refresh <package-name>
-
-# Check for snap packages to update
-snap refresh --list
-
-# Update all snap packages
-sudo snap refresh
-
 # Get password for currently connected WIFI
 sudo nmcli d wifi show
 
 # Update npm to latest
 npm install -g npm@latest
-
-# Update pnpm to latest
-corepack prepare pnpm@latest --activate
 
 # Change the TTL of the packets sent via ping
 ping -t <ttl_val> <destination_address>
@@ -105,10 +93,27 @@ gpg-connect-agent reloadagent /bye
 # TCP Dump verbose using IP & MAC adddresses, for a specific protocol
 sudo tcpdump -nvi <network_interfaces> <network_protocol>
 
+# Check all the processes listening on a specific port with a given network protocol
+lsof -i <network_protocol>:<port_number>
+
+# Do a dns lookup (resolve host name to IP address)
+dig +short <host_name_to_lookup>
+
+# Do a reverse dns lookup (resolve IP address to host name)
+dig -x <ip_address>
+
+# Check if a TCP connection exists, that is, check if a host can be reached (using a host name)
+nc -zv <host_name_to_lookup> <port_number>
+
+# Check if a TCP connection exists, that is, check if a host can be reached (using an IP name)
+nc -zv <ip_address> <port_number>
+
+# Get IP info for all network interfaces
+ifconfig
 
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
 $ package-name: snap list
 $ network_interfaces: nmcli con | awk '{print $4}' | head --lines -4 | tail --lines +2
-$ network_protocol: echo 'arp ip icmp tcp' | tr ' ' '\n'
+$ network_protocol: echo 'arp ip icmp tcp udp' | tr ' ' '\n'
