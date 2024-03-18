@@ -96,6 +96,9 @@ sudo tcpdump -nvi <network_interfaces> <network_protocol>
 # Check all the processes listening on a specific port with a given network protocol
 lsof -i <network_protocol>:<port_number>
 
+# Find all processes listening on a specific port
+lsof -i :<port_number>
+
 # Do a dns lookup (resolve host name to IP address)
 dig +short <host_name_to_lookup>
 

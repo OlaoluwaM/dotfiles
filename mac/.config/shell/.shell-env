@@ -26,12 +26,17 @@ export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
 
 export CUSTOM_BIN_DIR="$HOME/.bin"
 export XDG_CONFIG_HOME="$HOME/Library/Application Support"
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  export STARSHIP_CONFIG=$DOTS/starship/starship.toml
+else
+  export STARSHIP_CONFIG=$DOTS/starship/starship-warp.toml
+fi
 
 export C_INCLUDE_PATH="/opt/homebrew/Cellar/pcre/8.45/include/"
 
 # Functions
-function does_entity_exist() {
+function doesEntityExist() {
   if test "$1" "$3"; then
     echo "${2} ${3} exists"
   else
@@ -196,19 +201,23 @@ function backupGHExtensions() {
   gh extension list | awk '{print $3}' >|"$DOTS/gh/gh-extensions.txt"
 }
 
-function findAllProcessesAtPort() {
-  if [ -z "$1" ]; then
-    echo "Usage: find_process_by_port <port>"
-    return 1
-  fi
-
-  local port="$1"
-  lsof -i :"$port"
+# https://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
+function expandAlias() {
+  # if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
+  #   echo "$LBUFFER"
+  # fi
+  zle _expand_alias
+  # zle expand-word
+  # zle self-insert
 }
 
+zle -N expandAlias
+
+bindkey "^ " expandAlias
+
 # Aliases
-alias doesFileExist="does_entity_exist -f File"
-alias doesDirExist="does_entity_exist -d Directory"
+alias doesFileExist="doesEntityExist -f File"
+alias doesDirExist="doesEntityExist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
 alias reloadEnv="source ~/.shell-env"
