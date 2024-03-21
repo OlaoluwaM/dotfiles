@@ -6,7 +6,8 @@ palette = "catppuccin_mocha"
 
 # Inserts a blank line between shell prompts
 # add_newline = true
-scan_timeout = 10
+scan_timeout = 50
+command_timeout = 3000
 
 format = """
 (surface1)$all\

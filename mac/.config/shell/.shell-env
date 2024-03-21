@@ -213,7 +213,7 @@ function expandAlias() {
 
 zle -N expandAlias
 
-bindkey "^ " expandAlias
+bindkey " " expandAlias
 
 # Aliases
 alias doesFileExist="doesEntityExist -f File"
@@ -265,3 +265,4 @@ alias checkForCrateUpdates="cargo-install-update install-update --list"
 
 alias updateInstalledCrates="cargo-install-update install-update -a"
 alias checkForUpdates="brew outdated"
+alias twn="timerWithNotif"
