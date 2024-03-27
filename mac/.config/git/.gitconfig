@@ -1,7 +1,7 @@
 [user]
 email = 37044906+OlaoluwaM@users.noreply.github.com
 name = Olaoluwa Mustapha
-signingkey = D50A4749628572EF
+signingkey = 9B5FBC7CEF4C43EB
 
 [core]
 excludesfile = /Users/ola.mustapha/.gitignore_global
@@ -62,7 +62,7 @@ tool = code
 [mergetool "code"]
 cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-[includeIf "gitdir:~/Desktop/serokell/"]
+[includeIf "gitdir:~/Desktop/dev/megarepo/"]
 path = ~/.gitconfig-work
 
 [filter "lfs"]
