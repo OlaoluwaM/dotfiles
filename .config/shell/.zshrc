@@ -187,3 +187,10 @@ eval "$(fnm env --use-on-cd)"
 source /home/olaolu/.config/broot/launcher/bash/br
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
+
+# https://docs.haskellstack.org/en/stable/shell_autocompletion/
+if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
+  fpath=($HOME/.config/zsh/completions $fpath)
+  autoload -U compinit && compinit
+fi
+
