@@ -83,9 +83,14 @@ export ZSH="$HOME/.oh-my-zsh"
 #   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 # fi
 
+export NVM_DIR="$HOME/Library/Application Support/nvm"
+
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
 
-zstyle ':omz:plugins:nvm' silent-autoload yes lazy yes
+zstyle ':omz:plugins:nvm' autoload yes
+zstyle ':omz:plugins:nvm' silent-autoload yes
+zstyle ':omz:plugins:nvm' lazy yes
+
 source "$ZSH/oh-my-zsh.sh"
 
 # User Configuration
@@ -135,13 +140,13 @@ set -o noclobber
 
 # Other things to run
 # For inspirational Quotes
+if command -v hacker-laws-cli &>/dev/null; then
+  hacker-laws-cli random
+fi
+
 if command -v quote &>/dev/null; then
   echo -e "\r"
   quote
-fi
-
-if command -v hacker-laws-cli &>/dev/null; then
-  hacker-laws-cli random
 fi
 
 export PATH="/usr/local/bin:$PATH"
@@ -175,7 +180,3 @@ export PATH="$PATH:/Users/ola.mustapha/.local/bin"
 #export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/llvm@13/bin:$PATH"
-
-# export NVM_DIR="$HOME/Library/Application Support/nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
