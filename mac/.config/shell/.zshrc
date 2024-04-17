@@ -83,8 +83,9 @@ export ZSH="$HOME/.oh-my-zsh"
 #   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 # fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
 
+zstyle ':omz:plugins:nvm' silent-autoload yes lazy yes
 source "$ZSH/oh-my-zsh.sh"
 
 # User Configuration
@@ -154,10 +155,9 @@ eval "$(atuin init zsh)"
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
-# FNM https://github.com/Schniz/fnm#shell-setup
-eval "$(fnm env --use-on-cd)"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(fzf --zsh)"
 
 # pnpm
 export PNPM_HOME="/Users/ola.mustapha/Library/pnpm"
@@ -172,3 +172,10 @@ source /Users/ola.mustapha/.config/broot/launcher/bash/br
 [ -f "/Users/ola.mustapha/.ghcup/env" ] && source "/Users/ola.mustapha/.ghcup/env" # ghcup-env
 # Created by `pipx` on 2024-03-06 00:33:47
 export PATH="$PATH:/Users/ola.mustapha/.local/bin"
+#export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/llvm@13/bin:$PATH"
+
+# export NVM_DIR="$HOME/Library/Application Support/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
