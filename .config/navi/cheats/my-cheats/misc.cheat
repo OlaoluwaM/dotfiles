@@ -114,6 +114,12 @@ nc -zv <ip_address> <port_number>
 # Get IP info for all network interfaces
 ifconfig
 
+# Get System info
+sudo dmidecode -t1
+
+# Get BIOS info
+sudo dmidecode -t0
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
