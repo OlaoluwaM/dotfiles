@@ -83,7 +83,13 @@ export ZSH="$HOME/.oh-my-zsh"
 #   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
 # fi
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide)
+export NVM_DIR="$HOME/.config/nvm"
+
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
+
+zstyle ':omz:plugins:nvm' autoload yes
+zstyle ':omz:plugins:nvm' silent-autoload yes
+zstyle ':omz:plugins:nvm' lazy yes
 
 source "$ZSH/oh-my-zsh.sh"
 
@@ -136,13 +142,13 @@ set -o noclobber
 
 # Other things to run
 # For inspirational Quotes
+if command -v hacker-laws-cli &>/dev/null; then
+  hacker-laws-cli random
+fi
+
 if command -v quote &>/dev/null; then
   echo -e "\r"
   quote
-fi
-
-if command -v hacker-laws-cli &>/dev/null; then
-  hacker-laws-cli random
 fi
 
 # bun completions
@@ -167,6 +173,9 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
+# Uncomment when Fedora has fzf of at least v0.48 (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
+# eval "$(fzf --zsh)"
+
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 case ":$PATH:" in
@@ -181,9 +190,6 @@ gpgconf --launch gpg-agent
 # bun completions
 [ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"
 
-# FNM https://github.com/Schniz/fnm#shell-setup
-eval "$(fnm env --use-on-cd)"
-
 source /home/olaolu/.config/broot/launcher/bash/br
 
 [ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
@@ -193,4 +199,3 @@ if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
   fpath=($HOME/.config/zsh/completions $fpath)
   autoload -U compinit && compinit
 fi
-

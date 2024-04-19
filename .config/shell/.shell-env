@@ -330,48 +330,37 @@ function backupGlobalNpmPkgs() {
   pnpm ls -g | tail --lines +6 | awk '{print $1}' >|"$DOTS/npm/global-npm-pkgs.txt"
 }
 
-function installBackedUpGlobalNpmPkgs() {
-  while read -r line; do
-    pnpm add -g $line
-  done <"$DOTS/npm/global-npm-pkgs.txt"
-}
-
-function uninstallBackedUpGlobalNpmPkgs() {
-  while read -r line; do
-    pnpm rm -g $line
-  done <"$DOTS/npm/global-npm-pkgs.txt"
-}
-
 function updateNodeTo() {
   nextNodeVer="$1"
   prevNodeVer="$(node -v)"
+
+  if [[ $nextNodeVer == $prevNodeVer ]]; then
+    echo "Node is already at the intended version"
+    return
+  fi
 
   echo -e "Backing up global npm packages...\c"
   backupGlobalNpmPkgs
   echo "Done!"
 
-  echo "Removing global npm packages for current node version..."
-  uninstallBackedUpGlobalNpmPkgs
-
   echo "Installing latest node version..."
-  fnm use "$nextNodeVer" --install-if-missing --corepack-enabled
-  fnm default "$nextNodeVer"
+  nvm install --reinstall-packages-from=${prevNodeVer} --latest-npm $nextNodeVer
+  nvm alias default $nextNodeVer
   echo -e "Installation complete\n"
 
   echo "Reinstalling pnpm..."
+  corepack enable
   corepack prepare pnpm@latest --activate
   echo -e "Done\n"
 
-  echo -e "Finalizing pnpm installation...\c"
+  echo -e "Finalizing installation...\c"
+  node -v
   sleep 2
+  pnpm --version
   echo "Done!"
 
-  echo "Reinstalling global packages from previous node version with pnpm..."
-  installBackedUpGlobalNpmPkgs
-  echo -e "Done!\n"
-
   echo "Removing previous node version..."
-  fnm uninstall "$prevNodeVer"
+  nvm uninstall "$prevNodeVer"
   echo "Done!"
 }
 
@@ -466,20 +455,6 @@ function vc() {
   code $targetDir
 }
 
-# function pkg() {
-#   if [[ -f bun.lockb ]]; then
-#     command bun "$@"
-#   elif [[ -f pnpm-lock.yaml ]]; then
-#     command pnpm "$@"
-#   elif [[ -f yarn.lock ]]; then
-#     command yarn "$@"
-#   elif [[ -f package-lock.json ]]; then
-#     command npm "$@"
-#   else
-#     command pnpm "$@"
-#   fi
-# }
-
 function backupGnomeKeybindings() {
   dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
   dconf dump /org/gnome/desktop/wm/keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
@@ -537,7 +512,7 @@ alias editEnv="nv $HOME/.shell-env"
 
 alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
 alias py="python3"
-alias updateNodeToLatest="updateNodeTo $(fnm list-remote | tail --lines 1)"
+alias updateNodeToLatest="updateNodeTo node"
 
 alias open="xdg-open"
 alias getDirSize="du -sh"
