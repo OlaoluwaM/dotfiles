@@ -181,7 +181,7 @@ __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "bat-modules" \
-"2023.09.19" \
+"2024.02.12" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0

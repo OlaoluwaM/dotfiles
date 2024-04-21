@@ -327,7 +327,7 @@ __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "batgrep" \
-"2023.09.19" \
+"2024.02.12" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0
@@ -479,7 +479,10 @@ Options:
           Generate output for the specified terminal width.
 
       --no-separator:
-          Disable printing separator between files
+          Disable printing separator between files.
+
+      --rga:
+          Use ripgrep-all instead of ripgrep.
 
 Options passed directly to ripgrep:
   -F, --fixed-strings
@@ -520,6 +523,7 @@ Options passed directly to ripgrep:
       --ignore-file
 EOF
 }
+RIPGREP="rg"
 RG_ARGS=()
 BAT_ARGS=()
 PATTERN=""
@@ -616,6 +620,13 @@ RG_ARGS+=("$OPT" "$OPT_VAL")
 -p|--search-pattern)OPT_SEARCH_PATTERN=true;;
 --no-search-pattern)OPT_SEARCH_PATTERN=false;;
 --no-separator)OPT_NO_SEPARATOR=true;;
+--rga){
+if ! rga --version|grep 'ripgrep-all' &>/dev/null;then
+printc "%{RED}%s: option '--rga' requires ripgrep-all to be installed%{CLEAR}\n" "batgrep" 1>&2
+exit 1
+fi
+RIPGREP='rga'
+};;
 \
 --rg:*){
 if [[ ${OPT:5:1} == "-" ]];then
@@ -708,10 +719,10 @@ local COMMON_RG_ARGS=(
 "$PATTERN"
 "${FILES[@]}")
 if "$READ_FROM_STDIN";then
-"rg" "${COMMON_RG_ARGS[@]}" <<<"$STDIN_DATA"
+"$RIPGREP" "${COMMON_RG_ARGS[@]}" <<<"$STDIN_DATA"
 return $?
 else
-"rg" "${COMMON_RG_ARGS[@]}"
+"$RIPGREP" "${COMMON_RG_ARGS[@]}"
 return $?
 fi
 }

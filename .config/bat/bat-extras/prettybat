@@ -106,7 +106,7 @@ __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "prettybat" \
-"2023.09.19" \
+"2024.02.12" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0
@@ -224,7 +224,7 @@ print_error "%s: Not a file" "$1"
 return 1
 }
 hook_version
-FORMATTERS=("prettier" "rustfmt" "shfmt" "clangformat" "black")
+FORMATTERS=("prettier" "rustfmt" "shfmt" "clangformat" "black", "mix_format")
 formatter_prettier_supports(){
 case "$1" in
 .js|.jsx|\
@@ -288,6 +288,19 @@ formatter_black_process(){
 black --code "$(cat -)"
 return $?
 }
+formatter_mix_format_supports(){
+case "$1" in
+.ex|\
+.exs|\
+.eex|\
+.heex)return 0
+esac
+return 1
+}
+formatter_mix_format_process(){
+mix format
+return $?
+}
 map_language_to_extension(){
 local ext=".txt"
 case "$1" in
@@ -306,7 +319,9 @@ md|mdown|markdown)ext=".md";;
 yaml|yml)ext=".yml";;
 rust|rs)ext=".rs";;
 graphql|gql)ext=".graphql";;
-python|py)ext=".py"
+python|py)ext=".py";;
+elixir|ex)ext=".ex";;
+exs)ext=".exs"
 esac
 echo "$ext"
 }

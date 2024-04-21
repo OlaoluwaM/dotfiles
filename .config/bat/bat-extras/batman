@@ -8,7 +8,6 @@
 #!/usr/bin/env bash
 SELF_NC="${BASH_SOURCE:-$0}"
 SELF="$(cd "$(dirname "$SELF_NC")"&&cd "$(dirname "$(readlink "$SELF_NC"||echo ".")")"&&pwd)/$(basename "$(readlink "$SELF_NC"||echo "$SELF_NC")")"
-if [[ -n $MANPAGER ]];then BAT_PAGER="$MANPAGER";fi
 is_pager_less(){
 [[ "$(pager_name)" == "less" ]]
 return $?
@@ -280,7 +279,7 @@ __shiftopt_hook__version(){
 if [[ $OPT == "--version" ]];then
 printf "%s %s\n\n%s\n%s\n" \
 "batman" \
-"2023.09.19" \
+"2024.02.12" \
 "Copyright (C) 2019-2021 eth-p | MIT License" \
 "https://github.com/eth-p/bat-extras"
 exit 0
@@ -313,7 +312,7 @@ export BAT_STYLE="grid"
 fi
 if [[ ${BATMAN_IS_BEING_MANPAGER:-} == "yes" ]];then
 print_manpage(){
-col -bx|"bat" --language=man "${BAT_ARGS[@]}"
+sed -e 's/\x1B\[[0-9;]*m//g; s/.\x08//g'|"bat" --language=man "${BAT_ARGS[@]}"
 exit $?
 }
 if [[ ${#MAN_ARGS[@]} -eq 1 ]];then
@@ -323,6 +322,7 @@ cat|print_manpage
 fi
 exit
 fi
+if [[ -n $MANPAGER ]];then BAT_PAGER="$MANPAGER";fi
 export MANPAGER="env BATMAN_IS_BEING_MANPAGER=yes bash $(printf "%q " "$SELF" "${FORWARDED_ARGS[@]}")"
 export MANROFFOPT='-c'
 if [[ ${#MAN_ARGS[@]} -eq 0 ]]&&[[ -z $BATMAN_LEVEL ]]&&command -v "fzf" &>/dev/null;then
