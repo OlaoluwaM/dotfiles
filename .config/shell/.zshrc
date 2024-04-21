@@ -172,9 +172,6 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
 
-# Uncomment when Fedora has fzf of at least v0.48 (https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration)
-# eval "$(fzf --zsh)"
-
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 case ":$PATH:" in
@@ -209,3 +206,5 @@ if [[ -d "/usr/local/cuda-12.4/" ]]; then
   export PATH="/usr/local/cuda-12.4/bin:$PATH"
   export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
