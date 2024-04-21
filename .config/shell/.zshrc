@@ -201,5 +201,7 @@ fi
 
 eval "$(batpipe)"
 
+# https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
+# Update this when you install a newer version of cuda toolkit
 export PATH="/usr/local/cuda-12.4/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
