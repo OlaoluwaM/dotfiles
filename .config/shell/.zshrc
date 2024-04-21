@@ -199,7 +199,9 @@ if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
   autoload -U compinit && compinit
 fi
 
-eval "$(batpipe)"
+if command -v batpipe &>/dev/null; then
+  eval "$(batpipe)"
+fi
 
 # https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
 # Update this when you install a newer version of cuda toolkit
