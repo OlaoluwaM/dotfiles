@@ -1,10 +1,7 @@
 mislav/gh-branch
 yuler/gh-download
-gennaro-tedesco/gh-f
 maximousblk/gh-fire
 ymmmtym/gh-gitignore
-redraw/gh-install
-wuwe1/gh-ls
 vilmibm/gh-screensaver
 QWYNG/gh-stashes
 HaywardMorihara/gh-tidy
