@@ -65,6 +65,9 @@ cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [includeIf "gitdir:~/Desktop/dev/megarepo/"]
 path = ~/.gitconfig-work
 
+[includeIf "gitdir:~/Desktop/dev/progress/"]
+path = ~/.gitconfig-work
+
 [filter "lfs"]
 clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f

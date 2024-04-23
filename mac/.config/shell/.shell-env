@@ -168,8 +168,10 @@ function updateNodeTo() {
   echo -e "Done\n"
 
   echo -e "Finalizing installation...\c"
-  node -v
   sleep 2
+  node -v
+  npm doctor
+  yarn --version
   pnpm --version
   echo "Done!"
 
