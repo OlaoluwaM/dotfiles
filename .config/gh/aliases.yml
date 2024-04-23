@@ -4,7 +4,6 @@ d: download
 features: |-
   issue list
   --label=enhancement
-fzf: f
 igrep: '!gh issue list --label="$1" | grep "$2"'
 screen: screensaver
 view: repo view -w
