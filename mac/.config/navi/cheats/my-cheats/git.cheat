@@ -84,9 +84,17 @@ git reset --hard @{u}
  # Remove all local untracked files
  git clean -n
 
+# List all remote branches
+git branch -r | less -F | tail -n +2 | awk -F ' ' '{print $1}'
 
+# Delete remote branch
+git push origin --delete <remote_branches>
+
+# Empty/Clear git stash
+git stash clear
 
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
 $ repo_source: echo -e ".\n"
+$ remote_branches: git branch -r | less -F | tail -n +2 | awk -F ' ' '{print $1}'
