@@ -89,7 +89,6 @@ plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-a
 
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
-zstyle ':omz:plugins:nvm' lazy yes
 
 source "$ZSH/oh-my-zsh.sh"
 
