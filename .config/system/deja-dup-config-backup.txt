@@ -2,10 +2,10 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Desktop/serokell/dev']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/serokell', '/home/olaolu/Downloads/flatpaks', '/home/olaolu/AppImages', '/home/olaolu/.config/Mailspring', '/home/olaolu/appimage-downloads', '/home/olaolu/Downloads/SaveDesktop']
-last-backup='2024-03-03T14:51:54.175562Z'
-last-run='2024-03-03T14:50:01.836404Z'
-nag-check='2024-01-08T14:47:02.502354Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/AppImages', '/home/olaolu/appimage-downloads', '/home/olaolu/Downloads/SaveDesktop']
+last-backup='2024-04-30T10:29:11.254684Z'
+last-run='2024-04-30T10:28:42.961358Z'
+nag-check='2024-03-14T13:44:08.244614Z'
 periodic=true
 periodic-period=7
 prompt-check='2023-02-06T09:07:27.653045Z'
