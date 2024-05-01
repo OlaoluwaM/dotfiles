@@ -1,0 +1,19 @@
+[org/gnome/deja-dup]
+backend='google'
+delete-after=90
+exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images', '/home/olaolu/Desktop/serokell/dev']
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/AppImages', '/home/olaolu/appimage-downloads', '/home/olaolu/Downloads/SaveDesktop', '/home/olaolu/Desktop/labs/tutorials']
+last-backup='2024-04-30T10:56:58.723013Z'
+last-run='2024-04-30T10:56:16.045541Z'
+nag-check='2024-03-14T13:44:08.244614Z'
+periodic=true
+periodic-period=7
+prompt-check='2023-02-06T09:07:27.653045Z'
+tool='duplicity'
+window-fullscreened=false
+window-height=496
+window-maximized=false
+window-width=703
+
+[org/gnome/deja-dup/google]
+folder='laptop-backups'

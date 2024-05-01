@@ -86,6 +86,10 @@ function backupWallpapers() {
   $(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs"
 }
 
+function restoreWallpapers() {
+  "$WALLPAPERS_DIR/extractWallpapers.sh"
+}
+
 function downloadFile() {
   URL="$1"
   FILE_NAME="$2"
@@ -372,7 +376,27 @@ function backupDnfAliases() {
 }
 
 function backupDejaDupConfig() {
+  echo "Backing up DejaDup config..."
   dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
+
+  if [[ -d "$HOME/.var/app/org.gnome.DejaDup" ]]; then
+    echo "Also backing up config for flatpak..."
+    cat "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile" >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt"
+  fi
+
+  echo "Done!"
+}
+
+function restoreDejaDupConf() {
+  echo "Restoring DejaDup config..."
+  dconf load /org/gnome/deja-dup/ <$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini
+
+  if [[ -d "$HOME/.var/app/org.gnome.DejaDup" ]]; then
+    echo "Also restoring config for flatpak..."
+    cat "$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt" >|"$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile"
+  fi
+
+  echo "Done!"
 }
 
 function queryUserInstalledPackages() {
@@ -607,7 +631,6 @@ alias dots="cd $DOTS"
 alias checkForCrateUpdates="cargo-install-update install-update --list"
 
 alias checkRecentlyUpdatedPackages="dnf history info"
-alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
 alias updateInstalledCrates="cargo-install-update install-update -a"
 
 alias ipy="ipython"
