@@ -188,7 +188,6 @@ gpgconf --launch gpg-agent
 
 source /home/olaolu/.config/broot/launcher/bash/br
 
-[ -f "/home/olaolu/.ghcup/env" ] && source "/home/olaolu/.ghcup/env" # ghcup-env
 
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
@@ -208,3 +207,5 @@ if [[ -d "/usr/local/cuda-12.4/" ]]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup-env

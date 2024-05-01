@@ -372,7 +372,7 @@ function backupDnfAliases() {
 }
 
 function backupDejaDupConfig() {
-  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
+  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
 }
 
 function queryUserInstalledPackages() {
@@ -459,18 +459,35 @@ function vc() {
 }
 
 function backupGnomeKeybindings() {
-  dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
-  dconf dump /org/gnome/desktop/wm/keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
+  # https://www.reddit.com/r/gnome/comments/l3ha66/comment/gkgg6hh/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+  echo -n "Backing up keybindings..."
+  dconf dump /org/gnome/shell/keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/shell-keybindings.ini"
+  dconf dump /org/gnome/desktop/wm/keybindings/ >|"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.ini"
+  dconf dump /org/gnome/settings-daemon/plugins/media-keys/ >|"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.ini"
+  echo "Done!"
 }
 
 function restoreGnomeKeybindings() {
-  if [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf" ]] || [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf" ]]; then
-    echo "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf not found"
+  if [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/shell-keybindings.ini" ]]; then
+    echo "$SYS_BAK_DIR_UNDER_GIT/shell-keybindings.ini not found"
     return 1
   fi
 
-  dconf load '/org/gnome/desktop/wm/keybindings/' <"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.dconf"
-  dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' <"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.dconf"
+  if [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.ini" ]]; then
+    echo "$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.ini not found"
+    return 1
+  fi
+
+  if [[ ! -f "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.ini" ]]; then
+    echo "$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.ini not found"
+    return 1
+  fi
+
+  echo -n "Restoring keybindings..."
+  dconf load /org/gnome/shell/keybindings/ <"$SYS_BAK_DIR_UNDER_GIT/shell-keybindings.ini"
+  dconf load /org/gnome/desktop/wm/keybindings/ <"$SYS_BAK_DIR_UNDER_GIT/desktop-wm-keybindings.ini"
+  dconf load /org/gnome/settings-daemon/plugins/media-keys/ <"$SYS_BAK_DIR_UNDER_GIT/custom-keybindings.ini"
+  echo "Done!"
 }
 
 function removeDuplicateProcesses() {
@@ -590,7 +607,7 @@ alias dots="cd $DOTS"
 alias checkForCrateUpdates="cargo-install-update install-update --list"
 
 alias checkRecentlyUpdatedPackages="dnf history info"
-alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.txt"
+alias restoreDejaDupConf="dconf load /org/gnome/deja-dup/ < $SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
 alias updateInstalledCrates="cargo-install-update install-update -a"
 
 alias ipy="ipython"

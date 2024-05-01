@@ -8,7 +8,7 @@
     "nvm-setup.zsh",
     ".private-shell-env",
     ".private-shell-env-template",
-    "augment-path-var.sh"
+    "augment-path-var.sh",
     ".zsh_history"
   ]
 }
