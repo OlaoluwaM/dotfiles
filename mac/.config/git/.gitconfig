@@ -62,10 +62,7 @@ tool = code
 [mergetool "code"]
 cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-[includeIf "gitdir:~/Desktop/dev/megarepo/"]
-path = ~/.gitconfig-work
-
-[includeIf "gitdir:~/Desktop/dev/progress/"]
+[includeIf "gitdir:~/Desktop/dev/freckle/"]
 path = ~/.gitconfig-work
 
 [filter "lfs"]
