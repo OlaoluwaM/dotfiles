@@ -208,4 +208,5 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup-env
