@@ -177,4 +177,4 @@ source /Users/ola.mustapha/.config/broot/launcher/bash/br
 # Created by `pipx` on 2024-03-06 00:33:47
 export PATH="$PATH:/Users/ola.mustapha/.local/bin"
 
-export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
