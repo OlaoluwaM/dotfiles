@@ -136,6 +136,8 @@ source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
 # Do not override files using `>`, but it's still possible using `>|`
 set -o noclobber
 
+setopt HIST_IGNORE_SPACE
+
 # For vscode shell integrations
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
