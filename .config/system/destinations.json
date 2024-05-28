@@ -1,4 +1,4 @@
 {
-  "exclude": ["changelog.md", "*.ini", "*.bak", "*.txt"],
+  "exclude": ["changelog.md", "*.ini", "*.bak", "*.txt", "*.sh", "*.rules"],
   "bookmarks": "$XDG_CONFIG_HOME/gtk-3.0"
 }

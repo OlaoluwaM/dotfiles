@@ -43,7 +43,7 @@ export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 
-export THEMES_DIR="$HOME/.themes"
+export THEMES_DIR="$XDG_DATA_HOME/themes"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
 export GPG_TTY="$(tty)"
 
@@ -65,6 +65,9 @@ export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
 export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
 --color=fg:#cdd6f4,bg:#1e1e2e,matched:#313244,matched_bg:#f2cdcd,current:#cdd6f4,current_bg:#45475a,current_match:#1e1e2e,current_match_bg:#f5e0dc,spinner:#a6e3a1,info:#cba6f7,prompt:#89b4fa,cursor:#f38ba8,selected:#eba0ac,header:#94e2d5,border:#6c7086"
+
+export HISTFILE="$DOTS/shell/.zsh_history"
+export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 
 # Functions
 function doesThisExist() {
@@ -274,6 +277,7 @@ function updateGnomeTheme() {
 
   echo -e "Setting flatpak theme..."
   sudo flatpak override --env=GTK_THEME="$themeName"
+  export GTK_THEME="$themeName"
   echo -e "\n"
 
   echo "Linking gtk-4.0 contents to $XDG_CONFIG_HOME/gtk-4.0/ dir to theme other more stubborn applications..."
@@ -635,3 +639,8 @@ alias updateInstalledCrates="cargo-install-update install-update -a"
 
 alias ipy="ipython"
 alias man="batman"
+alias sysInfo="inxi -Fzxx"
+
+alias here="lsd ."
+alias nvidiaPrograms="sudo lsof /dev/nvidia0"
+alias isNvidiaGpuActive="supergfxctl -S"

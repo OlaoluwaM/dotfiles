@@ -2,9 +2,9 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Downloads/appimages', '/home/olaolu/Desktop/labs/tutorials']
-last-backup='2024-04-30T10:56:58.723013Z'
-last-run='2024-04-30T10:56:16.045541Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/labs/tutorials', '/home/olaolu/Downloads/appimages']
+last-backup='2024-05-08T14:20:57.611450Z'
+last-run='2024-05-08T14:19:34.808092Z'
 nag-check='2024-03-14T13:44:08.244614Z'
 periodic=true
 periodic-period=7
@@ -14,6 +14,7 @@ window-fullscreened=false
 window-height=496
 window-maximized=false
 window-width=703
+last-restore='2024-05-01T16:42:04.845121Z'
 
 [org/gnome/deja-dup/google]
 folder='laptop-backups'

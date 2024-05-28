@@ -1,2 +1,4 @@
 :set prompt "λ> "
 :set -XNoStarIsType
+:set -XTypeApplications
+:set -XImportQualifiedPost
