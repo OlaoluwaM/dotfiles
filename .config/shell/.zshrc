@@ -136,6 +136,7 @@ source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
 # Do not override files using `>`, but it's still possible using `>|`
 set -o noclobber
 
+# To allow us omit commands prefix with a space from shell history
 setopt HIST_IGNORE_SPACE
 
 # For vscode shell integrations
