@@ -212,6 +212,11 @@ zle -N expandAlias
 
 bindkey " " expandAlias
 
+function setGhcVersion() {
+  ghcVersion="$1"
+  ghcup set ghc "$ghcVersion"
+}
+
 # Aliases
 alias doesFileExist="doesEntityExist -f File"
 alias doesDirExist="doesEntityExist -d Directory"
