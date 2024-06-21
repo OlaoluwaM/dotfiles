@@ -120,6 +120,9 @@ sudo dmidecode -t1
 # Get BIOS info
 sudo dmidecode -t0
 
+# Get udev logs or something
+sudo journalctl -f
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

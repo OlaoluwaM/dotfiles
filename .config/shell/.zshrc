@@ -153,8 +153,6 @@ if command -v quote &>/dev/null; then
   quote
 fi
 
-# bun completions
-[ -s "/home/olaolu/.oh-my-zsh/completions/_bun" ] && source "/home/olaolu/.oh-my-zsh/completions/_bun"
 
 # Bun (https://github.com/oven-sh/bun)
 export BUN_INSTALL="/home/olaolu/.bun"
@@ -202,14 +200,26 @@ if command -v batpipe &>/dev/null; then
   eval "$(batpipe)"
 fi
 
-if [[ -d "/usr/local/cuda-12.4/" ]]; then
+#if [[ -d "/usr/local/cuda-12.4/" ]]; then
   # https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
   # Update this when you install a newer version of cuda toolkit
-  export PATH="/usr/local/cuda-12.4/bin:$PATH"
-  export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
-fi
+#  export PATH="/usr/local/cuda-12.4/bin:$PATH"
+#  export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
+#fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#https://docs.atuin.sh/reference/gen-completions/
+[ -s "$DOTS/shell/completions/_atuin" ] && source "$DOTS/shell/completions/_atuin"
+
+[ -s "$DOTS/shell/completions/aichat.zsh" ] && source "$DOTS/shell/completions/aichat.zsh"
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup-env
+
+export PATH="$HOME/appimage-apps:$PATH"
+
+# Homebrew (https://docs.brew.sh/Homebrew-on-Linux)
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+

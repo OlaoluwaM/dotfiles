@@ -1,8 +1,6 @@
-@bitwarden/cli
 @types/node
 dotfilers
 neovim
-qnm
 sass
 tsx
 typescript

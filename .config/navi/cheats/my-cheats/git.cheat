@@ -93,6 +93,12 @@ git push origin --delete <remote_branches>
 # Empty/Clear git stash
 git stash clear
 
+# git diff but exclude file
+git diff -- ':!<file_to_exclude>'
+
+# git diff staged changes
+git diff HEAD
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list

@@ -1,0 +1,26 @@
+model: ollama:llama3
+highlight: true
+
+clients:
+  - type: openai
+    api_key: <omitted>
+
+  - type: openai-compatible
+    name: jan-ai
+    api_base: http://127.0.0.1:1337/v1
+    models:
+      - name: mistral-ins-7b-q4
+
+      - name: llama3-8b-instruct
+
+      - name: aya-23-8b
+
+      - name: gemma-7b
+
+  - type: ollama
+    api_base: http://localhost:11434
+    models:
+      - name: codellama
+        max_input_tokens: 2048
+      - name: llama3
+        max_input_tokens: 2048
