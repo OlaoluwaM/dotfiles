@@ -557,7 +557,7 @@ function setGhcVersion() {
 }
 
 function backupAichatConf() {
-  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' config.yaml >| $DOTS/aichat/config.yaml
+  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/aichat/config.yaml >| $DOTS/aichat/config.yaml
 }
 
 function getNvidiaPrograms() {
@@ -567,6 +567,57 @@ function getNvidiaPrograms() {
 function getNvidiaProgramsRaw() {
   sudo lsof /dev/nvidia0 2> /dev/null
 }
+
+function updateDockerImages() {
+  docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -S --run-once
+}
+
+function aic() {
+  aichat "$@" | bat --paging=never -f -l md
+}
+
+function aicc() {
+  aichat -m ollama:codellama "$@" | bat --paging=never -f -l md
+}
+
+function aico() {
+  aichat -m openai:gpt-4o "$@" | bat --paging=never -f -l md
+}
+
+function aiccl() {
+  aichat -m claude:claude-3-5-sonnet-20240620 "$@" | bat --paging=never -f -l md
+}
+
+function aicR() {
+  aichat "$@"
+}
+
+function sysfetch() {
+  local commands=("fastfetch" "nitch" "rxfetch")
+  local available_commands=()
+
+  # Check which commands are available
+  for cmd in "${commands[@]}"; do
+    if command -v "$cmd" &> /dev/null; then
+      available_commands+=("$cmd")
+    fi
+  done
+
+  # If no commands are available, print an error message and exit
+  if [ ${#available_commands[@]} -eq 0 ]; then
+    echo "Error: None of the required commands (fastfetch, nitch, rxfetch) are available on this system."
+    return 1
+  fi
+
+  # Choose a random command from the available ones
+  local random_index=$((RANDOM % ${#available_commands[@]}))
+  ${available_commands[$random_index]}
+}
+
+function tab() {
+  tac "$@" | bat -f --style="auto"
+}
+
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"
@@ -666,10 +717,3 @@ alias isNvidiaGpuActive="supergfxctl -S"
 alias sgf="supergfxctl"
 alias ff="fastfetch"
 alias ldk="lazydocker"
-
-alias aic="aichat"
-alias aico="aichat -m openai:gpt-4o"
-alias aicc="aichat -m ollama:codellama"
-
-alias startOllama="docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama-custom ollama-custom"
-alias stopOllama="docker stop ollama-custom"

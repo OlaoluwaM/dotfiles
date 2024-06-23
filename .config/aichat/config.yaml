@@ -24,3 +24,6 @@ clients:
         max_input_tokens: 2048
       - name: llama3
         max_input_tokens: 2048
+
+  - type: claude
+    api_key: <omitted>

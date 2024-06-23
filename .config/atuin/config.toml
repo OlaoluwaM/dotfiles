@@ -26,3 +26,8 @@
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy
 # search_mode = "prefix"
+
+# https://docs.atuin.sh/configuration/config/#history_filter
+history_filter = [
+   "(sk-[a-zA-Z0-9]{1,48})|(sk-ant-api03-[a-zA-Z0-9-]{1,24})",
+]
