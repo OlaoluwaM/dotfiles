@@ -557,15 +557,15 @@ function setGhcVersion() {
 }
 
 function backupAichatConf() {
-  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/aichat/config.yaml >| $DOTS/aichat/config.yaml
+  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/aichat/config.yaml >|$DOTS/aichat/config.yaml
 }
 
 function getNvidiaPrograms() {
-  sudo lsof /dev/nvidia0 2> /dev/null | awk '{print $1}' | uniq | tail --lines 7
+  sudo lsof /dev/nvidia0 2>/dev/null | awk '{print $1}' | uniq | tail --lines 7
 }
 
 function getNvidiaProgramsRaw() {
-  sudo lsof /dev/nvidia0 2> /dev/null
+  sudo lsof /dev/nvidia0 2>/dev/null
 }
 
 function updateDockerImages() {
@@ -593,31 +593,30 @@ function aicR() {
 }
 
 function sysfetch() {
-  local commands=("fastfetch" "nitch" "rxfetch")
+  local commands=(fastfetch nitch rxfetch)
   local available_commands=()
 
   # Check which commands are available
-  for cmd in "${commands[@]}"; do
-    if command -v "$cmd" &> /dev/null; then
-      available_commands+=("$cmd")
+  for cmd in $commands; do
+    if (($ + commands[$cmd])); then
+      available_commands+=($cmd)
     fi
   done
 
   # If no commands are available, print an error message and exit
-  if [ ${#available_commands[@]} -eq 0 ]; then
+  if ((${#available_commands} == 0)); then
     echo "Error: None of the required commands (fastfetch, nitch, rxfetch) are available on this system."
     return 1
   fi
 
   # Choose a random command from the available ones
-  local random_index=$((RANDOM % ${#available_commands[@]}))
-  ${available_commands[$random_index]}
+  local random_index=$(($RANDOM % ${#available_commands}))
+  ${available_commands[$random_index + 1]}
 }
 
 function tab() {
   tac "$@" | bat -f --style="auto"
 }
-
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"

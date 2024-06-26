@@ -135,6 +135,9 @@ docker run -d --name pipelines -p 9099:9099 -e ANTHROPIC_API_KEY=<claude_api_key
 # Start watcher container  (https://github.com/containrrr/watchtower) automate image updates
 docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -S
 
+# Launch application with dGPU from terminal
+switcherooctl launch --gpu=1 <application_name>
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'

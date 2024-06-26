@@ -1,6 +1,7 @@
 {
-  "kitty.desktop": "$XDG_DATA_HOME/applications/",
-  "kitty.conf": "$XDG_CONFIG_HOME/kitty/",
-  "current-theme.conf": "$XDG_CONFIG_HOME/kitty/",
-  "exclude": ["kitty.conf.bak", "kitty-dark.png"]
+	"kitty.desktop": "$XDG_DATA_HOME/applications/",
+	"kitty.conf": "$XDG_CONFIG_HOME/kitty/",
+	"kitty-dark.png": "$XDG_CONFIG_HOME/kitty/",
+	"current-theme.conf": "$XDG_CONFIG_HOME/kitty/",
+	"exclude": ["kitty.conf.bak"]
 }
