@@ -41,6 +41,8 @@ export C_INCLUDE_PATH="/opt/homebrew/Cellar/pcre/8.45/include/"
 export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
 
+export DOCKER_BUILDKIT=1
+
 # Functions
 function doesEntityExist() {
   if test "$1" "$3"; then
@@ -217,6 +219,10 @@ function setGhcVersion() {
   ghcup set ghc "$ghcVersion"
 }
 
+function tab() {
+  tac "$@" | bat -f --style="auto" ...
+}
+
 # Aliases
 alias doesFileExist="doesEntityExist -f File"
 alias doesDirExist="doesEntityExist -d Directory"
@@ -267,3 +273,14 @@ alias checkForCrateUpdates="cargo-install-update install-update --list"
 alias updateInstalledCrates="cargo-install-update install-update -a"
 alias checkForUpdates="brew outdated"
 alias twn="timerWithNotif"
+
+alias icat="kitty +kitten icat"
+alias dlds="cd $HOME/Downloads/"
+alias docs="cd $HOME/Documents/"
+
+alias here="lsd ."
+alias dbx="docker buildx"
+alias dkc="docker compose"
+
+alias dkcb="docker compose build"
+alias dbxbk="docker buildx bake"
