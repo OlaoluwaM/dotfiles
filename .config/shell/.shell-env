@@ -724,7 +724,8 @@ alias sysInfo="inxi -Fzxx"
 
 alias here="lsd ."
 alias isNvidiaGpuActive="supergfxctl -S"
-
 alias sgf="supergfxctl"
-alias ff="fastfetch"
+
 alias ldk="lazydocker"
+alias dkc="docker compose"
+alias dkcb="docker compose build"
