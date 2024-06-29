@@ -123,18 +123,6 @@ sudo dmidecode -t0
 # Get udev logs or something
 sudo journalctl -f
 
-# Start Ollama (custom docker image, based on https://hub.docker.com/r/ollama/ollama)
-docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama-custom --restart always ollama-custom
-
-# Start Open WebUI docker container (https://github.com/open-webui/open-webui) local llm GUI client
-docker run -d -p 3088:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
-
-# Start Open WebUI pipeline docker container (https://github.com/open-webui/pipelines) to add plugins to open webui
-docker run -d --name pipelines -p 9099:9099 -e ANTHROPIC_API_KEY=<claude_api_key> -e PIPELINES_URLS=<pipeline_urls> --restart always ghcr.io/open-webui/pipelines:main
-
-# Start watcher container  (https://github.com/containrrr/watchtower) automate image updates
-docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -S
-
 # Launch application with dGPU from terminal
 switcherooctl launch --gpu=1 <application_name>
 
