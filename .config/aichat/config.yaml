@@ -20,9 +20,11 @@ clients:
   - type: ollama
     api_base: http://localhost:11434
     models:
-      - name: codellama
+      - name: qwen2
         max_input_tokens: 2048
       - name: llama3
+        max_input_tokens: 2048
+      - name: gemma2
         max_input_tokens: 2048
 
   - type: claude

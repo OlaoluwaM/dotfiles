@@ -576,10 +576,6 @@ function aic() {
   aichat "$@" | bat --paging=never -f -l md
 }
 
-function aicc() {
-  aichat -m ollama:codellama "$@" | bat --paging=never -f -l md
-}
-
 function aico() {
   aichat -m openai:gpt-4o "$@" | bat --paging=never -f -l md
 }
@@ -616,6 +612,22 @@ function sysfetch() {
 
 function tab() {
   tac "$@" | bat -f --style="auto"
+}
+
+function genSlackArchive() {
+  if ! command -v slackdump &>/dev/null; then
+    echo "This function requires slackdump to be installed and in the PATH"
+    return 1
+  fi
+
+  local archiveDir="$XDG_DOCUMENTS_DIR/fp-slack-self-dm-archives"
+  mkdir -p "$archiveDir"
+
+  echo "Generating archive..."
+  pushd "$archiveDir" &>/dev/null
+  date +'%d-%m-%Y' | xargs -I {} slackdump -f -r json -base "archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
+  popd &>/dev/null
+  echo "Done!"
 }
 
 # Aliases
