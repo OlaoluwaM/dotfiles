@@ -4,7 +4,8 @@ services:
 
   ollama:
     container_name: ollama
-    image: ollama/ollama:latest
+    build:
+      context: ./ollama
     restart: on-failure:3
     ports:
       - "11434:11434"
@@ -19,9 +20,13 @@ services:
               capabilities: [gpu]
     runtime: nvidia
     healthcheck:
-      test: ["CMD", "/bin/ollama", "--version"]
+      test: ["CMD", "curl", "localhost:11434"]
+      interval: 1m
+      timeout: 7s
+      retries: 3
     environment:
       - OLLAMA_NUM_PARALLEL=3
+      - OLLAMA_KEEP_ALIVE="10m"
 
   open-webui:
     container_name: open-webui
