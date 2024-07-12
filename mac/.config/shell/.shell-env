@@ -279,8 +279,9 @@ alias dlds="cd $HOME/Downloads/"
 alias docs="cd $HOME/Documents/"
 
 alias here="lsd ."
-alias dbx="docker buildx"
+alias dkbx="docker buildx"
 alias dkc="docker compose"
 
 alias dkcb="docker compose build"
-alias dbxbk="docker buildx bake"
+alias dkbxbk="docker buildx bake"
+alias dkb="docker build"
