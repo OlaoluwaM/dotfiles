@@ -13,6 +13,7 @@ format = """
 $fill \
 $status$cmd_duration $time\
 $line_break\
+$character
 """
 
 # right_format = """$cmd_duration $time"""
@@ -22,7 +23,7 @@ symbol = "·"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-disabled = true                    # We can set this to false when we're not using the Warp terminal
+disabled = false                    # We can set this to false when we're not using the Warp terminal
 success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[➜](bold red)"
 
