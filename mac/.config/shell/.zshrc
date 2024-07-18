@@ -178,3 +178,8 @@ source /Users/ola.mustapha/.config/broot/launcher/bash/br
 export PATH="$PATH:/Users/ola.mustapha/.local/bin"
 
 export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
+
+# Get back original warp terminal multi-line prompt look
+if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
+  export PROMPT="${PROMPT}"$'\n'
+fi
