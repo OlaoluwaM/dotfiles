@@ -223,3 +223,7 @@ test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Get back original warp terminal multi-line prompt look
+if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
+    export PROMPT="${PROMPT}"$'\n'
+fi
