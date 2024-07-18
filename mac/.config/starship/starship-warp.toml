@@ -6,14 +6,16 @@ palette = "catppuccin_mocha"
 
 # Inserts a blank line between shell prompts
 # add_newline = true
-scan_timeout = 50
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 60
 command_timeout = 3000
 
 format = """
 (surface1)$all\
 $fill \
 $status$cmd_duration $time\
-$line_break\
+$line_break
 """
 
 # right_format = """$cmd_duration $time"""
@@ -23,9 +25,9 @@ symbol = "·"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-disabled = true                    # We can set this to false when we're not using the Warp terminal
-success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[➜](bold red)"
+disabled = true                # We can set this to false when we're not using the Warp terminal
+success_symbol = "[->](green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[->](red)"
 
 [time]
 disabled = false
