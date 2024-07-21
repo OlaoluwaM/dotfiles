@@ -79,10 +79,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# if [[ -f $HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh ]]; then
-#   source "$HOME/.zsh/catppuccin-zsh-syntax-highlighting.zsh"
-# fi
-
 export NVM_DIR="$HOME/.config/nvm"
 
 plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
@@ -153,7 +149,6 @@ if command -v quote &>/dev/null; then
   quote
 fi
 
-
 # Bun (https://github.com/oven-sh/bun)
 export BUN_INSTALL="/home/olaolu/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -189,9 +184,14 @@ gpgconf --launch gpg-agent
 
 source /home/olaolu/.config/broot/launcher/bash/br
 
-
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
+  fpath=($HOME/.config/zsh/completions $fpath)
+  autoload -U compinit && compinit
+fi
+
+# https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
+if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_cht" ]]; then
   fpath=($HOME/.config/zsh/completions $fpath)
   autoload -U compinit && compinit
 fi
@@ -201,8 +201,8 @@ if command -v batpipe &>/dev/null; then
 fi
 
 #if [[ -d "/usr/local/cuda-12.4/" ]]; then
-  # https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
-  # Update this when you install a newer version of cuda toolkit
+# https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
+# Update this when you install a newer version of cuda toolkit
 #  export PATH="/usr/local/cuda-12.4/bin:$PATH"
 #  export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
 #fi
@@ -225,5 +225,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Get back original warp terminal multi-line prompt look
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
-    export PROMPT="${PROMPT}"$'\n'
+  export PROMPT="${PROMPT}"$'\n'
 fi

@@ -1,15 +1,15 @@
 {
-	"all": "$HOME",
-	"catppuccin-zsh-syntax-highlighting.zsh": "$HOME/.zsh-custom",
-	"completions/*": "$XDG_CONFIG_HOME/zsh/completions",
-	"exclude": [
-		"smartdots.zsh",
-		"linux-tty-catppuccin-colors.sh",
-		"nvm-setup.zsh",
-		".private-shell-env",
-		".private-shell-env-template",
-		"augment-path-var.sh",
-		".zsh_history",
-		"cuda.sh"
-	]
+  "all": "$HOME",
+  "completions/*": "$XDG_CONFIG_HOME/zsh/completions",
+  "exclude": [
+    "smartdots.zsh",
+    "linux-tty-catppuccin-colors.sh",
+    "catppuccin-zsh-syntax-highlighting.zsh",
+    "nvm-setup.zsh",
+    ".private-shell-env",
+    ".private-shell-env-template",
+    "augment-path-var.sh",
+    ".zsh_history",
+    "cuda.sh"
+  ]
 }
