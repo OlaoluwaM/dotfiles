@@ -66,9 +66,6 @@ git merge-base <branch_one> <branch_two> | git show -s
 # Output contents of file from another branch (cat contents of file from another branch)
 git show <branch_one>:<abs_path_to_desired_file>
 
-# Cherry-pick from commit A to commit B, including commit A (note that commit A should be OLDER than commit B)
-git cherry-pick <commit_A>^..<commit_B>
-
 # Git diff but with file names only
 git diff <branch_one> <branch_two> --name-only
 
@@ -81,8 +78,8 @@ git reset --hard @{u}
 # Undo all local uncommitted changes (https://stackoverflow.com/questions/14075581/git-undo-all-uncommitted-or-unsaved-changes)
  git checkout .
 
- # Remove all local untracked files
- git clean -n
+# Remove all local untracked files
+git clean -n
 
 # List all remote branches
 git branch -r | less -F | tail -n +2 | awk -F ' ' '{print $1}'
