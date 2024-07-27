@@ -184,14 +184,11 @@ gpgconf --launch gpg-agent
 
 source /home/olaolu/.config/broot/launcher/bash/br
 
+# Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
-if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_stack" ]]; then
-  fpath=($HOME/.config/zsh/completions $fpath)
-  autoload -U compinit && compinit
-fi
-
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
-if [[ -f "$XDG_CONFIG_HOME/zsh/completions/_cht" ]]; then
+# https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
+if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
   fpath=($HOME/.config/zsh/completions $fpath)
   autoload -U compinit && compinit
 fi
@@ -199,13 +196,6 @@ fi
 if command -v batpipe &>/dev/null; then
   eval "$(batpipe)"
 fi
-
-#if [[ -d "/usr/local/cuda-12.4/" ]]; then
-# https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed
-# Update this when you install a newer version of cuda toolkit
-#  export PATH="/usr/local/cuda-12.4/bin:$PATH"
-#  export LD_LIBRARY_PATH="/usr/local/cuda-12.4/lib64:$LD_LIBRARY_PATH"
-#fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

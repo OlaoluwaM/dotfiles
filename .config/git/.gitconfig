@@ -3,9 +3,13 @@
   name = Olaoluwa Mustapha
   signingkey = C16B79DB8BEBD0AA
 
+[include]
+  path = /home/olaolu/catppuccin.gitconfig
+
 [core]
   excludesfile = /home/olaolu/.gitignore_global
   editor = nvim
+  pager = delta
 
 [commit]
   template = /home/olaolu/gitCommitConventionTemplate.txt
@@ -19,6 +23,9 @@
 
 [push]
   default = simple
+
+[interactive]
+  diffFilter = delta --color-only
 
 [alias]
   cp = cherry-pick
@@ -55,16 +62,23 @@
   defaultBranch = main
 
 [diff]
-  external = difft
+  colorMoved = default
 
 [merge]
   tool = code
+  conflictstyle = diff3
 
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
-# [includeIf "gitdir:$HOME/Desktop/serokell/"]
-#   path = $HOME/.gitconfig-work
+[delta]
+  navigate = true
+  features = catppuccin-mocha
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+  line-numbers = true
+  side-by-side = true
+  dark = true
 
 [filter "lfs"]
   clean = git-lfs clean -- %f

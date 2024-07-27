@@ -76,7 +76,7 @@ git reset --hard ORIG_HEAD
 git reset --hard @{u}
 
 # Undo all local uncommitted changes (https://stackoverflow.com/questions/14075581/git-undo-all-uncommitted-or-unsaved-changes)
- git checkout .
+git checkout .
 
 # Remove all local untracked files
 git clean -n
@@ -95,6 +95,9 @@ git diff -- ':!<file_to_exclude>'
 
 # git diff staged changes
 git diff HEAD
+
+# Execute a git command in a repo without being inside said repo
+git -C '/path/to/repo' <command>
 
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list

@@ -68,6 +68,7 @@ export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
 
 export HISTFILE="$DOTS/shell/.zsh_history"
 export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+export GIT_PAGER="delta"
 
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/olaolu/cortex/cortex-cpp/
 
