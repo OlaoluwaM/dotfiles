@@ -6,5 +6,6 @@ GenericName=Terminal emulator
 Comment=Fast, feature-rich, GPU based terminal
 TryExec=kitty
 Exec=switcherooctl launch --gpu=1 kitty
-Icon=/home/olaolu/.config/kitty/kitty-dark.png
+#Icon=/home/olaolu/.config/kitty/kitty-dark.png
+Icon=org.gnome.Terminal
 Categories=System;TerminalEmulator;

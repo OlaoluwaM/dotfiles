@@ -54,6 +54,7 @@
   project-summary = !which onefetch && onefetch
   sw = switch
   rmr = rm -r
+  f = fetch
 
 [credential]
   helper = libsecret

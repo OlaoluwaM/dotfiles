@@ -70,6 +70,8 @@ export HISTFILE="$DOTS/shell/.zsh_history"
 export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 export GIT_PAGER="delta"
 
+export LD=ld.lld
+
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/olaolu/cortex/cortex-cpp/
 
 # Functions
@@ -568,10 +570,6 @@ function getNvidiaPrograms() {
 
 function getNvidiaProgramsRaw() {
   sudo lsof /dev/nvidia0 2>/dev/null
-}
-
-function updateDockerImages() {
-  docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup -S --run-once
 }
 
 function aic() {

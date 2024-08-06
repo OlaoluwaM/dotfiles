@@ -21,6 +21,7 @@ services:
     runtime: nvidia
     healthcheck:
       test: ["CMD", "curl", "localhost:11434"]
+      start_period: 30s
       interval: 1m
       timeout: 7s
       retries: 3
