@@ -1,7 +1,0 @@
-% bash
-
-# Search multiple files for a word in BASH (https://stackoverflow.com/questions/16956810/how-to-find-all-files-containing-specific-text-string-on-linux)
-grep --exclude-dir={<dirs_to_exclude1>,<dir_to_exclude>,<glob_of_dir_to_exclude>} -rnw '/path/to/somewhere/' -e "pattern"
-
-# Print out without paging
-less -F
