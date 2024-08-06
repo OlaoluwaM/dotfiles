@@ -179,6 +179,9 @@ export PATH="$PATH:/Users/ola.mustapha/.local/bin"
 
 export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 
+# Use GNU coreutils instead of macOS coreutils
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
 # Get back original warp terminal multi-line prompt look
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
   export PROMPT="${PROMPT}"$'\n'

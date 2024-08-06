@@ -35,9 +35,6 @@ fi
 
 export C_INCLUDE_PATH="/opt/homebrew/Cellar/pcre/8.45/include/"
 
-#export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-#export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
 export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
 

@@ -1,0 +1,10 @@
+% fedora, dnf, yum
+
+# List user installed rpms
+dnf repoquery --userinstalled
+
+# List enabled dnf COPR repos
+dnf copr list --installed
+
+# Search for RPM packages that contains the following file. Example: dnf proviides \*libtinfo.so
+dnf provides <file_name>

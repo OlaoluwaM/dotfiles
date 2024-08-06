@@ -3,9 +3,8 @@ bat
 bottom
 broot
 cargo-update
-difftastic
+eva
 fd-find
-fnm
 grex
 jql
 lsd

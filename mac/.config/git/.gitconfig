@@ -3,9 +3,13 @@ email = 37044906+OlaoluwaM@users.noreply.github.com
 name = Olaoluwa Mustapha
 signingkey = 9B5FBC7CEF4C43EB
 
+[include]
+path = /Users/ola.mustapha/catppuccin.gitconfig
+
 [core]
 excludesfile = /Users/ola.mustapha/.gitignore_global
 editor = nvim
+pager = delta
 
 [commit]
 template = /Users/ola.mustapha/gitCommitConventionTemplate.txt
@@ -19,6 +23,9 @@ ui = true
 
 [push]
 default = simple
+
+[interactive]
+diffFilter = delta --color-only
 
 [alias]
 cp = cherry-pick
@@ -46,6 +53,7 @@ listBranches = branch -l
 deleteBranch = branch -D
 project-summary = !which onefetch && onefetch
 sw = switch
+rmr = rm -r
 
 [credential]
 helper = libsecret
@@ -54,16 +62,26 @@ helper = libsecret
 defaultBranch = main
 
 [diff]
-external = difft
+colorMoved = default
 
 [merge]
 tool = code
+conflictstyle = diff3
 
 [mergetool "code"]
 cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
 [includeIf "gitdir:~/Desktop/dev/freckle/"]
 path = ~/.gitconfig-work
+
+[delta]
+navigate = true
+features = catppuccin-mocha
+hyperlinks = true
+hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+line-numbers = true
+side-by-side = true
+dark = true
 
 [filter "lfs"]
 clean = git-lfs clean -- %f

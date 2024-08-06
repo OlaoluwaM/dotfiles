@@ -1,5 +1,5 @@
 {
   "config": "$XDG_CONFIG_HOME/bat",
-  "Catppuccin-mocha.tmTheme": "$XDG_CONFIG_HOME/bat/themes",
+  "Catppuccin Mocha.tmTheme": "$XDG_CONFIG_HOME/bat/themes",
   "all": "$CUSTOM_BIN_DIR"
 }
