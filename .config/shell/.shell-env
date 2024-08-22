@@ -41,9 +41,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
-export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
+export LD=ld.lld
 
 export THEMES_DIR="$XDG_DATA_HOME/themes"
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
@@ -57,14 +57,9 @@ export FONT_DIR="$XDG_DATA_HOME/fonts"
 export STARSHIP_CONFIG=$DOTS/starship/starship.toml
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
-export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
---color=fg:#cdd6f4,bg:#1e1e2e,matched:#313244,matched_bg:#f2cdcd,current:#cdd6f4,current_bg:#45475a,current_match:#1e1e2e,current_match_bg:#f5e0dc,spinner:#a6e3a1,info:#cba6f7,prompt:#89b4fa,cursor:#f38ba8,selected:#eba0ac,header:#94e2d5,border:#6c7086"
-
 export HISTFILE="$DOTS/shell/.zsh_history"
 export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 export GIT_PAGER="delta"
-
-export LD=ld.lld
 
 # Functions
 function doesThisExist() {
