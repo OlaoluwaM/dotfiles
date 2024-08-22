@@ -67,6 +67,9 @@ disabled = true
 threshold = 50
 format = "with [${ram_pct}]($style) $symbol"
 
+[aws]
+symbol = "aws "
+
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"

@@ -3,3 +3,5 @@ node_modules
 optIns*
 notes/
 .cosine
+cabal.project
+cabal.project.freeze

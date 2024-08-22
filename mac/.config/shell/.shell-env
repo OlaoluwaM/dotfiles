@@ -4,12 +4,12 @@
 # Env Variables
 export DEV="$HOME/Desktop/dev"
 export SHELL_ENV="$HOME/.shell-env"
-
 export VISUAL="nvim"
+
 export EDITOR="$VISUAL"
 export DOTS="$DEV/dotfiles/mac/.config"
-
 export ZSH_ALIAS_FINDER_AUTOMATIC=true
+
 export NAVI_PATH="$DOTS/navi/cheats"
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
 export ATUIN_CONFIG_DIR="$DOTS/atuin"
@@ -17,28 +17,23 @@ export ATUIN_CONFIG_DIR="$DOTS/atuin"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
-# export ASTRONVIM_CONFIG="$HOME/.config/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
 export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
 
 export CUSTOM_BIN_DIR="$HOME/.bin"
 export XDG_CONFIG_HOME="$HOME/Library/Application Support"
-
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  export STARSHIP_CONFIG=$DOTS/starship/starship.toml
-else
-  export STARSHIP_CONFIG=$DOTS/starship/starship-warp.toml
-fi
-
 export C_INCLUDE_PATH="/opt/homebrew/Cellar/pcre/8.45/include/"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
-
-export DOCKER_BUILDKIT=1
+# export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
 # Functions
 function doesEntityExist() {
@@ -220,6 +215,15 @@ function tab() {
   tac "$@" | bat -f --style="auto" ...
 }
 
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 # Aliases
 alias doesFileExist="doesEntityExist -f File"
 alias doesDirExist="doesEntityExist -d Directory"
@@ -282,3 +286,6 @@ alias dkc="docker compose"
 alias dkcb="docker compose build"
 alias dkbxbk="docker buildx bake"
 alias dkb="docker build"
+
+alias eva="fend"
+alias yz="yazi"

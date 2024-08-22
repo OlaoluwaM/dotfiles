@@ -150,9 +150,6 @@ fi
 
 export PATH="/usr/local/bin:$PATH"
 
-# Navi (https://github.com/denisidoro/navi)
-eval "$(navi widget zsh)"
-
 # Atuin (https://github.com/ellie/atuin)
 eval "$(atuin init zsh)"
 
@@ -171,8 +168,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-source /Users/ola.mustapha/.config/broot/launcher/bash/br
-
 [ -f "/Users/ola.mustapha/.ghcup/env" ] && source "/Users/ola.mustapha/.ghcup/env" # ghcup-env
 # Created by `pipx` on 2024-03-06 00:33:47
 export PATH="$PATH:/Users/ola.mustapha/.local/bin"
@@ -182,7 +177,16 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 # Use GNU coreutils instead of macOS coreutils
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-# Get back original warp terminal multi-line prompt look
-if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
-  export PROMPT="${PROMPT}"$'\n'
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Load zsh completions for executables if at least one exists
+# https://docs.haskellstack.org/en/stable/shell_autocompletion/
+# https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
+# https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
+if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
+  fpath=($XDG_CONFIG_HOME/zsh/completions $fpath)
+  autoload -U compinit && compinit
 fi
+
+[ -s "$DOTS/shell/completions/_atuin" ] && source "$DOTS/shell/completions/_atuin"
+[ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
