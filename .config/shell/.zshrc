@@ -184,7 +184,7 @@ gpgconf --launch gpg-agent
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
 # https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
 if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
-  fpath=($XDG_CONFIG_HOME/zsh/completions $fpath)
+  fpath=($HOME/.config/zsh/completions $fpath)
   autoload -U compinit && compinit
 fi
 

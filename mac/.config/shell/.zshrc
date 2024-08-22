@@ -178,15 +178,3 @@ export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-# Load zsh completions for executables if at least one exists
-# https://docs.haskellstack.org/en/stable/shell_autocompletion/
-# https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
-# https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
-if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
-  fpath=($XDG_CONFIG_HOME/zsh/completions $fpath)
-  autoload -U compinit && compinit
-fi
-
-[ -s "$DOTS/shell/completions/_atuin" ] && source "$DOTS/shell/completions/_atuin"
-[ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
