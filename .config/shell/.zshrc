@@ -156,9 +156,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-# Navi (https://github.com/denisidoro/navi)
-eval "$(navi widget zsh)"
-
 # Atuin (https://github.com/ellie/atuin)
 eval "$(atuin init zsh)"
 
@@ -182,8 +179,6 @@ gpgconf --launch gpg-agent
 # bun completions
 [ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"
 
-source /home/olaolu/.config/broot/launcher/bash/br
-
 # Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
@@ -201,14 +196,9 @@ fi
 
 #https://docs.atuin.sh/reference/gen-completions/
 [ -s "$DOTS/shell/completions/_atuin" ] && source "$DOTS/shell/completions/_atuin"
-
 [ -s "$DOTS/shell/completions/aichat.zsh" ] && source "$DOTS/shell/completions/aichat.zsh"
+[ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup-env
 
 export PATH="$HOME/appimage-apps:$PATH"
-
-# Get back original warp terminal multi-line prompt look
-if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
-  export PROMPT="${PROMPT}"$'\n'
-fi

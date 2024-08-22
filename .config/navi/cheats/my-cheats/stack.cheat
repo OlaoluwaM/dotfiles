@@ -1,0 +1,4 @@
+% stack, haskell
+
+# Check version of installed package (https://stackoverflow.com/questions/33914073/which-package-version-do-i-have)
+stack exec -- ghc-pkg list | rg <package_name>

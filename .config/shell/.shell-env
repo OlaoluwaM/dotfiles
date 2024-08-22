@@ -37,7 +37,9 @@ export ATUIN_CONFIG_DIR="$DOTS/atuin"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 export ASTRONVIM_CONFIG="$XDG_CONFIG_HOME/nvim/lua/user/init.lua"
 export _ZO_DATA_DIR="$DOTS/zoxide"
@@ -52,15 +54,7 @@ export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
 export CUSTOM_MAN_PATH="$XDG_DATA_HOME/man"
 
 export FONT_DIR="$XDG_DATA_HOME/fonts"
-export WARP_THEMES_DIR="$DOTS/warp-terminal/themes"
-export WARP_ENABLE_WAYLAND=1
-
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  export STARSHIP_CONFIG=$DOTS/starship/starship.toml
-else
-  export STARSHIP_CONFIG=$DOTS/starship/starship-warp.toml
-fi
-
+export STARSHIP_CONFIG=$DOTS/starship/starship.toml
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
 export SKIM_DEFAULT_OPTIONS="$SKIM_DEFAULT_OPTIONS \
@@ -71,8 +65,6 @@ export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d 
 export GIT_PAGER="delta"
 
 export LD=ld.lld
-
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/olaolu/cortex/cortex-cpp/
 
 # Functions
 function doesThisExist() {
@@ -630,6 +622,15 @@ function genSlackArchive() {
   echo "Done!"
 }
 
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # Aliases
 alias doesFileExist="doesThisExist -f File"
 alias doesDirExist="doesThisExist -d Directory"
@@ -729,3 +730,6 @@ alias sgf="supergfxctl"
 alias ldk="lazydocker"
 alias dkc="docker compose"
 alias dkcb="docker compose build"
+
+alias eva="fend"
+alias yz="yazi"
