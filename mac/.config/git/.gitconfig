@@ -51,7 +51,7 @@ checkUpstream = status -sb
 p = "push"
 listBranches = branch -l
 deleteBranch = branch -D
-project-summary = !which onefetch && onefetch
+summary = !which onefetch && onefetch
 sw = switch
 rmr = rm -r
 

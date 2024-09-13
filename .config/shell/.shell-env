@@ -181,7 +181,8 @@ check_directory_for_new_repository() {
 # Gotten From https://stackoverflow.com/questions/3964068/zsh-automatically-run-ls
 function chpwd() {
   emulate -L zsh
-  check_directory_for_new_repository
+  # Commented out because it is currently unnecessary
+  # check_directory_for_new_repository
 
   if command -v lsd &>/dev/null; then
     lsd
