@@ -2,3 +2,6 @@
 
 # Check version of installed package (https://stackoverflow.com/questions/33914073/which-package-version-do-i-have)
 stack exec -- ghc-pkg list | rg <package_name>
+
+# Create a new haskell project with basic/minimal scaffolding (stack template)
+stack new <project_dir_name> new-template

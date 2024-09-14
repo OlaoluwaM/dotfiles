@@ -1,4 +1,4 @@
 {
   "exclude": ["archive/*"],
-  "toggle-dnd": "$CUSTOM_BIN_DIR"
+  "all": "$CUSTOM_BIN_DIR"
 }

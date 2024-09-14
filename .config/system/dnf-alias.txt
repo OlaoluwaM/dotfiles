@@ -4,3 +4,4 @@
  in='info'
  rm='remove'
  ri='reinstall'
+ un='remove'
