@@ -2,3 +2,4 @@
 :set -XNoStarIsType
 :set -XTypeApplications
 :set -XImportQualifiedPost
+:set -package deepseq

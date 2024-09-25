@@ -183,6 +183,7 @@ function chpwd() {
   emulate -L zsh
   # Commented out because it is currently unnecessary
   # check_directory_for_new_repository
+  echo -e "\r"
 
   if command -v lsd &>/dev/null; then
     lsd
@@ -627,6 +628,10 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+function tre() { 
+  command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null;
+}
+
 # Aliases
 alias doesFileExist="doesThisExist -f File"
 alias doesDirExist="doesThisExist -d Directory"
@@ -729,3 +734,4 @@ alias dkcb="docker compose build"
 
 alias eva="fend"
 alias yz="yazi"
+alias ai="aichat"

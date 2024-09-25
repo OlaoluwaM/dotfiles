@@ -1,9 +1,9 @@
 name: local-ai
 
 services:
-
   ollama:
     container_name: ollama
+    pull_policy: always
     build:
       context: ./ollama
     restart: on-failure:3
