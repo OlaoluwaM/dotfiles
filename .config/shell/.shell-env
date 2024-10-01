@@ -735,3 +735,5 @@ alias dkcb="docker compose build"
 alias eva="fend"
 alias yz="yazi"
 alias ai="aichat"
+
+alias rip="gtrash"

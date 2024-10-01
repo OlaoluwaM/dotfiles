@@ -7,4 +7,4 @@ stack exec -- ghc-pkg list | rg <package_name>
 stack new <project_dir_name> new-template
 
 # Compile (non-main) module without intermediary .hi or .o files using stack ghc
-stack ghc -- -O2 -threaded <module_file_name> -main-is <module_name> -no-keep-hi-files -no-keep-o-files -o <exe_output_file_path>
+stack ghc -- -O2 -rtsopts -threaded <module_file_name> -main-is <module_name> -no-keep-hi-files -no-keep-o-files -o <exe_output_file_path>
