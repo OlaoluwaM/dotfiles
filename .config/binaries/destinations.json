@@ -1,3 +1,4 @@
 {
-  "all": "$CUSTOM_BIN_DIR"
+  "all": "$CUSTOM_BIN_DIR",
+  "exclude": ["typst"]
 }

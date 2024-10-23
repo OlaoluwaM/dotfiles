@@ -244,12 +244,20 @@ function addInstalledPackages() {
   if [[ $# -eq 0 ]]; then
     nvim "$PACKAGE_LST_FILE"
   else
-    # This means we have provided packages to add
-    PACKAGES_TO_ADD=$(
-      IFS=$'\n'
-      echo "$*"
-    )
-    echo "$PACKAGES_TO_ADD" >>"$PACKAGE_LST_FILE"
+    # Convert incoming packages to an array
+    PACKAGES_TO_ADD=("$@")
+
+    # Iterate over each package
+    for package in "${PACKAGES_TO_ADD[@]}"; do
+      # Check if the package already exists in the file
+      if ! grep -qx "$package" "$PACKAGE_LST_FILE"; then
+        # Add it if not present
+        echo "$package" >> "$PACKAGE_LST_FILE"
+        echo "Added: $package"
+      else
+        echo "Package already exists: $package"
+      fi
+    done
   fi
 }
 
@@ -300,7 +308,7 @@ function generatePsswd() {
 function backupGnomeExtensions() {
   EXTENSIONS_DIR="$XDG_DATA_HOME/gnome-shell/extensions/"
 
-  ls "$EXTENSIONS_DIR" >|"$SYS_BAK_DIR_UNDER_GIT/gnome-shell-ext-list.txt"
+  ls "$EXTENSIONS_DIR" -1 >|"$SYS_BAK_DIR_UNDER_GIT/gnome-shell-ext-list.txt"
 }
 
 function removeQuotes() {
@@ -539,11 +547,6 @@ function expandAlias() {
   # zle self-insert
 }
 
-zle -N expandAlias
-
-# CTRL + SPACE
-bindkey "^ " expandAlias
-
 function setGhcVersion() {
   ghcVersion="$1"
   ghcup set ghc "$ghcVersion"
@@ -631,6 +634,12 @@ function yy() {
 function tre() { 
   command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null;
 }
+
+# Keyboard Bindings
+zle -N expandAlias
+
+bindkey "^ " expandAlias                               # [Ctrl-Space] - run command: expandAlias
+bindkey -s '\el' 'lsd\n'                               # [Esc/Alt-l] - run command: lsd
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"
@@ -737,3 +746,4 @@ alias yz="yazi"
 alias ai="aichat"
 
 alias rip="gtrash"
+alias gedit="gnome-text-editor"

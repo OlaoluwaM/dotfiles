@@ -81,7 +81,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.config/nvm"
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh-autosuggestions fast-syntax-highlighting you-should-use gh zoxide nvm)
 
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
