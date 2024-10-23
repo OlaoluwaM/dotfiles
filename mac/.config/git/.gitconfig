@@ -60,6 +60,7 @@ la = "!git l --all"
 lr = "!git l -30"
 lra = "!git lr --all"
 lg = "!git l -G $1 -- $2"
+ap = "add -p"
 
 [credential]
 helper = libsecret

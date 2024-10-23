@@ -24,6 +24,8 @@
 # ----------------------------------------------------------
 #    * Motivation behind changes, more detail into how
 #      functionality might be affected, etc.
+#    * The **why** behind a change is often more important
+#      than "what changed"
 #    * Limit to 72 characters per line
 #    * Describe **why** this change is happening.
 #    * Describe **how** this change was implemented. Focus on:
@@ -44,6 +46,8 @@
 #    * Ex: Resolves Issue #207, see PR #15, etc.
 #    * Include link to relevant task
 #    * Limit to 72 characters per line
+#    * Co-authors go here too:
+#       * EX -- Co-authored-by: firstname <email>
 #    * BREAKING CHANGE  Breaking API change - SemVar MAJOR
 #        * https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer
 #        * Ex: BREAKING CHANGE: `extends` key in config file is now used for extending other config files
