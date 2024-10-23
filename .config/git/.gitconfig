@@ -43,7 +43,8 @@
   ch = checkout
   deleteRemote = push -d
   setUpstreamTo = branch --set-upstream-to
-  fix = commit -a --amend
+  fix = commit --amend
+  amend = commit --amend --no-edit
   tree = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   renameBranch = branch -m
   unsetUpstream = branch --unset-upstream
@@ -55,6 +56,11 @@
   sw = switch
   rmr = rm -r
   f = fetch
+  l = "!. ~/.githelpers && pretty_git_log"
+  la = "!git l --all"
+  lr = "!git l -30"
+  lra = "!git lr --all"
+  lg = "!git l -G $1 -- $2"
 
 [credential]
   helper = libsecret
