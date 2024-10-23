@@ -1,9 +1,10 @@
 # ----------------------------------------------------------
-# Header - type(scope): Brief description
+# Header - type(scope): Brief description in imperative tense
+# or
+# Header - type(scope)!: Same as above, but indicates a breaking change
 # ----------------------------------------------------------
 #    * feat             A new feature - SemVar MINOR
 #    * fix              A bug fix - SemVar PATCH
-#    * BREAKING CHANGE  Breaking API change - SemVar MAJOR
 #    * docs             Change to documentation only
 #    * style            Change to style (whitespace, etc.)
 #    * refactor         Change not related to a bug or feat
@@ -12,6 +13,9 @@
 #    * build            Change to build system
 #    * ci               Change to CI pipeline/workflow
 #    * chore            General tooling/config/min refactor
+#    * revert           For reverting commits made previously
+# ----------------------------------------------------------
+#    * Max 72 characters
 # ----------------------------------------------------------
 
 
@@ -20,6 +24,17 @@
 # ----------------------------------------------------------
 #    * Motivation behind changes, more detail into how
 #      functionality might be affected, etc.
+#    * Limit to 72 characters per line
+#    * Describe **why** this change is happening.
+#    * Describe **how** this change was implemented. Focus on:
+#       - Anything particularly interesting or surprising
+#       - Alternatives considered and discarded and why
+#       - Additional work that has been deferred
+#       - Etc.
+#
+#    * If the commits create a useful narrative,
+#       copy their messages here. Include the SHAs, so GitHub
+#       will automatically link them.
 # ----------------------------------------------------------
 
 
@@ -27,4 +42,56 @@
 # Footer - Associated issues, PRs, etc.
 # ----------------------------------------------------------
 #    * Ex: Resolves Issue #207, see PR #15, etc.
+#    * Include link to relevant task
+#    * Limit to 72 characters per line
+#    * BREAKING CHANGE  Breaking API change - SemVar MAJOR
+#        * https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer
+#        * Ex: BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+#        * Should only appear in the footer
 # ----------------------------------------------------------
+
+# ----- END COMMIT MESSAGE -----
+#
+# Conventional Commits Cheatsheet (https://www.conventionalcommits.org/en/v1.0.0/#summary) & (https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)
+#
+# <type> indicates what kind of commit this is.
+# It can be one of:
+#   - feat        for new features introduced (i.e. MINOR in SemVer standard)
+#   - fix         for bug-fixes (i.e. PATCH in SemVer standard)
+#   - build       for changes in build system or environment
+#   - ci          for configuring continuous integration systems
+#   - test        for adding new tests or correcting defective tests
+#   - docs        for changes in documentation only
+#   - refactor    for rewriting or restructuring of code that does not affect API behavior
+#   - perf        for performance-enhancing refactors
+#   - style       for changes in code styles and no changes in logic
+#   - chore       for miscellaneous tasks
+#   - revert      for reverting commits made previously
+#
+# <scope> describes a section of the codebase where this change is applied and is optional.
+# Note that allowed content of this section depends on the specific project.
+# Issue identifiers are not valid scopes.
+#
+# Inserting "!" before the colon indicates that this commit introduces a breaking change.
+# It is equivalent to a bump in MAJOR in SemVer standard.
+# With this, the breaking change indicator in <footer> becomes optional.
+#
+# <description> contains a concise description of the change.
+# The content should be in imperative mood, as if "This commit will..." is prepended.
+# Do not capitalize the beginning of the sentence, and full stop (.) is omitted.
+#
+# <body> provides additional contextual information about the code changes and is optional.
+# Multiple paragraphs separated by an empty line are allowed here.
+# Sentences should be in imperative mood with proper capitalization and full stops (.).
+#
+# <footer> is a list of key-value pairs that store "metadata" of a commit.
+# There are three types of a footer:
+#   - Breaking change indicator     verbatim "BREAKING CHANGE:", followed by a <description>
+#   - Automatic issue management    such as "Close #123", "Reference #123", "See #123", etc.
+#   - Email-like metadata           such as "Signed-off-by:", "Co-authored-by", etc.
+#
+# There are three exceptions to the subject line rules:
+#   1. "Initial commit"     for the first commit in a git repository
+#   2. "Merge branch..."    as it is the default commit message for automatic merges
+#   3. "Revert..."          as it is the default commit message for reverting commits
+#

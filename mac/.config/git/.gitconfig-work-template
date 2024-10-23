@@ -1,17 +1,18 @@
 # Use this to create a global .gitconfig-work file
 
 [user]
-email =
-signingkey =
+email = <work-email>
+signingkey = <work-gpg-commit-signing-key> <!-- Should be tied to work email -->
 
 [commit]
-template =
+template = <!-- Custom commit template for work if necessary -->
 
-# <https://stackoverflow.com/questions/46146491/prevent-pushing-to-master-on-github/57998309#57998309>
+<!-- Prevent direct pushing to main -->
+<!-- <https://stackoverflow.com/questions/46146491/prevent-pushing-to-master-on-github/57998309#57998309> -->
 
-# <https://stackoverflow.com/questions/25403573/how-can-one-dry-run-a-git-push-to-check-whether-one-has-write-permissions-to-a-r>
+<!-- <https://stackoverflow.com/questions/25403573/how-can-one-dry-run-a-git-push-to-check-whether-one-has-write-permissions-to-a-r> -->
 
-# <https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchltnamegtpushRemote>
+<!-- <https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchltnamegtpushRemote> -->
 
 [branch "main"]
 pushRemote = no_push
