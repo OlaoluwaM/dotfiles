@@ -105,6 +105,9 @@ grep --exclude-dir={<dirs_to_exclude1>,<dir_to_exclude>,<glob_of_dir_to_exclude>
 # Print out without paging
 less -F
 
+# Get binary/exeutable-file architecture info 
+file -e elf <executable_file>
+
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
