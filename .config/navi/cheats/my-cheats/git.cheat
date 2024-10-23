@@ -99,8 +99,15 @@ git diff HEAD
 # Execute a git command in a repo without being inside said repo
 git -C '/path/to/repo' <command>
 
+# List all branches that have been merged into another branch
+git branch --merged <branch_one>
+
+# List upstream for all branches
+git branch -vv
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
 $ repo_source: echo -e ".\n"
 $ remote_branches: git branch -r | less -F | tail -n +2 | awk -F ' ' '{print $1}'
+$ all_branches: git branch --list -a
