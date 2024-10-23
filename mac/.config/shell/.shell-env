@@ -108,6 +108,7 @@ function chpwd() {
   emulate -L zsh
   # Commented out because it slows cding down
   # check_directory_for_new_repository
+  echo -e "\r"
 
   if command -v lsd &>/dev/null; then
     lsd
