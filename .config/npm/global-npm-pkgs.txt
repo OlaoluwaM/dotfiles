@@ -1,6 +1,5 @@
 @types/node
 dotfilers
 neovim
-sass
 tsx
 typescript
