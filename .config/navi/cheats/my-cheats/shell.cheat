@@ -114,6 +114,11 @@ ls -1 <dir_path> | wc -l
 # Get binary/exeutable-file architecture info
 file -e elf <executable_file>
 
+# Copy directory contents only
+rsync -a --progress --stats <source_dir> <destination_dir>
+
+# Run command in the background
+nohup <command> &
 
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
