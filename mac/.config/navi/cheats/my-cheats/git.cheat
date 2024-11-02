@@ -105,6 +105,9 @@ git branch --merged <branch_one>
 # List upstream for all branches
 git branch -vv
 
+# Interactive git rebase without remote branch (local-only) commit-sha like HEAD~5
+git rebase -i <commit-sha>
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
