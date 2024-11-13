@@ -745,6 +745,6 @@ alias eva="fend"
 alias yz="yazi"
 alias ai="aichat"
 
-alias rip="gtrash"
 alias gedit="gnome-text-editor"
 alias fnd="fend"
+alias dkUp="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"

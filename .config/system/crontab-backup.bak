@@ -7,10 +7,10 @@
  # 00 11 * * 6 dconf dump / > /home/olaolu/Desktop/dotfiles/.config/system/dconf-settings-backup.dconf
 
  # Backup my cron jobs on the 20th day of each month at 6PM
- 00 18 20 * * crontab -l > /home/olaolu/Desktop/dotfiles/.config/system/crontab-backup.bak
+ 00 18 20 * * crontab -l >| /home/olaolu/Desktop/dotfiles/.config/system/crontab-backup.bak
 
  # Backup fonts every two months
- #30 10 1 */2 * tar cvzf /home/olaolu/sys-backups/fonts.tar.gz /home/olaolu/.local/share/fonts
+ # 30 10 1 */2 * tar cvzf /home/olaolu/sys-backups/fonts.tar.gz /home/olaolu/.local/share/fonts
 
  # Backup list of globally installed npm packages
  00 14 20 * * $(which npm) -g ls --depth 0 > /home/olaolu/Desktop/dotfiles/.config/npm/global-npm-pkgs.txt
@@ -19,4 +19,4 @@
  # 40 10 * * 1-5 /usr/bin/gnome-session-quit --no-prompt --logout
 
  # Sync Gnome Shell Edits with gnome-shell-extension-sync
- 00 9 * * 1,6 busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save
+ # 00 9 * * 1,6 busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save
