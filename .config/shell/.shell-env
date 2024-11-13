@@ -635,6 +635,14 @@ function tre() {
   command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null
 }
 
+function stackExec() {
+  stack exec -- "$@"
+}
+
+function compileToolAgainstStackProject() {
+  stack install --copy-compiler-tool "$@"
+}
+
 # Keyboard Bindings
 zle -N expandAlias
 
@@ -749,4 +757,4 @@ alias gedit="gnome-text-editor"
 alias fnd="fend"
 alias dkUp="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
 
-alias installFourmoluForProject="stack install --copy-compiler-tool fourmolu"
+alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
