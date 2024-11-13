@@ -294,3 +294,6 @@ alias dkb="docker build"
 
 alias eva="fend"
 alias yz="yazi"
+alias nosleep="caffeinate"
+
+alias installFourmoluForProject="stack install --copy-compiler-tool fourmolu"

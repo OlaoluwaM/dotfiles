@@ -252,7 +252,7 @@ function addInstalledPackages() {
       # Check if the package already exists in the file
       if ! grep -qx "$package" "$PACKAGE_LST_FILE"; then
         # Add it if not present
-        echo "$package" >> "$PACKAGE_LST_FILE"
+        echo "$package" >>"$PACKAGE_LST_FILE"
         echo "Added: $package"
       else
         echo "Package already exists: $package"
@@ -623,23 +623,23 @@ function genSlackArchive() {
 }
 
 function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
-function tre() { 
-  command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null;
+function tre() {
+  command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null
 }
 
 # Keyboard Bindings
 zle -N expandAlias
 
-bindkey "^ " expandAlias                               # [Ctrl-Space] - run command: expandAlias
-bindkey -s '\el' 'lsd\n'                               # [Esc/Alt-l] - run command: lsd
+bindkey "^ " expandAlias # [Ctrl-Space] - run command: expandAlias
+bindkey -s '\el' 'lsd\n' # [Esc/Alt-l] - run command: lsd
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"
@@ -748,3 +748,5 @@ alias ai="aichat"
 alias gedit="gnome-text-editor"
 alias fnd="fend"
 alias dkUp="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
+
+alias installFourmoluForProject="stack install --copy-compiler-tool fourmolu"

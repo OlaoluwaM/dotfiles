@@ -1,7 +1,7 @@
 node_modules
 .env*
-optIns*
 notes/
 .cosine
 cabal.project
 cabal.project.freeze
+.vscode
