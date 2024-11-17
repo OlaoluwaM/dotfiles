@@ -1,4 +1,4 @@
 {
-  "all": "$CUSTOM_BIN_DIR",
-  "exclude": ["typst"]
+	"all": "$CUSTOM_BIN_DIR",
+	"exclude": ["typst", "threadscope"]
 }

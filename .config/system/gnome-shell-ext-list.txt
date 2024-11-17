@@ -1,10 +1,10 @@
 appindicatorsupport@rgcjonas.gmail.com
+autohide-battery@sitnik.ru
 blur-my-shell@aunetx
 caffeine@patapon.info
+clipboard-indicator@tudmotu.com
 gsconnect@andyholmes.github.io
 just-perfection-desktop@just-perfection
-clipboard-indicator@tudmotu.com
-sp-tray@sp-tray.esenliyim.github.com
 tophat@fflewddur.github.io
 user-theme@gnome-shell-extensions.gcampax.github.com
-trayIconsReloaded@selfmade.pl
+Vitals@CoreCoding.com

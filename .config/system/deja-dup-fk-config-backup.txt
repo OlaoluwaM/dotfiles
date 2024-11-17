@@ -2,10 +2,10 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/labs/tutorials', '/home/olaolu/Downloads/appimages']
-last-backup='2024-05-08T14:20:57.611450Z'
-last-run='2024-05-08T14:19:34.808092Z'
-nag-check='2024-03-14T13:44:08.244614Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/labs/tutorials', '/home/olaolu/Downloads/appimages', '/home/olaolu/Documents/fp-slack-self-dm-archives']
+last-backup='2024-11-02T12:51:20.211428Z'
+last-run='2024-11-02T12:50:49.062950Z'
+nag-check='2024-10-08T13:23:17.043299Z'
 periodic=true
 periodic-period=7
 prompt-check='2023-02-06T09:07:27.653045Z'
@@ -18,3 +18,6 @@ last-restore='2024-05-01T16:42:04.845121Z'
 
 [org/gnome/deja-dup/google]
 folder='laptop-backups'
+
+[org/gnome/deja-dup/local]
+folder='fedora'

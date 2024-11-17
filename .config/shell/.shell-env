@@ -61,6 +61,11 @@ export HISTFILE="$DOTS/shell/.zsh_history"
 export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 export GIT_PAGER="delta"
 
+export LIBVA_DRIVER_NAME=nvidia
+#export MOZ_DISABLE_RDD_SANDBOX=1
+
+
+
 # Functions
 function doesThisExist() {
   if test "$1" "$3"; then
@@ -755,6 +760,6 @@ alias ai="aichat"
 
 alias gedit="gnome-text-editor"
 alias fnd="fend"
-alias dkUp="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
+alias dkRefresh="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
