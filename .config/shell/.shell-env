@@ -663,7 +663,7 @@ alias checkForUpdates="dnf check-update"
 alias reloadEnv="source $HOME/.shell-env"
 alias editEnv="nv $HOME/.shell-env"
 
-alias checkAutoUpdatesStatus="systemctl list-timers dnf-automatic-install.timer"
+alias checkAutoUpdatesStatus="systemctl list-timers 'dnf-automatic-*' 'dnf5-automatic-*'"
 alias py="python3"
 alias updateNodeToLatest="updateNodeTo node"
 
