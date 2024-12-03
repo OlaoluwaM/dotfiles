@@ -621,9 +621,10 @@ function genSlackArchive() {
   mkdir -p "$archiveDir"
 
   echo "Generating archive..."
-  pushd "$archiveDir" &>/dev/null
-  date +'%d-%m-%Y' | xargs -I {} slackdump -f -r json -base "archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
-  popd &>/dev/null
+  #pushd "$archiveDir" &>/dev/null
+  date +'%d-%m-%Y' | xargs -I {} slackdump dump -files -o "$archiveDir/archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
+  #popd &>/dev/null
+  #slackdump dump -files -o "$archiveDir" https://functionalprogramming.slack.com/archives/D042J5BAW74
   echo "Done!"
 }
 
