@@ -2,9 +2,9 @@
 backend='google'
 delete-after=90
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images']
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/labs/tutorials', '/home/olaolu/Downloads/appimages', '/home/olaolu/Documents/fp-slack-self-dm-archives']
-last-backup='2024-11-02T12:51:20.211428Z'
-last-run='2024-11-02T12:50:49.062950Z'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Desktop/labs/tutorials', '/home/olaolu/Downloads/appimages', '/home/olaolu/Documents/fp-slack-self-dm-archives', '/home/olaolu/Desktop/labs/presentations']
+last-backup='2024-12-03T18:44:12.927099Z'
+last-run='2024-12-03T18:43:43.302693Z'
 nag-check='2024-10-08T13:23:17.043299Z'
 periodic=true
 periodic-period=7
