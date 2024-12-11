@@ -20,7 +20,7 @@
   "useTabTitleforAutoSave": true,
   "startupBehavior": "previousSession",
   "shouldTrackNewWindow": true,
-  "ifBackup": false,
+  "ifBackup": true,
   "individualBackup": true,
   "backupFolder": "TabSessionManager - Backup",
   "enabledAutoSync": true,

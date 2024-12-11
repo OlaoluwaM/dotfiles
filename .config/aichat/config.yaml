@@ -1,18 +1,19 @@
-model: ollama:llama3.1
+model: ollama:llama3.2
 highlight: true
 
 clients:
   - type: openai
     api_key: <omitted>
 
-  - type: ollama
-    api_base: http://localhost:11434
+  - type: openai-compatible
+    name: ollama
+    api_base: http://localhost:11434/v1
     models:
-      - name: qwen2
+      - name: qwen2.5-code
         max_input_tokens: 2048
-      - name: llama3.1
+      - name: llama3.2
         max_input_tokens: 2048
-      - name: gemma2
+      - name: mistral
         max_input_tokens: 2048
 
   - type: claude
