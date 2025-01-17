@@ -64,8 +64,6 @@ export GIT_PAGER="delta"
 export LIBVA_DRIVER_NAME=nvidia
 #export MOZ_DISABLE_RDD_SANDBOX=1
 
-
-
 # Functions
 function doesThisExist() {
   if test "$1" "$3"; then
@@ -618,13 +616,11 @@ function genSlackArchive() {
   fi
 
   local archiveDir="$XDG_DOCUMENTS_DIR/fp-slack-self-dm-archives"
+
   mkdir -p "$archiveDir"
 
   echo "Generating archive..."
-  #pushd "$archiveDir" &>/dev/null
-  date +'%d-%m-%Y' | xargs -I {} slackdump dump -files -o "$archiveDir/archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
-  #popd &>/dev/null
-  #slackdump dump -files -o "$archiveDir" https://functionalprogramming.slack.com/archives/D042J5BAW74
+  date +'%d-%m-%Y' | xargs -I {} slackdump dump -v -files -o "$archiveDir/archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
   echo "Done!"
 }
 

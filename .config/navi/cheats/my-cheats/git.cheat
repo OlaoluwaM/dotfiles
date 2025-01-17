@@ -105,6 +105,9 @@ git branch --merged <branch_one>
 # List upstream for all branches
 git branch -vv
 
+# Search for string in a single file's history (https://stackoverflow.com/questions/10215197/git-search-for-string-in-a-single-files-history)
+git log -G '<search_text>' -- <search_file>
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list

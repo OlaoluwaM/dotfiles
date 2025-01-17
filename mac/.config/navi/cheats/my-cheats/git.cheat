@@ -108,6 +108,9 @@ git branch -vv
 # Interactive git rebase without remote branch (local-only) commit-sha like HEAD~5
 git rebase -i <commit-sha>
 
+# Search for string in a single file's history (https://stackoverflow.com/questions/10215197/git-search-for-string-in-a-single-files-history)
+git log -G '<search_text>' -- <search_file>
+
 $ new_remote_branch_name: echo "HEAD" --- --fzf-overrides '--no-select-1'
 $ branch_one: git branch --list
 $ branch_two: git branch --list
