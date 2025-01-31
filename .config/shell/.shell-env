@@ -559,6 +559,10 @@ function backupAichatConf() {
   sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/aichat/config.yaml >|$DOTS/aichat/config.yaml
 }
 
+function backupModsConf() {
+  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
+}
+
 function getNvidiaPrograms() {
   sudo lsof /dev/nvidia0 2>/dev/null | awk '{print $1}' | uniq | tail --lines 7
 }
@@ -567,20 +571,12 @@ function getNvidiaProgramsRaw() {
   sudo lsof /dev/nvidia0 2>/dev/null
 }
 
-function aic() {
-  aichat "$@" | bat --paging=never -f -l md
+function aio() {
+  mods -f --no-cache -m gpt-4o-mini "$@"
 }
 
-function aico() {
-  aichat -m openai:gpt-4o "$@" | bat --paging=never -f -l md
-}
-
-function aiccl() {
-  aichat -m claude:claude-3-5-sonnet-20240620 "$@" | bat --paging=never -f -l md
-}
-
-function aicR() {
-  aichat "$@"
+function aicl() {
+  mods -f --no-cache -m claude-3-5-sonnet-latest "$@"
 }
 
 function sysfetch() {
@@ -760,3 +756,4 @@ alias fnd="fend"
 alias dkRefresh="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
+alias ai="mods"
