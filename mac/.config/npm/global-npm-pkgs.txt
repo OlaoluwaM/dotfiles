@@ -1,8 +1,7 @@
-@bitwarden/cli
 @types/node
 dotfilers
 neovim
 qnm
-sass
+reveal-md
 tsx
 typescript
