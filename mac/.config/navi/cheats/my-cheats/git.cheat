@@ -21,10 +21,10 @@ git branch --unset-upstream
 # Set current branch's upstream without pushing
 git branch --set-upstream-to <upstream_branch_name>
 
-# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commits A & B are included):
+# Cherry-pick all commits from A (inclusive,) to B (where A is older than B):
 git cherry-pick <older_commit_A_hash>^..<newer_commit_B_hash>
 
-# Cherry-pick all the commits from commit A to commit B (where A is older than B, where commit A is not included):
+# Cherry-pick all commits from A (A not included) to B (where A is older than B):
 git cherry-pick <older_commit_A_hash>..<newer_commit_B_hash>
 
 # Git add, but exclude certain files
