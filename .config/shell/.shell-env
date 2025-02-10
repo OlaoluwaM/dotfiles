@@ -757,3 +757,4 @@ alias dkRefresh="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
 alias ai="mods"
+alias listGitAliases="git config --get-regexp '^alias\.'"

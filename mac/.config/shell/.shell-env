@@ -305,3 +305,4 @@ alias yz="yazi"
 alias nosleep="caffeinate"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
+alias listGitAliases="git config --get-regexp '^alias\.'"
