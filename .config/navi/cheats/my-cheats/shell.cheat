@@ -120,6 +120,9 @@ rsync -a --progress --stats <source_dir> <destination_dir>
 # Run command in the background
 nohup <command> &
 
+# Repeat command N times (https://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash)
+for i in {1..<n>}; do <command_to_run>; done
+
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
 $ package-name: snap list
