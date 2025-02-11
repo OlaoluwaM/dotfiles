@@ -123,6 +123,9 @@ nohup <command> &
 # Repeat command N times (https://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash)
 for i in {1..<n>}; do <command_to_run>; done
 
+# Check if your machine has hyperthreading enabled.
+lscpu | grep --color=auto -F "Thread(s) per core"; echo -e "\nHyperthreading is enabled if the value of 'Thread(s) per core' is greater than 1"
+
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
 $ package-name: snap list
