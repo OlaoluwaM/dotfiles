@@ -81,7 +81,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.config/nvm"
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh-autosuggestions fast-syntax-highlighting you-should-use gh zoxide nvm)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh-autosuggestions fast-syntax-highlighting you-should-use gh zoxide nvm direnv)
 
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
@@ -149,10 +149,6 @@ if command -v quote &>/dev/null; then
   quote
 fi
 
-# Bun (https://github.com/oven-sh/bun)
-export BUN_INSTALL="/home/olaolu/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
@@ -176,9 +172,6 @@ esac
 # enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
 gpgconf --launch gpg-agent
 
-# bun completions
-[ -s "/home/olaolu/.bun/_bun" ] && source "/home/olaolu/.bun/_bun"
-
 # Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
@@ -199,8 +192,5 @@ fi
 [ -s "$DOTS/shell/completions/aichat.zsh" ] && source "$DOTS/shell/completions/aichat.zsh"
 [ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
 [ -s "$DOTS/shell/completions/_rip" ] && source "$DOTS/shell/completions/_rip"
-
-
-export PATH="$HOME/appimage-apps:$PATH"
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup-env

@@ -62,7 +62,7 @@ export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d 
 export GIT_PAGER="delta"
 
 export LIBVA_DRIVER_NAME=nvidia
-#export MOZ_DISABLE_RDD_SANDBOX=1
+export COMPOSE_BAKE=true
 
 # Functions
 function doesThisExist() {
@@ -601,6 +601,7 @@ function sysfetch() {
   ${available_commands[$random_index + 1]}
 }
 
+# Like tac but for bat
 function tab() {
   tac "$@" | bat -f --style="auto"
 }
@@ -757,4 +758,6 @@ alias dkRefresh="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
 alias ai="mods"
+alias sc="socat"
+
 alias listGitAliases="git config --get-regexp '^alias\.'"
