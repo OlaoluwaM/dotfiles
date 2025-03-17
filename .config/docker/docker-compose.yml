@@ -32,8 +32,8 @@ services:
   open-webui:
     container_name: open-webui
     depends_on:
-      open-webui-pipelines:
-        condition: service_started
+      #  open-webui-pipelines:
+      #  condition: service_started
       ollama:
         condition: service_healthy
         required: false
@@ -54,24 +54,24 @@ services:
               capabilities: [gpu]
     runtime: nvidia
 
-  open-webui-pipelines:
-    container_name: open-webui-pipelines
-    image: ghcr.io/open-webui/pipelines:main
-    restart: on-failure:3
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    ports:
-      - "9099:9099"
-    volumes:
-      - pipelines:/app/pipelines
-    environment:
-      - PIPELINES_URLS="https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/rag/haystack_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/integrations/wikipedia_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/providers/anthropic_manifold_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/providers/openai_dalle_manifold_pipeline.py"
-    runtime: nvidia
+  #open-webui-pipelines:
+    #  container_name: open-webui-pipelines
+    #image: ghcr.io/open-webui/pipelines:main
+    #restart: on-failure:3
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
+    #ports:
+    #  - "9099:9099"
+    #volumes:
+    #  - pipelines:/app/pipelines
+    #environment:
+    #  - PIPELINES_URLS="https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/rag/haystack_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/integrations/wikipedia_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/providers/anthropic_manifold_pipeline.py;https://raw.githubusercontent.com/open-webui/pipelines/main/examples/pipelines/providers/openai_dalle_manifold_pipeline.py"
+    #runtime: nvidia
 
 volumes:
   ollama:
     name: "ollama-data"
   open-webui:
     name: "open-webui-data"
-  pipelines:
-    name: "pipelines-data"
+  #pipelines:
+    #  name: "pipelines-data"

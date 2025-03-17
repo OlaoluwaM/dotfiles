@@ -140,14 +140,14 @@ setopt HIST_IGNORE_SPACE
 
 # Other things to run
 # For inspirational Quotes
-if command -v hacker-laws-cli &>/dev/null; then
-  hacker-laws-cli random
-fi
+#if command -v hacker-laws-cli &>/dev/null; then
+#  hacker-laws-cli random
+#fi
 
-if command -v quote &>/dev/null; then
-  echo -e "\r"
-  quote
-fi
+#if command -v quote &>/dev/null; then
+#  echo -e "\r"
+#  quote
+#fi
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")

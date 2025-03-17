@@ -385,11 +385,12 @@ function backupDnfAliases() {
 }
 
 function backupDejaDupConfig() {
-  echo "Backing up DejaDup config..."
-  dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
 
-  if [[ -d "$HOME/.var/app/org.gnome.DejaDup" ]]; then
-    echo "Also backing up config for flatpak..."
+  if isFlatpakInstalled "org.gnome.DejaDup"; then
+    echo "Backing up RPM DejaDup config..."
+    dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
+  else
+    echo "Backing up config for DejaDup flatpak version..."
     cat "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile" >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt"
   fi
 
@@ -397,15 +398,26 @@ function backupDejaDupConfig() {
 }
 
 function restoreDejaDupConf() {
-  echo "Restoring DejaDup config..."
-  dconf load /org/gnome/deja-dup/ <$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini
 
-  if [[ -d "$HOME/.var/app/org.gnome.DejaDup" ]]; then
-    echo "Also restoring config for flatpak..."
+  if isFlatpakInstalled "org.gnome.DejaDup"; then
+    echo "Restoring config for flatpak DejaDup version..."
     cat "$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt" >|"$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile"
+  else
+    echo "Restoring config for RPM DejaDup version..."
+    dconf load /org/gnome/deja-dup/ <$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini
   fi
 
   echo "Done!"
+}
+
+function isFlatpakInstalled() {
+  local app_id="$1"
+  
+  if flatpak info "$app_id" &>/dev/null; then
+    return 0  # App is installed
+  else
+    return 1  # App is not installed
+  fi
 }
 
 function queryUserInstalledPackages() {
@@ -560,7 +572,7 @@ function backupAichatConf() {
 }
 
 function backupModsConf() {
-  sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
+  sed 's/\(api-key:\)\s*[^\s#][^#]*/\1/g'  $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
 }
 
 function getNvidiaPrograms() {
@@ -617,7 +629,7 @@ function genSlackArchive() {
   mkdir -p "$archiveDir"
 
   echo "Generating archive..."
-  date +'%d-%m-%Y' | xargs -I {} slackdump dump -v -files -o "$archiveDir/archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
+  date +'%d-%m-%Y' | xargs -I {} slackdump dump -v -files -update-links -o "$archiveDir/archive-{}.zip" https://functionalprogramming.slack.com/archives/D042J5BAW74
   echo "Done!"
 }
 
@@ -761,3 +773,5 @@ alias ai="mods"
 alias sc="socat"
 
 alias listGitAliases="git config --get-regexp '^alias\.'"
+alias stackBuildExitOnFirstError="stack build --no-keep-going"
+alias dff="delta"
