@@ -1,3 +1,6 @@
+# Load homebrew stuff
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ######################################################################## OMZ Stuff Start ######################################################################################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -85,7 +88,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export NVM_DIR="$HOME/Library/Application Support/nvm"
 
-plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm)
+plugins=(git command-not-found git-escape-magic rand-quote safe-paste sudo zsh-autosuggestions fast-syntax-highlighting you-should-use httpie npm gh zoxide nvm direnv)
 
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
@@ -139,14 +142,14 @@ set -o noclobber
 
 # Other things to run
 # For inspirational Quotes
-if command -v hacker-laws-cli &>/dev/null; then
-  hacker-laws-cli random
-fi
+#if command -v hacker-laws-cli &>/dev/null; then
+#  hacker-laws-cli random
+#fi
 
-if command -v quote &>/dev/null; then
-  echo -e "\r"
-  quote
-fi
+#if command -v quote &>/dev/null; then
+#  echo -e "\r"
+#  quote
+#fi
 
 export PATH="/usr/local/bin:$PATH"
 
@@ -155,8 +158,6 @@ eval "$(atuin init zsh)"
 
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
 eval "$(starship init zsh)"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 eval "$(fzf --zsh)"
 
