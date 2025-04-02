@@ -126,6 +126,9 @@ for i in {1..<n>}; do <command_to_run>; done
 # Check if your machine has hyperthreading enabled.
 lscpu | grep --color=auto -F "Thread(s) per core"; echo -e "\nHyperthreading is enabled if the value of 'Thread(s) per core' is greater than 1"
 
+# Merge images together veritcally (stack them ontop of each other, accepts a variable number of images)
+magick <img1> <img2> <img3> -append <result_img_file_name>
+
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
 $ package-name: snap list
