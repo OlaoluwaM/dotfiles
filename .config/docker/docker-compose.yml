@@ -31,8 +31,9 @@ services:
   open-webui:
     container_name: open-webui
     depends_on:
-      #  open-webui-pipelines:
-      #  condition: service_started
+      open-webui-mcpo:
+        condition: service_started
+        required: true
       ollama:
         condition: service_healthy
         required: false
@@ -52,6 +53,16 @@ services:
               count: all
               capabilities: [gpu]
     runtime: nvidia
+  open-webui-mcpo:
+    container_name: open-webui-mcpo
+    pull_policy: always
+    build:
+      context: ./mcpo
+    restart: on-failure:3
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 volumes:
   ollama:
     name: "ollama-data"

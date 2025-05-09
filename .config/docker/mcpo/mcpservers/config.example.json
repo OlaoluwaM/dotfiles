@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mcp-obsidian": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "https://github.com/MarkusPfundstein/mcp-obsidian.git",
+        "mcp-obsidian"
+      ],
+      "env": {
+        "OBSIDIAN_HOST": "host.docker.internal",
+        "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}"
+      }
+    }
+  }
+}
