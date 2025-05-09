@@ -1,4 +1,3 @@
-
 # Use the existing mcpo image as the base image
 FROM ghcr.io/open-webui/mcpo:main
 

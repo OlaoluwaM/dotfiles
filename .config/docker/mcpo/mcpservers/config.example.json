@@ -11,13 +11,6 @@
         "OBSIDIAN_HOST": "host.docker.internal",
         "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}"
       }
-    },
-    "raindrop": {
-      "command": "npx",
-      "args": ["@adeze/raindrop-mcp"],
-      "env": {
-        "RAINDROP_ACCESS_TOKEN": "${RAINDROP_API_TOKEN}"
-      }
     }
   }
 }
