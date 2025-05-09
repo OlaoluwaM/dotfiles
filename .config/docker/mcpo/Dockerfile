@@ -6,9 +6,6 @@ FROM ghcr.io/open-webui/mcpo:main
 RUN apt-get update && \
   apt-get install -y curl iputils-ping netcat-traditional git
 
-# Install the latest version of uv
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
 # Setup mcp-servers directory
 WORKDIR /mcp-servers
 COPY ./mcpservers/config.example.json .
