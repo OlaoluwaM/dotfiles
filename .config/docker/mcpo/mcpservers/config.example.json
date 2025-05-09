@@ -11,6 +11,10 @@
         "OBSIDIAN_HOST": "host.docker.internal",
         "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}"
       }
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
     }
   }
 }
