@@ -28,6 +28,7 @@ services:
     environment:
       - OLLAMA_NUM_PARALLEL=3
       - OLLAMA_KEEP_ALIVE="10m"
+
   open-webui:
     container_name: open-webui
     depends_on:
@@ -53,6 +54,7 @@ services:
               count: all
               capabilities: [gpu]
     runtime: nvidia
+
   open-webui-mcpo:
     container_name: open-webui-mcpo
     pull_policy: always
@@ -63,8 +65,11 @@ services:
       - "8000:8000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
 volumes:
   ollama:
     name: "ollama-data"
   open-webui:
     name: "open-webui-data"
+  open-webui-mcpo:
+    name: "open-webui-mcpo-data"

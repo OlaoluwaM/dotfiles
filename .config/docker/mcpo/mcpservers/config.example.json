@@ -4,7 +4,7 @@
       "command": "uvx",
       "args": [
         "--from",
-        "https://github.com/MarkusPfundstein/mcp-obsidian.git",
+        "https://github.com/OlaoluwaM/mcp-obsidian.git",
         "mcp-obsidian"
       ],
       "env": {
