@@ -58,7 +58,7 @@ export STARSHIP_CONFIG=$DOTS/starship/starship.toml
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
 export HISTFILE="$DOTS/shell/.zsh_history"
-export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+#export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 export GIT_PAGER="delta"
 
 export LIBVA_DRIVER_NAME=nvidia
