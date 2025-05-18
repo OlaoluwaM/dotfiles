@@ -365,18 +365,14 @@ function updateNodeTo() {
   echo "Done!"
 }
 
-function backupDnfAliases() {
-  dnf alias | sed 's/Alias//' >|"$DOTS/system/dnf-alias.txt"
-}
-
 function backupDejaDupConfig() {
 
   if isFlatpakInstalled "org.gnome.DejaDup"; then
-    echo "Backing up RPM DejaDup config..."
-    dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
-  else
     echo "Backing up config for DejaDup flatpak version..."
     cat "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile" >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt"
+  else
+    echo "Backing up RPM DejaDup config..."
+    dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
   fi
 
   echo "Done!"
@@ -397,11 +393,11 @@ function restoreDejaDupConf() {
 
 function isFlatpakInstalled() {
   local app_id="$1"
-  
+
   if flatpak info "$app_id" &>/dev/null; then
-    return 0  # App is installed
+    return 0 # App is installed
   else
-    return 1  # App is not installed
+    return 1 # App is not installed
   fi
 }
 
@@ -557,7 +553,7 @@ function backupAichatConf() {
 }
 
 function backupModsConf() {
-  sed 's/\(api-key:\)\s*[^\s#][^#]*/\1/g'  $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
+  sed 's/\(api-key:\)\s*[^\s#][^#]*/\1/g' $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
 }
 
 function getNvidiaPrograms() {
