@@ -448,6 +448,11 @@ function restoreGPGKey() {
     return 1
   fi
 
+  if [[ ! -d "$backupDir" ]]; then
+    echo "Sorry, no such key exists"
+    return 1
+  fi
+
   echo "Restoring GPG key ${keyID}..."
 
   echo -n "Restoring public key..."
