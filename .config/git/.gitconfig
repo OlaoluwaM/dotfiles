@@ -100,3 +100,12 @@ program = gpg2
 
 [tag]
 gpgSign = true
+
+# Enforce SSH (https://stackoverflow.com/questions/11200237/how-do-i-get-git-to-default-to-ssh-and-not-https-for-new-repositories)
+# Tells git to use SSH by default when connecting to github
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/

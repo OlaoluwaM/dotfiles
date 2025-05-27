@@ -1,5 +1,5 @@
 #!/bin/bash
-# This should be placed in /usr/local/bin
+# This should be copied into the /usr/local/bin directory first, then corresponding udev custom rule file should be copied into its appropriate position 
 # This is being used by the corresponding udev rule located at '/etc/udev/rules.d/99-manage-nvidia-powerd.rules'
 # That rule, '99-manage-nvidia-powerd.rules', references this script when it is located at '/usr/local/bin/'
 # These two, this script and the udev rule, exist to turn off the 'nvidia_powerd' service while the system runs on battery power and turn it back on while the system is on AC
