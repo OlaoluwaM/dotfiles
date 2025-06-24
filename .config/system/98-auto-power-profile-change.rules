@@ -3,9 +3,5 @@
 #
 # On AC Power
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Charging", RUN+="/usr/local/bin/switch_to_performance.sh"
-# On battery but not yet low
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", ENV{POWER_SUPPLY_CAPACITY_LEVEL}=="Normal", RUN+="/usr/local/bin/switch_to_balanced.sh"
-# On low battery
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", ENV{POWER_SUPPLY_CAPACITY_LEVEL}=="Low", RUN+="/usr/local/bin/switch_to_powersave.sh"
-# On critically-low battery
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", ENV{POWER_SUPPLY_CAPACITY_LEVEL}=="Critical", RUN+="/usr/local/bin/switch_to_powersave.sh"
+# On Discharging
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", RUN+="/usr/local/bin/switch_power_profile.sh '$attr{capacity}'"
