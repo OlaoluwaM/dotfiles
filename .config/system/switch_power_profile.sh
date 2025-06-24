@@ -22,11 +22,19 @@ function log_error() {
 }
 
 function switch_to_tuned_profile() {
-    local profile="$1"
-    if tuned-adm profile "$profile"; then
-        log_info "Switched to '$profile' profile successfully."
+    local target_profile current_profile
+    target_profile="$1"
+    current_profile=$(tuned-adm active)
+
+    if [[ "$current_profile" == *"$target_profile"* ]]; then
+        log_info "Power profile already set to '$target_profile'"
+        return 0
+    fi
+
+    if tuned-adm profile "$target_profile"; then
+        log_info "Switched to '$target_profile' profile successfully."
     else
-        log_error "Failed to switch to '$profile' profile."
+        log_error "Failed to switch to '$target_profile' profile."
     fi
 }
 
