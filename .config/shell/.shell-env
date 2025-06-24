@@ -640,6 +640,10 @@ function compileToolAgainstStackProject() {
   stack install --copy-compiler-tool "$@"
 }
 
+function getRandomFileInDir() {
+  find "${1:-.}" -maxdepth 1 -type f | shuf -n 1 | xargs -I _ bat _
+}
+
 # Keyboard Bindings
 zle -N expandAlias
 
@@ -761,3 +765,5 @@ alias sc="socat"
 alias listGitAliases="git config --get-regexp '^alias\.'"
 alias stackBuildExitOnFirstError="stack build --no-keep-going"
 alias dff="delta"
+
+alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Cards/Advice and insights\""
