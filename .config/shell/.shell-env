@@ -763,7 +763,5 @@ alias ai="mods"
 alias sc="socat"
 
 alias listGitAliases="git config --get-regexp '^alias\.'"
-alias stackBuildExitOnFirstError="stack build --no-keep-going"
 alias dff="delta"
-
 alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Cards/Advice and insights\""

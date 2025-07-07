@@ -14,3 +14,6 @@ stack ghci --package <package_names_sep_by_space>
 
 # Create a repl with certain packages loaded (cabal)
 cabal repl -b <package_names_sep_by_comma>
+
+# Stop stack on first compile error
+stack build --fast --no-keep-going
