@@ -4,4 +4,4 @@ FROM ollama/ollama:latest
 
 # Install curl, netcat, and ping
 RUN apt-get update && \
-  apt-get install -y curl iputils-ping netcat
+  apt-get install -y curl iputils-ping netcat-traditional
