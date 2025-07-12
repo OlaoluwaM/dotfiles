@@ -65,6 +65,12 @@ services:
       - "8000:8000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    volumes:
+      - type: bind
+        source: ./mcpo/data/memory.json
+        target: /mcp-servers/memory.json
+    environment:
+      - MEMORY_FILE_PATH=/mcp-servers/memory.json
 
 volumes:
   ollama:

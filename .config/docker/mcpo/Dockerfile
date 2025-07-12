@@ -14,6 +14,4 @@ COPY ./mcpservers/substitute_env.sh .
 RUN chmod +x substitute_env.sh
 RUN ./substitute_env.sh
 
-# Install mcp servers here if needed
-
 CMD ["--api-key", "top-secret", "--config", "/mcp-servers/config.json"]
