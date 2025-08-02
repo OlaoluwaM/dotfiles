@@ -2,4 +2,7 @@
 :set -XNoStarIsType
 :set -XTypeApplications
 :set -XImportQualifiedPost
+:set -XOverloadedStrings
 :set -package deepseq
+:set -package text
+:set -package bytestring

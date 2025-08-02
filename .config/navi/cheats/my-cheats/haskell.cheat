@@ -17,3 +17,6 @@ cabal repl -b <package_names_sep_by_comma>
 
 # Stop stack on first compile error
 stack build --fast --no-keep-going
+
+# Run executable with profiling
+stack run --profile <name_of_exe> --rts-options -p -- <executable_options>
