@@ -21,9 +21,7 @@
       "args": ["-y", "@modelcontextprotocol/server-memory"]
     },
     "github": {
-      "type": "http",
-      "name": "GitHub Copilot MCP",
-      "description": "GitHub Copilot MCP server",
+      "type": "streamable-http",
       "url": "https://api.githubcopilot.com/mcp/",
       "headers": {
         "Authorization": "Bearer ${GITHUB_MCP_PAT}"

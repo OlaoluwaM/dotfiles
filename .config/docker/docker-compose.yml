@@ -26,7 +26,6 @@ services:
       timeout: 7s
       retries: 3
     environment:
-      - OLLAMA_NUM_PARALLEL=3
       - OLLAMA_KEEP_ALIVE="10m"
 
   open-webui:
