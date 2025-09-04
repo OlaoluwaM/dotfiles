@@ -16,6 +16,9 @@
 {"type":"entity","name":"Database Schema Design","entityType":"concept","observations":["Single amount column with entry_type is preferred for double-entry accounting","Bitmap index on entry_type column enables fast lookups of all debits or credits","Alternative to separate debit_amount and credit_amount columns"]}
 {"type":"entity","name":"Entry Type Column","entityType":"database_column","observations":["Contains values like 'DEBIT' or 'CREDIT'","Good candidate for bitmap indexing due to low cardinality","Used in single amount column approach for double-entry accounting"]}
 {"type":"entity","name":"Double-Entry Accounting Schema","entityType":"accounting_system","observations":["Can be implemented with single amount column plus entry_type","Alternative to separate debit_amount and credit_amount columns","Both approaches maintain accounting balance requirements"]}
+{"type":"entity","name":"Theorem","entityType":"Mathematical Concept","observations":["A mathematical statement that has been proven to be true","Requires rigorous proof to establish validity","Built upon axioms and previously proven theorems","Examples include Pythagorean Theorem and theorems about prime numbers","Serves as reliable mathematical tools for future work"]}
+{"type":"entity","name":"Proof","entityType":"Mathematical Process","observations":["Rigorous evidence of the soundness and correctness of a theorem","Step-by-step logical argument from axioms to theorem","Uses axioms, previously proven theorems, and logical rules","The process that transforms a mathematical claim into a theorem","Provides the reasoning that shows why a theorem is true"]}
+{"type":"entity","name":"Axiom","entityType":"Mathematical Foundation","observations":["A statement that is assumed to be true within some context","Basic assumptions accepted without proof","Forms the foundation of mathematical systems","Self-evident or agreed-upon truths","Cannot be proven within the system they define","When an axiom has a corresponding proof, it becomes a theorem"]}
 {"type":"relation","from":"VPS","to":"AWS EC2","relationType":"differs from"}
 {"type":"relation","from":"AWS EC2","to":"Dynamic Scaling","relationType":"enables"}
 {"type":"relation","from":"AWS EC2","to":"High Availability","relationType":"provides"}
@@ -36,3 +39,8 @@
 {"type":"relation","from":"Bitmap Index","to":"Entry Type Column","relationType":"indexes"}
 {"type":"relation","from":"Database Schema Design","to":"Double-Entry Accounting Schema","relationType":"implements"}
 {"type":"relation","from":"Entry Type Column","to":"Double-Entry Accounting Schema","relationType":"supports"}
+{"type":"relation","from":"Proof","to":"Theorem","relationType":"establishes validity of"}
+{"type":"relation","from":"Theorem","to":"Proof","relationType":"requires"}
+{"type":"relation","from":"Axiom","to":"Theorem","relationType":"serves as foundation for"}
+{"type":"relation","from":"Proof","to":"Axiom","relationType":"builds upon"}
+{"type":"relation","from":"Axiom","to":"Theorem","relationType":"becomes when proven"}

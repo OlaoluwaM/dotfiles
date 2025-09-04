@@ -644,6 +644,20 @@ function getRandomFileInDir() {
   find "${1:-.}" -maxdepth 1 -type f | shuf -n 1 | xargs -I _ bat _
 }
 
+# Advanced Docker refresh function with options
+function dkr() {
+  local hard_refresh=${1:-false}
+
+  if [[ "$hard_refresh" == "--hard" ]]; then
+    echo "🔄 Hard refresh: stopping containers, pulling images, rebuilding..."
+    # This version does not make use of the cache from previous builds
+    docker compose down && docker compose pull && docker compose build --pull --no-cache && docker compose up -d
+  else
+    echo "🔄 Quick refresh: pulling and recreating..."
+    docker compose pull && docker compose up -d --force-recreate --build
+  fi
+}
+
 # Keyboard Bindings
 zle -N expandAlias
 
@@ -756,7 +770,7 @@ alias ai="aichat"
 
 alias gedit="gnome-text-editor"
 alias fnd="fend"
-alias dkRefresh="dkc down && dkc pull && dkcb --pull && sleep 2 && dkc up -d"
+alias dkRefresh="dkc pull && dkc up -d --force-recreate --build"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
 alias ai="mods"
