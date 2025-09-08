@@ -658,6 +658,9 @@ function dkr() {
   fi
 }
 
+# Based off this article https://williamhuster.com/automatically-subtitle-videos/
+source $DOTS/shell/auto-gen-vid-subtitles.sh
+
 # Keyboard Bindings
 zle -N expandAlias
 
