@@ -47,6 +47,9 @@
 {"type":"entity","name":"file organization system","entityType":"feature","observations":["Creates directory structure named after input video","Organizes original video, subtitled video, and subtitle files together","Copies original file to project directory","Generates README.md with processing details","Can be disabled with -n, --no-organize flag","Shows directory and file sizes after processing"]}
 {"type":"entity","name":"GPU acceleration features","entityType":"performance_optimization","observations":["Always enables NVIDIA GPU acceleration","Uses CUDA for Whisper transcription","Supports hardware video encoding with NVENC (h264_nvenc, hevc_nvenc)","Auto-selects optimal encoding for burn-in operations","Validates CUDA device availability","Reports GPU memory usage during processing"]}
 {"type":"entity","name":"subtitle processing modes","entityType":"processing_option","observations":["Supports two modes: embedded track (default) and burned-in subtitles","Embedded track mode preserves original video quality","Burn-in mode renders subtitles directly into video frames","Automatically selects appropriate subtitle codecs for different container formats","Handles subtitle format compatibility for burning operations"]}
+{"type":"entity","name":"Functional Completeness","entityType":"Mathematical Concept","observations":["The characteristic of a set of operations within some system or algebra that describes the set of operations as being a complete building block for all other operations in the target system","A set of operations is deemed functionally complete if, from it, we can describe/define all other operations within some system/context","User suggests that a set containing all operations within some mathematical domain is functionally complete","Commonly discussed in the context of logic and Boolean Algebra systems"]}
+{"type":"entity","name":"Boolean Algebra","entityType":"Mathematical System","observations":["A system where functional completeness can be demonstrated","Contains operations from which all other operations within the system can be defined"]}
+{"type":"entity","name":"Logic Systems","entityType":"Mathematical System","observations":["Context where functional completeness is often discussed","Systems where sets of operations can be evaluated for completeness"]}
 {"type":"relation","from":"VPS","to":"AWS EC2","relationType":"differs from"}
 {"type":"relation","from":"AWS EC2","to":"Dynamic Scaling","relationType":"enables"}
 {"type":"relation","from":"AWS EC2","to":"High Availability","relationType":"provides"}
@@ -82,3 +85,5 @@
 {"type":"relation","from":"auto_subtitle script","to":"subtitle processing modes","relationType":"supports"}
 {"type":"relation","from":"file organization system","to":"subtitle format options","relationType":"organizes"}
 {"type":"relation","from":"GPU acceleration features","to":"subtitle processing modes","relationType":"accelerates"}
+{"type":"relation","from":"Functional Completeness","to":"Boolean Algebra","relationType":"applies to"}
+{"type":"relation","from":"Functional Completeness","to":"Logic Systems","relationType":"applies to"}

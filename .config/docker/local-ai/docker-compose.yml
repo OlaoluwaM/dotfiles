@@ -6,7 +6,7 @@ services:
     pull_policy: always
     build:
       context: ./ollama
-    restart: on-failure:3
+    restart: unless-stopped
     ports:
       - "11434:11434"
     volumes:
@@ -38,7 +38,7 @@ services:
         condition: service_healthy
         required: false
     image: ghcr.io/open-webui/open-webui:cuda
-    restart: on-failure:3
+    restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
@@ -59,7 +59,7 @@ services:
     pull_policy: always
     build:
       context: ./mcpo
-    restart: on-failure:3
+    restart: unless-stopped
     ports:
       - "8000:8000"
     extra_hosts:
