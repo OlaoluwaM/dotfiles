@@ -71,6 +71,76 @@ services:
     environment:
       - MEMORY_FILE_PATH=/mcp-servers/memory.json
 
+  vllm-reranker:
+    container_name: vllm-reranker
+    image: vllm/vllm-openai:latest
+    pull_policy: always
+    restart: unless-stopped
+    runtime: nvidia
+    ports:
+      - "8002:8000"  # Different port for reranking service
+    volumes:
+      - type: bind
+        source: ~/.cache/huggingface
+        target: /root/.cache/huggingface
+        bind:
+          create_host_path: true
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ipc: host
+    command: [
+      "--model", "Qwen/Qwen3-Reranker-0.6B",
+      "--max-model-len", "8192",
+      "--enforce-eager",
+      "--hf_overrides", '{"architectures": ["Qwen3ForSequenceClassification"],"classifier_from_token": ["no", "yes"],"is_original_qwen3_reranker": true}'
+    ]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      start_period: 90s
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+
+  # vllm-server:
+  #   container_name: vllm-server
+  #   image: vllm/vllm-openai:latest
+  #   pull_policy: always
+  #   restart: unless-stopped
+  #   runtime: nvidia
+  #   ports:
+  #     - "8001:8000"  # Changed to 8001 to avoid conflict with open-webui-mcpo
+  #   volumes:
+  #     - type: bind
+  #       source: ~/.cache/huggingface
+  #       target: /root/.cache/huggingface
+  #       bind:
+  #         create_host_path: true
+  #   environment:
+  #     - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: all
+  #             capabilities: [gpu]
+  #   ipc: host
+  #   command: ["--model", "Qwen/Qwen2.5-0.5B-Instruct"]  # Updated to a more recent model
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+  #     start_period: 60s
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+
 volumes:
   ollama:
     name: "ollama-data"
@@ -78,3 +148,5 @@ volumes:
     name: "open-webui-data"
   open-webui-mcpo:
     name: "open-webui-mcpo-data"
+  huggingface-cache:
+    name: "huggingface-cache-data"

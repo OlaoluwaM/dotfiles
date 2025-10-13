@@ -50,6 +50,10 @@
 {"type":"entity","name":"Functional Completeness","entityType":"Mathematical Concept","observations":["The characteristic of a set of operations within some system or algebra that describes the set of operations as being a complete building block for all other operations in the target system","A set of operations is deemed functionally complete if, from it, we can describe/define all other operations within some system/context","User suggests that a set containing all operations within some mathematical domain is functionally complete","Commonly discussed in the context of logic and Boolean Algebra systems"]}
 {"type":"entity","name":"Boolean Algebra","entityType":"Mathematical System","observations":["A system where functional completeness can be demonstrated","Contains operations from which all other operations within the system can be defined"]}
 {"type":"entity","name":"Logic Systems","entityType":"Mathematical System","observations":["Context where functional completeness is often discussed","Systems where sets of operations can be evaluated for completeness"]}
+{"type":"entity","name":"Angela","entityType":"Person","observations":["Is a contact person at Obsidian Systems","Previously mentioned an engineering position in an email","Is being followed up with regarding job status"]}
+{"type":"entity","name":"Obsidian Systems","entityType":"Company","observations":["Has engineering positions available","Company that Ola is applying to","Angela works there or represents them"]}
+{"type":"entity","name":"Engineering Position","entityType":"Job Opportunity","observations":["Position at Obsidian Systems","Was mentioned in Angela's previous email","Ola is interested and has applied","Status and timeline are being inquired about"]}
+{"type":"entity","name":"Follow-up Email","entityType":"Communication","observations":["Written by Ola to Angela","Inquires about job status and company hiring","Expresses continued interest in the position","Includes attached resume","Requests updates on timeline","Sent on a Wednesday"]}
 {"type":"relation","from":"VPS","to":"AWS EC2","relationType":"differs from"}
 {"type":"relation","from":"AWS EC2","to":"Dynamic Scaling","relationType":"enables"}
 {"type":"relation","from":"AWS EC2","to":"High Availability","relationType":"provides"}
@@ -87,3 +91,20 @@
 {"type":"relation","from":"GPU acceleration features","to":"subtitle processing modes","relationType":"accelerates"}
 {"type":"relation","from":"Functional Completeness","to":"Boolean Algebra","relationType":"applies to"}
 {"type":"relation","from":"Functional Completeness","to":"Logic Systems","relationType":"applies to"}
+{"type":"relation","from":"Boolean algebra","to":"Electronic circuitry design","relationType":"serves as mathematical foundation for"}
+{"type":"relation","from":"Boolean functions","to":"Logic gates","relationType":"are physically implemented by"}
+{"type":"relation","from":"Logic gates","to":"Boolean functions","relationType":"implement"}
+{"type":"relation","from":"Boolean algebra","to":"Boolean functions","relationType":"defines"}
+{"type":"relation","from":"Logic gates","to":"Voltage levels","relationType":"operate using"}
+{"type":"relation","from":"Voltage levels","to":"Logic gates","relationType":"control"}
+{"type":"relation","from":"Transistors","to":"Logic gates","relationType":"are building blocks of"}
+{"type":"relation","from":"Logic gates","to":"Digital systems","relationType":"are components of"}
+{"type":"relation","from":"Digital systems","to":"Boolean algebra","relationType":"operate on principles of"}
+{"type":"relation","from":"Voltage levels","to":"Transistors","relationType":"control state of"}
+{"type":"relation","from":"Ola","to":"Angela","relationType":"contacted"}
+{"type":"relation","from":"Ola","to":"Obsidian Systems","relationType":"applied to"}
+{"type":"relation","from":"Ola","to":"Engineering Position","relationType":"interested in"}
+{"type":"relation","from":"Angela","to":"Obsidian Systems","relationType":"works at"}
+{"type":"relation","from":"Engineering Position","to":"Obsidian Systems","relationType":"offered by"}
+{"type":"relation","from":"Follow-up Email","to":"Ola","relationType":"written by"}
+{"type":"relation","from":"Follow-up Email","to":"Angela","relationType":"sent to"}
