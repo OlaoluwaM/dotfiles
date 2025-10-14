@@ -557,9 +557,9 @@ function backupAichatConf() {
   sed 's/^[[:space:]]*api_key.*$/    api_key: <omitted>/g' $XDG_CONFIG_HOME/aichat/config.yaml >|$DOTS/aichat/config.yaml
 }
 
-function backupModsConf() {
-  sed 's/\(api-key:\)\s*[^\s#][^#]*/\1/g' $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
-}
+# function backupModsConf() {
+#   sed 's/\(api-key:\)\s*[^\s#][^#]*/\1/g' $XDG_CONFIG_HOME/mods/mods.yml >|$DOTS/mods/mods.yml
+# }
 
 function getNvidiaPrograms() {
   sudo lsof /dev/nvidia0 2>/dev/null | awk '{print $1}' | uniq | tail --lines 7
@@ -570,11 +570,15 @@ function getNvidiaProgramsRaw() {
 }
 
 function aio() {
-  mods -f --no-cache -m gpt-4o-mini "$@"
+  aichat -m openai:gpt-4.1-mini "$@"
 }
 
 function aicl() {
-  mods -f --no-cache -m claude-3-5-sonnet-latest "$@"
+  aichat -m claude:claude-sonnet-4-5-20250929 "$@"
+}
+
+function ailocal() {
+  aichat -m ollama:gpt-oss:20b "$@"
 }
 
 function sysfetch() {
@@ -776,9 +780,11 @@ alias fnd="fend"
 alias dkRefresh="dkc pull && dkc up -d --force-recreate --build"
 
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
-alias ai="mods"
+alias ai="aichat"
 alias sc="socat"
 
 alias listGitAliases="git config --get-regexp '^alias\.'"
 alias dff="delta"
 alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Cards/Advice and insights\""
+
+alias obsidianRAG="aichat --rag digital-brain"

@@ -36,7 +36,7 @@ summary_prompt: "This is a summary of the chat history as a recap: "
 # ---- RAG ----
 # See [RAG-Guide](https://github.com/sigoden/aichat/wiki/RAG-Guide) for more details.
 rag_embedding_model: ollama:hf.co/Qwen/Qwen3-Embedding-8B-GGUF:Q6_K # Specifies the embedding model used for context retrieval
-rag_reranker_model: vLLM:hf.co/Qwen/Qwen3-Reranker-0.6B # Specifies the reranker model used for sorting retrieved documents
+rag_reranker_model: vLLM-reranker:Qwen/Qwen3-Reranker-0.6B # Specifies the reranker model used for sorting retrieved documents
 rag_top_k: 5 # Specifies the number of documents to retrieve for answering queries
 rag_chunk_size: null # Defines the size of chunks for document processing in characters
 rag_chunk_overlap: null # Defines the overlap between chunks
@@ -56,7 +56,8 @@ rag_template: |
   - If the answer is not in the context but you think you know the answer, explain that to the user then answer with your own knowledge.
   - Answer directly and without using xml tags.
   - Do not include any information about your thought process in the response
-  - If possible, also include information (like a file name for instance) about the location of the context that matches the user's query
+  - Include information (like a file name) about where the context that matches the user's query is located, if possible.
+  - If there are multiple context matches, then include information for all of them. If there are no context matches then say so
   </rules>
 
   <user_query>
@@ -143,8 +144,8 @@ clients:
         type: reranker # The Ollama openai compatible API (it's /v1 api) doesn't yet support reranking so we'll need to use something like vllm for reranking functionality
 
   - type: openai-compatible
-    name: vLLM
-    api_base: http://localhost:8002/v1
+    name: vLLM-reranker
+    api_base: http://localhost:8001/v1
     api_key: <omitted>
     models:
       - name: Qwen/Qwen3-Reranker-0.6B
