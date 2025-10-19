@@ -26,7 +26,9 @@ services:
       timeout: 7s
       retries: 3
     environment:
+    # Info on Ollama flags can be found here: https://github.com/ollama/ollama/blob/main/docs%2Ffaq.md
       - OLLAMA_KEEP_ALIVE="10m"
+      - OLLAMA_MAX_LOADED_MODELS=1 # Due to our limited GPU VRAM and new workload requirements. This obviates the need to manually unload models using the `ollama stop <model>` command
 
   open-webui:
     container_name: open-webui
@@ -103,7 +105,7 @@ services:
       # By default, vLLM pre-allocates up to 90% of your GPU VRAM for the model weights and KV cache to maximize throughput and support large batches or long contexts. This is controlled by the --gpu-memory-utilization flag. If you want vLLM to use less VRAM, lower this value. For now, 0.5 seems to be the lowest we can set it as anything below that just results to the same amount of memory usage as 0.5
       # https://github.com/vllm-project/vllm/issues/1062
       "--gpu-memory-utilization", "0.5",
-      "--enforce-eager",
+      "--enforce-eager", -- To disable cuda graph optimizations that can lead to OOM errors on some GPUs
       "--enable-sleep-mode",
       "--hf_overrides", '{"architectures": ["Qwen3ForSequenceClassification"],"classifier_from_token": ["no", "yes"],"is_original_qwen3_reranker": true}'
     ]
