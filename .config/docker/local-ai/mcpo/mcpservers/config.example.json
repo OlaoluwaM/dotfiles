@@ -26,10 +26,6 @@
       "headers": {
         "Authorization": "Bearer ${GITHUB_MCP_PAT}"
       }
-    },
-    "Notion": {
-      "type": "streamable-http",
-      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
