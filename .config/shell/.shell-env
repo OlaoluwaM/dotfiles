@@ -787,4 +787,5 @@ alias listGitAliases="git config --get-regexp '^alias\.'"
 alias dff="delta"
 alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Cards/Advice and insights\""
 
-alias obsidianRAG="aichat --rag digital-brain"
+alias obsidianRAG="aichat --rag obsidian"
+alias rebuilFontCache="fc-cache -r"
