@@ -173,9 +173,17 @@ esac
 # Created by `pipx` on 2024-03-06 00:33:47
 export PATH="$PATH:/Users/ola.mustapha/.local/bin"
 
-export PATH="/opt/homebrew/opt/llvm@12/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm@15/bin:$PATH"
 
 # Use GNU coreutils instead of macOS coreutils
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/ola.mustapha/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+
+eval "$(gh copilot alias -- zsh)"
