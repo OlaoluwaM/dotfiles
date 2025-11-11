@@ -1,8 +1,7 @@
-autohide-battery@sitnik.ru
 blur-my-shell@aunetx
 caffeine@patapon.info
 clipboard-indicator@tudmotu.com
 gsconnect@andyholmes.github.io
 just-perfection-desktop@just-perfection
-user-theme@gnome-shell-extensions.gcampax.github.com
+mprisLabel@moon-0xff.github.com
 Vitals@CoreCoding.com
