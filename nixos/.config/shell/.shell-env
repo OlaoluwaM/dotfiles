@@ -16,7 +16,7 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
-export DOTS="$HOME/Desktop/dotfiles/.config"
+export DOTS="$HOME/Desktop/dotfiles/nixos/.config"
 export SHELL_ENV="$HOME/.shell-env"
 
 export VISUAL="nvim"

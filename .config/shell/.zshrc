@@ -114,17 +114,17 @@ source "$ZSH/oh-my-zsh.sh"
 ######################################################################## OMZ Stuff Stop ###################################################################################
 
 if [[ -f "$HOME/.shell-env" ]]; then
-  source "$HOME/.shell-env"
+	source "$HOME/.shell-env"
 fi
 
 if [[ -f "$DOTS/shell/.private-shell-env" ]]; then
-  source "$DOTS/shell/.private-shell-env"
+	source "$DOTS/shell/.private-shell-env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"
 
 if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
-  source "$DOTS/shell/augment-path-var.sh"
+	source "$DOTS/shell/augment-path-var.sh"
 fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
@@ -176,13 +176,13 @@ gpgconf --launch gpg-agent
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
 # https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
-if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
-  fpath=($HOME/.config/zsh/completions $fpath)
-  autoload -U compinit && compinit
+if [[ -d "$XDG_CONFIG_HOME/zsh/completions/" ]] && [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
+	fpath=($HOME/.config/zsh/completions $fpath)
+	autoload -U compinit && compinit
 fi
 
 if command -v batpipe &>/dev/null; then
-  eval "$(batpipe)"
+	eval "$(batpipe)"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -193,8 +193,6 @@ fi
 [ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
 [ -s "$DOTS/shell/completions/_rip" ] && source "$DOTS/shell/completions/_rip"
 
-
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup
 
 eval "$(gh copilot alias -- zsh)"
-
