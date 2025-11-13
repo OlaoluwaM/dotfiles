@@ -114,17 +114,17 @@ source "$ZSH/oh-my-zsh.sh"
 ######################################################################## OMZ Stuff Stop ###################################################################################
 
 if [[ -f "$HOME/.shell-env" ]]; then
-  source "$HOME/.shell-env"
+	source "$HOME/.shell-env"
 fi
 
 if [[ -f "$DOTS/shell/.private-shell-env" ]]; then
-  source "$DOTS/shell/.private-shell-env"
+	source "$DOTS/shell/.private-shell-env"
 fi
 
 source "$DOTS/shell/smartdots.zsh"
 
 if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
-  source "$DOTS/shell/augment-path-var.sh"
+	source "$DOTS/shell/augment-path-var.sh"
 fi
 
 source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
@@ -153,13 +153,17 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Atuin (https://github.com/ellie/atuin)
-eval "$(atuin init zsh)"
+if command -v atuin &>/dev/null; then
+	eval "$(atuin init zsh)"
+fi
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+	eval "$(starship init zsh)"
+fi
 
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
@@ -170,19 +174,21 @@ esac
 # pnpm end
 
 # enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
-gpgconf --launch gpg-agent
+if command -v gpgconf &>/dev/null; then
+	gpgconf --launch gpg-agent
+fi
 
 # Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
 # https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
 if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
-  fpath=($HOME/.config/zsh/completions $fpath)
-  autoload -U compinit && compinit
+	fpath=($HOME/.config/zsh/completions $fpath)
+	autoload -U compinit && compinit
 fi
 
 if command -v batpipe &>/dev/null; then
-  eval "$(batpipe)"
+	eval "$(batpipe)"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -193,8 +199,8 @@ fi
 [ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
 [ -s "$DOTS/shell/completions/_rip" ] && source "$DOTS/shell/completions/_rip"
 
-
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup
 
-eval "$(gh copilot alias -- zsh)"
-
+if gh copilot --help &>/dev/null; then
+	eval "$(gh copilot alias -- zsh)"
+fi
