@@ -1,0 +1,5 @@
+{
+  "theme.toml": "$XDG_CONFIG_HOME/yazi",
+  "yazi.toml": "$XDG_CONFIG_HOME/yazi",
+  "Catppuccin Mocha.tmTheme": "$XDG_CONFIG_HOME/yazi"
+}

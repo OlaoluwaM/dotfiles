@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Function to print error messages
+error() {
+    echo "Error: $1" >&2
+    exit 1
+}
+
+# Check if a file name is provided
+if [ $# -eq 0 ]; then
+    error "Please provide a Haskell source file as an argument."
+fi
+
+# Get the file name from the command line argument
+file=$1
+
+# Check if the file exists
+if [ ! -f "$file" ]; then
+    error "File not found: $file"
+fi
+
+# Check if the file has a .hs extension
+if [[ ! $file =~ \.hs$ ]]; then
+    error "The file does not have a .hs extension. Please provide a valid Haskell source file."
+fi
+
+# Check if the file is empty
+if [ ! -s "$file" ]; then
+    error "The file is empty."
+fi
+
+# Check for module declaration
+if ! grep -q "^module" "$file"; then
+    error "No module declaration found in the file. This doesn't appear to be a valid Haskell module."
+fi
+
+# Extract the module name
+module_name=$(grep -m 1 "^module" "$file" | sed -E 's/module +([^ ]+).*/\1/')
+
+# Check if the module name matches the file name
+file_base=$(basename "$file" .hs)
+if [[ "$module_name" =~ ^"$file_base".* ]]; then
+    error "Module name ($module_name) does not match the file name ($file_base)."
+fi
+
+# Extract all top-level declarations (functions and types)
+declarations=$(grep -E "^(data|type|newtype|class|instance|[a-zA-Z_][a-zA-Z0-9_']* *::)" "$file" | sed -E '
+    s/^data +([^ (:]+).*/\1/;
+    s/^type +([^ (:]+).*/\1/;
+    s/^newtype +([^ (:]+).*/\1/;
+    s/^class +([^ (:]+).*/\1/;
+    s/^instance.*//;
+    s/^([a-zA-Z_][a-zA-Z0-9_'"'"']*) *::.*/\1/
+')
+
+# Check if any declarations were found
+if [ -z "$declarations" ]; then
+    error "No top-level declarations found in the file."
+fi
+
+# Create the new export list
+export_list=$(echo "$declarations" | grep -v '^$' | sort -u | tr '\n' ',' | sed 's/,$//')
+
+# Create a temporary file
+temp_file=$(mktemp --suffix=.hs)
+
+# Write the updated content to the temporary file
+awk -v module="$module_name" -v exports="$export_list" '
+    /^module/ {
+        print "module " module " (" exports ") where"
+        in_module = 1
+        next
+    }
+    in_module && /^ *\(/ {
+        if (!finished_exports) {
+            finished_exports = 1
+            next
+        }
+    }
+    in_module && /^ *\)/ {
+        if (!finished_exports) {
+            finished_exports = 1
+            next
+        }
+    }
+    {
+        if (in_module && !finished_exports) next
+        print
+    }
+' "$file" >"$temp_file"
+
+# output module list
+# mv "$temp_file" "$file
+bat "$temp_file" --language=Haskell --style=plain || cat "$temp_file"
+
+# Remove the temporary file
+rm "$temp_file"

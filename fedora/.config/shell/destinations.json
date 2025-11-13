@@ -1,0 +1,15 @@
+{
+  "all": "$HOME",
+  "completions/*": "$XDG_CONFIG_HOME/zsh/completions",
+  "aliases.conf": "$XDG_CONFIG_HOME/dnf5/aliases.d",
+  "exclude": [
+    "smartdots.zsh",
+    "linux-tty-catppuccin-colors.sh",
+    "catppuccin-zsh-syntax-highlighting.zsh",
+    "nvm-setup.zsh",
+    ".private-shell-env",
+    ".private-shell-env-template",
+    "augment-path-var.sh",
+    ".zsh_history"
+  ]
+}
