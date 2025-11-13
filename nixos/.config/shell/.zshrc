@@ -182,7 +182,7 @@ fi
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
 # https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
 # https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
-if [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
+if [[ -d "$XDG_CONFIG_HOME/zsh/completions/" ]] && [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
 	fpath=($HOME/.config/zsh/completions $fpath)
 	autoload -U compinit && compinit
 fi
