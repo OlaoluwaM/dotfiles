@@ -153,13 +153,17 @@ fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Atuin (https://github.com/ellie/atuin)
-eval "$(atuin init zsh)"
+if command -v atuin &>/dev/null; then
+	eval "$(atuin init zsh)"
+fi
 
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
 # Setup Starship ZSH prompt (https://github.com/starship/starship)
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+	eval "$(starship init zsh)"
+fi
 
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
@@ -170,7 +174,9 @@ esac
 # pnpm end
 
 # enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
-gpgconf --launch gpg-agent
+if command -v gpgconf &>/dev/null; then
+	gpgconf --launch gpg-agent
+fi
 
 # Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
@@ -195,4 +201,10 @@ fi
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup
 
-eval "$(gh copilot alias -- zsh)"
+if gh copilot --help &>/dev/null; then
+	eval "$(gh copilot alias -- zsh)"
+fi
+
+if command -v playerctl &>/dev/null && ! pgrep -x "playerctld" &>/dev/null; then
+	playerctld daemon
+fi

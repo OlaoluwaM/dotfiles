@@ -204,3 +204,7 @@ fi
 if gh copilot --help &>/dev/null; then
 	eval "$(gh copilot alias -- zsh)"
 fi
+
+if command -v playerctl &>/dev/null && ! pgrep -x "playerctld" &>/dev/null; then
+	playerctld daemon
+fi
