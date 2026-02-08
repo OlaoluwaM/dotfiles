@@ -4,7 +4,7 @@
 # Must be run as root (or with sudo).
 #
 # What this does:
-# 1. Copies all 5 power management scripts to /usr/local/bin/ and marks them executable
+# 1. Copies power management scripts to /usr/local/bin/ and marks them executable
 # 2. Copies both udev rules to /etc/udev/rules.d/ with proper permissions
 # 3. Reloads udev rules and triggers them
 
@@ -16,7 +16,6 @@ BIN_DIR="/usr/local/bin"
 
 SCRIPTS=(
 	"manage_nvidia_powerd.sh"
-	"switch_to_performance.sh"
 	"switch_power_profile.sh"
 )
 

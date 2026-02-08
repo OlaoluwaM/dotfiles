@@ -12,6 +12,7 @@
 
 LOG_TAG="switch_power_profile"
 BATTERY_LEVEL="$1"
+BATTERY_STATUS="$2"
 
 function log_info() {
 	logger -t $LOG_TAG "$1"
@@ -39,6 +40,13 @@ function switch_to_tuned_profile() {
 }
 
 function switch_power_profile() {
+	log_info "Received battery status: $BATTERY_STATUS, battery level: $BATTERY_LEVEL%"
+	if [[ "$BATTERY_STATUS" == "Charging" ]]; then
+		log_info "Battery is charging, switching to 'throughput-performance' profile."
+		switch_to_tuned_profile throughput-performance
+		return
+	fi
+
 	if [[ "$BATTERY_LEVEL" -le 35 ]]; then
 		log_info "Battery level is low, switching to 'powersave' profile."
 		switch_to_tuned_profile powersave
