@@ -14,41 +14,41 @@ LOG_TAG="switch_power_profile"
 BATTERY_LEVEL="$1"
 
 function log_info() {
-    logger -t $LOG_TAG "$1"
+	logger -t $LOG_TAG "$1"
 }
 
 function log_error() {
-    logger -t $LOG_TAG -p user.err "$1"
+	logger -t $LOG_TAG -p user.err "$1"
 }
 
 function switch_to_tuned_profile() {
-    local target_profile current_profile
-    target_profile="$1"
-    current_profile=$(tuned-adm active)
+	local target_profile current_profile
+	target_profile="$1"
+	current_profile=$(tuned-adm active)
 
-    if [[ "$current_profile" == *"$target_profile"* ]]; then
-        log_info "Power profile already set to '$target_profile'"
-        return 0
-    fi
+	if [[ "$current_profile" == *"$target_profile"* ]]; then
+		log_info "Power profile already set to '$target_profile'"
+		return 0
+	fi
 
-    if tuned-adm profile "$target_profile"; then
-        log_info "Switched to '$target_profile' profile successfully."
-    else
-        log_error "Failed to switch to '$target_profile' profile."
-    fi
+	if tuned-adm profile "$target_profile"; then
+		log_info "Switched to '$target_profile' profile successfully."
+	else
+		log_error "Failed to switch to '$target_profile' profile. Profile may not exist or there was some other error."
+	fi
 }
 
 function switch_power_profile() {
-    if [[ "$BATTERY_LEVEL" -le 35 ]]; then
-        log_info "Battery level is low, switching to 'powersave' profile."
-        switch_to_tuned_profile powersave
-    elif [[ "$BATTERY_LEVEL" -le 80 ]]; then
-        log_info "Battery level is moderate, switching to 'balanced-battery' profile."
-        switch_to_tuned_profile balanced-battery
-    else
-        log_info "Battery level is above 80%, switching to 'performance' profile."
-        switch_to_tuned_profile throughput-performance
-    fi
+	if [[ "$BATTERY_LEVEL" -le 35 ]]; then
+		log_info "Battery level is low, switching to 'powersave' profile."
+		switch_to_tuned_profile powersave
+	elif [[ "$BATTERY_LEVEL" -le 65 ]]; then
+		log_info "Battery level is moderate, switching to 'balanced-battery' profile."
+		switch_to_tuned_profile balanced-battery
+	else
+		log_info "Battery level is above 65%, switching to 'performance' profile."
+		switch_to_tuned_profile throughput-performance
+	fi
 }
 
 switch_power_profile
