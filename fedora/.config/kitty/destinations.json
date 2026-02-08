@@ -3,5 +3,5 @@
   "kitty.conf": "$XDG_CONFIG_HOME/kitty",
   "kitty-dark.png": "$XDG_CONFIG_HOME/kitty",
   "current-theme.conf": "$XDG_CONFIG_HOME/kitty",
-  "exclude": ["kitty.conf.bak", "sequoia-theme.conf", "catppuccin-mocha.conf"]
+  "exclude": ["kitty.conf.bak", "catppuccin-mocha.conf"]
 }
