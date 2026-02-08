@@ -10,6 +10,7 @@
     ".private-shell-env",
     ".private-shell-env-template",
     "augment-path-var.sh",
-    ".zsh_history"
+    ".zsh_history",
+    "auto-gen-vid-subtitles.sh"
   ]
 }

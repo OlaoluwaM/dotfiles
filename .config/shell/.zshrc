@@ -195,7 +195,6 @@ fi
 
 #https://docs.atuin.sh/reference/gen-completions/
 [ -s "$DOTS/shell/completions/_atuin" ] && source "$DOTS/shell/completions/_atuin"
-[ -s "$DOTS/shell/completions/aichat.zsh" ] && source "$DOTS/shell/completions/aichat.zsh"
 [ -s "$DOTS/shell/completions/navi.zsh" ] && source "$DOTS/shell/completions/navi.zsh"
 [ -s "$DOTS/shell/completions/_rip" ] && source "$DOTS/shell/completions/_rip"
 
