@@ -6,7 +6,7 @@ services:
     pull_policy: always
     build:
       context: ./ollama
-    restart: unless-stopped
+    restart: no
     ports:
       - "11434:11434"
     volumes:
@@ -40,7 +40,7 @@ services:
         condition: service_healthy
         required: false
     image: ghcr.io/open-webui/open-webui:cuda
-    restart: unless-stopped
+    restart: no
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
@@ -61,7 +61,7 @@ services:
     pull_policy: always
     build:
       context: ./mcpo
-    restart: unless-stopped
+    restart: no
     ports:
       - "8000:8000"
     extra_hosts:
@@ -79,7 +79,7 @@ services:
     container_name: vllm-reranker
     image: vllm/vllm-openai:latest
     pull_policy: always
-    restart: unless-stopped
+    restart: no
     runtime: nvidia
     ports:
       - "8001:8000"

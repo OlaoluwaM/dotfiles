@@ -201,10 +201,6 @@ fi
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup
 
-if gh copilot --help &>/dev/null; then
-	eval "$(gh copilot alias -- zsh)"
-fi
-
 if command -v playerctl &>/dev/null && ! pgrep -x "playerctld" &>/dev/null; then
-	playerctld daemon
+	playerctld daemon &>/dev/null
 fi

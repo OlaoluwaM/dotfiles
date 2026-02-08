@@ -676,7 +676,7 @@ alias doesFileExist="doesThisExist -f File"
 alias doesDirExist="doesThisExist -d Directory"
 alias listGlobalNpmPackages="pnpm -g ls"
 
-alias checkForUpdates="dnf check-update"
+alias checkForUpdates="dnf check-update --refresh"
 alias reloadEnv="source $HOME/.shell-env"
 alias editEnv="nv $HOME/.shell-env"
 

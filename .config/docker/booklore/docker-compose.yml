@@ -29,7 +29,7 @@ services:
       - $HOME/Documents/booklore/non-technical-library:/non-technical-library       # Another book library — you can mount multiple library folders this way
       - $HOME/Documents/booklore/non-technical-library/ebooks:/non-technical-library/ebooks       # Another book library — you can mount multiple library folders this way
       - $HOME/Documents/booklore/bookdrop:/bookdrop   # Bookdrop folder — drop new files here for automatic import into libraries
-    restart: unless-stopped
+    restart: no
 
 # Note that the following service creates an anonymous volume. Check our docker cheat sheet on how to verify this
 # I am not entirely sure how we can go about naming the created volume in this case
@@ -46,7 +46,7 @@ services:
       - MYSQL_PASSWORD=your_secure_password        # Use a strong password; must match DATABASE_PASSWORD defined in the booklore container
     # volumes:
       # - /your/local/path/to/mariadb/config:/config
-    restart: unless-stopped
+    restart: no
     healthcheck:
       test: ["CMD", "mariadb-admin", "ping", "-h", "localhost"]
       interval: 5s
