@@ -661,7 +661,7 @@ source $DOTS/shell/auto-gen-vid-subtitles.sh
 zle -N expandAlias
 
 bindkey "^ " expandAlias # [Ctrl-Space] - run command: expandAlias
-bindkey -s '\el' 'lsd\n' # [Esc/Alt-l] - run command: lsd
+bindkey -s '\el' 'lsd -A\n' # [Esc/Alt-l] - run command: lsd -A
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"
@@ -681,73 +681,71 @@ alias getDirSize="du -sh"
 alias getFileSize="du -h"
 
 alias nv="nvim"
-alias echo="echo -e"
 alias zshconfig="nvim $HOME/.zshrc"
-
 # shellcheck disable=SC2139
 alias cronBackup="crontab -l >|$SYS_BAK_DIR_UNDER_GIT/crontab-backup.bak"
+
 alias ohmyzsh="nvim $HOME/.oh-my-zsh"
 alias refreshFonts="fc-cache -v"
-
 alias bgrep="batgrep"
+
 alias bman="batman"
 alias copy="wl-copy"
-
 alias paste="wl-paste"
+
 alias sizeOf="du -lh"
 alias lg="lazygit"
-
 alias reloadOmz="omz reload"
+
 alias clr="clear"
 alias q="cd ~ && clear"
-
 # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo="sudo "
+
 # shellcheck disable=SC2139
 alias e="$EDITOR"
 alias x+="chmod +x"
-
 alias st="speedtest"
+
 alias pvpnR="pvpn d && sleep 3 && pvpnUS"
 alias searchBw="bw list items --pretty --search"
-
 # shellcheck disable=SC2139
 alias editSysChangelog="nv $DOTS/system/changelog.md"
+
 alias tmd="termdown"
 alias bt="bat -p"
-
 alias hc="ghci"
+
 alias exitRoot="sudo -k"
 alias twn="timerWithNotif"
-
 # shellcheck disable=SC2139
 alias backupGHAliases="gh alias list >|$DOTS/gh/aliases.yml"
+
 alias fk="flatpak"
 alias updateGHC="ghcup tui"
-
 alias pm="pnpm"
+
 alias pmA="pnpm add"
 alias pmAD="pnpm add -D"
-
 alias updatePnpm="corepack prepare pnpm@latest --activate"
+
 alias cabalREPLWithGlobalPackages="cabal repl -b containers,text,split"
 alias dev="cd $DEV"
-
 alias labs="cd $DEV"
-alias docs="cd $HOME/Documents/"
 
+alias docs="cd $HOME/Documents/"
 alias dlds="cd $HOME/Downloads/"
 alias se="sudoedit"
-alias icat="kitty +kitten icat"
 
+alias icat="kitty +kitten icat"
 alias gpg="gpg2"
 alias updateNvim="nvim +AstroUpdate"
-alias hlcR="hacker-laws-cli random"
 
+alias hlcR="hacker-laws-cli random"
 alias pmAG="pnpm add -g"
 alias dots="cd $DOTS"
-alias checkForCrateUpdates="cargo-install-update install-update --list"
 
+alias checkForCrateUpdates="cargo-install-update install-update --list"
 alias checkRecentlyUpdatedPackages="dnf history info"
 alias updateInstalledCrates="cargo-install-update install-update -a"
 
@@ -765,19 +763,15 @@ alias dkcb="docker compose build"
 
 alias eva="fend"
 alias yz="yazi"
-alias ai="aichat"
-
 alias gedit="gnome-text-editor"
-alias fnd="fend"
-alias dkRefresh="dkc pull && dkc up -d --force-recreate --build"
 
+alias dkRefresh="dkc pull && dkc up -d --force-recreate --build"
 alias compileFourmoluAgainstStackProject="compileToolAgainstStackProject fourmolu"
-alias ai="aichat"
 alias sc="socat"
 
 alias listGitAliases="git config --get-regexp '^alias\.'"
 alias dff="delta"
 alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Cards/Advice and insights\""
 
-alias obsidianRAG="aichat --rag obsidian"
 alias rebuilFontCache="fc-cache -r"
+alias brain="cd ~/Desktop/digital-brain/ && claude"
