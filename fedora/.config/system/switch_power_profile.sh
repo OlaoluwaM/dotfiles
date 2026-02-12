@@ -22,6 +22,13 @@ function log_error() {
 	logger -t $LOG_TAG -p user.err "$1"
 }
 
+function notify_user() {
+	local user uid
+	user=$(logname 2>/dev/null || who | awk 'NR==1{print $1}')
+	uid=$(id -u "$user")
+	sudo -u "$user" DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$uid/bus" notify-send -a "Power Profile" "$@"
+}
+
 function switch_to_tuned_profile() {
 	local target_profile current_profile
 	target_profile="$1"
@@ -34,6 +41,7 @@ function switch_to_tuned_profile() {
 
 	if tuned-adm profile "$target_profile"; then
 		log_info "Switched to '$target_profile' profile successfully."
+		notify_user "Switched to '$target_profile'"
 	else
 		log_error "Failed to switch to '$target_profile' profile. Profile may not exist or there was some other error."
 	fi
