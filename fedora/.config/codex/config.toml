@@ -1,0 +1,4 @@
+model = "gpt-5.3-codex"
+model_reasoning_effort = "medium"
+[projects."/home/olaolu/Desktop/agent-context"]
+trust_level = "untrusted"
