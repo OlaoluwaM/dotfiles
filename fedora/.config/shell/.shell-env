@@ -57,7 +57,7 @@ export FONT_DIR="$XDG_DATA_HOME/fonts"
 export STARSHIP_CONFIG=$DOTS/starship/starship.toml
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
-export HISTFILE="$DOTS/shell/.zsh_history"
+export HISTFILE="$SYS_BAK_DIR_NOT_UNDER_GIT/zsh/.zsh_history"
 #export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
 export GIT_PAGER="delta"
 
@@ -122,16 +122,6 @@ function downloadFile() {
 		echo "Seems like neither httpie, curl, or wget are available. Please download one of them first!"
 		exit 126
 	fi
-}
-
-function unlockBWVault() {
-	BW_SESSION=$("$HOME/Desktop/labs/bitwarden-auto-unlock/src/autoUnlockBitwardenVault.sh")
-	[[ -z "$BW_SESSION" ]] && return 1
-
-	export BW_SESSION
-
-	echo "Initiating Bitwarden vault sync..."
-	bw sync
 }
 
 function areWallpapersBackedup() {
@@ -284,13 +274,6 @@ function backupInstalledCrates() {
 
 function listInstalledCrates() {
 	cargo install --list | grep ':' | awk '{print $1}'
-}
-
-function generatePsswd() {
-	LENGTH="${1:=16}"
-	echo "Generating new password..."
-	bw generate -ulns --length $LENGTH | tr -d '"' | wl-copy
-	echo "Password copied to clipboard"
 }
 
 function backupGnomeExtensions() {
@@ -561,18 +544,6 @@ function getNvidiaProgramsRaw() {
 	sudo lsof /dev/nvidia0 2>/dev/null
 }
 
-function aio() {
-	aichat -m openai:gpt-4.1-mini "$@"
-}
-
-function aicl() {
-	aichat -m claude:claude-sonnet-4-5-20250929 "$@"
-}
-
-function ailocal() {
-	aichat -m ollama:gpt-oss:20b "$@"
-}
-
 function sysfetch() {
 	local commands=(fastfetch nitch rxfetch)
 	local available_commands=()
@@ -660,8 +631,8 @@ source $DOTS/shell/auto-gen-vid-subtitles.sh
 # Keyboard Bindings
 zle -N expandAlias
 
-bindkey "^ " expandAlias # [Ctrl-Space] - run command: expandAlias
-bindkey -s '\el' 'lsd -A\n' # [Esc/Alt-l] - run command: lsd -A
+bindkey "^ " expandAlias     # [Ctrl-Space] - run command: expandAlias
+bindkey -s '\el' 'lsd -A \n' # [Esc/Alt-l] - run command: lsd -A
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"
