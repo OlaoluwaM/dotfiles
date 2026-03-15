@@ -1,7 +1,7 @@
 [user]
 email = 37044906+OlaoluwaM@users.noreply.github.com
 name = Olaoluwa Mustapha
-signingkey = C16B79DB8BEBD0AA
+signingkey = 164ED3E4B3FADB32
 
 [include]
 path = /home/olaolu/catppuccin.gitconfig
@@ -10,6 +10,8 @@ path = /home/olaolu/catppuccin.gitconfig
 excludesfile = /home/olaolu/.gitignore_global
 editor = nvim
 pager = delta
+sshCommand = ssh -i ~/.ssh/id_ed25519
+
 
 [commit]
 template = /home/olaolu/gitCommitConventionTemplate.txt

@@ -4,3 +4,7 @@ node_modules
 !.env.teet
 notes/
 .cosine
+shell.nix
+.claude
+claude-contexts
+.claude-contexts

@@ -160,11 +160,6 @@ fi
 fpath=($fpath "/home/olaolu/.zfunctions")
 fpath=($fpath "/home/olaolu/.zfunctions")
 
-# Setup Starship ZSH prompt (https://github.com/starship/starship)
-if command -v starship &>/dev/null; then
-	eval "$(starship init zsh)"
-fi
-
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 case ":$PATH:" in
@@ -173,10 +168,21 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
-if command -v gpgconf &>/dev/null; then
-	gpgconf --launch gpg-agent
+# Rust Cargo
+case ":$PATH:" in
+*":$HOME/.cargo/bin:"*) ;;
+*) export PATH="$HOME/.cargo/bin:$PATH" ;;
+esac
+
+# Setup Starship ZSH prompt (https://github.com/starship/starship)
+if command -v starship &>/dev/null; then
+	eval "$(starship init zsh)"
 fi
+
+# enable the GPG agent to avoid having to type the secret key's password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
+#if command -v gpgconf &>/dev/null; then
+#	gpgconf --launch gpg-agent
+#fi
 
 # Load zsh completions for executables if at least one exists
 # https://docs.haskellstack.org/en/stable/shell_autocompletion/
@@ -200,7 +206,3 @@ fi
 [ -s "$DOTS/shell/completions/_rip" ] && source "$DOTS/shell/completions/_rip"
 
 [ -f "/home/olaolu/.ghcup/env" ] && . "/home/olaolu/.ghcup/env" # ghcup
-
-if gh copilot --help &>/dev/null; then
-	eval "$(gh copilot alias -- zsh)"
-fi
