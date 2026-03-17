@@ -349,28 +349,15 @@ function updateNodeTo() {
 }
 
 function backupDejaDupConfig() {
-
-	if isFlatpakInstalled "org.gnome.DejaDup"; then
-		echo "Backing up config for DejaDup flatpak version..."
-		cat "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile" >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt"
-	else
-		echo "Backing up RPM DejaDup config..."
-		dconf dump /org/gnome/deja-dup/ | sed '/^last-restore/d' | cat >|"$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini"
-	fi
-
+	echo "Backing up DejaDup config..."
+	# Flatpak DejaDup uses the keyfile GSettings backend (sandboxed from host dconf)
+	cp -v "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile" "$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup-keyfile"
 	echo "Done!"
 }
 
 function restoreDejaDupConf() {
-
-	if isFlatpakInstalled "org.gnome.DejaDup"; then
-		echo "Restoring config for flatpak DejaDup version..."
-		cat "$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup.txt" >|"$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile"
-	else
-		echo "Restoring config for RPM DejaDup version..."
-		dconf load /org/gnome/deja-dup/ <$SYS_BAK_DIR_UNDER_GIT/deja-dup-config-backup.ini
-	fi
-
+	echo "Restoring DejaDup config..."
+	cp -v "$SYS_BAK_DIR_UNDER_GIT/deja-dup-fk-config-backup-keyfile" "$HOME/.var/app/org.gnome.DejaDup/config/glib-2.0/settings/keyfile"
 	echo "Done!"
 }
 
