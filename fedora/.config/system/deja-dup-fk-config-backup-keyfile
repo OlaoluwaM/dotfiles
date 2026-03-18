@@ -5,13 +5,14 @@ periodic-period=7
 delete-after=90
 window-height=460
 window-width=550
-include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Downloads/image-merge-staging-area', '/home/olaolu/Videos/random-vids', '/home/olaolu/Videos/YouTube', '/home/olaolu/Music/local-music', '/home/olaolu/Music/lies-o-p-full-soundtrack-original', '/home/olaolu/Music/lies-o-p-full-soundtrack-partitioned', '/home/olaolu/Desktop/digital-brain/.claude', '/home/olaolu/Desktop/agent-context', '/home/olaolu/.var/app/io.github.flattool.Warehouse/data/Snapshots', '/home/olaolu/.var', '/home/olaolu/.claude/plugins', '/home/olaolu/.claude/projects', '/home/olaolu/.codex/shell_snapshots', '/home/olaolu/.claude/commands', '/home/olaolu/.claude/plans', '/home/olaolu/.claude/shell-snapshots', '/home/olaolu/.codex/sessions', '/home/olaolu/.codex/skills', '/home/olaolu/.claude/session-env', '/home/olaolu/.claude/backups', '/home/olaolu/Desktop/digital-brain', '/home/olaolu/.claude/sessions', '/home/olaolu/.codex/memories']
-last-run='2026-03-17T16:05:45.418947-05'
-last-backup='2026-03-17T16:50:03.953348-05'
+include-list=['/home/olaolu/Downloads/rpms', '/home/olaolu/Pictures/Wallpapers', '/home/olaolu/Pictures/memorables', '/home/olaolu/Pictures/useful-images', '/home/olaolu/.local/share/fonts', '/home/olaolu/sys-bak', '/home/olaolu/Videos/useful-stuff', '/home/olaolu/Documents', '/home/olaolu/Downloads/image-merge-staging-area', '/home/olaolu/Videos/random-vids', '/home/olaolu/Videos/YouTube', '/home/olaolu/Music/local-music', '/home/olaolu/Music/lies-o-p-full-soundtrack-original', '/home/olaolu/Music/lies-o-p-full-soundtrack-partitioned', '/home/olaolu/Desktop/agent-context', '/home/olaolu/.var/app/io.github.flattool.Warehouse/data/Snapshots', '/home/olaolu/.var', '/home/olaolu/Desktop/digital-brain', '/home/olaolu/.claude', '/home/olaolu/.codex', '/home/olaolu/.config']
+last-run='2026-03-18T06:21:44.524509-05'
+last-backup='2026-03-18T06:30:55.072473-05'
 nag-check='2026-03-17T16:01:27.244995-05'
 exclude-list=['$TRASH', '$DOWNLOAD', '/home/olaolu/Pictures/Wallpapers/images']
 periodic=true
 prompt-check='2026-03-17T16:07:22.610160-05'
+window-maximized=true
 
 [org/gnome/deja-dup/google]
 folder='fedora-backups'
