@@ -612,6 +612,15 @@ function dkr() {
 	fi
 }
 
+function copy() {
+	# If the first argument is a path then we want to copy the contents of the file at that path, otherwise we just want to copy the string provided as the first argument. Pass through all other options to wl-copy
+	if [[ -f "$1" ]]; then
+		cat "$1" | wl-copy "${@:2}"
+	else
+		echo -n "$1" | wl-copy "${@:2}"
+	fi
+}
+
 # Based off this article https://williamhuster.com/automatically-subtitle-videos/
 source $DOTS/shell/auto-gen-vid-subtitles.sh
 
@@ -648,7 +657,6 @@ alias refreshFonts="fc-cache -v"
 alias bgrep="batgrep"
 
 alias bman="batman"
-alias copy="wl-copy"
 alias paste="wl-paste"
 
 alias sizeOf="du -lh"
