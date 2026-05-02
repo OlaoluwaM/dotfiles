@@ -11,6 +11,8 @@
     ".private-shell-env-template",
     "augment-path-var.sh",
     ".zsh_history",
-    "auto-gen-vid-subtitles.sh"
+    "auto-gen-vid-subtitles.sh",
+    "auto-gen-audio-subtitles.sh",
+    "scripts/*"
   ]
 }

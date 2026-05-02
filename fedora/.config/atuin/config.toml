@@ -31,6 +31,14 @@
 history_filter = [
    "(sk-[a-zA-Z0-9]{1,48})|(sk-ant-api03-[a-zA-Z0-9-]{1,24})",
 ]
+search_mode = "daemon-fuzzy"
 
 [sync]
 records = true
+
+[ai]
+enabled = true
+
+[daemon]
+enabled = true
+autostart = true

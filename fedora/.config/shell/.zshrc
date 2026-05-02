@@ -117,17 +117,13 @@ if [[ -f "$HOME/.shell-env" ]]; then
 	source "$HOME/.shell-env"
 fi
 
-if [[ -f "$DOTS/shell/.private-shell-env" ]]; then
-	source "$DOTS/shell/.private-shell-env"
+source "$DOTS/shell/scripts/smartdots.zsh"
+
+if [[ -f "$DOTS/shell/scripts/augment-path-var.sh" ]]; then
+	source "$DOTS/shell/scripts/augment-path-var.sh"
 fi
 
-source "$DOTS/shell/smartdots.zsh"
-
-if [[ -f "$DOTS/shell/augment-path-var.sh" ]]; then
-	source "$DOTS/shell/augment-path-var.sh"
-fi
-
-source "$DOTS/shell/linux-tty-catppuccin-colors.sh"
+source "$DOTS/shell/scripts/linux-tty-catppuccin-colors.sh"
 
 # Do not override files using `>`, but it's still possible using `>|`
 set -o noclobber

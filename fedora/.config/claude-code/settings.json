@@ -1,5 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Read(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)",
+      "Write(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
+    ]
+  },
   "hooks": {
     "PostToolUse": [
       {
@@ -14,7 +22,8 @@
     ]
   },
   "enabledPlugins": {
-    "impeccable@impeccable": true
+    "impeccable@impeccable": true,
+    "obsidian@obsidian-skills": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -28,7 +37,14 @@
         "source": "github",
         "repo": "pbakaus/impeccable"
       }
+    },
+    "obsidian-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kepano/obsidian-skills"
+      }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "model": "claude-opus-4-6"
 }

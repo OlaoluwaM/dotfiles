@@ -4,7 +4,7 @@
 # Env Variables
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state/"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DESKTOP_DIR="$HOME/Desktop"
@@ -27,11 +27,10 @@ export DISTRO_SETUP="$DEV/distro-setup"
 export SYS_BAK_DIR_UNDER_GIT="$DOTS/system"
 export WALLPAPERS_DIR="$XDG_PICTURES_DIR/Wallpapers"
 
-export ZSH_ALIAS_FINDER_AUTOMATIC=true
 export PACKAGE_LST_FILE="$DISTRO_SETUP/src/common/assets/packages.txt"
 export NAVI_PATH="$DOTS/navi/cheats"
-
 export NAVI_CONFIG="$DOTS/navi/config.yaml"
+
 export ATUIN_CONFIG_DIR="$DOTS/atuin"
 
 export FZF_DEFAULT_OPTS=" \
@@ -43,24 +42,21 @@ export FZF_DEFAULT_OPTS=" \
 
 export _ZO_DATA_DIR="$DOTS/zoxide"
 export TEALDEER_CONFIG_DIR="$DOTS/tldr"
-export LD=ld.lld
-
 export THEMES_DIR="$XDG_DATA_HOME/themes"
+
 export CUSTOM_BIN_DIR="$HOME/.local/bin"
 export GPG_TTY="$(tty)"
-
 export SHELL_THEME_DIR="$THEMES_DIR/$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+
 export SYS_BAK_DIR_NOT_UNDER_GIT="$HOME/sys-bak"
 export CUSTOM_MAN_PATH="$XDG_DATA_HOME/man"
-
 export FONT_DIR="$XDG_DATA_HOME/fonts"
+
 export STARSHIP_CONFIG=$DOTS/starship/starship.toml
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
-
 export HISTFILE="$SYS_BAK_DIR_NOT_UNDER_GIT/zsh/.zsh_history"
-#export GTK_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
-export GIT_PAGER="delta"
 
+export GIT_PAGER="delta"
 export LIBVA_DRIVER_NAME=nvidia
 export COMPOSE_BAKE=true
 
@@ -237,35 +233,6 @@ function addInstalledPackages() {
 			fi
 		done
 	fi
-}
-
-function updateGnomeTheme() {
-	themeName="${1:=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")}"
-	echo "Theme name is $themeName"
-
-	if [[ -z "$themeName" ]]; then
-		echo "Please specify the name of the theme"
-		return 1
-	fi
-
-	themeDir="$THEMES_DIR/$themeName"
-
-	if [[ ! -d "$themeDir" ]]; then
-		echo "$themeDir does not exist. Make sure the theme name provided corresponds with a dir name in the $HOME/.themes directory"
-		return 1
-	fi
-
-	echo -e "Setting flatpak theme..."
-	sudo flatpak override --env=GTK_THEME="$themeName"
-	export GTK_THEME="$themeName"
-	echo -e "\n"
-
-	echo "Linking gtk-4.0 contents to $XDG_CONFIG_HOME/gtk-4.0/ dir to theme other more stubborn applications..."
-	ln -svf $themeDir/gtk-4.0/* "$XDG_CONFIG_HOME/gtk-4.0/"
-
-	# echo -e "\nLinking gtk-3.0 contents to $XDG_CONFIG_HOME/gtk-3.0/ dir, just in case..."
-	# ln -svf $themeDir/gtk-3.0/* "$XDG_CONFIG_HOME/gtk-3.0/"
-
 }
 
 function backupInstalledCrates() {
@@ -622,7 +589,9 @@ function copy() {
 }
 
 # Based off this article https://williamhuster.com/automatically-subtitle-videos/
-source $DOTS/shell/auto-gen-vid-subtitles.sh
+source $DOTS/shell/scripts/auto-gen-vid-subtitles.sh
+source $DOTS/shell/scripts/auto-gen-audio-subtitles.sh
+source $DOTS/shell/scripts/image-merge.sh
 
 # Keyboard Bindings
 zle -N expandAlias
@@ -673,8 +642,6 @@ alias e="$EDITOR"
 alias x+="chmod +x"
 alias st="speedtest"
 
-alias pvpnR="pvpn d && sleep 3 && pvpnUS"
-alias searchBw="bw list items --pretty --search"
 # shellcheck disable=SC2139
 alias editSysChangelog="nv $DOTS/system/changelog.md"
 
@@ -741,3 +708,4 @@ alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Card
 
 alias rebuilFontCache="fc-cache -r"
 alias brain="cd ~/Desktop/digital-brain/ && claude"
+alias brainC="cd ~/Desktop/digital-brain/ && codex"
