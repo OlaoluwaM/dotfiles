@@ -1,8 +1,0 @@
-blur-my-shell@aunetx
-caffeine@patapon.info
-clipboard-indicator@tudmotu.com
-gsconnect@andyholmes.github.io
-just-perfection-desktop@just-perfection
-mprisLabel@moon-0xff.github.com
-space-bar@luchrioh
-Vitals@CoreCoding.com

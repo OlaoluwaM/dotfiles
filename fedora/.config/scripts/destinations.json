@@ -1,4 +1,0 @@
-{
-  "exclude": ["archive/*"],
-  "all": "$CUSTOM_BIN_DIR"
-}

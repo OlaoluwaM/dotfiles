@@ -1,6 +1,0 @@
-@openai/codex
-@types/node
-dotfilers
-neovim
-tsx
-typescript
