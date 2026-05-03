@@ -1,0 +1,7 @@
+% docker
+
+# Inspect information about a running container's volumes
+docker inspect --type container -f '{{range $i, $v := .Mounts }}{{printf "%v\n" $v}}{{end}}' <running_container_name>
+
+# Refresh docker compose (Pull, rebuild, and restart containers)
+docker compose pull && docker compose up -d --force-recreate --build

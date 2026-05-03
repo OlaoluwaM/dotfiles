@@ -1,0 +1,15 @@
+# This should be copied into /etc/systemd/system/
+# Periodically triggers auto-power-profile-check.service to handle gradual battery drain.
+# Systemd timers can only activate service units, not run commands directly.
+# Flow: timer (polls) → service (invoked by timer, like a setInterval) → switch_power_profile.sh
+
+[Unit]
+Description=Periodically check battery level and switch tuned power profile
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=3min
+Unit=auto-power-profile-check.service
+
+[Install]
+WantedBy=timers.target

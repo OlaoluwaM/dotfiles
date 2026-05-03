@@ -1,0 +1,111 @@
+[user]
+email = 37044906+OlaoluwaM@users.noreply.github.com
+name = Olaoluwa Mustapha
+signingkey = C16B79DB8BEBD0AA
+
+[include]
+path = /home/olaolu/catppuccin.gitconfig
+
+[core]
+excludesfile = /home/olaolu/.gitignore_global
+editor = nvim
+pager = delta
+
+[commit]
+template = /home/olaolu/gitCommitConventionTemplate.txt
+gpgSign = true
+
+[help]
+autocorrect = 50
+
+[color]
+ui = true
+
+[push]
+default = simple
+
+[interactive]
+diffFilter = delta --color-only
+
+[alias]
+cp = cherry-pick
+d = diff
+d1 = diff HEAD~1
+d2 = diff HEAD~2
+d3 = diff HEAD~3
+dn = diff --name-status
+d1n = diff HEAD~1 --name-status
+d2n = diff HEAD~2 --name-status
+d3n = diff HEAD~3 --name-status
+st = status
+lg = log
+c = commit
+ch = checkout
+deleteRemote = push -d
+setUpstreamTo = branch --set-upstream-to
+fix = commit --amend
+amend = commit --amend --no-edit
+tree = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+renameBranch = branch -m
+unsetUpstream = branch --unset-upstream
+checkUpstream = status -sb
+p = "push"
+listBranches = branch -l
+deleteBranch = branch -D
+summary = !which onefetch && onefetch
+sw = switch
+rmr = rm -r
+f = fetch
+l = "!. ~/.githelpers && pretty_git_log"
+la = "!git l --all"
+lr = "!git l -30"
+lra = "!git lr --all"
+lg = "!git l -G $1 -- $2"
+ap = "add -p"
+lo = "log --oneline --decorate"
+
+[credential]
+helper = libsecret
+
+[init]
+defaultBranch = main
+
+[diff]
+colorMoved = default
+
+[merge]
+tool = code
+conflictstyle = diff3
+
+[mergetool "code"]
+cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
+[delta]
+navigate = true
+features = catppuccin-mocha
+hyperlinks = true
+hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+line-numbers = true
+side-by-side = true
+dark = true
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+
+[gpg]
+program = gpg2
+
+[tag]
+gpgSign = true
+
+# Enforce SSH (https://stackoverflow.com/questions/11200237/how-do-i-get-git-to-default-to-ssh-and-not-https-for-new-repositories)
+# Tells git to use SSH by default when connecting to github
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/

@@ -1,0 +1,12 @@
+# This should be copied into /etc/systemd/system/
+# Works alongside the udev rule (98-auto-power-profile-change.rules) which handles
+# instant plug/unplug events. This timer-triggered service handles gradual battery
+# drain by periodically checking the level and switching profiles accordingly.
+
+[Unit]
+Description=Check battery level and switch tuned power profile
+After=tuned.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/usr/local/bin/switch_power_profile.sh "$(cat /sys/class/power_supply/BAT0/capacity)" "$(cat /sys/class/power_supply/BAT0/status)"'

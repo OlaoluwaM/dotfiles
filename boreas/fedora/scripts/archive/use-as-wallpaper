@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+if [ -n "${NAUTILUS_SCRIPT_SELECTED_FILE_PATHS+x}" ]; then
+  ran_from_nautilus=true
+else
+  ran_from_nautilus=false
+fi
+
+if ! command -v swww >/dev/null 2>&1; then
+  if [[ "$ran_from_nautilus" == true ]]; then
+    notify-send --icon="process-error-symbolic" "Script Error" "swww needs to be installed for this script to work"
+    exit 1
+  else
+    echo "swww is not installed. It is needed for this script to run"
+  fi
+fi
+
+url_encode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for ((pos = 0; pos < strlen; pos++)); do
+    c=${string:$pos:1}
+    case "$c" in
+    [-_.~a-zA-Z0-9]) o="${c}" ;;
+    *) printf -v o '%%%02x' "'$c" ;;
+    esac
+    encoded+="${o}"
+  done
+  echo "${encoded}"
+}
+
+# Function to check if the file has a valid image extension
+is_image() {
+  local file="$1"
+  local valid_extensions="jpg jpeg png webm webp"
+
+  # Extract the file extension
+  local extension="${file##*.}"
+  extension=$(echo "$extension" | tr '[:upper:]' '[:lower:]')
+
+  # Check if the extension is in the list of valid extensions
+  for valid_extension in $valid_extensions; do
+    if [ "$extension" == "$valid_extension" ]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+# Function to display the help message
+show_help() {
+  echo "Usage: $0 <image_path>"
+  echo "Check if a given path is a valid image file."
+  echo
+  echo "Arguments:"
+  echo "  <image_path>   Path to the image file"
+}
+
+# Check if an argument was provided
+if [ -z "$1" ]; then
+  echo "Error: No path provided." >&2
+  show_help
+  exit 1
+fi
+
+# Check if the file exists
+if [ ! -f "$1" ]; then
+  echo "Error: The provided path does not point to a file." >&2
+  exit 1
+fi
+
+# Check if the file is an image
+if ! is_image "$1"; then
+  if [[ "$ran_from_nautilus" == true ]]; then
+    notify-send --icon="process-error-symbolic" "Script Error" "$1 is not a valid image file."
+  else
+    echo "Error: The file at the provided path is not a valid image." >&2
+  fi
+  exit 1
+fi
+
+wallpaper_file_path="$(realpath $1)"
+
+if [[ "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
+  swww img --transition-type grow --transition-pos 0.854,0.977 --transition-step 90 $wallpaper_file_path
+  ln -sf $wallpaper_file_path "$HOME/Pictures/Wallpapers/current-wallpaper.jpg"
+else
+  wallpaper_uri="file://$(url_encode "$wallpaper_file_path")"
+  gsettings set org.gnome.desktop.background picture-uri "$wallpaper_uri"
+fi
