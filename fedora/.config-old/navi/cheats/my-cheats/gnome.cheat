@@ -1,0 +1,16 @@
+% gnome-shell, gnome
+
+# Get version of gnome shell
+gnome-shell --version
+
+# Logout of gnome session (forcefully)
+gnome-session-quit --no-prompt --logout
+
+# Logout of gnome session
+gnome-session-quit --logout
+
+# Backup gnome-shell extensions list
+ls $HOME/.local/share/gnome-shell/extensions > $SYS_BAK_DIR/gnome-shell-ext.txt
+
+# Check gnome keyring process status
+ps -aux | grep 'keyring' | head -1

@@ -1,0 +1,25 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+[projects."/home/olaolu/Desktop/agent-context"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/Desktop/digital-brain"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/Desktop/labs/nix-setup"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/Desktop/dotfiles"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+
+[mcp_servers.notebooklm-mcp]
+command = "notebooklm-mcp"
+
+[mcp_servers.notebooklm-mcp.tools.notebook_create]
+approval_mode = "approve"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
