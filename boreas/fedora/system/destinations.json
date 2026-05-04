@@ -1,5 +1,15 @@
 {
-  "exclude": ["changelog.md", "*.ini", "*.bak", "*.txt", "*.sh", "*.rules"],
+  "exclude": [
+    "changelog.md",
+    "*.ini",
+    "*.bak",
+    "*.txt",
+    "*.sh",
+    "*.rules",
+    "*.timer",
+    "*.service",
+    "deja-dup-fk-config-backup-keyfile"
+  ],
   "bookmarks": "$XDG_CONFIG_HOME/gtk-3.0",
   "gsk.conf": "$XDG_CONFIG_HOME/environment.d"
 }

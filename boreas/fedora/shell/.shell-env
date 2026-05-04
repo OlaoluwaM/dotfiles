@@ -16,7 +16,7 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
-export DOTS="$HOME/Desktop/dotfiles/fedora/.config"
+export DOTS="$HOME/Desktop/dotfiles/boreas/fedora"
 export SHELL_ENV="$HOME/.shell-env"
 
 export VISUAL="nvim"
@@ -640,7 +640,7 @@ alias sudo="sudo "
 # shellcheck disable=SC2139
 alias e="$EDITOR"
 alias x+="chmod +x"
-alias st="speedtest"
+alias st="speedtest-cli"
 
 # shellcheck disable=SC2139
 alias editSysChangelog="nv $DOTS/system/changelog.md"
