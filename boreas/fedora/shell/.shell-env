@@ -683,7 +683,7 @@ alias checkRecentlyUpdatedPackages="dnf history info"
 alias updateInstalledCrates="cargo-install-update install-update -a"
 
 alias ipy="ipython"
-alias man="batman"
+alias bman="batman"
 alias sysInfo="inxi -Fzxx"
 
 alias here="lsd ."
