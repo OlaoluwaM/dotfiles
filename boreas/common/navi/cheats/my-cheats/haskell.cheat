@@ -1,0 +1,22 @@
+% stack, haskell
+
+# Check version of installed package (https://stackoverflow.com/questions/33914073/which-package-version-do-i-have)
+stack exec -- ghc-pkg list | rg <package_name>
+
+# Create a new haskell project with basic/minimal scaffolding (stack template)
+stack new <project_dir_name> new-template
+
+# Compile any (non-main) module in a stack project without intermediary .hi or .o files using stack ghc
+stack ghc -- -O2 -fprof-auto -rtsopts -threaded <module_file_name> -main-is <full_module_name> -no-keep-hi-files -no-keep-o-files -o <exe_output_file_path>
+
+# Create a repl with certain packages loaded (stack)
+stack ghci --package <package_names_sep_by_space>
+
+# Create a repl with certain packages loaded (cabal)
+cabal repl -b <package_names_sep_by_comma>
+
+# Stop stack on first compile error
+stack build --fast --no-keep-going
+
+# Run executable with profiling
+stack run --profile <name_of_exe> --rts-options -p -- <executable_options>

@@ -1,0 +1,5 @@
+# Run the script when power source changes
+# This should be placed in /etc/udev/rules.d/
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/local/bin/manage_nvidia_powerd.sh"
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/local/bin/manage_nvidia_powerd.sh"
+

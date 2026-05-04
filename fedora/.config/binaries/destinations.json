@@ -1,4 +1,0 @@
-{
-	"all": "$CUSTOM_BIN_DIR",
-	"exclude": ["typst", "threadscope", "hacker-laws-cli"]
-}

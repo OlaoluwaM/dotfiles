@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Read(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)",
+      "Write(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if [[ \"$CLAUDE_FILE\" == *.md ]]; then grep -n \"^> \\[!ai-text\" \"$CLAUDE_FILE\" > /dev/null || echo \"WARNING: Check if ai-text callout is needed\"; fi'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "impeccable@impeccable": true,
+    "obsidian@obsidian-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "obsidian-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kepano/obsidian-skills"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "model": "claude-opus-4-6"
+}

@@ -1,7 +1,0 @@
-node_modules
-.env*
-notes/
-.cosine
-cabal.project
-cabal.project.freeze
-.vscode

@@ -1,7 +1,0 @@
-@types/node
-dotfilers
-neovim
-qnm
-reveal-md
-tsx
-typescript

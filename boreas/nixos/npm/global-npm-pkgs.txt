@@ -1,0 +1,5 @@
+@types/node
+dotfilers
+neovim
+tsx
+typescript
