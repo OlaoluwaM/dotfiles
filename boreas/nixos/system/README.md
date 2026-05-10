@@ -1,1 +1,1 @@
-This will all be ported to nix
+These have all been ported to nix and can be deleted whenever

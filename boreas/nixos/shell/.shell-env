@@ -14,6 +14,7 @@ export GPG_TTY="$(tty)"
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
 export LIBVA_DRIVER_NAME=nvidia
+
 ## Other env variables are defined in nix-config
 
 # Functions

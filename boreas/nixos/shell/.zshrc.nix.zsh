@@ -1,20 +1,22 @@
-# Replica of .zshrc, but for NixOS. We want OMZ to be handled by home-manager so we remove it's config from here
-# Using relative paths since this file won't be moved be symlinked to $HOME, but will be sourced from here
+# Replica of .zshrc, but for NixOS. We want OMZ to be handled by home-manager so we remove its config from here. This file will be sourced by .zshrc before OMZ is loaded
 
-if [[ -f "./.shell-env" ]]; then
-	source "./.shell-env"
+zshrc_source="${ZDOTDIR:-$HOME}/.zshrc"
+zshrc_dir="$(dirname -- "$(realpath -- "$zshrc_source")")"
+
+if [[ -f "$HOME/.shell-env" ]]; then
+	source "$HOME/.shell-env"
 fi
 
-if [[ -f "./scripts/smartdots.zsh" ]]; then
-	source "./scripts/smartdots.zsh"
+if [[ -f "$zshrc_dir/scripts/smartdots.zsh" ]]; then
+	source "$zshrc_dir/scripts/smartdots.zsh"
 fi
 
-if [[ -f "./scripts/augment-path-var.sh" ]]; then
-	source "./scripts/augment-path-var.sh"
+if [[ -f "$zshrc_dir/scripts/augment-path-var.sh" ]]; then
+	source "$zshrc_dir/scripts/augment-path-var.sh"
 fi
 
-if [[ -f "./scripts/linux-tty-catppuccin-colors.sh" ]]; then
-	source "./scripts/linux-tty-catppuccin-colors.sh"
+if [[ -f "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh" ]]; then
+	source "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh"
 fi
 
 # Do not override files using `>`, but it's still possible using `>|`
@@ -58,11 +60,9 @@ if command -v navi &>/dev/null; then
 fi
 
 # Load zsh completions for executables if at least one exists
-# https://docs.haskellstack.org/en/stable/shell_autocompletion/
-# https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
-# https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
-if [[ -d "./completions/" ]] && [[ -n "$(ls -A "./completions/")" ]]; then
-	fpath=("./completions" $fpath)
+# https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+if [[ -d "$zshrc_dir/completions/" ]]; then
+	fpath=($zshrc_dir/completions $fpath)
 fi
 
 if command -v batpipe &>/dev/null; then
