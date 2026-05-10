@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-node $DOTS/scripts/node-lib-search.js &>/dev/null

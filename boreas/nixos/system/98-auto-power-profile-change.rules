@@ -1,7 +1,0 @@
-# Rules for auto switching tuned power profile based on power status
-# This should be placed in /etc/udev/rules.d/
-#
-# On AC Power
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Charging", RUN+="/usr/local/bin/switch_to_performance.sh"
-# On Discharging
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_STATUS}=="Discharging", RUN+="/usr/local/bin/switch_power_profile.sh '$attr{capacity}'"
