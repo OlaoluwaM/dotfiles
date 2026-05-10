@@ -1,6 +1,5 @@
 {
   "all": "$HOME",
-  "completions/*": "$XDG_CONFIG_HOME/zsh/completions",
   "aliases.conf": "$XDG_CONFIG_HOME/dnf5/aliases.d",
   "exclude": [
     "smartdots.zsh",
@@ -13,6 +12,7 @@
     ".zsh_history",
     "auto-gen-vid-subtitles.sh",
     "auto-gen-audio-subtitles.sh",
-    "scripts/*"
+    "scripts/*",
+    "completions/*"
   ]
 }

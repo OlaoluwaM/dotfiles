@@ -1,3 +1,8 @@
+#!/usr/bin/env zsh
+
+zshrc_source="${ZDOTDIR:-$HOME}/.zshrc"
+zshrc_dir="$(dirname -- "$(realpath -- "$zshrc_source")")"
+
 ######################################################################## OMZ Stuff Start ######################################################################################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -86,6 +91,15 @@ plugins=(git command-not-found git-escape-magic rand-quote safe-paste zsh-autosu
 zstyle ':omz:plugins:nvm' autoload yes
 zstyle ':omz:plugins:nvm' silent-autoload yes
 
+# Load zsh completions for executables if at least one exists
+# https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+# Needs to be done before sourcing OMZ so these new fpath entries are included in OMZ's compinit
+if [[ -d "$zshrc_dir/completions/" ]]; then
+	fpath=($zshrc_dir/completions/ $fpath)
+fi
+
+[[ -d "$HOME/.zfunctions" ]] && fpath=("$HOME/.zfunctions" $fpath)
+
 source "$ZSH/oh-my-zsh.sh"
 
 # User Configuration
@@ -117,16 +131,16 @@ if [[ -f "$HOME/.shell-env" ]]; then
 	source "$HOME/.shell-env"
 fi
 
-if [[ -f "$DOTS/shell/scripts/smartdots.zsh" ]]; then
-	source "$DOTS/shell/scripts/smartdots.zsh"
+if [[ -f "$zshrc_dir/scripts/smartdots.zsh" ]]; then
+	source "$zshrc_dir/scripts/smartdots.zsh"
 fi
 
-if [[ -f "$DOTS/shell/scripts/augment-path-var.sh" ]]; then
-	source "$DOTS/shell/scripts/augment-path-var.sh"
+if [[ -f "$zshrc_dir/scripts/augment-path-var.sh" ]]; then
+	source "$zshrc_dir/scripts/augment-path-var.sh"
 fi
 
-if [[ -f "$DOTS/shell/scripts/linux-tty-catppuccin-colors.sh" ]]; then
-	source "$DOTS/shell/scripts/linux-tty-catppuccin-colors.sh"
+if [[ -f "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh" ]]; then
+	source "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh"
 fi
 
 # Do not override files using `>`, but it's still possible using `>|`
@@ -137,8 +151,6 @@ setopt HIST_IGNORE_SPACE
 
 # For vscode shell integrations
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
-
-[[ -d "$HOME/.zfunctions" ]] && fpath=("$HOME/.zfunctions" $fpath)
 
 # Atuin (https://github.com/ellie/atuin)
 if command -v atuin &>/dev/null; then
@@ -166,15 +178,6 @@ esac
 # enable the GPG agent to avoid having to type the secret key’s password every time (https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html#cryptographic-signatures-and-gpg)
 if command -v gpgconf &>/dev/null; then
 	gpgconf --launch gpg-agent
-fi
-
-# Load zsh completions for executables if at least one exists
-# https://docs.haskellstack.org/en/stable/shell_autocompletion/
-# https://github.com/chubin/cheat.sh?tab=readme-ov-file#zsh-tab-completion
-# https://dandavison.github.io/delta/tips-and-tricks/shell-completion.html
-if [[ -d "$XDG_CONFIG_HOME/zsh/completions/" ]] && [[ -n "$(ls -A "$XDG_CONFIG_HOME/zsh/completions/")" ]]; then
-	fpath=($HOME/.config/zsh/completions $fpath)
-	autoload -U compinit && compinit
 fi
 
 if command -v batpipe &>/dev/null; then
