@@ -132,6 +132,12 @@ magick <img1> <img2> <img3> -append <result_img_file_name>
 # Modify kitty font
 kitten choose-font
 
+# Redact names from slackdump artifact
+jq 'del(.. | objects | .first_name?, .real_name?, .display_name?)' <json_input_file> > <json_output_file>
+
+# List all shell functions and commands
+compgen -ac | rg <search_string>
+
 $ dummy-network-interface: nmcli con | awk '{print $1}' | tail -n +2
 $ dir-to-search: echo -e '.\n'
 $ package-name: snap list

@@ -13,3 +13,7 @@ Deprecated. Currently being used by a work system so it needs to remain for now
 ## For symlinks prefer relative symlinks
 
 Use the command `ln -svfnrT <SOURCE> <TARGET>` at the top level of this directory using relative paths for both `SOURCE` and `TARGET`. For example, `ln -svfnrT boreas/common/yt-dlp boreas/nixos/yt-dlp`
+
+## Work devices
+
+Like Geralt does, work devices will all have the same name: talos

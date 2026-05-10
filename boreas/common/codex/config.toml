@@ -12,6 +12,18 @@ trust_level = "trusted"
 [projects."/home/olaolu/Desktop/dotfiles"]
 trust_level = "trusted"
 
+[projects."/home/olaolu/Desktop/labs/redis-haskell"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/slackdump_20260507_090025/job-search-discussion"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/Desktop/labs/nixos-config"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/Desktop/labs"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
 
@@ -19,6 +31,21 @@ trust_level = "trusted"
 command = "notebooklm-mcp"
 
 [mcp_servers.notebooklm-mcp.tools.notebook_create]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.notebook_list]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.notebook_get]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.batch]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.source_add]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.notebook_query_status]
 approval_mode = "approve"
 
 [tui.model_availability_nux]
