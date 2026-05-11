@@ -20,3 +20,4 @@ templates:
 # to see the current sequence.
 # stack-colors: STYLES
 install-ghc: false
+notify-if-nix-on-path: false
