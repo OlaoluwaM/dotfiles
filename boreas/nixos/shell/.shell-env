@@ -420,9 +420,9 @@ function copy() {
 }
 
 # Based off this article https://williamhuster.com/automatically-subtitle-videos/
-source ./scripts/auto-gen-vid-subtitles.sh
-source ./scripts/auto-gen-audio-subtitles.sh
-source ./scripts/image-merge.sh
+source $DOTS/shell/scripts/auto-gen-vid-subtitles.sh
+source $DOTS/shell/scripts/auto-gen-audio-subtitles.sh
+source $DOTS/shell/scripts/image-merge.sh
 
 # Keyboard Bindings
 zle -N expandAlias
