@@ -15,6 +15,11 @@ export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
 export LIBVA_DRIVER_NAME=nvidia
 
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
+
+export NIXPKGS_ALLOW_UNFREE=1
+
 ## Other env variables are defined in nix-config
 
 # Functions
