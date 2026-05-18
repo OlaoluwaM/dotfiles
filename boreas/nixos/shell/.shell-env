@@ -122,7 +122,7 @@ function chpwd() {
 	echo -e "\r"
 
 	if command -v lsd &>/dev/null; then
-		lsd
+		lsd -A
 	elif command -v eza &>/dev/null; then
 		eza --color=always --icons=always -a
 	else
@@ -433,7 +433,7 @@ source $DOTS/shell/scripts/image-merge.sh
 zle -N expandAlias
 
 bindkey "^ " expandAlias # [Ctrl-Space] - run command: expandAlias
-bindkey -s '\el' 'lsd\n' # [Esc/Alt-l] - run command: lsd
+bindkey -s '\el' 'lsd -A\n' # [Esc/Alt-l] - run command: lsd -A
 
 # Aliases
 alias doesFileExist="doesThisExist -f File"

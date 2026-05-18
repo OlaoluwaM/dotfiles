@@ -160,7 +160,7 @@ function chpwd() {
 	echo -e "\r"
 
 	if command -v lsd &>/dev/null; then
-		lsd
+		lsd -A
 	elif command -v eza &>/dev/null; then
 		eza --color=always --icons=always -a
 	else
@@ -686,7 +686,7 @@ alias ipy="ipython"
 alias bman="batman"
 alias sysInfo="inxi -Fzxx"
 
-alias here="lsd ."
+alias here="lsd -A ."
 alias isNvidiaGpuActive="supergfxctl -S"
 alias sgf="supergfxctl"
 
