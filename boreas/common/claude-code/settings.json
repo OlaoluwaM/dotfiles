@@ -8,6 +8,7 @@
       "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
     ]
   },
+  "model": "claude-opus-4-6",
   "hooks": {
     "PostToolUse": [
       {
@@ -42,6 +43,12 @@
       "source": {
         "source": "github",
         "repo": "kepano/obsidian-skills"
+      }
+    },
+    "qt-skills-and-tools": {
+      "source": {
+        "source": "github",
+        "repo": "TheQtCompanyRnD/agent-skills"
       }
     }
   },

@@ -36,23 +36,26 @@ trust_level = "trusted"
 [mcp_servers.notebooklm-mcp]
 command = "notebooklm-mcp"
 
-[mcp_servers.notebooklm-mcp.tools.notebook_create]
+[mcp_servers.notebooklm-mcp.tools.batch]
 approval_mode = "approve"
 
-[mcp_servers.notebooklm-mcp.tools.notebook_list]
+[mcp_servers.notebooklm-mcp.tools.notebook_create]
 approval_mode = "approve"
 
 [mcp_servers.notebooklm-mcp.tools.notebook_get]
 approval_mode = "approve"
 
-[mcp_servers.notebooklm-mcp.tools.batch]
+[mcp_servers.notebooklm-mcp.tools.notebook_list]
+approval_mode = "approve"
+
+[mcp_servers.notebooklm-mcp.tools.notebook_query_status]
 approval_mode = "approve"
 
 [mcp_servers.notebooklm-mcp.tools.source_add]
 approval_mode = "approve"
 
-[mcp_servers.notebooklm-mcp.tools.notebook_query_status]
-approval_mode = "approve"
+[mcp_servers.qt-docs]
+url = "https://qt-docs-mcp.qt.io/mcp"
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
