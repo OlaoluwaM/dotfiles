@@ -39,14 +39,6 @@ function newRemoteBranch() {
 	git push -u "$remote" "$branchName"
 }
 
-function backupWallpapers() {
-	$(which node) "$WALLPAPERS_DIR/compressWallpapers.mjs"
-}
-
-function restoreWallpapers() {
-	"$WALLPAPERS_DIR/extractWallpapers.sh"
-}
-
 function downloadFile() {
 	URL="$1"
 	FILE_NAME="$2"
@@ -80,25 +72,6 @@ function downloadFile() {
 	else
 		echo "Seems like neither httpie, curl, or wget are available. Please download one of them first!"
 		exit 126
-	fi
-}
-
-function areWallpapersBackedup() {
-	echo "Counting current wallpapers: \c"
-	wallpaperCount=$(ls "$WALLPAPERS_DIR/images" | wc -l)
-	echo "$wallpaperCount"
-
-	echo -e "Counting images present in compressed wallpapers tarball file: \c"
-	wallpaperTarBallFileCount=$(if [[ -f $WALLPAPERS_DIR/tarball/wallpapers.tar.gz ]]; then bc <<<"$(tar -tf "$WALLPAPERS_DIR/tarball/wallpapers.tar.gz" | wc -l) - 1"; else echo 0; fi)
-
-	echo "$wallpaperTarBallFileCount"
-
-	if [[ $wallpaperCount -eq $wallpaperTarBallFileCount ]]; then
-		echo "All Backed up!"
-	elif [[ $wallpaperCount -lt $wallpaperTarBallFileCount ]]; then
-		echo "You need restore your wallpapers from the tarball"
-	else
-		echo "You need to backup your wallpapers hun!"
 	fi
 }
 
