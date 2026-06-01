@@ -30,10 +30,7 @@ setopt HIST_IGNORE_SPACE
 
 [[ -d "$HOME/.zfunctions" ]] && fpath=("$HOME/.zfunctions" $fpath)
 
-# Atuin (https://github.com/ellie/atuin)
-if command -v atuin &>/dev/null; then
-	eval "$(atuin init zsh)"
-fi
+# No need to manually setup atuin zsh integration. It is handled by home-manager.
 
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
