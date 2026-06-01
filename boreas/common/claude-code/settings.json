@@ -8,7 +8,6 @@
       "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
     ]
   },
-  "model": "claude-opus-4-6",
   "hooks": {
     "PostToolUse": [
       {
@@ -52,5 +51,7 @@
       }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "skipWorkflowUsageWarning": false,
+  "model": "opus"
 }
