@@ -1,1 +1,5 @@
 .env
+
+# Shell history can contain secrets (API keys, tokens) and is synced via atuin,
+# not git. Never track it.
+.zsh_history
