@@ -6,3 +6,4 @@ notes/
 .cosine
 
 **/.claude/settings.local.json
+.direnv/

@@ -8,3 +8,4 @@ shell.nix
 .claude
 claude-contexts
 .claude-contexts
+.direnv/
