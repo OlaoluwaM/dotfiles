@@ -1,4 +1,4 @@
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 [projects."/home/olaolu/Desktop/agent-context"]
 trust_level = "trusted"
@@ -65,6 +65,7 @@ url = "https://qt-docs-mcp.qt.io/mcp"
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
+"gpt-5.6-sol" = 4
 
 [plugins."github@openai-curated"]
 enabled = true
