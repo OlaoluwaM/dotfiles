@@ -1,4 +1,5 @@
 mislav/gh-branch
+github/gh-copilot
 yuler/gh-download
 maximousblk/gh-fire
 ymmmtym/gh-gitignore
