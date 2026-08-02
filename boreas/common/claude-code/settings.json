@@ -8,7 +8,7 @@
       "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
     ]
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus",
   "hooks": {
     "PostToolUse": [
       {
