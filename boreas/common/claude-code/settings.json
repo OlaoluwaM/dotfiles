@@ -8,7 +8,7 @@
       "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
     ]
   },
-  "model": "opus",
+  "model": "sonnet",
   "hooks": {
     "PostToolUse": [
       {
@@ -54,5 +54,5 @@
   },
   "effortLevel": "high",
   "tui": "fullscreen",
-  "skipWorkflowUsageWarning": false
+  "skipWorkflowUsageWarning": true
 }
