@@ -226,7 +226,7 @@ EOL
 function vc() {
 	targetDir="${1:=.}"
 
-	code $targetDir
+	GTK_THEME=Adwaita:dark code $targetDir
 }
 
 function backupGnomeKeybindings() {
