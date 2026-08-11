@@ -8,11 +8,11 @@
 # https://github.com/denysdovhan/dotfiles
 
 smartdots() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
+	if [[ $LBUFFER = *.. ]]; then
+		LBUFFER+=/..
+	else
+		LBUFFER+=.
+	fi
 }
 zle -N smartdots
 bindkey . smartdots
