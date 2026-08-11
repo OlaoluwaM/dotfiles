@@ -1,6 +1,6 @@
-# Replica of .zshrc, but for NixOS. We want OMZ to be handled by home-manager so we remove its config from here. This file will be sourced by .zshrc before OMZ is loaded
+# Replica of .zshrc, but for NixOS. We want OMZ to be handled by home-manager so we remove its config from here.
 
-zshrc_source="${ZDOTDIR:-$HOME}/.zshrc"
+zshrc_source="$HOME/.zshrc.nix.zsh"
 zshrc_dir="$(dirname -- "$(realpath -- "$zshrc_source")")"
 
 if [[ -f "$HOME/.shell-env" ]]; then
