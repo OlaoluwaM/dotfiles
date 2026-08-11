@@ -1,6 +1,7 @@
 model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 approvals_reviewer = "auto_review"
+service_tier = "default"
 [projects."/home/olaolu/Desktop/agent-context"]
 trust_level = "trusted"
 
@@ -35,6 +36,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/olaolu/Desktop/labs/IoskeleyMono"]
+trust_level = "trusted"
+
+[projects."/home/olaolu/nixos-config"]
 trust_level = "trusted"
 
 [notice.model_migrations]
