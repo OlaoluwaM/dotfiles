@@ -11,10 +11,6 @@ if [[ -f "$zshrc_dir/scripts/smartdots.zsh" ]]; then
 	source "$zshrc_dir/scripts/smartdots.zsh"
 fi
 
-if [[ -f "$zshrc_dir/scripts/augment-path-var.sh" ]]; then
-	source "$zshrc_dir/scripts/augment-path-var.sh"
-fi
-
 if [[ -f "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh" ]]; then
 	source "$zshrc_dir/scripts/linux-tty-catppuccin-colors.sh"
 fi
