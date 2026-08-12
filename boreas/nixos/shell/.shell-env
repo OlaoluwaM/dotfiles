@@ -494,3 +494,6 @@ alias getRandomAdviceNote="getRandomFileInDir \"$HOME/Desktop/digital-brain/Card
 alias rebuilFontCache="fc-cache -r"
 alias brain="cd ~/Desktop/digital-brain/ && claude"
 alias brainC="cd ~/Desktop/digital-brain/ && codex"
+
+alias nixosSwitch="sudo nixos-rebuild switch --flake $NIX_FLAKE_PATH#$HOST"
+alias hmSwitch="home-manager switch -b backup --flake $NIX_FLAKE_PATH#$USER@$HOST"
