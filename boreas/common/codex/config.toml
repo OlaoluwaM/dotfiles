@@ -68,6 +68,10 @@ approval_mode = "approve"
 [mcp_servers.qt-docs]
 url = "https://qt-docs-mcp.qt.io/mcp"
 
+[mcp_servers.GitKraken]
+command = "/home/olaolu/.config/Code/User/globalStorage/eamodio.gitlens/gk"
+args = ["mcp", "--host=codex", "--source=gitlens", "--scheme=vscode"]
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
