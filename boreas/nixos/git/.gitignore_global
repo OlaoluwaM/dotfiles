@@ -1,10 +1,9 @@
 node_modules
-.env*
+.env
+!.envrc
 !.env.example
 !.env.teet
-notes/
 .cosine
-.claude
 claude-contexts
 .claude-contexts
 .direnv/
