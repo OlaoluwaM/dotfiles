@@ -391,6 +391,25 @@ function copy() {
 	fi
 }
 
+function bumpFlakeLock() {
+	if [[ "$PWD" == "$NIX_FLAKE_PATH" ]]; then
+		echo "🔄 Bumping flake lock for $NIX_FLAKE_PATH"
+		nix flake update
+		if [[ $? -eq 0 ]]; then
+			echo "✅ Flake lock updated successfully."
+			git add "$NIX_FLAKE_PATH/flake.lock"
+			git commit -m "chore: Bump flake lock"
+			return 0
+		else
+			echo "❌ Failed to update flake lock."
+			return 1
+		fi
+	else
+		echo "❌ Not in the NIX_FLAKE_PATH directory."
+		return 1
+	fi
+}
+
 # Based off this article https://williamhuster.com/automatically-subtitle-videos/
 source $DOTS/shell/scripts/auto-gen-vid-subtitles.sh
 source $DOTS/shell/scripts/auto-gen-audio-subtitles.sh
