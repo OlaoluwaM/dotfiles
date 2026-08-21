@@ -517,3 +517,5 @@ alias brainC="cd ~/Desktop/digital-brain/ && codex"
 alias nixosSwitch="sudo nixos-rebuild switch --flake $NIX_FLAKE_PATH#$HOST"
 alias hmSwitch="home-manager switch -b backup --flake $NIX_FLAKE_PATH#$USER@$HOST"
 alias nfu="nix flake update"
+
+alias nixosConfig="cd ~/nixos-config"
