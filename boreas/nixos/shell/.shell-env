@@ -302,19 +302,19 @@ function getNvidiaProgramsRaw() {
 }
 
 function sysfetch() {
-	local commands=(fastfetch nitch rxfetch)
+	local commands=(fastfetch nitch)
 	local available_commands=()
 
 	# Check which commands are available
-	for cmd in $commands; do
-		if (($ + commands[$cmd])); then
-			available_commands+=($cmd)
+	for cmd in "${commands[@]}"; do
+		if command -v "$cmd" &>/dev/null; then
+			available_commands+=("$cmd")
 		fi
 	done
 
 	# If no commands are available, print an error message and exit
 	if ((${#available_commands} == 0)); then
-		echo "Error: None of the required commands (fastfetch, nitch, rxfetch) are available on this system."
+		echo "Error: None of the required commands (fastfetch, nitch) are available on this system."
 		return 1
 	fi
 
