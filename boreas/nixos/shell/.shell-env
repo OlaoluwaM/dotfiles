@@ -6,7 +6,12 @@ export GPG_TTY="$(tty)"
 
 export MANPATH="$MANPATH:$CUSTOM_MAN_PATH"
 
-export LIBVA_DRIVER_NAME=nvidia
+# LIBVA_DRIVER_NAME=nvidia used to be exported here for Firefox NVDEC, but it
+# forced the decode-only NVIDIA shim onto every libva consumer on both render
+# nodes (gpu-screen-recorder had to unset it just to reach the Intel encoder)
+# while Firefox's RDD sandbox blocked the shim anyway. Decoding on the iGPU
+# via intel-media-driver is the deliberate default now -- it lets the dGPU
+# sleep. Opt into NVDEC per-invocation instead: LIBVA_DRIVER_NAME=nvidia <app>.
 
 export PATH=~/.npm-packages/bin:$PATH
 export NODE_PATH=~/.npm-packages/lib/node_modules
