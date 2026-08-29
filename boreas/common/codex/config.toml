@@ -41,6 +41,9 @@ trust_level = "trusted"
 [projects."/home/olaolu/nixos-config"]
 trust_level = "trusted"
 
+[projects."/home/olaolu/Desktop/dev/silere-shell"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
 
