@@ -415,6 +415,15 @@ function bumpFlakeLock() {
 	fi
 }
 
+function mkEnvrc() {
+	if [[ -f ".envrc" ]]; then
+		echo "⚠️ .envrc already exists. Aborting."
+		return 1
+	fi
+	echo "use flake" >.envrc # This will allow direnv to use the flake.nix in the current directory
+	echo "✅ .envrc created successfully."
+}
+
 # Based off this article https://williamhuster.com/automatically-subtitle-videos/
 source $DOTS/shell/scripts/auto-gen-vid-subtitles.sh
 source $DOTS/shell/scripts/auto-gen-audio-subtitles.sh
