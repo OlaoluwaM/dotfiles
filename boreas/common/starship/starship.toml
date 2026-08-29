@@ -59,6 +59,9 @@ style = "bold red"
 symbol = "root "
 disabled = false
 
+[nix_shell]
+symbol = "❄️ "
+
 [memory_usage]
 disabled = true
 threshold = 50
