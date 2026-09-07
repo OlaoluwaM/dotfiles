@@ -1,4 +1,4 @@
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 model_reasoning_effort = "high"
 approvals_reviewer = "auto_review"
 service_tier = "default"
@@ -44,6 +44,9 @@ trust_level = "trusted"
 [projects."/home/olaolu/Desktop/dev/silere-shell"]
 trust_level = "trusted"
 
+[projects."/home/olaolu/Desktop/dev/digitalgarden-blog"]
+trust_level = "trusted"
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
 
@@ -78,6 +81,14 @@ args = ["mcp", "--host=codex", "--source=gitlens", "--scheme=vscode"]
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
+gpt-6-astra = 2
 
 [plugins."github@openai-curated"]
 enabled = true
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
