@@ -78,10 +78,13 @@ url = "https://qt-docs-mcp.qt.io/mcp"
 command = "/home/olaolu/.config/Code/User/globalStorage/eamodio.gitlens/gk"
 args = ["mcp", "--host=codex", "--source=gitlens", "--scheme=vscode"]
 
+[tui]
+screen_reader_detection_done = true
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
-gpt-6-astra = 2
+gpt-6-astra = 4
 
 [plugins."github@openai-curated"]
 enabled = true
