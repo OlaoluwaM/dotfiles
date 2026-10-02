@@ -22,36 +22,6 @@
       }
     ]
   },
-  "enabledPlugins": {
-    "impeccable@impeccable": true,
-    "obsidian@obsidian-skills": true
-  },
-  "extraKnownMarketplaces": {
-    "anthropic-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/skills"
-      }
-    },
-    "impeccable": {
-      "source": {
-        "source": "github",
-        "repo": "pbakaus/impeccable"
-      }
-    },
-    "obsidian-skills": {
-      "source": {
-        "source": "github",
-        "repo": "kepano/obsidian-skills"
-      }
-    },
-    "qt-skills-and-tools": {
-      "source": {
-        "source": "github",
-        "repo": "TheQtCompanyRnD/agent-skills"
-      }
-    }
-  },
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5-5": {
