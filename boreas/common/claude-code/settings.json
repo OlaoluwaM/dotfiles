@@ -2,26 +2,14 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Read(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Read(/home/olaolu/Desktop/agent-context/Review Cache/*)",
       "Read(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)",
-      "Write(/home/olaolu/Desktop/agent-context/review-cache/*)",
+      "Write(/home/olaolu/Desktop/agent-context/Review Cache/*)",
       "Write(/home/olaolu/Desktop/digital-brain/Agent's Desk/Reviews/*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus",
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'if [[ \"$CLAUDE_FILE\" == *.md ]]; then grep -n \"^> \\[!ai-text\" \"$CLAUDE_FILE\" > /dev/null || echo \"WARNING: Check if ai-text callout is needed\"; fi'"
-          }
-        ]
-      }
-    ]
-  },
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5-5": {
