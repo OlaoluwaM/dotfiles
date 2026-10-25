@@ -9,7 +9,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "fable",
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5-5": {
